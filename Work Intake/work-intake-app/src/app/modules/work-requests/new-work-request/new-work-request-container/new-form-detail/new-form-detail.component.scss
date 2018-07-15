@@ -1,0 +1,35 @@
+::ng-deep .tooltip {
+  position: absolute;
+  z-index: 1005;
+  display: inline-block;
+  font-family: 'Roboto', 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 1em;
+}
+
+::ng-deep .tooltip.show {
+  opacity: 1.084;
+}
+
+::ng-deep .tooltip.bs-tooltip-right .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^="right"] .arrow::before, {
+  border-right-color: #4c4c4c;
+}
+
+::ng-deep .tooltip.bs-tooltip-left .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^="left"] .arrow::before, {
+  border-left-color: #4c4c4c;
+}
+
+::ng-deep .tooltip.bs-tooltip-top .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+  border-top-color: #4c4c4c;
+}
+
+::ng-deep .tooltip-inner {
+  padding: .125em .5em;
+  background-color: #4c4c4c;
+  color: #fff;
+  text-align: left;
+  min-width: 200px;
+}

@@ -1,0 +1,86 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Add New Activity</h3>
+</div>
+<div class="modal-body" ng-form="activityForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Add Activity for {{project.CounterpartyName}}</h4>
+                    <input type="text" ng-model="project" placeholder="Type a project name..." uib-typeahead="project as project.CounterpartyName for project in getProjects($viewValue)" type-ahead-loading="FormData.projects.loadingProjects" typeahead-no-results="FormData.projects.noResults" typeahead-editable="false" class="form-control" ng-hide="projectPreResolved" ng-disabled="projectPreResolved" required />
+                    <i ng-show="FormData.projects.loadingProjects" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="FormData.projects.noResults">
+                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="Description">Description:<span class="text-danger">*</span></label></td>
+                <td colspan="3" class="value"><input type="text" class="form-control" style="width:100%;" name="Description" data-ng-model="activity.Description" required /></td>
+            </tr>
+            <tr>
+                <td><label for="Category">Category:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <select name="Category" class="form-control" data-ng-model="formData.selectedActivityCategory" data-ng-options="activityCategory.ActivityCategoryName for activityCategory in formData.dropDownChoices.activityCategories track by activityCategory.ActivityCategoryName" required></select>
+                </td>
+                <td><label for="AssignedTo">Assigned To:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <sp-people-picker name="AssignedTo" data-ng-model="formData.selectedAssignedTo" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control" required></sp-people-picker>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Priority">Priority:</label></td>
+                <td class="value">
+                    <select name="Priority" class="form-control" data-ng-model="formData.selectedActivityPriority" data-ng-options="activityPriority.ActivityPriorityName for activityPriority in formData.dropDownChoices.activityPriorities track by activityPriority.Id"></select>
+                </td>
+                <td><label for="DueDate">Due Date:</label></td>
+                <td class="value">
+                    <p class="input-group">
+                        <input type="text" name="DueDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="formData.selectedDueDate" is-open="calendarPopup1.opened" datepicker-options="dateOptions" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendarPopup1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" ngf-select ng-model="uploadFiles" ngf-multiple="true" ngf-keep="'distinct'">Browse for Files...</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="file in uploadFiles | orderBy:'name'">
+                                <td>{{file.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !activityForm.$valid" ng-click="addItem(activity)">Add</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

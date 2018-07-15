@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="59c8180c-709b-4d13-b386-d2b005cc7413" solutionId="59c8180c-709b-4d13-b386-d2b005cc7413" resetWebServer="false" sharePointProductVersion="15.0" name="DestructionWorkflow" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="70ec96d9-e842-411a-a5ac-6a7c146e4ec8" />
+    <featureReference itemId="dd8ea9ff-d384-4929-bc85-661b4b3a210c" />
+  </features>
+</package>

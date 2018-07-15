@@ -1,0 +1,25 @@
+<div class="pos-f-t fixed-top header">
+  <nav class="navbar navbar-dark navbar-expand-lg">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/logos/RiverStone-Logo-DarkBG-RGB.png" class="pr-3 d-none d-lg-inline-block" alt="">Commutation Central</a>
+    <button class="navbar-toggler" (click)="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="user" class="nav-item dropdown" ngbDropdown>
+          <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i> {{user.name}} <b class="caret"></b>
+          </a>
+          <div class="dropdown-menu-right" ngbDropdownMenu>
+            <app-logout-button class="dropdown-item"></app-logout-button>
+          </div>
+        </li>
+        <!--<li class="nav-item hidden-lg-down">
+          <a [routerLink]="['/blank-page']" class="nav-link mt-1" >Blank Page</a>
+        </li>-->
+      </ul>
+    </div>
+  </nav>
+</div>

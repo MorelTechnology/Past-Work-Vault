@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0d455acf-ace8-47e3-974b-ff4369d0f83d" solutionId="0d455acf-ace8-47e3-974b-ff4369d0f83d" resetWebServer="false" sharePointProductVersion="15.0" name="Litigation_Site_Provisioning" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="4b95c9c5-edf4-4d91-a354-89c3a04728b4" />
+  </features>
+</package>

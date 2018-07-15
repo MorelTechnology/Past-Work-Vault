@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{2b671255-3f16-4601-8812-4d1fcd5724a5}"
+       Name="ActivityStatusName"
+       DisplayName="Activity Status Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       EnforceUniqueValues="TRUE"
+       Indexed="TRUE">
+  </Field>
+</Elements>

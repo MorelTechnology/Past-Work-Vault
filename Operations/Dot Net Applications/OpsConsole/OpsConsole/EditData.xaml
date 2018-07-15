@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="OpsConsole.EditData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <Grid x:Name="outergrid" >
+        <ListBox Margin="0,0,0,50" />
+        <Grid x:Name="toolbar" HorizontalAlignment="Left" Height="50"  Width="{Binding ActualWidth, ElementName=outergrid}"  VerticalAlignment="Bottom" Margin="0" >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8096B0" Offset="1"/>
+                    <GradientStop Color="#FFE4EBF3"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock HorizontalAlignment="Center" Margin="132.77,12,132.77,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334.46" FontFamily="Franklin Gothic Heavy" FontSize="26" TextAlignment="Center">
+            </TextBlock>
+            <Button Content="Home" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" FontWeight="Bold"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

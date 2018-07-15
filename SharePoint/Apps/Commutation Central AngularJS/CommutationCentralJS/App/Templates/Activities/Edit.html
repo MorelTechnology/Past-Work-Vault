@@ -1,0 +1,118 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Activity</h3>
+</div>
+<div class="modal-body" ng-form="activityForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Activity for {{project.CounterpartyName}}</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><label>Created By:</label></td>
+                <td><label>{{activity.Author.Title}}</label></td>
+                <td><label>Entry Date:</label></td>
+                <td><label>{{activity.EntryDate | date:'MM/dd/yyyy'}}</label></td>
+            </tr>
+            <tr>
+                <td><label>Initial Due Date:</label></td>
+                <td><label>{{activity.InitialDueDate | date:'MM/dd/yyyy'}}</label></td>
+                <td><label>Modified By:</label></td>
+                <td><label>{{activity.Editor.Title}}</label></td>
+                <td><label>Modified Date:</label></td>
+                <td><label>{{activity.Modified | date:'MM/dd/yyyy h:mm a'}}</label></td>
+            </tr>
+            <tr>
+                <td><label for="Description">Description:<span class="text-danger">*</span></label></td>
+                <td class="value" colspan="5"><input type="text" class="form-control" style="width:100%;" name="Description" data-ng-model="activity.Description" required /></td>
+            </tr>
+            <tr>
+                <td><label for="Category">Category:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <select name="Category" class="form-control" data-ng-model="formData.selectedActivityCategory" data-ng-options="activityCategory.ActivityCategoryName for activityCategory in formData.dropDownChoices.activityCategories track by activityCategory.ActivityCategoryName" required></select>
+                </td>
+                <td><label for="AssignedTo">Assigned To:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <sp-people-picker name="AssignedTo" data-ng-model="formData.selectedAssignedTo" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control" required></sp-people-picker>
+                </td>
+                <td><label for="Priority">Priority:</label></td>
+                <td class="value">
+                    <select name="Priority" class="form-control" data-ng-model="formData.selectedActivityPriority" data-ng-options="activityPriority.ActivityPriorityName for activityPriority in formData.dropDownChoices.activityPriorities track by activityPriority.Id"></select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="DueDate">Due Date:</label></td>
+                <td class="value">
+                    <p class="input-group">
+                        <input type="text" name="DueDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="formData.selectedDueDate" is-open="calendarPopup1.opened" datepicker-options="dateOptions" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendarPopup1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </td>
+                <td><label for="Status">Status:</label></td>
+                <td class="value">
+                    <select name="Status" class="form-control" data-ng-model="formData.selectedActivityStatus" data-ng-options="activityStatus.ActivityStatusName for activityStatus in formData.dropDownChoices.activityStatuses track by activityStatus.ActivityStatusName" ng-change="showHideDroppedReason($value)" required></select>
+                </td>
+                <td><label for="StatusChangeDate">Status Change Date:</label></td>
+                <td class="value">{{activity.ActivityStatusChangeDate | date:'MM/dd/yyyy'}}</td>
+            </tr>
+            <tr ng-show="showDroppedReason">
+                <td><label for="DroppedReason">Dropped Reason</label></td>
+                <td class="value">
+                    <select name="DroppedReason" class="form-control" data-ng-model="formData.selectedActivityDroppedReason" data-ng-options="activityDroppedReason.ActivityDroppedReasonName for activityDroppedReason in formData.dropDownChoices.activityDroppedReasons track by activityDroppedReason.ActivityDroppedReasonName" ui-validate="validateDroppedReason($value)"></select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" data-ng-disabled="activityDocumentUploadProgress.inProgress" ngf-select="attachActivityDocuments($files)" multiple="multiple">Browse for Files...</div>
+                    <uib-progressbar class="progress-striped active" value="activityDocumentUploadProgress.percentComplete" data-ng-show="activityDocumentUploadProgress.inProgress">{{activityDocumentUploadProgress.action}}</uib-progressbar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;" dt-options="activityDocumentsDTOptions">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Filename</th>
+                                <th>Date Modified</th>
+                                <th>Modified By</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="activityDocument in activityDocuments">
+                                <td><a href="" ng-click="deleteActivityDocument(activityDocument.Id)" title="Delete Activity Document"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                                <td><a href="{{activityDocument.File.ServerRelativeUrl}}" target="_blank">{{activityDocument.File.Name}}</a></td>
+                                <td>{{activityDocument.Modified | date:'M/d/yyyy h:mm a'}}</td>
+                                <td>{{activityDocument.Editor.Title}}</td>
+                                <td>{{activityDocument.Created | date:'M/d/yyyy h:mm a'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !activityForm.$valid" ng-click="editItem(activity)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

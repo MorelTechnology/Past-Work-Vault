@@ -1,0 +1,4 @@
+<button type="button" class="btn btn-primary" (click)="login()" [disabled]="loginExecuting">
+  <i class="fa" [ngClass]="{'fa-circle-o-notch fa-spin': loginExecuting, 'fa-sign-in': !loginExecuting}"></i>
+   {{ loginExecuting ? 'Logging In' : 'Log In'}}
+</button>

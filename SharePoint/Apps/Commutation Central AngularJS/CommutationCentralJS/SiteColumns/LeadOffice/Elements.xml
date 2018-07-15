@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{483b7b52-8a47-46f2-9f89-8501736d8589}"
+       Name="LeadOffice"
+       DisplayName="Lead Office"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       List="Lists/Lead Office Lookup" 
+       ShowField="LeadOfficeName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

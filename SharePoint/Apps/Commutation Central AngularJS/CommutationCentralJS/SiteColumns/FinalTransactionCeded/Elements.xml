@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{dfd8a239-74f3-48ca-9496-abcee0711940}"
+       Name="FinalTransactionCeded"
+       DisplayName="Final Transaction Ceded"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

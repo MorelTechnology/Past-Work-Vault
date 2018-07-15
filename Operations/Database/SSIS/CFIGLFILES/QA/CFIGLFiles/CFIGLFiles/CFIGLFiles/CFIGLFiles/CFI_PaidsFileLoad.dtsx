@@ -1,0 +1,1539 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/8/2017 1:11:36 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RKASU-LAP"
+  DTS:CreatorName="TRG\rkasu"
+  DTS:DTSID="{631724AB-7BA5-415A-8BB9-569BDA710D72}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CFI_PaidsFileLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{36EE4BD8-D84A-4C74-9C6C-F0BB31F8F383}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CFIPaidsFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D52349F7-C1A3-42BA-898A-59E42DB9CA9A}"
+      DTS:ObjectName="CFIPaidsFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\mansan02\BATCHQA$\CFI\CFIGLFiles\CFIPaids.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="acctday"
+              DTS:DTSID="{2A53067D-1507-4E31-B1B2-2D72E4740F59}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="acctmth"
+              DTS:DTSID="{8810EB5A-6B63-4806-90DE-B2BE1893F69C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="acctyr"
+              DTS:DTSID="{3FDEC31F-F75D-4772-BC9E-9ED7EA238F60}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="company"
+              DTS:DTSID="{B1D88A37-64C4-46BE-8910-F2FB750FFD3B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="acct"
+              DTS:DTSID="{61DDA832-96BA-41B0-AC89-45568D4DEE87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="refid"
+              DTS:DTSID="{E15D74BA-9194-4820-90AD-1FAFB51F8F1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="source"
+              DTS:DTSID="{70C19222-7B65-48E4-90C0-9E8C1AD1A631}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DC"
+              DTS:DTSID="{94F7C08D-E536-4580-8F94-CDB2C87604BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="amt"
+              DTS:DTSID="{C763B704-E74E-4061-B2B5-E3BF80B38DC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transyr"
+              DTS:DTSID="{C834C4C3-5E44-407D-BCB0-1B190FE90119}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transmth"
+              DTS:DTSID="{197AAF05-D57A-4762-B6F1-BD9A737FAB55}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="transday"
+              DTS:DTSID="{64F035F6-3B69-466F-9C8A-C56B94F9094B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="descr"
+              DTS:DTSID="{33EEBFBF-3256-404B-8913-56F9B8648AF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="branch"
+              DTS:DTSID="{3F616C7C-29D9-46D6-A5BE-FE97C29D20BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="majcl"
+              DTS:DTSID="{CF423285-4FFB-449D-88A6-DF2B2139FB2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dpass"
+              DTS:DTSID="{77200B62-EBC4-462D-BF73-B5F386640990}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dadj"
+              DTS:DTSID="{37BD2D69-381B-4C9F-9D02-ADAC3B7F6C7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dscd"
+              DTS:DTSID="{E3327F84-A89A-42FA-AD27-09F7B41B9EA2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dprrm"
+              DTS:DTSID="{852CB4D3-BA82-445A-B0DF-0BEA35982D89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dbtyp"
+              DTS:DTSID="{99647723-8C6E-4770-A0BF-CF961BBA284C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="drcod"
+              DTS:DTSID="{79D479A3-6FDB-40BD-8266-6606990D29DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dcomp"
+              DTS:DTSID="{EAEAF92C-BC17-4BFA-8F89-E6E247550821}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dayr"
+              DTS:DTSID="{71F18D50-75A1-49EF-BD8A-D5E50C269190}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="effd"
+              DTS:DTSID="{989DD64D-F557-4336-A178-62D7239D8DD2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dlcod"
+              DTS:DTSID="{3EA54B37-2CAC-4E27-969D-15E1D0BFAC42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValuationDate"
+              DTS:DTSID="{43AB6D81-D583-434D-8310-E5BC214B8E71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="basis"
+              DTS:DTSID="{569D591F-D006-4D26-B639-D0C94FBBA039}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export the paid loss and expense entries to txt File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{5417e7b3-eea7-48e7-8866-b80c598a093d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export the paid loss and expense entries to txt File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="CFIPaids File Creation">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CFIPaidsFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[CFIPaidsFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[acctday]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="acctday"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctday]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctday]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[acctmth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="acctmth"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctmth]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctmth]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[acctyr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="acctyr"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctyr]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctyr]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[company]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[acct]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="acct"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acct]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acct]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[refid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="refid"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[refid]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[refid]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="source"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[source]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[source]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="DC"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[DC]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[DC]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[amt]"
+                      cachedDataType="cy"
+                      cachedName="amt"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[amt]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[amt]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[transyr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="transyr"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transyr]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transyr]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[transmth]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="transmth"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transmth]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transmth]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[transday]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="transday"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transday]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transday]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[descr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descr"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[descr]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[descr]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[branch]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="branch"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[branch]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[branch]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[majcl]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="majcl"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[majcl]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[majcl]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dpass]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="dpass"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dpass]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dpass]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dadj]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="dadj"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dadj]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dadj]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dscd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="dscd"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dscd]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dscd]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dprrm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="dprrm"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dprrm]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dprrm]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dbtyp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="dbtyp"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dbtyp]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dbtyp]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[drcod]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="drcod"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[drcod]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[drcod]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dcomp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dcomp"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dcomp]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dcomp]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dayr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="dayr"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dayr]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dayr]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[effd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="effd"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[effd]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[effd]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[dlcod]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="dlcod"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dlcod]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dlcod]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[ValuationDate]"
+                      cachedDataType="dbDate"
+                      cachedName="ValuationDate"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[ValuationDate]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[ValuationDate]" />
+                    <inputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].Columns[basis]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="basis"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[basis]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[basis]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="acctday" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="acctmth" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acctyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="acctyr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[acct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="acct" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[refid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="refid" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="DC" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[amt]"
+                      dataType="cy"
+                      name="amt" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transyr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transmth" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[transday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transday" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[descr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[branch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="branch" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[majcl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="majcl" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dpass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dpass" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dadj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="dadj" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dscd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="dscd" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dprrm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dprrm" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dbtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dbtyp" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[drcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="drcod" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dcomp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dcomp" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dayr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="dayr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[effd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="effd" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[dlcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dlcod" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[ValuationDate]"
+                      dataType="dbDate"
+                      name="ValuationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input].ExternalColumns[basis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="basis" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get the paid loss and expense entries"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CFIPaids]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Connections[OleDbConnection]"
+                  connectionManagerID="{3E009AD6-D99A-49BB-B113-D8FFC13CA441}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RSReportingCon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctday]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctday]"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctday]"
+                      name="acctday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctmth]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctmth]"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctmth]"
+                      name="acctmth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctyr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctyr]"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acctyr]"
+                      name="acctyr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acct]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acct]"
+                      length="20"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[acct]"
+                      name="acct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[refid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[refid]"
+                      length="15"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[refid]"
+                      name="refid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="5"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[DC]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[DC]"
+                      name="DC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[amt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[amt]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[amt]"
+                      name="amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transyr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transyr]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transyr]"
+                      name="transyr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transmth]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transmth]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transmth]"
+                      name="transmth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transday]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transday]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[transday]"
+                      name="transday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[descr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[descr]"
+                      length="50"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[descr]"
+                      name="descr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[branch]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[branch]"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[branch]"
+                      name="branch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[majcl]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[majcl]"
+                      length="50"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[majcl]"
+                      name="majcl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dpass]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dpass]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dpass]"
+                      name="dpass"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dadj]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dadj]"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dadj]"
+                      name="dadj"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dscd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dscd]"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dscd]"
+                      name="dscd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dprrm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dprrm]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dprrm]"
+                      name="dprrm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dbtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dbtyp]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dbtyp]"
+                      name="dbtyp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[drcod]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[drcod]"
+                      length="100"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[drcod]"
+                      name="drcod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dcomp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dcomp]"
+                      length="100"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dcomp]"
+                      name="dcomp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dayr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dayr]"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dayr]"
+                      name="dayr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[effd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[effd]"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[effd]"
+                      name="effd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dlcod]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dlcod]"
+                      length="20"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[dlcod]"
+                      name="dlcod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[ValuationDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[ValuationDate]"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[ValuationDate]"
+                      name="ValuationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[basis]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[basis]"
+                      length="13"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].Columns[basis]"
+                      name="basis"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[basis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="basis" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="acctday" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="acctmth" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acctyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="acctyr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[acct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="acct" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[refid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="refid" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="DC" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[amt]"
+                      dataType="cy"
+                      name="amt" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transyr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transmth" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[transday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="transday" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[descr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[branch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="branch" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[majcl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="majcl" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dpass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dpass" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dadj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="dadj" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dscd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="dscd" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dprrm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dprrm" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dbtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="dbtyp" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[drcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="drcod" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dcomp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dcomp" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dayr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="dayr" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[effd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="effd" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[dlcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dlcod" />
+                    <externalMetadataColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output].ExternalColumns[ValuationDate]"
+                      dataType="dbDate"
+                      name="ValuationDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctday]"
+                      name="acctday" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctmth]"
+                      name="acctmth" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acctyr]"
+                      name="acctyr" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[company]"
+                      name="company" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[acct]"
+                      name="acct" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[refid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[refid]"
+                      name="refid" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[DC]"
+                      name="DC" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[amt]"
+                      dataType="cy"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[amt]"
+                      name="amt" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transyr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transyr]"
+                      name="transyr" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transmth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transmth]"
+                      name="transmth" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transday]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[transday]"
+                      name="transday" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[descr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[descr]"
+                      name="descr" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[branch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[branch]"
+                      name="branch" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[majcl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[majcl]"
+                      name="majcl" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dpass]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dpass]"
+                      name="dpass" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dadj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dadj]"
+                      name="dadj" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dscd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dscd]"
+                      name="dscd" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dprrm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dprrm]"
+                      name="dprrm" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dbtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dbtyp]"
+                      name="dbtyp" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[drcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[drcod]"
+                      name="drcod" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dcomp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dcomp]"
+                      name="dcomp" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dayr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dayr]"
+                      name="dayr" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[effd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[effd]"
+                      name="effd" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dlcod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[dlcod]"
+                      name="dlcod" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ValuationDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ValuationDate]"
+                      name="ValuationDate" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[basis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Error Output].Columns[basis]"
+                      name="basis" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export the paid loss and expense entries to txt File.Paths[OLE DB Source Output]"
+              endId="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="320,41.6"
+          Id="Package\Export the paid loss and expense entries to txt File"
+          TopLeft="117.142859137788,133.976472467205" />
+        <AnnotationLayout
+          Text="&#xA;Creates a new  pipe delimited file"
+          ParentId="Package"
+          Size="281.6,61.6"
+          Id="589d0857-7f4e-44e6-829b-1870f97a88bb"
+          TopLeft="134.285716572586,40.3764711545">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="with data from the DWProd CFIPaids table"
+          ParentId="Package"
+          Size="351.2,44"
+          Id="82f0fa6c-dd7e-406f-b797-6cc21ebf178e"
+          TopLeft="97.7142873783501,80.5194234211701">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Export the paid loss and expense entries to txt File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="228.8,44"
+          Id="Package\Export the paid loss and expense entries to txt File\Get the paid loss and expense entries"
+          TopLeft="79.7857155507921,64.2294125883638" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Export the paid loss and expense entries to txt File\CFIPaids File Creation"
+          TopLeft="89.142858660951,176.188237765091" />
+        <EdgeLayout
+          Id="Package\Export the paid loss and expense entries to txt File.Paths[OLE DB Source Output]"
+          TopLeft="197.664287105872,108.229412588364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,67.9588251767273"
+              Start="0,0"
+              End="0,60.4588251767273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.4588251767273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

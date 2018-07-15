@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Voucher Download", "Voucher Download\Voucher Download.rptproj", "{36F19161-36F1-43F9-901C-604C81EA2A49}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Voucher\u0020Download\\Voucher\u0020Download.rptproj
+		SccProjectName1 = Voucher\u0020Download
+		SccLocalPath1 = Voucher\u0020Download
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Debug|Default.ActiveCfg = Debug
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Debug|Default.Build.0 = Debug
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Debug|Default.Deploy.0 = Debug
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.DebugLocal|Default.Build.0 = DebugLocal
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Release|Default.ActiveCfg = Release
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Release|Default.Build.0 = Release
+		{36F19161-36F1-43F9-901C-604C81EA2A49}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f76f0679-a123-498d-aa4a-3daf3b582774}"
+       Name="PreliminaryCededIBNR"
+       DisplayName="Preliminary Ceded IBNR"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="FTP Connection Manager"
+  DTS:DTSID="{A19B2677-7F29-43E0-A58B-A953B79CC3AE}"
+  DTS:CreationName="FTP">
+  <DTS:PropertyExpression
+    DTS:Name="ServerPassword">@[$Project::FTPPassword]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="rsml.sharefileftp.com:21">
+      <DTS:FtpConnection
+        DTS:ServerName="rsml.sharefileftp.com"
+        DTS:ServerUserName="ud463dfcd5">
+        <DTS:Property
+          DTS:Name="ServerPassword"
+          Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABtYMlw4P2UmCdS08DxrgMAAAAAACAAAAAAADZgAAwAAAABAAAAB7g01+Ht1nS2d2SA5Me1gzAAAAAASAAACgAAAAEAAAAN25gQRJj73uAXf0Kaw2COmAAAAA6CBdbAhluDdCrXqIqtx9saHf7g81petmFjllSmBe7DtR+72holL9TbfZPzXnUloMnsN1S5h9oX0ITTIKpcSc+fDRZWa4V2p3X3qSPhYtaEJfzA50VQlAnLWEujY1hbh0pm5FQGgrZfyCepOpj7INb03HeNxOH9OdTUxG8JMlQvEUAAAA6rW+hQi4toNVdv3W/q3ufA2dKLg=</DTS:Property>
+      </DTS:FtpConnection>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

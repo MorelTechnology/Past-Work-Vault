@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="CashFlow.ucAssociated"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CashFlow"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1190">
+    <Grid  >
+        <Grid Background="#FF89A3B2" Opacity="0.6" Visibility="Visible" Margin="0,10,0,-10"  >
+        </Grid>
+        <Grid  Margin="0,0,0,0" Background="#FF665A52" Width="920" Height="440">
+            <Grid Height="36" Margin="0" VerticalAlignment="Top" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF958478"/>
+                        <GradientStop Color="#FF463D38" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="8,3,0,0" TextWrapping="Wrap" Text="Associated Work Matters" VerticalAlignment="Top" Width="912" Foreground="White" FontSize="20"/>
+            </Grid>
+
+            <Grid x:Name="gridTicket" Width="365" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Background="White" Height="253" Visibility="Hidden" >
+                <ScrollViewer>
+                    <TextBlock x:Name="tbNote" TextWrapping="Wrap" Text=""  FontSize="11"  />
+                </ScrollViewer>
+            </Grid>
+            <Grid Height="53" Margin="0" VerticalAlignment="Bottom" Background="#FF938D89" >
+                <Button x:Name="btnCancel" Content="Close" HorizontalAlignment="Right" Height="41" Margin="0,5,7,0" VerticalAlignment="Top" Width="84" Click="btnCancel_Click" FontWeight="Bold"/>
+                <Button x:Name="btnView" Content="View" HorizontalAlignment="Right" Height="41" Margin="0,5,99,0" VerticalAlignment="Top" Width="84" FontWeight="Bold" Click="btnView_Click"/>
+            </Grid>
+            <DataGrid x:Name="dgWM" Margin="12,47,10,65" HorizontalGridLinesBrush="#FFAEA4A4" VerticalGridLinesBrush="#FFAEA4A4" AutoGenerateColumns="False"  IsReadOnly="True" SelectionChanged="dgWM_SelectionChanged" SelectionMode="Single"   >
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                </DataGrid.Resources>
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" 
+                        Value="{Binding Background}"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+
+
+
+                    <DataGridTemplateColumn  Header="" Width="25">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding StatusSymbolText}" Foreground="{Binding StatusColor}" FontWeight="{Binding FW}" FontFamily="Wingdings" TextAlignment="Center" FontSize="16"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Status" Width="90" Binding="{Binding Status}" Visibility="Visible" />
+
+                    <DataGridTemplateColumn x:Name="colAssociate1" Header="Work Matter" Width="95">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding WorkMatter}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Team" Width="80" Binding="{Binding Team}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="Unit" Width="80" Binding="{Binding Unit}" Visibility="Collapsed" />
+
+                    <DataGridTemplateColumn x:Name="colAppName" Header="Analyst" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding AssignedAdjuster}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn x:Name="colAssociate2" Header="Insured" Width="220" Visibility="Visible">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding InsuredName}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Work Matter Description" Width="240" Binding="{Binding WorkMatterDescription}" Visibility="Visible" />
+                    <DataGridTextColumn Header="Portfolio" Width="120" Binding="{Binding Portfolio}" Visibility="Visible" />
+
+                    <DataGridTextColumn Header="'15 Q1 Loss" Width="72" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="'15 Q1 Def" Width="72" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="'15 Q1 Cov/DJ" Width="88" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="2017" Width="64" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="2018" Width="64" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="2019" Width="64" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                    <DataGridTextColumn Header="2020" Width="64" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+
+                    <DataGridTemplateColumn Width="30" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding HasAssociationsImage}" Width="15" Height="15" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

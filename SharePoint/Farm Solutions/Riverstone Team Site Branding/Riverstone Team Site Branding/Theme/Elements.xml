@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Theme" Url="_catalogs/theme/15">
+    <File Path="Theme\RivernetTeamSite.spcolor" Url="RivernetTeamSite.spcolor" Type="GhostableInLibrary" IgnoreIfAlreadyExists="true" />
+    <File Path="Theme\RivernetTeamSite.spfont" Url="RivernetTeamSite.spfont" Type="GhostableInLibrary" IgnoreIfAlreadyExists="true" />
+  </Module>
+</Elements>

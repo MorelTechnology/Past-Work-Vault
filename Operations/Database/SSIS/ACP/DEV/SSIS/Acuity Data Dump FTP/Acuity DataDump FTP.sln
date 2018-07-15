@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Acuity DataDump FTP", "Acuity FTP\Acuity DataDump FTP.dtproj", "{CDA6464B-9648-4F57-94B3-0CB50322E690}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDA6464B-9648-4F57-94B3-0CB50322E690}.Development|Default.ActiveCfg = Development
+		{CDA6464B-9648-4F57-94B3-0CB50322E690}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

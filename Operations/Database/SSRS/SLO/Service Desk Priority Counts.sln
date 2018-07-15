@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Service Desk Priority Counts", "Service Desk Priority Counts\Service Desk Priority Counts.rptproj", "{32547652-D2EB-44FD-8243-40B85862785D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Service\u0020Desk\u0020Priority\u0020Counts\\Service\u0020Desk\u0020Priority\u0020Counts.rptproj
+		SccProjectName1 = Service\u0020Desk\u0020Priority\u0020Counts
+		SccLocalPath1 = Service\u0020Desk\u0020Priority\u0020Counts
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32547652-D2EB-44FD-8243-40B85862785D}.Debug|Default.ActiveCfg = Debug
+		{32547652-D2EB-44FD-8243-40B85862785D}.Debug|Default.Build.0 = DebugLocal
+		{32547652-D2EB-44FD-8243-40B85862785D}.Debug|Default.Deploy.0 = DebugLocal
+		{32547652-D2EB-44FD-8243-40B85862785D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{32547652-D2EB-44FD-8243-40B85862785D}.DebugLocal|Default.Build.0 = DebugLocal
+		{32547652-D2EB-44FD-8243-40B85862785D}.Release|Default.ActiveCfg = Release
+		{32547652-D2EB-44FD-8243-40B85862785D}.Release|Default.Build.0 = Release
+		{32547652-D2EB-44FD-8243-40B85862785D}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

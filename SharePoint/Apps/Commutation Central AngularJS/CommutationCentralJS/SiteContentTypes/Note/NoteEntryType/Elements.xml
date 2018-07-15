@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a2ef8ef1-41a1-42ea-adc8-2dd8309b4ee6}"
+       Name="NoteEntryType"
+       DisplayName="Note Entry Type"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       List="Lists/Note Entry Type Lookup"
+       ShowField="NoteEntryTypeName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

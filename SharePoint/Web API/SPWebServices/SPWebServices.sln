@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPWebServices", "SPWebServices\SPWebServices.csproj", "{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPWebServices.Tests", "SPWebServices.Tests\SPWebServices.Tests.csproj", "{841812AC-D84A-438F-96F2-0671600CE0F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Debug|x64.ActiveCfg = Debug|x64
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Debug|x64.Build.0 = Debug|x64
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Release|x64.ActiveCfg = Release|x64
+		{5B6AF43F-D145-45E7-B2DE-A3CD92F137B8}.Release|x64.Build.0 = Release|x64
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Debug|x64.ActiveCfg = Debug|x64
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Debug|x64.Build.0 = Debug|x64
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Release|x64.ActiveCfg = Release|x64
+		{841812AC-D84A-438F-96F2-0671600CE0F2}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SPWebServices.Tests\\SPWebServices.Tests.csproj
+		SccProjectName1 = SPWebServices.Tests
+		SccLocalPath1 = SPWebServices.Tests
+		SccProjectUniqueName2 = SPWebServices\\SPWebServices.csproj
+		SccProjectName2 = SPWebServices
+		SccLocalPath2 = SPWebServices
+	EndGlobalSection
+EndGlobal

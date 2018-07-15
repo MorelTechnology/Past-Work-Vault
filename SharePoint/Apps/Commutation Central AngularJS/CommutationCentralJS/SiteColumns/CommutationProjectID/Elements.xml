@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{5b17cf21-230a-40b9-9873-d57d98e2738b}"
+       Name="CommutationProjectID"
+       DisplayName="Commutation Project ID"
+       Type="Text"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       EnforceUniqueValues="TRUE" 
+       Indexed="TRUE" 
+       MaxLength="4">
+  </Field>
+</Elements>

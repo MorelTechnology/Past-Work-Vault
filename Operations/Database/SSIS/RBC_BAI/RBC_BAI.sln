@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "RBC_BAI", "RBC_BAI\RBC_BAI.dtproj", "{25815447-4285-4B21-B10B-57F8990535E3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RBC_BAI\\RBC_BAI.dtproj
+		SccProjectName1 = RBC_BAI
+		SccLocalPath1 = RBC_BAI
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25815447-4285-4B21-B10B-57F8990535E3}.Development|Default.ActiveCfg = Development
+		{25815447-4285-4B21-B10B-57F8990535E3}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

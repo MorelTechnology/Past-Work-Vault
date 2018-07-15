@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{640e6cf8-dc50-40a1-bc9b-ce4b8a45bcd6}"
+       Name="AssignedDate"
+       DisplayName="Assigned Date"
+       Type="DateTime"
+       Required="FALSE"
+       Format="DateOnly"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,32 @@
+<p class="h2 text-center">
+  Please enter or select the following information:
+</p>
+<div [formGroup]="generalFormGroup" class="pt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <label class="col-12">Your Name:</label>
+        <div class="col-12">
+          <input *ngIf="currentUser" type="text" class="form-control" formControlName="requestor" value="{{currentUser.displayName}}"
+            readonly>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Product Owner:
+          <span class="font-weight-bold" [ngClass]="{'text-danger': !managerValid, 'text-success': managerValid}">Required</span>
+        </label>
+        <div class="col-12">
+          <p-autoComplete inputId="manager" formControlName="Manager" [suggestions]="productManagerSearchResults" (completeMethod)="searchProductManagers($event.query)"
+            field="displayName" forceSelection="true" [style]="{'width':'260px'}" emptyMessage="No results found" [autoHighlight]="true"
+            [dropdown]="true" (onSelect)="onDropdownSelect()" placeholder="Choose a Product Owner" appendTo="body">
+          </p-autoComplete>
+        </div>
+        <div class="col-12">
+          <small *ngIf="!generalFormGroup.controls.Manager.valid && !generalFormGroup.controls.Manager.pristine" class="text-danger">
+            Product Owner is required
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

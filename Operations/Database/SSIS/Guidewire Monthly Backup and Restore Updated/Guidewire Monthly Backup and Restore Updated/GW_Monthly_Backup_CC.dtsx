@@ -1,0 +1,143 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/18/2017 10:40:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JEDWA-LAP2"
+  DTS:CreatorName="TRG\jedwa"
+  DTS:DTSID="{6A9089A7-2722-42DB-92CB-ADE065D9D077}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="GW_Monthly_Backup_CC"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{B398EBD1-097E-4116-92F3-ADEBBF8F174C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLLOAD.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5261BA67-119F-4CF7-8ACD-7A86A2EA92A3}"
+      DTS:ObjectName="SQLLOAD.master">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::RestoreSourceConn]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLLOAD;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLPRODGW.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{794F577A-BCC0-4546-9A7E-C302BBEE9E18}"
+      DTS:ObjectName="SQLPRODGW.master">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::BackupSourceConn]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLPRODGW;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A66A9A8-0152-4F23-8013-D93C0F63C12D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3CC7AE34-AB7E-4183-ABAB-1036BC4B0542}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data Source=&quot; + @[$Project::SourceServer]+&quot;;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLPRODGW;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{186BF45C-3981-4151-A677-11E9CCAAF808}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data Source=&quot; + @[$Project::DestinationServer] +&quot;;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RestoreSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLLOAD;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Backup ClaimCenter"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B83D8DA5-9928-4C9A-B69E-A168575F8008}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Backup ClaimCenter">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Backup ClaimCenter\Backup ClaimCenter"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3C85C8C0-106A-4D95-B9D6-011CC3B83D85}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup ClaimCenter"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{794F577A-BCC0-4546-9A7E-C302BBEE9E18}"
+              SQLTask:SqlStatementSource="&#xA;declare  @BackupDirectory varchar(200),&#xA;   @sql varchar(1000)&#xA;&#xA;SET @BackupDirectory = ?&#xA;&#xA;SET @SQL = 'Backup DATABASE [ClaimCenter] TO DISK = ' + 'N' + '''' + @BackupDirectory + 'MONTHLY_ClaimCenter.bak' + '''' + &#xA;   ' WITH  COPY_ONLY, NOFORMAT, INIT,  NAME = ' + 'N' + '''' + 'ClaimCenter-Full Database Backup' + '''' + ', SKIP, NOREWIND, NOUNLOAD,  STATS = 10'&#xA;&#xA;&#xA;Execute (@SQL)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::BackupDirectory"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Backup ClaimCenter\Backup ClaimCenter"
+          TopLeft="16,30" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="235,115"
+          Size="235,158"
+          Id="Package\Backup ClaimCenter"
+          TopLeft="122,90" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

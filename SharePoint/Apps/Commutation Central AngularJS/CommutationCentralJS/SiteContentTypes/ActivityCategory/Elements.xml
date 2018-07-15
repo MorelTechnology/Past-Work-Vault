@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100CE3AC3B626534FCD9F074CB1CFB3C245" Name="Activity Category" Group="Custom Content Types" Description="Activity Category content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{b7037f24-7d8c-496b-9978-b39f89df1721}" DisplayName="Activity Category Name" Required="TRUE" Name="ActivityCategoryName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,73 @@
+﻿<div class="all-projects">
+    <h3>Open Projects <button class="btn btn-primary" type="button" ng-click="getItems()">Refresh</button></h3>
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover" dt-options="dtOptions">
+            <thead>
+                <tr>
+                    <th></th><th></th><th></th>
+                    <th>Counterparty Name</th>
+                    <th>Primary Manager</th>
+                    <th>Secondary Manager</th>
+                    <th>Lead Office</th>
+                    <th>Assigned Date</th>
+                    <th>Last Modified</th>
+                    <th>Commutation Status</th>
+                    <th>Total Assumed</th>
+                    <th>Total Ceded</th>
+                    <th>Total Net</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="project in projects">
+                    <td><a href="" title="Add Note" ng-click="addNote(project.Id, project.CounterpartyName)"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></td>
+                    <td><!--<a href="#" title="View Notes"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>--></td>
+                    <td><a href="" title="Attach Document" ng-click="attachDocument('Project', project.Id)"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+                    <td><a href="" ng-click="editProject(project.Id)" title="Open/Edit Project">{{project.CounterpartyName}}</a></td>
+                    <td>{{project.PrimaryManagerID.Title}}</td>
+                    <td>{{project.SecondaryManagerID.Title}}</td>
+                    <td>{{project.LeadOffice.LeadOfficeName}}</td>
+                    <td>{{project.AssignedDate | date:'M/d/yyyy'}}</td>
+                    <td>{{project.Modified | date:'M/d/yyyy'}}</td>
+                    <td>{{project.CommutationStatus.CommutationStatusName}}</td>
+                    <td>{{project.SummaryFinancials.TotalAssumed | currency:"$":0}}</td>
+                    <td>{{project.SummaryFinancials.TotalCeded | currency:"$":0}}</td>
+                    <td>{{project.SummaryFinancials.TotalNet | currency:"$":0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <h3>My Activities <button class="btn btn-primary" type="button" ng-click="getActivities()">Refresh</button></h3>
+    <div>
+        <table datatable="ng" class="row-border hover" dt-options="activityDTOptions">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Activity Title</th>
+                    <th>Counterparty Name</th>
+                    <th>Assigned To</th>
+                    <th>Created By</th>
+                    <th>Activity Category</th>
+                    <th>Due Date</th>
+                    <th>Entry Date</th>
+                    <th>Activity Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="activity in activities">
+                    <td><a href="" title="Attach Document" ng-click="attachDocument('Activity', activity.ID)"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+                    <td><a href="" title="Open/Edit Activity" ng-click="editActivity(activity.ID)">{{activity.Description}}</a></td>
+                    <td>{{activity.Project.CounterpartyName}}</td>
+                    <td>{{activity.AssignedTo.Title}}</td>
+                    <td>{{activity.Author.Title}}</td>
+                    <td>{{activity.ActivityCategory.ActivityCategoryName}}</td>
+                    <td>{{activity.TaskDueDate | date:'M/d/yyyy'}}</td>
+                    <td>{{activity.EntryDate | date:'M/d/yyyy'}}</td>
+                    <td>{{activity.ActivityStatus.ActivityStatusName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

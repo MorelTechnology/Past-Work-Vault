@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointImpersonation", "SharePointImpersonation\SharePointImpersonation.csproj", "{BF00043F-19D6-4CCA-B407-74437462D01B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Debug|x64.ActiveCfg = Debug|x64
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Debug|x64.Build.0 = Debug|x64
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Release|x64.ActiveCfg = Release|x64
+		{BF00043F-19D6-4CCA-B407-74437462D01B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SharePointImpersonation\\SharePointImpersonation.csproj
+		SccProjectName1 = SharePointImpersonation
+		SccLocalPath1 = SharePointImpersonation
+	EndGlobalSection
+EndGlobal

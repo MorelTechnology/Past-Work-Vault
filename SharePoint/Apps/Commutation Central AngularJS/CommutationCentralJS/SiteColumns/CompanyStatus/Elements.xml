@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{31bf11f0-6aa2-40cd-95d4-c2f79f076432}"
+       Name="CompanyStatus"
+       DisplayName="Company Status"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       List="Lists/Company Status Lookup" 
+       ShowField="CompanyStatusName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

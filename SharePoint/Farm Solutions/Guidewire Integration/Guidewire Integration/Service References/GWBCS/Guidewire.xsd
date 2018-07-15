@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SPGuidewireService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SPGuidewireService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfWorkMatter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkMatter" nillable="true" type="tns:WorkMatter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkMatter" nillable="true" type="tns:ArrayOfWorkMatter" />
+  <xs:complexType name="WorkMatter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameDenorm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="trg_WorkMatterDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkMatter" nillable="true" type="tns:WorkMatter" />
+  <xs:complexType name="ArrayOfVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vendor" nillable="true" type="tns:Vendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendor" nillable="true" type="tns:ArrayOfVendor" />
+  <xs:complexType name="Vendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vendor" nillable="true" type="tns:Vendor" />
+  <xs:complexType name="ArrayOfWorkMatterDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkMatterDocument" nillable="true" type="tns:WorkMatterDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkMatterDocument" nillable="true" type="tns:ArrayOfWorkMatterDocument" />
+  <xs:complexType name="WorkMatterDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subcategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkMatterDesc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkMatterDocument" nillable="true" type="tns:WorkMatterDocument" />
+  <xs:complexType name="ArrayOfVendorDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VendorDocument" nillable="true" type="tns:VendorDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendorDocument" nillable="true" type="tns:ArrayOfVendorDocument" />
+  <xs:complexType name="VendorDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subcategory" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VendorDocument" nillable="true" type="tns:VendorDocument" />
+</xs:schema>

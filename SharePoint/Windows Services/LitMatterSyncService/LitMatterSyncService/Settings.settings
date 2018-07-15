@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LitMatterSyncService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClaimCenterConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=sqlprodgw;Initial Catalog=ClaimCenterStaging;Persist Security Info=True;User ID=rivernet;Password=rivernet</Value>
+    </Setting>
+    <Setting Name="LitMattersSqlView" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LitigationManagement_SP_Lookup</Value>
+    </Setting>
+    <Setting Name="LitigationMattersRootWeb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rivernet2ndev.trg.com/sites/litman/matters</Value>
+    </Setting>
+    <Setting Name="LitMatterTemplateURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rivernet2ndev.trg.com/sites/litman/templates/mattertemplate</Value>
+    </Setting>
+    <Setting Name="SiteManagerGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Site Manager</Value>
+    </Setting>
+    <Setting Name="HourlyPollingInterval" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="SiteAdditionalContributorsGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Additional Contributors</Value>
+    </Setting>
+    <Setting Name="SiteReadOnlyUsersGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Read Only Users</Value>
+    </Setting>
+    <Setting Name="MatterTemplateStorageName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MatterTemplate</Value>
+    </Setting>
+    <Setting Name="TaskListLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rivernet2ndev.trg.com/lists/RiverStone%20Tasks </Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">manrelay01.trg.com</Value>
+    </Setting>
+    <Setting Name="SMTPServerPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="AlertEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jeremy_morel@trg.com</Value>
+    </Setting>
+    <Setting Name="SiteOwnersGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Litigation Management Owners</Value>
+    </Setting>
+    <Setting Name="LitigationManagementMembersGroup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Litigation Management Members</Value>
+    </Setting>
+    <Setting Name="EnableTaskGeneraton" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseTemplateExportMethod" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExistingTemplateSolutionName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Litigation Management Matter Template</Value>
+    </Setting>
+    <Setting Name="MaxAllowedThreads" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

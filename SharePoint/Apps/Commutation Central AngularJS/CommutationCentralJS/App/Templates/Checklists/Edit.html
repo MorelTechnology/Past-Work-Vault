@@ -1,0 +1,72 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Checklist</h3>
+</div>
+<div class="modal-body" ng-form="checklistForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Checklist for {{project.CounterpartyName}}</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="Description">Description:</label></td>
+                <td style="width:100%">{{checklist.Title}}</td>
+            </tr>
+            <tr>
+                <td><label for="Applicable">Applicable:</label></td>
+                <td style="width:100%">
+                    <input id="Applicable" name="Applicable" type="radio" data-ng-value=true data-ng-model="checklist.ChecklistApplicable" required /> Yes <br />
+                    <input id="Applicable" name="Applicable" type="radio" data-ng-value=false data-ng-model="checklist.ChecklistApplicable" required /> No
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" data-ng-disabled="checklistDocumentUploadProgress.inProgress" ngf-select="attachChecklistDocuments($files)" multiple="multiple">Browse for Files...</div>
+                    <uib-progressbar class="progress-striped active" value="checklistDocumentUploadProgress.percentComplete" data-ng-show="checklistDocumentUploadProgress.inProgress">{{checklistDocumentUploadProgress.action}}</uib-progressbar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;" dt-options="checklistDocumentsDTOptions">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Filename</th>
+                                <th>Date Modified</th>
+                                <th>Modified By</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="checklistDocument in checklistDocuments">
+                                <td><a href="" ng-click="deleteChecklistDocument(checklistDocument.Id)" title="Delete Checklist Document"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                                <td><a href="{{checklistDocument.File.ServerRelativeUrl}}" target="_blank">{{checklistDocument.File.Name}}</a></td>
+                                <td>{{checklistDocument.Modified | date:'M/d/yyyy h:mm a'}}</td>
+                                <td>{{checklistDocument.Editor.Title}}</td>
+                                <td>{{checklistDocument.Created | date:'M/d/yyyy h:mm a'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !checklistForm.$valid" ng-click="editItem(checklist)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.trg.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.trg.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.trg.com/">
+      <s:element name="ExecuteScript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptXmlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteScriptSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScript" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXml" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="clsScriptEngineSoap">
+    <wsdl:operation name="ExecuteScript">
+      <wsdl:input message="tns:ExecuteScriptSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <wsdl:input message="tns:ExecuteScriptXmlSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clsScriptEngineSoap" type="tns:clsScriptEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="clsScriptEngineSoap12" type="tns:clsScriptEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clsScriptEngine">
+    <wsdl:port name="clsScriptEngineSoap" binding="tns:clsScriptEngineSoap">
+      <soap:address location="http://rssewebdev:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="clsScriptEngineSoap12" binding="tns:clsScriptEngineSoap12">
+      <soap12:address location="http://rssewebdev:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

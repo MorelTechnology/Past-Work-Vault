@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6028D380-5BAC-433C-A409-CE7A503B0A10}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLToCalendarWeb</RootNamespace>
+    <AssemblyName>SQLToCalendarWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=69c3241e6f0468ca, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Prod - SQL To Calendar - Remote Web Application.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_flat_100_000000_40x100.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_flat_55_023d86_40x100.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.css" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.min.css" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.structure.css" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.structure.min.css" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.theme.css" />
+    <Content Include="Addins\jQueryUI\Stylesheets\jquery-ui.theme.min.css" />
+    <Content Include="Addins\qTip\jquery.qtip-1.0.0-rc3.js" />
+    <Content Include="Global.asax" />
+    <Content Include="FileRef\Time Off.oft" />
+    <Content Include="FileRef\TimeOff.bat" />
+    <None Include="Properties\PublishProfiles\QA - SQL To Calendar - Remote Web Application.pubxml" />
+    <None Include="Properties\PublishProfiles\SQL To Calendar - Remote Web Application.pubxml" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Images\1pixel.gif" />
+    <Content Include="Images\calendar.jpg" />
+    <Content Include="Images\data_configuration.png" />
+    <Content Include="Images\Full Screen.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\metroIcons.jpg" />
+    <Content Include="Images\metroIcons_light.jpg" />
+    <Content Include="Images\outlook.jpg" />
+    <Content Include="Images\tools-256.png" />
+    <Content Include="Pages\Default.aspx" />
+    <Content Include="Pages\SQLToCalendar.aspx" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MetroJs.js" />
+    <Content Include="Scripts\MetroJs.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\RS.js" />
+    <Content Include="Styles\fullcalendar.css" />
+    <Content Include="Styles\fullcalendar.print.css" />
+    <Content Include="Styles\MetroJs.css" />
+    <Content Include="Styles\MetroJs.min.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SQLToCalendar.aspx.cs">
+      <DependentUpon>SQLToCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SQLToCalendar.aspx.designer.cs">
+      <DependentUpon>SQLToCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharePointContext.cs" />
+    <Compile Include="TokenHelper.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61033</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60295/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

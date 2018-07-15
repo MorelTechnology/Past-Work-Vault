@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Lead Office Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Lead Office Lookup" Description="Provides a listing of available lead offices">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="LeadOfficeName">None</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="LeadOfficeName">Riverstone US</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="LeadOfficeName">Riverstone UK</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

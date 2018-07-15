@@ -1,0 +1,4 @@
+<button [ngClass]="class" (click)="signout()" [disabled]="logoutExecuting">
+  <i class="fa" [ngClass]="{'fa-circle-o-notch fa-spin': logoutExecuting, 'fa-sign-out': !logoutExecuting}"></i>
+  {{ logoutExecuting ? 'Logging Out' : 'Log Out'}}
+</button>

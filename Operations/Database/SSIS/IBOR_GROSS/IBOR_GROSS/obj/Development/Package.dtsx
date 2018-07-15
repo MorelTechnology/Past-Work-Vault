@@ -1,0 +1,3402 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/6/2016 9:11:47 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="BBELT-LAP7"
+  DTS:CreatorName="TRG\bbelt"
+  DTS:DTSID="{58AE84FF-9A01-4F63-A7D9-914C765AEB0C}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{E792F6C1-5F55-43D1-B3B4-3EFE9DCCD302}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8B3DBB70-A9B5-4947-8C1D-841C1F9910F2}"
+      DTS:ObjectName="ACTUARYSQLSB.IBNR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ACTUARYSQLSB;Initial Catalog=IBNR;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7D977445-EFCF-4BE7-B7FE-D4B67BEE9C8B}"
+      DTS:ObjectName="Archive">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="\\mansan02\batchdev$\etl\IBNR\Archive" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DEVSQL01.CWT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+      DTS:ObjectName="DEVSQL01.CWT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DEVSQL01;Initial Catalog=CWT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DWPROD.RS_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{75E3771E-1864-4E29-A579-E4828559A74D}"
+      DTS:ObjectName="DWPROD.RS_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DWPROD;Initial Catalog=RS_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DWPROD.RS_Reporting]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2C5802D8-B764-4875-9417-3C49E0397EF0}"
+      DTS:ObjectName="DWPROD.RS_Reporting">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DWPROD;Initial Catalog=RS_Reporting;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F08AA4FD-5A58-4803-A17D-6BBB7DD79BBC}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\mansan02\batchdev$\ETL\IBNR\IBOR_GROSS.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClaimNo"
+              DTS:DTSID="{29DE8501-0404-4965-B3C8-3E68B266953A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ExposureNo"
+              DTS:DTSID="{CCEF588F-BD9F-4251-ADE2-91897C6D2DCD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SubCo"
+              DTS:DTSID="{C6A6E16A-4935-4034-9E72-AF51D7FC9AD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Actuarial_Segment"
+              DTS:DTSID="{37E8AB02-E0C4-4E18-8557-2A70E34324BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FinancialEntity"
+              DTS:DTSID="{79095723-9C87-4C3D-93B5-7AE7C285F2EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RiskState"
+              DTS:DTSID="{35FB9A34-2AFE-4967-8539-F34C03AB4F1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ASLOB"
+              DTS:DTSID="{1CBEBA00-D8F5-4246-BF1D-4356136FCEE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccidentYear"
+              DTS:DTSID="{D150E337-1428-4EF1-8DFB-4D80F2739426}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Portfolio"
+              DTS:DTSID="{EFECD101-FF34-4F75-80F2-177C4D460E10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BusinessType"
+              DTS:DTSID="{38A72005-3AE1-46D3-ACE4-016266C02782}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BookedLossIBNR"
+              DTS:DTSID="{8145ABB9-6930-4649-BB0A-4C5594DD0CB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BookedALAEIBNR"
+              DTS:DTSID="{E30EC9DE-5FAF-4302-A84D-E626701EB48A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Explanation"
+              DTS:DTSID="{24251141-A743-4DEF-BF0E-B20DF3826DBF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{14A48869-0929-43F9-B157-E04B0AF9431E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IBNR]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{DDB918E5-B9DB-46FA-AE70-259272BA1C2A}"
+      DTS:ObjectName="IBNR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="\\mansan02\batchdev$\ETL\IBNR" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANPRODBS01.ROC]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42C799D1-8BA4-47BE-A348-9D726257D3E3}"
+      DTS:ObjectName="MANPRODBS01.ROC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANPRODBS01;Initial Catalog=ROC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B16F438-D0D7-4CF4-9629-86F7FC2E5E1C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailJobName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossImport</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A68D2E24-5742-48C6-A5D1-567721E1DE5D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailReportName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossSTARSNAV</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B7DA157-0BB5-4461-830E-7805E05ADF48}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6EEE8831-4A6D-40A0-83FC-CB49ADBDFE43}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="JobDescription">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossImport</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0391AA21-7916-40E3-9ACC-8DAF4BCBD751}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NavisionCodeNoMatch">
+      <DTS:VariableValue
+        DTS:DataType="8">NAV Report Cd/SubCo not matched to dbo.NavisionReportingCd</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E96E176E-FA80-4E10-8C5D-5913BB35B0D1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Quarter">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54238313-DFD9-4A7B-9950-CF252C42AF5A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Recipients">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{06D2EBAF-7374-43B5-9DC7-5CA25F583100}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+          SQLTask:SqlStatementSource="DECLARE @ExecutionID INT, @JobDescription varchar(20)&#xA;&#xA;SET @JobDescription = ?&#xA;&#xA;INSERT INTO [dbo].[IBOR_ImportExecution]&#xA;VALUES (getdate(), @JobDescription)&#xA;&#xA;SET @ExecutionID = (SELECT MAX(ImportExecutionID) FROM [dbo].[IBOR_ImportExecution])&#xA;&#xA;SET ? = @ExecutionID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::JobDescription"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::ExecutionID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Current Quarter"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{87C4D520-3F8E-429B-BCCB-FCF2CFDE717F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Current Quarter"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+          SQLTask:SqlStatementSource="Declare @Quart varchar(6)&#xA;&#xA;Set @Quart = (Select Quarter from dbo.IBOR_Quarter where IsActive = 1)&#xA;&#xA;set ? = @Quart&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Quarter"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Email Addresses"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BB6DC40E-7B22-4219-BCA1-D89D4206806C}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Email Addresses"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42C799D1-8BA4-47BE-A348-9D726257D3E3}"
+          SQLTask:SqlStatementSource="EXECUTE [ROC].[dbo].[roc_GetNotificationList] ?,?,'User'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Recipients" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::EmailJobName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::EmailReportName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import IBOR Data"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9D2132E8-BFDB-49A6-8CB0-2FCE9D907883}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import IBOR Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import IBOR Data\Actuary Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Actuary Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BookedIBNR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ClaimNo, ExposureNo, SubCo, Actuarial_Segment AS 'ActSegment', FinancialEntity, RiskState, ASLOB, AccidentYear, Portfolio, BusinessType, 
+                         BookedLossIBNR AS 'AllocatedLossIBNR', BookedALAEIBNR AS 'AllocatedALAEIBNR', Description, Explanation
+FROM            dbo.BookedIBNR
+WHERE        (Evaluation_YYYYQQ = ?) AND (BusinessType IN ('D', 'A'))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameters0:Input",{E96E176E-FA80-4E10-8C5D-5913BB35B0D1};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import IBOR Data\Actuary Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+                  connectionManagerRefId="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ClaimNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimNo]"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ClaimNo]"
+                      name="ClaimNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ExposureNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ExposureNo]"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ExposureNo]"
+                      name="ExposureNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[SubCo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[SubCo]"
+                      length="25"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[SubCo]"
+                      name="SubCo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[RiskState]"
+                      length="2"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[RiskState]"
+                      name="RiskState"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ASLOB]"
+                      length="6"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ASLOB]"
+                      name="ASLOB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AccidentYear]"
+                      length="4"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AccidentYear]"
+                      name="AccidentYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Portfolio]"
+                      length="6"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Portfolio]"
+                      name="Portfolio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[BusinessType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[BusinessType]"
+                      length="1"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[BusinessType]"
+                      name="BusinessType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Explanation]"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Explanation]"
+                      name="Explanation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ActSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ActSegment]"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ActSegment]"
+                      name="ActSegment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedLossIBNR]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedLossIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedLossIBNR]"
+                      name="AllocatedLossIBNR"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedALAEIBNR]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedALAEIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedALAEIBNR]"
+                      name="AllocatedALAEIBNR"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[FinancialEntity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[FinancialEntity]"
+                      length="25"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[FinancialEntity]"
+                      name="FinancialEntity"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimNo]"
+                      dataType="wstr"
+                      length="100"
+                      name="ClaimNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ExposureNo]"
+                      dataType="wstr"
+                      length="50"
+                      name="ExposureNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[SubCo]"
+                      dataType="wstr"
+                      length="25"
+                      name="SubCo" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[FinancialEntity]"
+                      dataType="wstr"
+                      length="25"
+                      name="FinancialEntity" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="RiskState" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="ASLOB" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Portfolio" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[BusinessType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BusinessType" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[ActSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ActSegment" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedLossIBNR]"
+                      dataType="numeric"
+                      name="AllocatedLossIBNR"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedALAEIBNR]"
+                      dataType="numeric"
+                      name="AllocatedALAEIBNR"
+                      precision="38"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ClaimNo]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ClaimNo]"
+                      name="ClaimNo" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ExposureNo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ExposureNo]"
+                      name="ExposureNo" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[SubCo]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[SubCo]"
+                      name="SubCo" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ActSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ActSegment]"
+                      name="ActSegment" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[RiskState]"
+                      name="RiskState" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ASLOB]"
+                      name="ASLOB" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AccidentYear]"
+                      name="AccidentYear" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Portfolio]"
+                      name="Portfolio" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[BusinessType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[BusinessType]"
+                      name="BusinessType" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AllocatedLossIBNR]"
+                      dataType="numeric"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AllocatedLossIBNR]"
+                      name="AllocatedLossIBNR"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AllocatedALAEIBNR]"
+                      dataType="numeric"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[AllocatedALAEIBNR]"
+                      name="AllocatedALAEIBNR"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[Explanation]"
+                      name="Explanation" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[FinancialEntity]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Error Output].Columns[FinancialEntity]"
+                      name="FinancialEntity" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[ClaimNo]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ClaimNo"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ClaimNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[ExposureNo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ExposureNo"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ExposureNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[SubCo]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="SubCo"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[SubCo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[RiskState]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="RiskState"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[RiskState]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[ASLOB]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="ASLOB"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ASLOB]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[AccidentYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="AccidentYear"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AccidentYear]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[Portfolio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="Portfolio"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Portfolio]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[BusinessType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="BusinessType"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[BusinessType]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Description"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[Explanation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Explanation"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Explanation]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[ActSegment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ActSegment"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ActSegment]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input].Columns[FinancialEntity]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="FinancialEntity"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[FinancialEntity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ClaimNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ClaimNo]"
+                      name="IBOR_ClaimNo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ClaimNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ExposureNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ExposureNo]"
+                      name="IBOR_ExposureNo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ExposureNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]"
+                      name="IBOR_Navision_Reporting_Cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[SubCo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_RiskState]"
+                      name="IBOR_RiskState"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[RiskState]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ASLOB]"
+                      name="IBOR_ASLOB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ASLOB]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_AccidentYear]"
+                      name="IBOR_AccidentYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AccidentYear]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Portfolio]"
+                      name="IBOR_Portfolio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Portfolio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_BusinessType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_BusinessType]"
+                      name="IBOR_BusinessType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[BusinessType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ Description]"
+                      name="IBOR_ Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Explanation]"
+                      name="IBOR_Explanation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[Explanation]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ActuarialLineCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ActuarialLineCode]"
+                      name="IBOR_ActuarialLineCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[ActSegment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_FinancialEntity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_FinancialEntity]"
+                      name="IBOR_FinancialEntity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[FinancialEntity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import IBOR Data\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[SysAddDt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[SysAddDt]"
+                      name="SysAddDt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[Execution]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[Execution]"
+                      name="Execution"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::ExecutionID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::ExecutionID]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import IBOR Data\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\Derived Column 1"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import IBOR Data\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Output].Columns[LkpNavisionCodeError]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="75"
+                      lineageId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Output].Columns[LkpNavisionCodeError]"
+                      name="LkpNavisionCodeError"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,75,1252)(@[User::NavisionCodeNoMatch])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,75,1252)(@[User::NavisionCodeNoMatch])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import IBOR Data\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\IBOR Tables"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="IBOR Tables"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBOR_ActuarialImport]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import IBOR Data\IBOR Tables.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_ClaimNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ClaimNo"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Claim_No]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ClaimNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_ExposureNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_ExposureNo"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Exposure_No]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ExposureNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_Navision_Reporting_Cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="IBOR_Navision_Reporting_Cd"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_RiskState]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="IBOR_RiskState"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[RiskState]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_RiskState]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_ASLOB]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_ASLOB"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ASLOB]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_AccidentYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_AccidentYear"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_AccidentYear]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_Portfolio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="IBOR_Portfolio"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Portfolio]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_BusinessType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="IBOR_BusinessType"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_BusinessType]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[AllocatedLossIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="AllocatedLossIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedLossIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedLossIBNR]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[AllocatedALAEIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="AllocatedALAEIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedALAEIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedALAEIBNR]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_ Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ Description"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ Description]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_Explanation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="IBOR_Explanation"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Explanation]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_ActuarialLineCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ActuarialLineCode"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ActuarialLineCode]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[IBOR_FinancialEntity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_FinancialEntity"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Financial_Entity]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_FinancialEntity]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[SysAddDt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysAddDt"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Sys_Create_Dt]"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[SysAddDt]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].Columns[Execution]"
+                      cachedDataType="i4"
+                      cachedName="Execution"
+                      externalMetadataColumnId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ImportExecutionID]"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[Execution]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[DataImportID]"
+                      dataType="i4"
+                      name="DataImportID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Claim_No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Claim_No" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Exposure_No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Exposure_No" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Navision_Reporting_Cd" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ActuarialLineCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Financial_Entity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Financial_Entity" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="RiskState" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ASLOB" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Portfolio" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BusinessTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedLossIBNR]"
+                      dataType="numeric"
+                      name="AllocatedLossIBNR"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedALAEIBNR]"
+                      dataType="numeric"
+                      name="AllocatedALAEIBNR"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRDJExpense]"
+                      dataType="numeric"
+                      name="IntendedIBNRDJExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRExpense]"
+                      dataType="numeric"
+                      name="IntendedIBNRExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRLoss]"
+                      dataType="numeric"
+                      name="IntendedIBNRLoss"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[TreatyID]"
+                      dataType="i4"
+                      name="TreatyID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ReinsurerID]"
+                      dataType="i4"
+                      name="ReinsurerID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[IsProcessed]"
+                      dataType="bool"
+                      name="IsProcessed" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[IsProcessed_Dt]"
+                      dataType="dbDate"
+                      name="IsProcessed_Dt" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[Sys_Create_Dt]"
+                      dataType="dbTimeStamp"
+                      name="Sys_Create_Dt" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input].ExternalColumns[ImportExecutionID]"
+                      dataType="i4"
+                      name="ImportExecutionID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\IBOR Tables.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\IBOR Tables.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\IBOR Tables.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\IBOR Tables.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[IBOR_NavisionReportingCd]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[IBOR_NavisionReportingCd]) [refTable]
+where [refTable].[NavisionCd] = ?
+and IsActive = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IsActive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NavisionCd" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Description" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import IBOR Data\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input].Columns[IBOR_Navision_Reporting_Cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="IBOR_Navision_Reporting_Cd"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">NavisionCd</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import IBOR Data\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import IBOR Data\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBOR_ActuarialImportErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import IBOR Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllocatedLossIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="AllocatedLossIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedLossIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedLossIBNR]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllocatedALAEIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="AllocatedALAEIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedALAEIBNR]"
+                      lineageId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output].Columns[AllocatedALAEIBNR]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LkpNavisionCodeError]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="75"
+                      cachedName="LkpNavisionCodeError"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FailureReason]"
+                      lineageId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Output].Columns[LkpNavisionCodeError]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SysAddDt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysAddDt"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportDate]"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[SysAddDt]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_ClaimNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ClaimNo"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Claim_No]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ClaimNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_ExposureNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_ExposureNo"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Exposure_No]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ExposureNo]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_Navision_Reporting_Cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="IBOR_Navision_Reporting_Cd"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Navision_Reporting_Cd]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_RiskState]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="IBOR_RiskState"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskState]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_RiskState]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_ASLOB]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_ASLOB"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ASLOB]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_AccidentYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IBOR_AccidentYear"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_AccidentYear]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_Portfolio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="IBOR_Portfolio"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Portfolio]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_BusinessType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="IBOR_BusinessType"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_BusinessType]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_ Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ Description"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ Description]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_Explanation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="IBOR_Explanation"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_Explanation]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_ActuarialLineCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_ActuarialLineCode"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_ActuarialLineCode]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IBOR_FinancialEntity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IBOR_FinancialEntity"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Financial_Entity]"
+                      lineageId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output].Columns[IBOR_FinancialEntity]" />
+                    <inputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Execution]"
+                      cachedDataType="i4"
+                      cachedName="Execution"
+                      externalMetadataColumnId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportExecutionID]"
+                      lineageId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output].Columns[Execution]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataErrorID]"
+                      dataType="i4"
+                      name="DataErrorID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportExecutionID]"
+                      dataType="i4"
+                      name="ImportExecutionID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportDate]"
+                      dataType="dbTimeStamp"
+                      name="ImportDate" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FailureReason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="75"
+                      name="FailureReason" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Claim_No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Claim_No" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Exposure_No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Exposure_No" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Navision_Reporting_Cd" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ActuarialLineCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Financial_Entity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Financial_Entity" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="RiskState" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ASLOB" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Portfolio" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BusinessTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedLossIBNR]"
+                      dataType="numeric"
+                      name="AllocatedLossIBNR"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedALAEIBNR]"
+                      dataType="numeric"
+                      name="AllocatedALAEIBNR"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRDJExpense]"
+                      dataType="numeric"
+                      name="IntendedIBNRDJExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRExpense]"
+                      dataType="numeric"
+                      name="IntendedIBNRExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IntendedIBNRLoss]"
+                      dataType="numeric"
+                      name="IntendedIBNRLoss"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TreatyID]"
+                      dataType="i4"
+                      name="TreatyID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReinsurerID]"
+                      dataType="i4"
+                      name="ReinsurerID" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import IBOR Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import IBOR Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import IBOR Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import IBOR Data.Paths[Data Conversion Output]"
+              endId="Package\Import IBOR Data\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Import IBOR Data\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import IBOR Data.Paths[Derived Column Output]"
+              endId="Package\Import IBOR Data\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Import IBOR Data\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import IBOR Data.Paths[Derived Column Output1]"
+              endId="Package\Import IBOR Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Import IBOR Data\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import IBOR Data.Paths[Lookup Match Output]"
+              endId="Package\Import IBOR Data\IBOR Tables.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Import IBOR Data\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Import IBOR Data.Paths[Lookup No Match Output]"
+              endId="Package\Import IBOR Data\Derived Column 1.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Import IBOR Data\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Import IBOR Data.Paths[OLE DB Source Output]"
+              endId="Package\Import IBOR Data\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import IBOR Data\Actuary Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NAV Staging SP"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0B0A90C7-CF09-4C3F-B723-C68E99919826}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NAV Staging SP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+          SQLTask:SqlStatementSource="EXEC dbo.IBOR_CreateNAVLOAD ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Emails"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5CCDD73F-DB33-4D8A-B0E7-ED4ADD4AAB7F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Emails"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42C799D1-8BA4-47BE-A348-9D726257D3E3}"
+          SQLTask:SqlStatementSource="DECLARE @Recipients varchar(500), @ExecutionID int, @desc varchar(500)&#xA;&#xA;SET @Recipients = ?&#xA;SET @ExecutionID = ?&#xA;SET @desc = 'The IBNR Gross Import has completed with an Import Exection ID of '+convert(varchar(20),@ExecutionID)+'.  You may now review the data.' &#xA;&#xA;EXEC msdb.dbo.sp_send_dbmail &#xA;@recipients = @Recipients,&#xA;@body = @desc,&#xA;@from_address = 'ITProductionSupport@trg.com',&#xA;@subject = 'IBNR Gross Import'&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Recipients"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::ExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\STARS Staging SP"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1623be0a-e80e-4231-885a-796a40ec6e23}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STARS Staging SP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+          SQLTask:SqlStatementSource="EXEC dbo.IBOR_CreateSTARSLOAD ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\STARSEntityCoddMapping"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{36E030AE-EA39-4C99-9C28-570EA8CB7943}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STARSEntityCoddMapping"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STARSEntityCoddMapping\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBOR_STARSEntityCodeMapping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STARSEntityCoddMapping\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[DEVSQL01.CWT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Navision_Reporting_Cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Navision_Reporting_Cd"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Navision_Reporting_Cd]" />
+                    <inputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReportingEntityCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ReportingEntityCode"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportingEntityCode]"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]" />
+                    <inputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EntityCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="EntityCode"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntityCode]"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntityCode]" />
+                    <inputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Portfolio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Portfolio"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Portfolio]" />
+                    <inputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Navision_Reporting_Cd" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportingEntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Portfolio" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CompanyName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STARSEntityCoddMapping\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STARSEntityCoddMapping\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[STARSEntityCodeMapping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STARSEntityCoddMapping\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DWPROD.RS_Reporting]"
+                  connectionManagerRefId="Package.ConnectionManagers[DWPROD.RS_Reporting]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Navision_Reporting_Cd]"
+                      length="4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Navision_Reporting_Cd]"
+                      name="Navision_Reporting_Cd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportingEntityCode]"
+                      length="1"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]"
+                      name="ReportingEntityCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EntityCode]"
+                      length="1"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntityCode]"
+                      name="EntityCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Portfolio]"
+                      length="4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[Portfolio]"
+                      name="Portfolio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      length="50"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Navision_Reporting_Cd" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportingEntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Portfolio" />
+                    <externalMetadataColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CompanyName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Navision_Reporting_Cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Navision_Reporting_Cd]"
+                      name="Navision_Reporting_Cd" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportingEntityCode]"
+                      name="ReportingEntityCode" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EntityCode]"
+                      name="EntityCode" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Portfolio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Portfolio]"
+                      name="Portfolio" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STARSEntityCoddMapping.Paths[OLE DB Source Output]"
+              endId="Package\STARSEntityCoddMapping\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\STARSEntityCoddMapping\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate IBOR Load Tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AADF790F-743D-48CF-91C1-C20514C7BC61}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate IBOR Load Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F50BDD06-DBD7-4571-825D-9D52488B4CB3}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[IBOR_STARSEntityCodeMapping]&#xA;TRUNCATE TABLE [dbo].[IBOR_STARSStaging]&#xA;TRUNCATE TABLE [dbo].[IBOR_NAVStaging]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{34D337BB-9B5B-4CA2-B286-9E9C0C0A0628}"
+      DTS:From="Package\Get Current Quarter"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import IBOR Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{221706D3-079B-45DB-8636-587B5A11904B}"
+      DTS:From="Package\Truncate IBOR Load Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\STARSEntityCoddMapping" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{40FDED6E-005B-48B9-BC9A-5C5C17302A70}"
+      DTS:From="Package\STARSEntityCoddMapping"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Get Current Quarter" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{854651F9-59B2-42C3-AF40-05C9E9FFC55C}"
+      DTS:From="Package\Import IBOR Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\NAV Staging SP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7F4EF571-EC3E-49F7-B0E1-640C2AB66CBD}"
+      DTS:From="Package\NAV Staging SP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\STARS Staging SP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C2AB475-F43B-46B9-8872-DCA7C763CC48}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Truncate IBOR Load Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{C0E8B0C4-CF23-4AEE-88F0-5B70885E66A8}"
+      DTS:From="Package\STARS Staging SP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Get Email Addresses" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0592046-EC4D-4CA8-B52A-404E02C58662}"
+      DTS:From="Package\Get Email Addresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Send Emails" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Import IBOR Data"
+          TopLeft="165,391" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\STARSEntityCoddMapping"
+          TopLeft="146,191" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Get Current Quarter"
+          TopLeft="161,288" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="248.25,330">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Truncate IBOR Load Tables"
+          TopLeft="150,91" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="251.25,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="248,233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\NAV Staging SP"
+          TopLeft="170,471" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="247.75,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\STARS Staging SP"
+          TopLeft="171,540" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="250.75,513">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="170,13" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="253.75,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Email Addresses"
+          TopLeft="399,540" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="337,561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,0"
+              Start="0,0"
+              End="54.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Send Emails"
+          TopLeft="639,538" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="576,560">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,0"
+              Start="0,0"
+              End="55.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import IBOR Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Import IBOR Data\Actuary Source"
+          TopLeft="170,29" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Import IBOR Data\Data Conversion"
+          TopLeft="168,127" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import IBOR Data\Derived Column"
+          TopLeft="172,193" />
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[Data Conversion Output]"
+          TopLeft="248.5,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Import IBOR Data\IBOR Tables"
+          TopLeft="179,273" />
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[OLE DB Source Output]"
+          TopLeft="246.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Import IBOR Data\Lookup"
+          TopLeft="401,194" />
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[Derived Column Output]"
+          TopLeft="328,214.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73,0"
+              Start="0,0"
+              End="65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Import IBOR Data\Derived Column 1"
+          TopLeft="617,195" />
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[Lookup No Match Output]"
+          TopLeft="516,215.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101,0"
+              Start="0,0"
+              End="93.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="93.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.05638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[Lookup Match Output]"
+          TopLeft="458.5,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-210,37"
+              Start="0,0"
+              End="-210,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-206,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-206,18.5"
+                    Point2="-210,18.5"
+                    Point3="-210,22.5" />
+                  <mssgle:LineSegment
+                    End="-210,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-153.19138671875,23.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Import IBOR Data\OLE DB Destination"
+          TopLeft="614,274" />
+        <EdgeLayout
+          Id="Package\Import IBOR Data.Paths[Derived Column Output1]"
+          TopLeft="700,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import IBOR Data\Actuary Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\STARSEntityCoddMapping">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\STARSEntityCoddMapping\OLE DB Destination"
+          TopLeft="368,428" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\STARSEntityCoddMapping\OLE DB Source"
+          TopLeft="124,282" />
+        <EdgeLayout
+          Id="Package\STARSEntityCoddMapping.Paths[OLE DB Source Output]"
+          TopLeft="200,324">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254.5,104"
+              Start="0,0"
+              End="254.5,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="4,52" />
+                  <mssgle:LineSegment
+                    End="250.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250.5,52"
+                    Point2="254.5,52"
+                    Point3="254.5,56" />
+                  <mssgle:LineSegment
+                    End="254.5,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STARSEntityCoddMapping\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STARSEntityCoddMapping\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import IBOR Data\IBOR Tables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import IBOR Data\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[IBOR_NavisionReportingCd]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import IBOR Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

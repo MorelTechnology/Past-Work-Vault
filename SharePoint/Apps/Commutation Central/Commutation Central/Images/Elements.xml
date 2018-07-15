@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images">
+    <File Path="Images\AppIcon.png" Url="Images/AppIcon.png" ReplaceContent="TRUE" />
+    <File Path="Images\Binoculars.gif" Url="Images/Binoculars.gif" ReplaceContent="TRUE" />
+    <File Path="Images\document.png" Url="Images/document.png" ReplaceContent="TRUE" />
+    <File Path="Images\door_in.png" Url="Images/door_in.png" ReplaceContent="TRUE" />
+    <File Path="Images\green-circle.png" Url="Images/green-circle.png" ReplaceContent="TRUE" />
+    <File Path="Images\loading.gif" Url="Images/loading.gif" ReplaceContent="TRUE" />
+    <File Path="Images\ltgen.png" Url="Images/ltgen.png" ReplaceContent="TRUE" />
+    <File Path="Images\notes.png" Url="Images/notes.png" ReplaceContent="TRUE" />
+    <File Path="Images\PaperClip3_Black.png" Url="Images/PaperClip3_Black.png" ReplaceContent="TRUE" />
+    <File Path="Images\stop-sign.png" Url="Images/stop-sign.png" ReplaceContent="TRUE" />
+    <File Path="Images\uploading.gif" Url="Images/uploading.gif" ReplaceContent="TRUE" />
+    <File Path="Images\yellow-triangle.jpg" Url="Images/yellow-triangle.jpg" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

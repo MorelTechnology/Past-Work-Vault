@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100542DF4D0C94542309BB3163B7C6D15E3" Name="Note" Group="Custom Content Types" Description="Note Content Type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{e8baa214-9de6-46ee-a88e-bef4d623be9b}" DisplayName="Content" Required="TRUE" Name="NoteContent" />
+      <FieldRef ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" DisplayName="Entry Date" Required="TRUE" Name="EntryDate" Format="DateOnly" />
+      <FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" />
+      <FieldRef ID="{a2ef8ef1-41a1-42ea-adc8-2dd8309b4ee6}" DisplayName="Entry Type" Required="TRUE" Name="NoteEntryType" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reinsurance Parameter Summary RPT", "Reinsurance Parameter Summary RPT\Reinsurance Parameter Summary RPT.rptproj", "{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Reinsurance\u0020Parameter\u0020Summary\u0020RPT\\Reinsurance\u0020Parameter\u0020Summary\u0020RPT.rptproj
+		SccProjectName1 = Reinsurance\u0020Parameter\u0020Summary\u0020RPT
+		SccLocalPath1 = Reinsurance\u0020Parameter\u0020Summary\u0020RPT
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Debug|Default.ActiveCfg = Debug
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Debug|Default.Build.0 = Debug
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Debug|Default.Deploy.0 = Debug
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.DebugLocal|Default.Build.0 = DebugLocal
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Release|Default.ActiveCfg = Release
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Release|Default.Build.0 = Release
+		{65169FE6-A1FA-4EAD-B7CD-5E91D39EDE9D}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

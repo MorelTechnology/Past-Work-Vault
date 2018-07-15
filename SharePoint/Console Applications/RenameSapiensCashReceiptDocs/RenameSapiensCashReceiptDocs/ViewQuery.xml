@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<View Scope="Recursive" ContentTypeID="0x">
+  <Query>
+    <OrderBy>
+      <FieldRef Name="ID" />
+    </OrderBy>
+    <Where>
+      <Eq>
+        <FieldRef Name="File_x0020_Type" />
+        <Value Type="Text">jpg</Value>
+      </Eq>
+    </Where>
+  </Query>
+  <RowLimit>2000</RowLimit>
+</View>

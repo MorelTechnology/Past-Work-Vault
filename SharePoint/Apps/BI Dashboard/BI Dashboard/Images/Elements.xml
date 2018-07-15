@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images">
+    <File Path="Images\AppIcon.png" Url="Images/AppIcon.png" ReplaceContent="TRUE" />
+    <File Path="Images\loading.gif" Url="Images/loading.gif" ReplaceContent="TRUE" />
+    <File Path="Images\ParkReport96.jpg" Url="Images/ParkReport96.jpg" ReplaceContent="TRUE" />
+    <File Path="Images\Tab View.png" Url="Images/Tab View.png" ReplaceContent="TRUE" />
+    <File Path="Images\Table View.png" Url="Images/Table View.png" ReplaceContent="TRUE" />
+    <File Path="Images\Vertical Tab View.png" Url="Images/Vertical Tab View.png" ReplaceContent="TRUE" />
+    <File Path="Images\Tab View Icon.png" Url="Images/Tab View Icon.png" ReplaceContent="TRUE" />
+    <File Path="Images\Table View Icon.png" Url="Images/Table View Icon.png" ReplaceContent="TRUE" />
+    <File Path="Images\Vertical Tab View Icon.png" Url="Images/Vertical Tab View Icon.png" ReplaceContent="TRUE" />
+    <File Path="Images\main_bg.jpg" Url="Images/main_bg.jpg" ReplaceContent="TRUE" />
+    <File Path="Images\a01.png" Url="Images/a01.png" ReplaceContent="TRUE" />
+    <File Path="Images\a02.png" Url="Images/a02.png" ReplaceContent="TRUE" />
+    <File Path="Images\a03.png" Url="Images/a03.png" ReplaceContent="TRUE" />
+    <File Path="Images\a04.png" Url="Images/a04.png" ReplaceContent="TRUE" />
+    <File Path="Images\a06.png" Url="Images/a06.png" ReplaceContent="TRUE" />
+    <File Path="Images\a07.png" Url="Images/a07.png" ReplaceContent="TRUE" />
+    <File Path="Images\a08.png" Url="Images/a08.png" ReplaceContent="TRUE" />
+    <File Path="Images\a09.png" Url="Images/a09.png" ReplaceContent="TRUE" />
+    <File Path="Images\a10.png" Url="Images/a10.png" ReplaceContent="TRUE" />
+    <File Path="Images\a11.png" Url="Images/a11.png" ReplaceContent="TRUE" />
+    <File Path="Images\a12.png" Url="Images/a12.png" ReplaceContent="TRUE" />
+    <File Path="Images\a13.png" Url="Images/a13.png" ReplaceContent="TRUE" />
+    <File Path="Images\a14.png" Url="Images/a14.png" ReplaceContent="TRUE" />
+    <File Path="Images\a15.png" Url="Images/a15.png" ReplaceContent="TRUE" />
+    <File Path="Images\a16.png" Url="Images/a16.png" ReplaceContent="TRUE" />
+    <File Path="Images\a17.png" Url="Images/a17.png" ReplaceContent="TRUE" />
+    <File Path="Images\a18.png" Url="Images/a18.png" ReplaceContent="TRUE" />
+    <File Path="Images\a19.png" Url="Images/a19.png" ReplaceContent="TRUE" />
+    <File Path="Images\a20.png" Url="Images/a20.png" ReplaceContent="TRUE" />
+    <File Path="Images\a21.png" Url="Images/a21.png" ReplaceContent="TRUE" />
+    <File Path="Images\a22.png" Url="Images/a22.png" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

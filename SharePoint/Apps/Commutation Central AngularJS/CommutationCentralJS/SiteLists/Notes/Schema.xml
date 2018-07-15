@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Notes" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Notes" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100047406ee18784f999dffbda96883207a" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" Name="EntryDate" /><FieldRef ID="{e8baa214-9de6-46ee-a88e-bef4d623be9b}" Name="NoteContent" /><FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" Name="Project" /><FieldRef ID="{a2ef8ef1-41a1-42ea-adc8-2dd8309b4ee6}" Name="NoteEntryType" /></FieldRefs></ContentType><ContentType ID="0x0100542DF4D0C94542309BB3163B7C6D15E3" Name="Note" Group="Custom Content Types" Description="Note Content Type" Inherits="FALSE" Version="0"><FieldRefs><FieldRef ID="{f9a9ca41-51e9-44b8-b178-617046cb7854}" DisplayName="Note Entry Type" Required="TRUE" Name="NoteEntryTypeName" /><FieldRef ID="{e8baa214-9de6-46ee-a88e-bef4d623be9b}" DisplayName="Content" Required="TRUE" Name="NoteContent" /><FieldRef ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" DisplayName="Entry Date" Required="TRUE" Name="EntryDate" Format="DateOnly" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" Name="EntryDate" DisplayName="Entry Date" Type="DateTime" Required="TRUE" Group="Custom Site Columns" Format="DateOnly"></Field><Field ID="{e8baa214-9de6-46ee-a88e-bef4d623be9b}" Name="NoteContent" DisplayName="Content" Type="Note" Required="TRUE" Group="Custom Site Columns"></Field><Field ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" Name="Project" DisplayName="Project" Type="Lookup" Required="True" Group="Custom Site Columns" List="Lists/Projects" ShowField="CounterpartyName" RelationshipDeleteBehavior="Cascade" Indexed="TRUE"></Field><Field ID="{a2ef8ef1-41a1-42ea-adc8-2dd8309b4ee6}" Name="NoteEntryType" DisplayName="Entry Type" Type="Lookup" Required="TRUE" Group="Custom Site Columns" List="Lists/NoteEntryTypeLookup" ShowField="NoteEntryTypeName" RelationshipDeleteBehavior="Restrict" Indexed="TRUE"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="Project" /><FieldRef Name="NoteEntryType" /><FieldRef Name="EntryDate" /><FieldRef Name="NoteContent" /><FieldRef Name="Editor" /><FieldRef Name="Modified" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

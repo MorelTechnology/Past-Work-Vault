@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ApplicationAccess.IndicatorButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="44" d:DesignWidth="300">
+    <Grid>
+        <Button x:Name="btnProjects" Margin="0,0,0,0" FontWeight="Bold" Click="btnProjects_Click" >
+            <DockPanel HorizontalAlignment="Left" Width="{Binding ActualWidth, ElementName=btnProjects}" Height="{Binding ActualHeight, ElementName=btnProjects}" Margin="0,-2,0,2" >
+                <Rectangle x:Name="rectProjects" Fill="#FF3464B8" Width="7" Height="24" Opacity="0.2" Stroke="#FF837D7D" Margin="6,0,1,0" />
+                <Label Content="Projects" FontSize="14" Foreground="#FF303030" Width="85" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            </DockPanel>
+        </Button>
+
+    </Grid>
+</UserControl>

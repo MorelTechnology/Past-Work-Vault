@@ -1,0 +1,27 @@
+<div *ngIf="loadingUser || loadingActiveUserRoles">
+    <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+</div>
+<p-panel [toggleable]="true" *ngIf="user && activeUserRoles">
+    <p-header>{{pageTitle}}</p-header>
+    <div class="form-group">
+        <label>Username:</label>
+        <input type="text" readonly class="form-control" [value]="user.userName">
+    </div>
+    <div class="form-group">
+        <label>Email:</label>
+        <input type="text" readonly class="form-control" [value]="user.email">
+    </div>
+    <p-panel>
+        <p-header>Roles</p-header>
+        <p-pickList sourceHeader="Available Roles" [source]="activeUserRoles" targetHeader="User Roles" [target]="user.userRoles"
+            [responsive]="true" [dragdrop]="true" [showSourceControls]="false" [showTargetControls]="false">
+            <ng-template let-role pTemplate="item">
+                {{role.name}}
+            </ng-template>
+        </p-pickList>
+    </p-panel>
+    <div class="pt-3">
+        <button type="button" class="btn btn-success" (click)="saveUser()"><i class="fa fa-save"></i> Save</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()"><i class="fa fa-times"></i> Cancel</button>
+    </div>
+</p-panel>

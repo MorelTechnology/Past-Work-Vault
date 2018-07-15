@@ -1,0 +1,76 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+  <ul class="list-group">
+    <a routerLink="/" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">
+      <i class="fa fa-fw fa-home"></i> Home
+    </a>
+    <a href="https://rivernet2n.trg.com/sites/Operations/Documents/Work%20Intake%20Tool%20User%20Guide.docx?Web=1" target="blank" class="list-group-item">
+      <i class="fa fa-fw fa-book"></i> User Guide
+    </a>
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('work-requests')">
+        <span>
+          <i class="fa fa-fw fa-archive"></i> Work Requests
+          <i class="fa fa-fw" [ngClass]="{'fa-caret-down':showMenu==='work-requests','fa-caret-right':showMenu!=='work-requests'}"></i>
+        </span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'work-requests'">
+        <ul class="submenu">
+          <li>
+            <a routerLink="/work-requests/my-submissions" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-feed"></i> My Submissions
+            </a>
+          </li>
+          <li>
+            <a routerLink="/work-requests/my-action-items" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-exclamation"></i> My Action Items
+            </a>
+          </li>
+          <li>
+            <a routerLink="/work-requests" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact: 'true'}" class="list-group-item">
+              <i class="fa fa-fw fa-archive"></i> All Work Requests
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <a routerLink="/work-requests/new" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <i class="fa fa-fw fa-file"></i> New Work Request
+    </a>
+    <a [href]="adminModuleLink" *ngIf="isAdmin" class="list-group-item" target="blank">
+      <i class="fa fa-fw fa-lock"></i> Administration Module
+    </a>
+    <!-- The following is just boilerplate stuff to remind myself how to create nested list item objects if we add additional navigation pages later -->
+    <!--<a routerLink="/contacts" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <i class="fa fa-fw fa-address-book"></i> Contacts
+    </a>
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('admin')">
+        <span><i class="fa fa-fw fa-lock"></i> Admin Menu <i class="fa fa-fw" [ngClass]="{'fa-caret-down':showMenu==='admin','fa-caret-right':showMenu!=='admin'}"></i></span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'admin'">
+        <ul class="submenu">
+          <li>
+            <a routerLink="/admin" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">
+              <i class="fa fa-fw fa-lock"></i> Administration
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/users" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-users"></i> Users
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/roles" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-shield"></i> Roles
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/lookups" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-database"></i> Lookups
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>-->
+  </ul>
+</nav>

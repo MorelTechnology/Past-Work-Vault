@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Commutation Type Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Commutation Type Lookup" Description="Provides a list of available commutation types">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="CommutationTypeName">None</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="CommutationTypeName">Assumed Only</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="CommutationTypeName">Ceded Only</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="CommutationTypeName">Assumed &amp; Ceded</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="CommutationTypeName">Global</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="CommutationTypeName">Contract Specific</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="CommutationTypeName">Claim Specific</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

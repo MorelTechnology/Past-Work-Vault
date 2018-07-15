@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x010088B6FEBAF8D74FEAA8EB63C004FFABB5" Name="Financial Entry" Group="Custom Content Types" Description="Financial entry content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{808bc5fa-f8ff-480b-9a17-f1b6419f08da}" DisplayName="Fairfax Entity In Scope" Required="TRUE" Name="FairfaxEntityInScope" />
+      <FieldRef ID="{28d26078-a957-4a56-9c92-0794720746fe}" DisplayName="Preliminary Valuation Date" Required="FALSE" Name="PreliminaryValuationDate" Format="DateOnly" />
+      <FieldRef ID="{82c40c55-ea96-4db8-91f9-919db1e90d1b}" DisplayName="Preliminary Assumed Unpaid" Required="FALSE" Name="PreliminaryAssumedUnpaid" />
+      <FieldRef ID="{30fcd923-71d0-4d22-b5b4-c77cb58c99d2}" DisplayName="Preliminary Assumed Case" Required="FALSE" Name="PreliminaryAssumedCase" />
+      <FieldRef ID="{876304cd-96ac-46bb-9802-4cd6310fa3f7}" DisplayName="Preliminary Assumed IBNR" Required="FALSE" Name="PreliminaryAssumedIBNR" />
+      <FieldRef ID="{dfa1f475-04ae-420c-a421-e852b5b41c1d}" DisplayName="Preliminary Ceded Unpaid" Required="FALSE" Name="PreliminaryCededUnpaid" />
+      <FieldRef ID="{a53f5a34-b9c2-4834-9aba-8b5d837a1adc}" DisplayName="Preliminary Ceded Case" Required="FALSE" Name="PreliminaryCededCase" />
+      <FieldRef ID="{f76f0679-a123-498d-aa4a-3daf3b582774}" DisplayName="Preliminary Ceded IBNR" Required="FALSE" Name="PreliminaryCededIBNR" />
+      <FieldRef ID="{69d7cac1-9d41-4ab2-89f3-cf8d618f55b5}" DisplayName="Final Valuation Date" Required="FALSE" Name="FinalValuationDate" Format="DateOnly" />
+      <FieldRef ID="{94322e61-1945-4f01-9c6a-c1e700814b92}" DisplayName="Final Assumed Unpaid" Required="FALSE" Name="FinalAssumedUnpaid" />
+      <FieldRef ID="{53249b42-f1bd-45b9-a131-8cdd3882ef7d}" DisplayName="Final Assumed Reserves" Required="FALSE" Name="FinalAssumedReserves" />
+      <FieldRef ID="{a2c7b31b-fdfb-4bd7-8381-5425f3fb7202}" DisplayName="Final Assumed IBNR" Required="FALSE" Name="FinalAssumedIBNR" />
+      <FieldRef ID="{4a8ad6d0-1ee5-4ddc-9b99-8a3d7fedc818}" DisplayName="Final Ceded Unpaid" Required="FALSE" Name="FinalCededUnpaid" />
+      <FieldRef ID="{8c51c4f5-a68e-4f5d-a68e-0df700cae986}" DisplayName="Final Ceded Reserves" Required="FALSE" Name="FinalCededReserves" />
+      <FieldRef ID="{84bc21ce-dd23-4d55-b61f-a169ce727962}" DisplayName="Final Ceded IBNR" Required="FALSE" Name="FinalCededIBNR" />
+      <FieldRef ID="{2509d427-7a16-44d9-8415-f9eaa4b85e03}" DisplayName="Final Commutation Value" Required="FALSE" Name="FinalCommutationValue" />
+      <FieldRef ID="{521fe3e0-6e3b-44ad-9b19-88e3d75a5569}" DisplayName="Final Credit Provision" Required="FALSE" Name="FinalCreditProvision" />
+      <FieldRef ID="{54f765df-3dad-4024-a328-8bb20833b119}" DisplayName="Final Dispute Provision" Required="FALSE" Name="FinalDisputeProvision" />
+      <FieldRef ID="{8626c574-2c66-46f7-a290-2ce56bd1c274}" DisplayName="Final Penalties" Required="FALSE" Name="FinalPenalties" />
+      <FieldRef ID="{5d7e9944-4401-4ff9-9b92-1cac9790c0d0}" DisplayName="Final Transaction Assumed" Required="FALSE" Name="FinalTransactionAssumed" />
+      <FieldRef ID="{dfd8a239-74f3-48ca-9496-abcee0711940}" DisplayName="Final Transaction Ceded" Required="FALSE" Name="FinalTransactionCeded" />
+      <FieldRef ID="{2ec026a2-f036-4d86-ba26-9a1e9e84ca38}" DisplayName="Final Transaction BDP Used" Required="FALSE" Name="FinalTransactionBDPUsed" />
+      <FieldRef ID="{9466284c-664d-4def-a338-c17c05254d80}" DisplayName="Final Transaction Collateral" Required="FALSE" Name="FinalTransactionCollateral" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

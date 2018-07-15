@@ -1,0 +1,1030 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89B203ED-D674-4EDF-8448-7FD8C6440461}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommutationCentralJS</RootNamespace>
+    <AssemblyName>CommutationCentralJS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>11.1</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{daf9140f-17ac-4421-82d7-60c5581d9b59}</AppFeaturePartId>
+    <WspPartId>{f7af7d68-b4f5-4a4c-90df-1abd8fb4d792}</WspPartId>
+    <WorkflowPartId>{20b5754a-4b2c-42f7-8652-5ab849afb3c7}</WorkflowPartId>
+    <CspkgPartId>{b245d94f-7d06-43ad-946e-f3fbb267c722}</CspkgPartId>
+    <SqlPackagePartId>{5e45b8dc-fb26-455f-a602-d1f6c3ddc20b}</SqlPackagePartId>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="App\Controllers\Checklists\addChecklistItemCtrl.js" />
+    <Content Include="App\Controllers\Checklists\editChecklistItemCtrl.js" />
+    <Content Include="App\Controllers\Activities\editActivityItemCtrl.js" />
+    <Content Include="App\Controllers\Activities\addActivityItemCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\myActivitiesCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\allNotesCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\droppedProjectsCtrl.js" />
+    <Content Include="App\Controllers\NoteEntryTypes\addNoteEntryTypeItemCtrl.js" />
+    <Content Include="App\Controllers\NoteEntryTypes\allNoteEntryTypeItemsCtrl.js" />
+    <Content Include="App\Controllers\NoteEntryTypes\editNoteEntryTypeItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityCategories\addActivityCategoryItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityCategories\allActivityCategoryItemsCtrl.js" />
+    <Content Include="App\Controllers\ActivityCategories\editActivityCategoryItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityDroppedReasons\addActivityDroppedReasonItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityDroppedReasons\allActivityDroppedReasonItemsCtrl.js" />
+    <Content Include="App\Controllers\ActivityDroppedReasons\editActivityDroppedReasonItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityPriorities\addActivityPriorityItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityPriorities\allActivityPriorityItemsCtrl.js" />
+    <Content Include="App\Controllers\ActivityPriorities\editActivityPriorityItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityStatuses\addActivityStatusItemCtrl.js" />
+    <Content Include="App\Controllers\ActivityStatuses\allActivityStatusItemsCtrl.js" />
+    <Content Include="App\Controllers\ActivityStatuses\editActivityStatusItemCtrl.js" />
+    <Content Include="App\Controllers\CommutationStatuses\addCommutationStatusItemCtrl.js" />
+    <Content Include="App\Controllers\CommutationStatuses\allCommutationStatusItemsCtrl.js" />
+    <Content Include="App\Controllers\CommutationStatuses\editCommutationStatusItemCtrl.js" />
+    <Content Include="App\Controllers\CommutationTypes\addCommutationTypeItemCtrl.js" />
+    <Content Include="App\Controllers\CommutationTypes\allCommutationTypeItemsCtrl.js" />
+    <Content Include="App\Controllers\CommutationTypes\editCommutationTypeItemCtrl.js" />
+    <Content Include="App\Controllers\CompaniesInScope\editCompanyInScopeItemCtrl.js" />
+    <Content Include="App\Controllers\CompanyStatuses\addCompanyStatusItemCtrl.js" />
+    <Content Include="App\Controllers\CompanyStatuses\allCompanyStatusItemsCtrl.js" />
+    <Content Include="App\Controllers\CompanyStatuses\editCompanyStatusItemCtrl.js" />
+    <Content Include="App\Controllers\Contacts\editContactItemCtrl.js" />
+    <Content Include="App\Controllers\Contacts\assignContactItemCtrl.js" />
+    <Content Include="App\Controllers\Contacts\addContactItemCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\completedProjectsCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\allOpenProjectsCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\allActivitiesCtrl.js" />
+    <Content Include="App\Controllers\Dashboards\allContactsCtrl.js" />
+    <Content Include="App\Controllers\DealPriorities\addDealPriorityItemCtrl.js" />
+    <Content Include="App\Controllers\DealPriorities\allDealPriorityItemsCtrl.js" />
+    <Content Include="App\Controllers\DealPriorities\editDealPriorityItemCtrl.js" />
+    <Content Include="App\Controllers\Documents\attachDocumentBlindCtrl.js" />
+    <Content Include="App\Controllers\DroppedReasons\addDroppedReasonItemCtrl.js" />
+    <Content Include="App\Controllers\DroppedReasons\allDroppedReasonItemsCtrl.js" />
+    <Content Include="App\Controllers\DroppedReasons\editDroppedReasonItemCtrl.js" />
+    <Content Include="App\Controllers\Errors\modalErrorCtrl.js" />
+    <Content Include="App\Controllers\FairfaxEntities\addFairfaxEntityItemCtrl.js" />
+    <Content Include="App\Controllers\FairfaxEntities\allFairfaxEntityItemsCtrl.js" />
+    <Content Include="App\Controllers\FairfaxEntities\editFairfaxEntityItemCtrl.js" />
+    <Content Include="App\Controllers\GenericDialogs\yesNoDialogCtrl.js" />
+    <Content Include="App\Controllers\LeadOffices\addLeadOfficeItemCtrl.js" />
+    <Content Include="App\Controllers\LeadOffices\allItemsCtrl.js" />
+    <Content Include="App\Controllers\LeadOffices\editLeadOfficeItemCtrl.js" />
+    <Content Include="App\Controllers\Navigation\leftNav.js" />
+    <Content Include="App\Controllers\Notes\addNoteItemCtrl.js" />
+    <Content Include="App\Controllers\Notes\editNoteItemCtrl.js" />
+    <Content Include="App\Controllers\Projects\addProjectItemCtrl.js" />
+    <Content Include="App\Controllers\Projects\editProjectItemCtrl.js" />
+    <Content Include="App\Controllers\RequestTypes\addRequestTypeItemCtrl.js" />
+    <Content Include="App\Controllers\RequestTypes\allRequestTypeItemsCtrl.js" />
+    <Content Include="App\Controllers\RequestTypes\editRequestTypeItemCtrl.js" />
+    <Content Include="App\Directives\buttonGoClick.js" />
+    <Content Include="App\Directives\trgErrorModal.js" />
+    <Content Include="App\Directives\trgFileRead.js" />
+    <Content Include="App\Factories\ChecklistDocuments\checklistDocumentItemFactory.js" />
+    <Content Include="App\Factories\NoteDocuments\noteDocumentItemFactory.js" />
+    <Content Include="App\Factories\ChecklistApplicables\checklistApplicableItemFactory.js" />
+    <Content Include="App\Factories\Checklists\checklistItemFactory.js" />
+    <Content Include="App\Factories\Notes\noteItemFactory.js" />
+    <Content Include="App\Factories\Activities\activityItemFactory.js" />
+    <Content Include="App\Factories\NoteEntryTypes\noteEntryTypeItemFactory.js" />
+    <Content Include="App\Factories\ActivityCategories\activityCategoryItemFactory.js" />
+    <Content Include="App\Factories\ActivityDocuments\activityDocumentItemFactory.js" />
+    <Content Include="App\Factories\ActivityDroppedReasons\activityDroppedReasonItemFactory.js" />
+    <Content Include="App\Factories\ActivityPriorities\activityPriorityItemFactory.js" />
+    <Content Include="App\Factories\ActivityStatuses\activityStatusItemFactory.js" />
+    <Content Include="App\Factories\baseItemFactory.js" />
+    <Content Include="App\Factories\CommutationStatuses\commutationStatusItemFactory.js" />
+    <Content Include="App\Factories\CommutationTypes\commutationTypeItemFactory.js" />
+    <Content Include="App\Factories\CompaniesInScope\companyInScopeItemFactory.js" />
+    <Content Include="App\Factories\CompanyStatuses\companyStatusItemFactory.js" />
+    <Content Include="App\Factories\ContactsInScope\contactInScopeItemFactory.js" />
+    <Content Include="App\Factories\Contacts\contactItemFactory.js" />
+    <Content Include="App\Factories\DealPriorities\dealPriorityItemFactory.js" />
+    <Content Include="App\Factories\DroppedReasons\droppedReasonItemFactory.js" />
+    <Content Include="App\Factories\FairfaxEntitiesInScope\fairfaxEntityInScopeItemFactory.js" />
+    <Content Include="App\Factories\FairfaxEntities\fairfaxEntityItemFactory.js" />
+    <Content Include="App\Factories\FinancialEntries\financialEntryItemFactory.js" />
+    <Content Include="App\Factories\LeadOffices\leadOfficeItemFactory.js" />
+    <Content Include="App\Factories\ProjectDocuments\projectDocumentItemFactory.js" />
+    <Content Include="App\Factories\ProjectFinancials\projectFinancialsFactory.js" />
+    <Content Include="App\Factories\Projects\projectItemFactory.js" />
+    <Content Include="App\Factories\RequestTypes\requestTypeItemFactory.js" />
+    <Content Include="App\Factories\sharedProperties.js" />
+    <Content Include="App\Factories\SiteUsers\siteUsersFactory.js" />
+    <Content Include="App\Modules\pluggableViews.js" />
+    <Content Include="App\Templates\Checklists\Edit.html" />
+    <Content Include="App\Templates\Dashboards\MyActivities.html" />
+    <Content Include="App\Templates\Dashboards\DroppedProjects.html" />
+    <Content Include="App\Templates\Notes\Add.html" />
+    <Content Include="App\Templates\Notes\Edit.html" />
+    <Content Include="App\Templates\Activities\Edit.html" />
+    <Content Include="App\Templates\Activities\Add.html" />
+    <Content Include="App\Templates\Dashboards\AllNotes.html" />
+    <Content Include="App\Templates\NoteEntryTypes\Add.html" />
+    <Content Include="App\Templates\NoteEntryTypes\All.html" />
+    <Content Include="App\Templates\NoteEntryTypes\Edit.html" />
+    <Content Include="App\Templates\ActivityCategories\Add.html" />
+    <Content Include="App\Templates\ActivityCategories\All.html" />
+    <Content Include="App\Templates\ActivityCategories\Edit.html" />
+    <Content Include="App\Templates\ActivityDroppedReasons\Add.html" />
+    <Content Include="App\Templates\ActivityDroppedReasons\All.html" />
+    <Content Include="App\Templates\ActivityDroppedReasons\Edit.html" />
+    <Content Include="App\Templates\ActivityPriorities\Add.html" />
+    <Content Include="App\Templates\ActivityPriorities\All.html" />
+    <Content Include="App\Templates\ActivityPriorities\Edit.html" />
+    <Content Include="App\Templates\ActivityStatuses\Add.html" />
+    <Content Include="App\Templates\ActivityStatuses\All.html" />
+    <Content Include="App\Templates\ActivityStatuses\Edit.html" />
+    <Content Include="App\Templates\Admin\ControlPanel.html" />
+    <Content Include="App\Templates\CommutationStatuses\Add.html" />
+    <Content Include="App\Templates\CommutationStatuses\All.html" />
+    <Content Include="App\Templates\CommutationStatuses\Edit.html" />
+    <Content Include="App\Templates\CommutationTypes\Add.html" />
+    <Content Include="App\Templates\CommutationTypes\All.html" />
+    <Content Include="App\Templates\CommutationTypes\Edit.html" />
+    <Content Include="App\Templates\CompaniesInScope\Edit.html" />
+    <Content Include="App\Templates\CompanyStatuses\Add.html" />
+    <Content Include="App\Templates\CompanyStatuses\All.html" />
+    <Content Include="App\Templates\CompanyStatuses\Edit.html" />
+    <Content Include="App\Templates\Contacts\Edit.html" />
+    <Content Include="App\Templates\Contacts\Assign.html" />
+    <Content Include="App\Templates\Contacts\Add.html" />
+    <Content Include="App\Templates\Dashboards\AllContacts.html" />
+    <Content Include="App\Templates\Dashboards\CompletedProjects.html" />
+    <Content Include="App\Templates\Dashboards\AllOpenProjects.html" />
+    <Content Include="App\Templates\Dashboards\AllActivities.html" />
+    <Content Include="App\Templates\DealPriorities\Add.html" />
+    <Content Include="App\Templates\DealPriorities\All.html" />
+    <Content Include="App\Templates\DealPriorities\Edit.html" />
+    <Content Include="App\Templates\Documents\AttachBlind.html" />
+    <Content Include="App\Templates\DroppedReasons\Add.html" />
+    <Content Include="App\Templates\DroppedReasons\All.html" />
+    <Content Include="App\Templates\DroppedReasons\Edit.html" />
+    <Content Include="App\Templates\Errors\ModalError.html" />
+    <Content Include="App\Templates\FairfaxEntities\Add.html" />
+    <Content Include="App\Templates\FairfaxEntities\All.html" />
+    <Content Include="App\Templates\FairfaxEntities\Edit.html" />
+    <Content Include="App\Templates\GenericDialogs\YesNoDialog.html" />
+    <Content Include="App\Templates\LeadOffices\Add.html" />
+    <Content Include="App\Templates\LeadOffices\All.html" />
+    <Content Include="App\Templates\LeadOffices\Edit.html" />
+    <Content Include="App\Templates\Navigation\LeftNav.html" />
+    <Content Include="App\Templates\Projects\Add.html" />
+    <Content Include="App\Templates\Projects\Edit.html" />
+    <Content Include="App\Templates\RequestTypes\Add.html" />
+    <Content Include="App\Templates\RequestTypes\All.html" />
+    <Content Include="App\Templates\RequestTypes\Edit.html" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Features\Feature10\Feature10.Template.xml">
+      <DependentUpon>Feature10.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature11\Feature11.Template.xml">
+      <DependentUpon>Feature11.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature12\Feature12.Template.xml">
+      <DependentUpon>Feature12.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature13\Feature13.Template.xml">
+      <DependentUpon>Feature13.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature14\Feature14.Template.xml">
+      <DependentUpon>Feature14.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature15\Feature15.Template.xml">
+      <DependentUpon>Feature15.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature16\Feature16.Template.xml">
+      <DependentUpon>Feature16.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature17\Feature17.Template.xml">
+      <DependentUpon>Feature17.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature18\Feature18.Template.xml">
+      <DependentUpon>Feature18.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature19\Feature19.Template.xml">
+      <DependentUpon>Feature19.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature20\Feature20.Template.xml">
+      <DependentUpon>Feature20.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature21\Feature21.Template.xml">
+      <DependentUpon>Feature21.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature22\Feature22.Template.xml">
+      <DependentUpon>Feature22.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature2\Feature2.Template.xml">
+      <DependentUpon>Feature2.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\Feature3\Feature3.Template.xml">
+      <DependentUpon>Feature3.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature4\Feature4.Template.xml">
+      <DependentUpon>Feature4.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature5\Feature5.Template.xml">
+      <DependentUpon>Feature5.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature6\Feature6.Template.xml">
+      <DependentUpon>Feature6.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature7\Feature7.Template.xml">
+      <DependentUpon>Feature7.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature8\Feature8.Template.xml">
+      <DependentUpon>Feature8.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature9\Feature9.Template.xml">
+      <DependentUpon>Feature9.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\icon-delete.png" />
+    <Content Include="Images\icon_edit_48px-128.png" />
+    <Content Include="Scripts\angular-datatables.min.js" />
+    <Content Include="Scripts\Sp-ngUtils.module.js" />
+    <Content Include="Scripts\spPeoplePicker.directive.js" />
+    <Content Include="Scripts\spPpJsdepLoader.service.js" />
+    <Content Include="Scripts\validate.min.js" />
+    <Content Include="SiteColumns\ActivityCategoryName\Elements.xml" />
+    <Content Include="SiteColumns\ActivityDroppedReasonName\Elements.xml" />
+    <Content Include="SiteColumns\ActivityDroppedReason\Elements.xml" />
+    <Content Include="SiteColumns\ActivityPriorityName\Elements.xml" />
+    <Content Include="SiteColumns\ActivityPriority\Elements.xml" />
+    <Content Include="SiteColumns\ActivityStatusChangeDate\Elements.xml" />
+    <Content Include="SiteColumns\ActivityStatusName\Elements.xml" />
+    <Content Include="SiteColumns\ActivityStatus\Elements.xml" />
+    <Content Include="SiteColumns\Activity\Elements.xml" />
+    <Content Include="SiteColumns\AssignedDate\Elements.xml" />
+    <Content Include="SiteColumns\Checklist\Elements.xml" />
+    <Content Include="SiteColumns\CommutationProjectID\Elements.xml" />
+    <Content Include="SiteColumns\CommutationStatusChangeDate\Elements.xml" />
+    <Content Include="SiteColumns\CommutationStatusName\Elements.xml" />
+    <Content Include="SiteColumns\CommutationStatus\Elements.xml" />
+    <Content Include="SiteColumns\CommutationTypeName\Elements.xml" />
+    <Content Include="SiteColumns\CommutationType\Elements.xml" />
+    <Content Include="SiteColumns\CompanyName\Elements.xml" />
+    <Content Include="SiteColumns\CompanyStatusName\Elements.xml" />
+    <Content Include="SiteColumns\CompanyStatus\Elements.xml" />
+    <Content Include="SiteColumns\Contact\Elements.xml" />
+    <Content Include="SiteColumns\CounterpartyName\Elements.xml" />
+    <Content Include="SiteColumns\DealPriorityName\Elements.xml" />
+    <Content Include="SiteColumns\DealPriority\Elements.xml" />
+    <Content Include="SiteColumns\Description\Elements.xml" />
+    <Content Include="SiteColumns\DroppedReasonName\Elements.xml" />
+    <Content Include="SiteColumns\DroppedReason\Elements.xml" />
+    <Content Include="SiteColumns\Elements.xml" />
+    <Content Include="SiteColumns\EntryDate\Elements.xml" />
+    <Content Include="SiteColumns\Exclusions\Elements.xml" />
+    <Content Include="SiteColumns\FairfaxEntityInScope\Elements.xml" />
+    <Content Include="SiteColumns\FairfaxEntityName\Elements.xml" />
+    <Content Include="SiteColumns\FairfaxEntity\Elements.xml" />
+    <Content Include="SiteColumns\FinalAssumedIBNR\Elements.xml" />
+    <Content Include="SiteColumns\FinalAssumedReserves\Elements.xml" />
+    <Content Include="SiteColumns\FinalAssumedUnpaid\Elements.xml" />
+    <Content Include="SiteColumns\FinalCededIBNR\Elements.xml" />
+    <Content Include="SiteColumns\FinalCededReserves\Elements.xml" />
+    <Content Include="SiteColumns\FinalCededUnpaid\Elements.xml" />
+    <Content Include="SiteColumns\FinalTransactionCollateral\Elements.xml" />
+    <Content Include="SiteColumns\FinalCommutationValue\Elements.xml" />
+    <Content Include="SiteColumns\FinalCreditProvision\Elements.xml" />
+    <Content Include="SiteColumns\FinalDisputeProvision\Elements.xml" />
+    <Content Include="SiteColumns\FinalPenalties\Elements.xml" />
+    <Content Include="SiteColumns\FinalTransactionAssumed\Elements.xml" />
+    <Content Include="SiteColumns\FinalTransactionBDPUsed\Elements.xml" />
+    <Content Include="SiteColumns\FinalTransactionCeded\Elements.xml" />
+    <Content Include="SiteColumns\FinalValuationDate\Elements.xml" />
+    <Content Include="SiteColumns\FinancialAuthorityCeded\Elements.xml" />
+    <Content Include="SiteColumns\FinancialAuthorityGrantedByDate\Elements.xml" />
+    <Content Include="SiteColumns\FinancialAuthorityGrantedBy\Elements.xml" />
+    <Content Include="SiteColumns\FinancialAuthorityAssumed\Elements.xml" />
+    <Content Include="SiteColumns\InitialDueDate\Elements.xml" />
+    <Content Include="SiteColumns\LeadOfficeName\Elements.xml" />
+    <Content Include="SiteColumns\LeadOffice\Elements.xml" />
+    <Content Include="SiteColumns\NoteContent\Elements.xml" />
+    <Content Include="SiteColumns\NoteEntryTypeName\Elements.xml" />
+    <Content Include="SiteColumns\Note\Elements.xml" />
+    <Content Include="SiteColumns\OversightManagerID\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryAssumedCase\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryAssumedIBNR\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryAssumedUnpaid\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryCededCase\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryCededIBNR\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryCededUnpaid\Elements.xml" />
+    <Content Include="SiteColumns\PreliminaryValuationDate\Elements.xml" />
+    <Content Include="SiteColumns\PrimaryManagerID\Elements.xml" />
+    <Content Include="SiteColumns\Project\Elements.xml" />
+    <Content Include="SiteColumns\RequestDate\Elements.xml" />
+    <Content Include="SiteColumns\RequestorID\Elements.xml" />
+    <Content Include="SiteColumns\RequestTypeName\Elements.xml" />
+    <Content Include="SiteColumns\RequestType\Elements.xml" />
+    <Content Include="SiteColumns\SecondaryManagerID\Elements.xml" />
+    <Content Include="SiteContentTypes\ActivityCategory\Elements.xml" />
+    <Content Include="SiteContentTypes\ActivityDocument\Elements.xml" />
+    <Content Include="SiteContentTypes\ActivityDroppedReason\Elements.xml" />
+    <Content Include="SiteContentTypes\ActivityPriority\Elements.xml" />
+    <Content Include="SiteContentTypes\ActivityStatus\Elements.xml" />
+    <Content Include="SiteContentTypes\Activity\ActivityCategory\Elements.xml" />
+    <Content Include="SiteContentTypes\Activity\Elements.xml" />
+    <Content Include="SiteContentTypes\ChecklistDocument\Elements.xml" />
+    <Content Include="SiteContentTypes\CommutationStatus\Elements.xml" />
+    <Content Include="SiteContentTypes\CommutationType\Elements.xml" />
+    <Content Include="SiteContentTypes\CompanyInScope\Elements.xml" />
+    <Content Include="SiteContentTypes\CompanyStatus\Elements.xml" />
+    <Content Include="SiteContentTypes\ContactInScope\Elements.xml" />
+    <Content Include="SiteContentTypes\DealPriority\Elements.xml" />
+    <Content Include="SiteContentTypes\DroppedReason\Elements.xml" />
+    <Content Include="SiteContentTypes\Elements.xml" />
+    <Content Include="SiteContentTypes\FairfaxEntityInScope\Elements.xml" />
+    <Content Include="SiteContentTypes\FairfaxEntity\Elements.xml" />
+    <Content Include="SiteContentTypes\FinancialEntry\Elements.xml" />
+    <Content Include="SiteContentTypes\LeadOffice\Elements.xml" />
+    <Content Include="SiteContentTypes\NoteDocument\Elements.xml" />
+    <Content Include="SiteContentTypes\NoteEntryType\Elements.xml" />
+    <Content Include="SiteContentTypes\Note\Elements.xml" />
+    <Content Include="SiteContentTypes\Note\NoteEntryType\Elements.xml" />
+    <Content Include="SiteContentTypes\ProjectDocument\Elements.xml" />
+    <Content Include="SiteContentTypes\Project\Elements.xml" />
+    <Content Include="SiteContentTypes\RequestType\Elements.xml" />
+    <Content Include="SiteLists\Activities\ActivitiesInstance\Elements.xml" />
+    <Content Include="SiteLists\Activities\Elements.xml" />
+    <Content Include="SiteLists\Activities\Schema.xml" />
+    <Content Include="SiteLists\ActivityCategoryLookup\ActivityCategoryLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\ActivityCategoryLookup\Elements.xml" />
+    <Content Include="SiteLists\ActivityCategoryLookup\Schema.xml" />
+    <Content Include="SiteLists\ActivityDroppedReasonLookup\ActivityDroppedReasonLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\ActivityDroppedReasonLookup\Elements.xml" />
+    <Content Include="SiteLists\ActivityDroppedReasonLookup\Schema.xml" />
+    <Content Include="SiteLists\ActivityPriorityLookup\ActivityPriorityLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\ActivityPriorityLookup\Elements.xml" />
+    <Content Include="SiteLists\ActivityPriorityLookup\Schema.xml" />
+    <Content Include="SiteLists\ActivityStatusLookup\ActivityStatusLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\ActivityStatusLookup\Elements.xml" />
+    <Content Include="SiteLists\ActivityStatusLookup\Schema.xml" />
+    <Content Include="SiteLists\Checklists\ChecklistsInstance\Elements.xml" />
+    <Content Include="SiteLists\Checklists\Elements.xml" />
+    <Content Include="SiteLists\Checklists\Schema.xml" />
+    <Content Include="SiteLists\CommutationDocuments\CommutationDocumentsInstance\Elements.xml" />
+    <Content Include="SiteLists\CommutationDocuments\EditDlg.htm" />
+    <Content Include="SiteLists\CommutationDocuments\Elements.xml" />
+    <Content Include="SiteLists\CommutationDocuments\FileDlg.htm" />
+    <Content Include="SiteLists\CommutationDocuments\Repair.aspx" />
+    <Content Include="SiteLists\CommutationDocuments\Schema.xml" />
+    <Content Include="SiteLists\CommutationDocuments\Upload.aspx" />
+    <Content Include="SiteLists\CommutationStatusLookup\CommutationStatusLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\CommutationStatusLookup\Elements.xml" />
+    <Content Include="SiteLists\CommutationStatusLookup\Schema.xml" />
+    <Content Include="SiteLists\CommutationTypeLookup\CommutationTypeLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\CommutationTypeLookup\Elements.xml" />
+    <Content Include="SiteLists\CommutationTypeLookup\Schema.xml" />
+    <Content Include="SiteLists\CompaniesInScope\CompaniesInScopeInstance\Elements.xml" />
+    <Content Include="SiteLists\CompaniesInScope\Elements.xml" />
+    <Content Include="SiteLists\CompaniesInScope\Schema.xml" />
+    <Content Include="SiteLists\CompanyStatusLookup\CompanyStatusLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\CompanyStatusLookup\Elements.xml" />
+    <Content Include="SiteLists\CompanyStatusLookup\Schema.xml" />
+    <Content Include="SiteLists\ContactLookup\ContactLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\ContactLookup\Elements.xml" />
+    <Content Include="SiteLists\ContactLookup\Schema.xml" />
+    <Content Include="SiteLists\ContactsInScope\ContactsInScopeInstance\Elements.xml" />
+    <Content Include="SiteLists\ContactsInScope\Elements.xml" />
+    <Content Include="SiteLists\ContactsInScope\Schema.xml" />
+    <Content Include="SiteLists\DealPriorityLookup\DealPriorityLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\DealPriorityLookup\Elements.xml" />
+    <Content Include="SiteLists\DealPriorityLookup\Schema.xml" />
+    <Content Include="SiteLists\DroppedReasonLookup\DroppedReasonLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\DroppedReasonLookup\Elements.xml" />
+    <Content Include="SiteLists\DroppedReasonLookup\Schema.xml" />
+    <Content Include="SiteLists\Elements.xml" />
+    <Content Include="SiteLists\FairfaxEntitiesInScope\Elements.xml" />
+    <Content Include="SiteLists\FairfaxEntitiesInScope\FairfaxEntitiesInScopeInstance\Elements.xml" />
+    <Content Include="SiteLists\FairfaxEntitiesInScope\Schema.xml" />
+    <Content Include="SiteLists\FairfaxEntityLookup\Elements.xml" />
+    <Content Include="SiteLists\FairfaxEntityLookup\FairfaxEntityLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\FairfaxEntityLookup\Schema.xml" />
+    <Content Include="SiteLists\FinancialEntries\Elements.xml" />
+    <Content Include="SiteLists\FinancialEntries\FinancialEntriesInstance\Elements.xml" />
+    <Content Include="SiteLists\FinancialEntries\Schema.xml" />
+    <Content Include="SiteLists\LeadOfficeLookup\Elements.xml" />
+    <Content Include="SiteLists\LeadOfficeLookup\LeadOfficeLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\LeadOfficeLookup\Schema.xml" />
+    <Content Include="SiteLists\NoteEntryTypeLookup\Elements.xml" />
+    <Content Include="SiteLists\NoteEntryTypeLookup\NoteEntryTypeLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\NoteEntryTypeLookup\Schema.xml" />
+    <Content Include="SiteLists\Notes\Elements.xml" />
+    <Content Include="SiteLists\Notes\NotesInstance\Elements.xml" />
+    <Content Include="SiteLists\Notes\Schema.xml" />
+    <Content Include="SiteLists\Projects\Elements.xml" />
+    <Content Include="SiteLists\Projects\ProjectsInstance\Elements.xml" />
+    <Content Include="SiteLists\Projects\Schema.xml" />
+    <Content Include="SiteLists\RequestTypeLookup\Elements.xml" />
+    <Content Include="SiteLists\RequestTypeLookup\RequestTypeLookupInstance\Elements.xml" />
+    <Content Include="SiteLists\RequestTypeLookup\Schema.xml" />
+    <None Include="App\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{987ff254-86ec-4b90-97da-5d6da86316ce}</SharePointProjectItemId>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Features\Feature10\Feature10.feature">
+      <FeatureId>{96ec3bc8-af82-4591-8892-59dbdf874952}</FeatureId>
+    </None>
+    <None Include="Features\Feature11\Feature11.feature">
+      <FeatureId>{c48ba8c8-4a61-4d69-bc4e-ff587e16b4dd}</FeatureId>
+    </None>
+    <None Include="Features\Feature12\Feature12.feature">
+      <FeatureId>{7125a30e-be6e-4f97-8c52-776f9d88557f}</FeatureId>
+    </None>
+    <None Include="Features\Feature13\Feature13.feature">
+      <FeatureId>{a55a90ee-0d58-4081-b1c1-3f774f1d5ceb}</FeatureId>
+    </None>
+    <None Include="Features\Feature14\Feature14.feature">
+      <FeatureId>{c09bba9b-d466-4c99-bbb3-fbce2af2f3a8}</FeatureId>
+    </None>
+    <None Include="Features\Feature15\Feature15.feature">
+      <FeatureId>{92869d73-e07e-4007-aa1b-52fd03f8aba4}</FeatureId>
+    </None>
+    <None Include="Features\Feature16\Feature16.feature">
+      <FeatureId>{cf90f5d8-0756-410f-a81b-8b5066981ef5}</FeatureId>
+    </None>
+    <None Include="Features\Feature17\Feature17.feature">
+      <FeatureId>{f7b5bcc1-efd1-4bbf-9ec9-a3acc1019d39}</FeatureId>
+    </None>
+    <None Include="Features\Feature18\Feature18.feature">
+      <FeatureId>{461d75a4-5502-43bc-a098-8eae98308ca9}</FeatureId>
+    </None>
+    <None Include="Features\Feature19\Feature19.feature">
+      <FeatureId>{246cb528-4dce-4b98-b106-9c634be2173b}</FeatureId>
+    </None>
+    <None Include="Features\Feature20\Feature20.feature">
+      <FeatureId>{387a5370-dff7-430d-bfbc-01cdd70b60c5}</FeatureId>
+    </None>
+    <None Include="Features\Feature21\Feature21.feature">
+      <FeatureId>{dda52147-7a37-40ae-8ccc-b63f9ec0604a}</FeatureId>
+    </None>
+    <None Include="Features\Feature22\Feature22.feature">
+      <FeatureId>{f390b5b8-d544-4404-8bb0-8f7e094fbc01}</FeatureId>
+    </None>
+    <None Include="Features\Feature2\Feature2.feature">
+      <FeatureId>{0d0ef385-13c6-4ecb-801e-893c7136952b}</FeatureId>
+    </None>
+    <None Include="Features\Feature3\Feature3.feature">
+      <FeatureId>{a433dbad-2ba7-4820-ba6d-bfefc5ab4d68}</FeatureId>
+    </None>
+    <None Include="Features\Feature4\Feature4.feature">
+      <FeatureId>{c1db545d-78d9-4d02-ac0f-f29b1706a7d9}</FeatureId>
+    </None>
+    <None Include="Features\Feature5\Feature5.feature">
+      <FeatureId>{225ce8f0-9a56-4928-a2f4-026bc9d6edde}</FeatureId>
+    </None>
+    <None Include="Features\Feature6\Feature6.feature">
+      <FeatureId>{27c3238b-675f-4ede-ab30-1ed2a632caf7}</FeatureId>
+    </None>
+    <None Include="Features\Feature7\Feature7.feature">
+      <FeatureId>{4ae03fe6-db65-4c81-9c8a-3a94dbe32e1e}</FeatureId>
+    </None>
+    <None Include="Features\Feature8\Feature8.feature">
+      <FeatureId>{8c1e0d1e-4b10-4464-bbc8-de85c708caa1}</FeatureId>
+    </None>
+    <None Include="Features\Feature9\Feature9.feature">
+      <FeatureId>{ffd0f799-7b53-4a5f-bd2f-0a0f7b48e3e7}</FeatureId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9d094e7a-fcfd-46a5-a627-12b0398108ce}</SharePointProjectItemId>
+    </None>
+    <Content Include="App\Controllers\Dashboards\defaultDashboardCtrl.js" />
+    <Content Include="App\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App\Modules\commutationCentral.js" />
+    <Content Include="App\Templates\Dashboards\Default.html" />
+    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Default.aspx" />
+    <None Include="SiteColumns\ActivityCategoryName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c8dc2970-d0c1-4e59-99a4-93a4e0a75e94}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityDroppedReasonName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{df38d3ff-f926-41c3-ae26-0f27a6c0e47f}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityDroppedReason\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c6711e1b-f771-48ec-9357-b252b5ab9f17}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityPriorityName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d255132b-d5bb-49fd-bf0e-ac7841c4e5ce}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityPriority\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68fea270-d32c-4719-b6c7-3649fcb020d3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityStatusChangeDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{46f217a0-ce9b-4513-8a9d-6da5f68f55a6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityStatusName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bcd39de1-0f42-4077-a0ce-fd98c3654396}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ActivityStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{53525cf2-69b1-404d-a571-abf7fda17aeb}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Activity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{836430ce-f576-459f-8786-acc8571d39bf}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\AssignedDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a8d29c28-1975-4256-b65b-8bc5e1f69231}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Checklist\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0561e5b2-0b2c-4698-b301-3f30fac9db3b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationProjectID\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2354425f-ce5c-4e53-8cc8-8df328072033}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationStatusChangeDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fbad9e75-76ec-4d57-a025-c79a70a1741b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationStatusName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e2a470fd-1310-41be-906e-936a4cde01b7}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e7fac899-0b80-424f-95d7-c7009a9b082e}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationTypeName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{314ee185-b7f2-4cf1-a490-3ee4f8f744cc}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CommutationType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7145c69b-29d1-419b-a076-6dc822c87bf6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CompanyName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6703a2a6-51f6-405b-8214-46a2a1b27999}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CompanyStatusName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b38b6a81-b630-442d-93bd-0013ea6fabd1}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CompanyStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3851ab0a-bcb4-477e-920f-f64cbdf587a9}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Contact\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{087d9206-81fa-48a2-91c0-a95ae50cf6f4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\CounterpartyName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3865402a-ef93-445b-9e1a-902d951a5ea4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\DealPriorityName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8ec8d9ad-6f63-4dad-857d-512e99cae71d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\DealPriority\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a6f747e7-e5f0-4a9a-a519-187c1f18a785}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Description\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{76bc3acb-c91d-4e02-a587-96218bd4923c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\DroppedReasonName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5e1390a9-67f5-49df-af02-db176922d687}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\DroppedReason\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{be79bcfe-0a6e-4107-8e38-7e86bc5330bc}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\EntryDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9a3a7ce2-76b4-4aaf-8d38-65c69a00c7c9}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Exclusions\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d71f634a-64a3-4379-83c3-9db3a42cceb2}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FairfaxEntityInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{61d96394-5e3e-4ae9-916b-f0d304e48074}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FairfaxEntityName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{01e65a45-32b4-4792-afda-afda3e786123}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FairfaxEntity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7a55cd2a-2369-4154-bf90-ef91246dc6b3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalAssumedIBNR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e878a0f6-0c39-45ca-af72-0ae0b2afbafd}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalAssumedReserves\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c63037e5-7cf6-4236-8070-bbae83734b1e}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalAssumedUnpaid\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c8740f8f-aad2-4a42-aafb-58ec922bec3f}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalCededIBNR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ee86836d-bdec-475c-9324-8cd0d4df5f06}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalCededReserves\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ada7b6d0-f4ba-4f28-9c67-3b317ad8a656}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalCededUnpaid\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{504a4b46-4300-4fc6-b350-179b7d7bb365}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalTransactionCollateral\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{22232701-1dcb-4923-b5c9-12ca95b620b9}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalCommutationValue\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{50fda110-8215-4cd4-b4a0-250a4fc5b2b9}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalCreditProvision\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8ea2c3f6-69f4-43be-98e6-356db7c38a6f}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalDisputeProvision\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{955d91b9-6532-442f-b554-ae8da9446816}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalPenalties\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ac87bf05-d439-4d6c-ae37-e9d0232d2199}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalTransactionAssumed\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d3c4298d-6360-4d85-92f0-97913a951773}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalTransactionBDPUsed\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{44ee946e-9a9a-4987-80dc-bf66c91ce137}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalTransactionCeded\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{57026754-caf7-4700-b8cd-f18d4cdc8053}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinalValuationDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{563d62d5-ee4e-4ebd-8781-4635ffceff28}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinancialAuthorityCeded\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5ec601a9-2329-45f5-bcb8-f26d1762d238}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinancialAuthorityGrantedByDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{da1452eb-97c6-46cc-900d-d6a67861f7e6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinancialAuthorityGrantedBy\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9b4b5bba-c428-4809-8260-83a5abc867de}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\FinancialAuthorityAssumed\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ee65ec82-4d77-4f32-acdf-12f534892681}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\InitialDueDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f77b5733-019d-41e6-ab8a-1fcce9dcba79}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\LeadOfficeName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d24e3243-c907-4f10-99b9-ce6ec043bb78}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\LeadOffice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b93989f4-a7ed-42f9-9a67-aaecee2bfe1a}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\NoteContent\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{97902b95-6463-409f-a14d-230b818969c6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\NoteEntryTypeName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3f4bb98d-114e-4df2-afca-534796d6237a}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Note\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7a690e6b-55d3-4090-ada7-52e4c4da06b5}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\OversightManagerID\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5809e390-69d5-4fad-9d54-f17acdec827b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryAssumedCase\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{38576d58-47f3-4de7-933d-473ad3624851}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryAssumedIBNR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9ef21f29-b19e-491e-b658-14776f2504a3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryAssumedUnpaid\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1f362cfb-d159-44b1-8526-9ced0d949cfb}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryCededCase\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0d8b2f1c-165a-4425-8bfa-08b73e18529a}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryCededIBNR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{91421ca9-ea7b-4f4f-b78c-c446450a9471}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryCededUnpaid\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cafdc411-12b6-4148-9d46-6b866aeaf8f3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PreliminaryValuationDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3d82f6fc-13ce-452c-aca7-bb63d517d8dc}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\PrimaryManagerID\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a7def81c-4db0-45a4-a245-71269984325c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Project\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{daecd22e-6c19-4bf2-9172-89f1154b1902}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RequestDate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9ebbd92f-8dc0-4f9c-9551-2862b560f969}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RequestorID\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6e475637-b41b-4b2e-aea9-5ae5206c8e9a}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RequestTypeName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4ff46626-4989-4655-95fa-b33a3e479207}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RequestType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e668e223-22bb-4484-8f80-3e6006a2450b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\SecondaryManagerID\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f73e43e3-de4c-4edd-be52-766366ff563c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{10327a1a-310c-4acb-a08d-db31a2fd8dd4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ActivityCategory\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{df5f258f-fe89-417f-b255-a9080df6826d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ActivityDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f47cfa88-e693-4155-8605-203f6d805995}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ActivityDroppedReason\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c2907fdc-0ecc-48fd-8ddb-b0a952268bb4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ActivityPriority\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6c52f4a8-d48a-4759-a89d-1f69134276cd}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ActivityStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a4a1a0fa-6b2d-4dbe-ae45-b07f1b5e9fb3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\Activity\ActivityCategory\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96ffaa4a-00e0-472b-90cd-b6ada046bc64}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\Activity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fa419112-f809-4566-afef-c7c6d0b133d5}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ChecklistDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{20741bd7-90e3-453a-9416-8230a1de304d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\CommutationStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4bbece75-f8fd-4406-89b0-c276094d297c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\CommutationType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c0d505a8-1ade-4af8-b73d-6c22e569332c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\CompanyInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{69796ea4-7462-4e69-8930-5795cb3318a3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\CompanyStatus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{40a39a4e-a95c-4b5d-a73c-c48343a1e643}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ContactInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b8812905-475e-49a4-9d22-097771f16dc2}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\DealPriority\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{47f79091-047d-4b07-a0ad-6ade94cf9641}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\DroppedReason\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{469b41fd-b7dc-4af6-bd6d-a011bc843d3c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\FairfaxEntityInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cd66606c-f23d-4220-910e-1021a054b358}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\FairfaxEntity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4a50b225-1be5-4604-8c57-d8a54fb383ab}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\FinancialEntry\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{30e12564-2235-4f99-9f57-3eeda1e41276}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\LeadOffice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{02620fef-5db5-4728-a89e-d871288da2ba}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\NoteDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b27e1153-8718-45a8-8121-fdda4b09cb3d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\NoteEntryType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6637e1e4-7040-46e1-8d9a-9ff65001fa8e}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\Note\NoteEntryType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{00944bbd-31ed-40d8-a1ab-0e45be6a901c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\Note\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e129502d-deca-450d-ab69-1a6c0e45e396}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\ProjectDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{24543f79-32f5-4ec8-be81-9d87d58a7114}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\Project\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8767bd77-9e73-46b8-8326-edeca137c79c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\RequestType\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fb925445-4004-4c51-972c-5805e98efa8c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bfbd8af7-523e-430f-918b-c0316cf9c3a7}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Activities\ActivitiesInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2e37c216-1446-46a7-a2db-d415edea6899}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Activities\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{30e43b73-c8fc-4bec-b533-512ae6afd6d6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityCategoryLookup\ActivityCategoryLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{25b25b6d-4836-49d9-af8d-0f005a329b5b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityCategoryLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1cd3f7d7-0032-401f-918b-d569acdd3947}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityDroppedReasonLookup\ActivityDroppedReasonLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{22a0ea1a-a856-41d8-b07a-7cd905d49c52}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityDroppedReasonLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1a6a7a39-3b8e-40dd-a4f8-539ce8714d30}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityPriorityLookup\ActivityPriorityLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{17ba0ea7-9517-4b07-b83a-bfcdbc32e3c8}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityPriorityLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{328c3a90-b1c0-4151-ab98-cf1b800070da}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityStatusLookup\ActivityStatusLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6a95fc5b-d941-4109-b561-43f2764ea255}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ActivityStatusLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{74c17372-651a-4e59-a537-e713b4f545bf}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Checklists\ChecklistsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e0e43c3c-0824-4b2c-8279-ce76782bb3e1}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Checklists\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{177848be-ddca-4b12-b6b3-5459427289b6}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationDocuments\CommutationDocumentsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2af4ad15-b383-4c37-bb0b-9780f319eab4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationDocuments\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c1eb4ccc-f0e4-4f3a-b8ee-f8a29bb50f5b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationStatusLookup\CommutationStatusLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{544d024f-4802-4f1f-8c7b-d2a4428d1202}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationStatusLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f1da0777-b596-473a-bc76-cdc0b795c7b3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationTypeLookup\CommutationTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fc33a987-63a4-40f2-9d5b-a60984675627}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CommutationTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bb95593c-8e90-40c1-a8ef-82b8bc7bc661}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CompaniesInScope\CompaniesInScopeInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{261d988e-4179-481b-87ba-120c619b04c3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CompaniesInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6128b0c2-c377-441f-817a-36c16ad781d0}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CompanyStatusLookup\CompanyStatusLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a1d11951-726d-44fe-aa64-29e6551ca142}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\CompanyStatusLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{869184a4-a917-489f-b9d4-ec14ac39cee3}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ContactLookup\ContactLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{782462f2-5216-4c54-8ceb-d5f7b9248905}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ContactLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{36253d09-c3dd-4247-8d07-839068a182bc}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ContactsInScope\ContactsInScopeInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f5002aed-401e-4230-adb9-51c1dd8332f0}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\ContactsInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{442e63bf-875d-4181-8d20-aee163980519}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\DealPriorityLookup\DealPriorityLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{20bcde43-4e6d-488c-92c9-d3a718463229}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\DealPriorityLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{76bd7006-33a4-4e94-a968-8a5bcd0753b4}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\DroppedReasonLookup\DroppedReasonLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9a41e43b-34dc-453d-9ac3-0ccfcc796834}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\DroppedReasonLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bddbdb47-73ec-4002-84b0-4245e6121005}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FairfaxEntitiesInScope\FairfaxEntitiesInScopeInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cf7770c0-223d-473a-ac21-76ff0140de0b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FairfaxEntitiesInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6a2898bc-8aaf-4888-a88b-0e76c22cd6f1}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FairfaxEntityLookup\FairfaxEntityLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ffe07077-7d01-4092-b7b9-20f3e586716d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FairfaxEntityLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e9576969-7c1a-4466-8051-c15828aaa91c}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FinancialEntries\FinancialEntriesInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e4b45435-69ae-4706-9c23-d346fbf76089}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\FinancialEntries\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{64b57169-c9f4-4a09-80a6-cd1d8d4b14ef}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\LeadOfficeLookup\LeadOfficeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{309e320a-67fb-4d97-bacb-928411bbb1a8}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\LeadOfficeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2a5d3b40-5811-4aa9-9405-f98d011addb8}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\NoteEntryTypeLookup\NoteEntryTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{093892fc-a9ad-471c-b7a5-483d55c0fa2f}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\NoteEntryTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ff1310d3-f336-4071-a62b-1898b8296b58}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Notes\NotesInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96190a28-eba5-4315-96cd-37091be1111d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Notes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9f429651-3373-4f8c-b877-ec23595162e7}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Projects\ProjectsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{44b91d8b-1d98-4243-b53b-3c4e128350df}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\Projects\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f12cd785-681a-4312-9d5f-7c9351d04679}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\RequestTypeLookup\RequestTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3281d80b-8ad7-4a3c-a99b-8242d9ff46b1}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\RequestTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fbdd487c-e5c2-4b03-977f-c7eddb50d120}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteLists\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68c28640-fb98-4627-b1e9-c8a1d76112fa}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5e45b8dc-fb26-455f-a602-d1f6c3ddc20b}</SharePointProjectItemId>
+    </None>
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e2af2483-9e60-4431-be3c-580be180bbee}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c2e903a9-d743-4821-b354-47322762c843}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{11b4969d-636f-4bb7-8342-df6e6e14ff5e}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{be9f356d-7a8d-4673-b58f-0fbefc296017}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/11/2016 10:37:46 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="BBELT-LAP7"
+  DTS:CreatorName="TRG\bbelt"
+  DTS:DTSID="{D95C267C-2127-4A02-B4A1-C16E661C855A}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CededIBNR_CreateImportData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{EF753AB4-DA88-4C27-9402-1415EA1DADEA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{60B83B38-C03A-45B8-B0C2-62931145890A}"
+      DTS:ObjectName="ACTUARYSQLSB.IBNR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ACTUARYSQLSB;Initial Catalog=IBNR;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[dwtest\cededibnr.Ceded_IBNR]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+      DTS:ObjectName="dwtest\cededibnr.Ceded_IBNR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=dwtest\cededibnr;Initial Catalog=Ceded_IBNR;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANSQLBUGS.Sapiens_InBound]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E8FE699E-E561-4386-8B93-9EF9FFC168E5}"
+      DTS:ObjectName="MANSQLBUGS.Sapiens_InBound">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANSQLBUGS;Initial Catalog=Sapiens_InBound;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E934BED-931D-4C1F-80CD-4B351832E302}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MAXSEQ">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean ARC Data"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6AFB454C-81A7-4595-B5B1-87892F24ADFA}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean ARC Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="EXEC dbo.CorrectARCValues" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Claims Feed"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A3F130DD-C0AC-435D-919E-E91F4023FE33}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Claims Feed"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="EXEC dbo.IBNR_CreateClaimsFeed NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Max Seq Number from Sapiens"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C2720B82-4450-4960-8C56-C01D2E73D442}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Max Seq Number from Sapiens"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E8FE699E-E561-4386-8B93-9EF9FFC168E5}"
+          SQLTask:SqlStatementSource="DECLARE @MAXSEQ INT&#xA;&#xA;SET @MAXSEQ = (  SELECT MAX(TRANSACTION_ID)&#xA;  FROM [Sapiens_InBound].[etl].[RI_ClaimStaging_DW])&#xA;&#xA;&#xA;SET ? = @MAXSEQ&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::MAXSEQ"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Data from Actuary DB"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DC11D51F-9E43-40E8-80C7-AADCD8F97666}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Data from Actuary DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Data from Actuary DB\Ceded IBNR DB"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Ceded IBNR DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBNR_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[dwtest\cededibnr.Ceded_IBNR]"
+                  connectionManagerRefId="Package.ConnectionManagers[dwtest\cededibnr.Ceded_IBNR]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[ClaimNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="ClaimNo"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[ClaimNo]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ClaimNo]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[ExposureNo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ExposureNo"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[ExposureNo]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ExposureNo]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[Evaluation_YYYYQQ]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="Evaluation_YYYYQQ"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[Evaluation_YYYYQQ]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[Evaluation_YYYYQQ]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[BookedLossIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="BookedLossIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[BookedLossIBNR]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedLossIBNR]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[BookedALAEIBNR]"
+                      cachedDataType="numeric"
+                      cachedName="BookedALAEIBNR"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[BookedALAEIBNR]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedALAEIBNR]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[CurrentCaseLoss]"
+                      cachedDataType="numeric"
+                      cachedName="CurrentCaseLoss"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[CurrentCaseLoss]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseLoss]" />
+                    <inputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].Columns[CurrentCaseALAE]"
+                      cachedDataType="numeric"
+                      cachedName="CurrentCaseALAE"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[CurrentCaseALAE]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseALAE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[ClaimNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="ClaimNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[ExposureNo]"
+                      dataType="wstr"
+                      length="50"
+                      name="ExposureNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[Evaluation_YYYYQQ]"
+                      dataType="wstr"
+                      length="6"
+                      name="Evaluation_YYYYQQ" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[BookedLossIBNR]"
+                      dataType="numeric"
+                      name="BookedLossIBNR"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[BookedALAEIBNR]"
+                      dataType="numeric"
+                      name="BookedALAEIBNR"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[CurrentCaseLoss]"
+                      dataType="numeric"
+                      name="CurrentCaseLoss"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[CurrentCaseALAE]"
+                      dataType="numeric"
+                      name="CurrentCaseALAE"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input].ExternalColumns[Match]"
+                      dataType="bool"
+                      name="Match" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Data from Actuary DB\Ceded IBNR DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\Ceded IBNR DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Data from Actuary DB\Ceded IBNR DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Data from Actuary DB\IBNR Source Data"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="IBNR Source Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BookedIBNR_Upload]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ClaimNo]
+      ,[ExposureNo]
+      ,[Evaluation_YYYYQQ]
+      ,SUM([CurrentCaseLoss]) as [CurrentCaseLoss]
+     ,SUM([CurrentCaseALAE]) as [CurrentCaseALAE]
+      ,SUM([BookedLossIBNR]) as [BookedLossIBNR]
+      ,SUM([BookedALAEIBNR]) as [BookedALAEIBNR]
+  FROM [IBNR].[dbo].[BookedIBNR_Upload]
+  WHERE Evaluation_YYYYQQ = '201603'
+  AND ExposureNo IS NOT NULL
+  AND ClaimNo IS NOT NULL
+  AND ExposureNo != 'NULL'
+  AND ClaimNo != 'NULL'
+  AND ExposureNo !=''
+AND ClaimNo !=''
+AND BusinessType in ('A','D')
+  GROUP BY [ClaimNo]
+      ,[ExposureNo]
+      ,[Evaluation_YYYYQQ]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Data from Actuary DB\IBNR Source Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+                  connectionManagerRefId="Package.ConnectionManagers[ACTUARYSQLSB.IBNR]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ClaimNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[ClaimNo]"
+                      length="150"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ClaimNo]"
+                      name="ClaimNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ExposureNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[ExposureNo]"
+                      length="50"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[ExposureNo]"
+                      name="ExposureNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[Evaluation_YYYYQQ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[Evaluation_YYYYQQ]"
+                      length="6"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[Evaluation_YYYYQQ]"
+                      name="Evaluation_YYYYQQ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedLossIBNR]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[BookedLossIBNR]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedLossIBNR]"
+                      name="BookedLossIBNR"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedALAEIBNR]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[BookedALAEIBNR]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[BookedALAEIBNR]"
+                      name="BookedALAEIBNR"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseLoss]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[CurrentCaseLoss]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseLoss]"
+                      name="CurrentCaseLoss"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseALAE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[CurrentCaseALAE]"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].Columns[CurrentCaseALAE]"
+                      name="CurrentCaseALAE"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[ClaimNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="ClaimNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[ExposureNo]"
+                      dataType="wstr"
+                      length="50"
+                      name="ExposureNo" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[Evaluation_YYYYQQ]"
+                      dataType="wstr"
+                      length="6"
+                      name="Evaluation_YYYYQQ" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[BookedLossIBNR]"
+                      dataType="numeric"
+                      name="BookedLossIBNR"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[BookedALAEIBNR]"
+                      dataType="numeric"
+                      name="BookedALAEIBNR"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[CurrentCaseLoss]"
+                      dataType="numeric"
+                      name="CurrentCaseLoss"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output].ExternalColumns[CurrentCaseALAE]"
+                      dataType="numeric"
+                      name="CurrentCaseALAE"
+                      precision="38"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ClaimNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ClaimNo]"
+                      name="ClaimNo" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ExposureNo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ExposureNo]"
+                      name="ExposureNo" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[Evaluation_YYYYQQ]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[Evaluation_YYYYQQ]"
+                      name="Evaluation_YYYYQQ" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[CurrentCaseLoss]"
+                      dataType="numeric"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[CurrentCaseLoss]"
+                      name="CurrentCaseLoss"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[CurrentCaseALAE]"
+                      dataType="numeric"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[CurrentCaseALAE]"
+                      name="CurrentCaseALAE"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[BookedLossIBNR]"
+                      dataType="numeric"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[BookedLossIBNR]"
+                      name="BookedLossIBNR"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[BookedALAEIBNR]"
+                      dataType="numeric"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[BookedALAEIBNR]"
+                      name="BookedALAEIBNR"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Data from Actuary DB.Paths[OLE DB Source Output]"
+              endId="Package\Import Data from Actuary DB\Ceded IBNR DB.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import Data from Actuary DB\IBNR Source Data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match Values from Claim Feed and Claim Finder"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2c0e8b8e-b071-47ee-bff0-dbf1da8f0a82}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match Values from Claim Feed and Claim Finder"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Execute dbo.UpdateClaimFinderMatchData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match Values from Original Data"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DFEDCFDB-F803-4979-8DA5-0EB9120A4873}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match Values from Original Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Execute dbo.UpdateIBNRMatchData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move Claims Feed from Ceded_IBNR to RS_ODS"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F1779A0D-99BB-49D7-8E32-0037B64CDA7E}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move Claims Feed from Ceded_IBNR to RS_ODS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="EXEC dbo.IBNR_MoveIBNRDatatoODS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate Claim Finder Table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CCDBDAB3-7E3C-4C08-9DAE-B77A598C3CFC}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Claim Finder Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Execute dbo.LoadClaimFinderTable" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SP Clean IBNR Data"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64755986-3A7D-45FC-B85F-A35132E5ABE5}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SP Clean IBNR Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="EXEC dbo.CleanIBNRData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Ceded ClaimFinderTable"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{663b433c-98f9-43d6-b83b-48241edb525f}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Ceded ClaimFinderTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Truncate table dbo.Ceded_ClaimFinder" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate IBNR Staging Table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E467A970-ED8B-48A6-AD47-9916E027B4D9}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate IBNR Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Truncate table dbo.IBNR_Data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Claim Feed with IBNR Numbers"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{839F605D-F877-415B-9F6D-FEB56966D6BF}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Claim Feed with IBNR Numbers"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="Exec dbo.UpdateClaimFeedwithIBNR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Max Transaction Numbers"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{87639348-51BE-486E-B330-B4811FE7B152}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Max Transaction Numbers"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C11809FD-E8EA-4156-8F81-A4283F1B8E84}"
+          SQLTask:SqlStatementSource="DECLARE @num INT&#xA;&#xA;SET @num = ?&#xA;&#xA;EXEC dbo.UpdateMaxTransactionId @num" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::MAXSEQ"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{11AC7E6C-EA6E-4804-A20D-AEC8C0E00F49}"
+      DTS:From="Package\Import Data from Actuary DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SP Clean IBNR Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B5ADE84-5228-428D-8990-37F149FF0452}"
+      DTS:From="Package\Truncate IBNR Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Import Data from Actuary DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{335F21F8-8458-4FCE-8574-31DAC45BEB7B}"
+      DTS:From="Package\Update Max Transaction Numbers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Move Claims Feed from Ceded_IBNR to RS_ODS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{FCB1854F-BCE3-448D-A32A-F5E55BEDC2CF}"
+      DTS:From="Package\Match Values from Claim Feed and Claim Finder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Get Max Seq Number from Sapiens" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A4BAE22C-516B-4135-AF79-3B4DA8583BD8}"
+      DTS:From="Package\SP Clean IBNR Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Clean ARC Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FAF6DC92-E55E-4AAB-8D97-86A0346BF60A}"
+      DTS:From="Package\Truncate Ceded ClaimFinderTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Populate Claim Finder Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E044295-1DA1-46BE-A130-26D3CFDD3564}"
+      DTS:From="Package\Populate Claim Finder Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Match Values from Original Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1016B87F-FC8A-4427-A66F-7215B755F3AC}"
+      DTS:From="Package\Match Values from Original Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Create Claims Feed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{CE25A9CE-7784-49C7-B02F-0596EB834EB4}"
+      DTS:From="Package\Create Claims Feed"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Update Claim Feed with IBNR Numbers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{03B23C61-A2A2-4FFE-B8EF-79E39B4A9286}"
+      DTS:From="Package\Clean ARC Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Truncate Ceded ClaimFinderTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{31281678-D4D3-4A48-AAF5-8B15B7ACCE86}"
+      DTS:From="Package\Update Claim Feed with IBNR Numbers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Match Values from Claim Feed and Claim Finder" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1D179E3-F39D-4418-8B33-6B1CB5A15245}"
+      DTS:From="Package\Get Max Seq Number from Sapiens"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Update Max Transaction Numbers" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Import Data from Actuary DB"
+          TopLeft="233,196" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SP Clean IBNR Data"
+          TopLeft="250,282" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="340,238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Truncate IBNR Staging Table"
+          TopLeft="230,97" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="340.75,139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Truncate Ceded ClaimFinderTable"
+          TopLeft="221,384" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Populate Claim Finder Table"
+          TopLeft="232,468" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="339.75,426">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Match Values from Original Data"
+          TopLeft="510,467" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="445,488.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65,0"
+              Start="0,0"
+              End="57.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Create Claims Feed"
+          TopLeft="829,467" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="743,488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,0"
+              Start="0,0"
+              End="78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Update Claim Feed with IBNR Numbers"
+          TopLeft="829,545" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="915,509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,36"
+              Start="0,0"
+              End="47,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="43,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,18"
+                    Point2="47,18"
+                    Point3="47,22" />
+                  <mssgle:LineSegment
+                    End="47,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="212,45"
+          Id="Package\Move Claims Feed from Ceded_IBNR to RS_ODS"
+          TopLeft="539,631" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Get Max Seq Number from Sapiens"
+          TopLeft="222,549" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Update Max Transaction Numbers"
+          TopLeft="221,629" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="343,591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="461,651.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78,0"
+              Start="0,0"
+              End="70.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="70.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Clean ARC Data"
+          TopLeft="502,287" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="425,305.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77,0"
+              Start="0,0"
+              End="69.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="579.5,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-238.5,55"
+              Start="0,0"
+              End="-238.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="-4,27.5" />
+                  <mssgle:LineSegment
+                    End="-234.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-234.5,27.5"
+                    Point2="-238.5,27.5"
+                    Point3="-238.5,31.5" />
+                  <mssgle:LineSegment
+                    End="-238.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Match Values from Claim Feed and Claim Finder"
+          TopLeft="517,547" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="829,567">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79,0"
+              Start="0,0"
+              End="-71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-71.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="517,569">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49,0"
+              Start="0,0"
+              End="-41.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-41.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Data from Actuary DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Import Data from Actuary DB\IBNR Source Data"
+          TopLeft="274,214" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Import Data from Actuary DB\Ceded IBNR DB"
+          TopLeft="278,328" />
+        <EdgeLayout
+          Id="Package\Import Data from Actuary DB.Paths[OLE DB Source Output]"
+          TopLeft="356.25,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Data from Actuary DB\IBNR Source Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Data from Actuary DB\Ceded IBNR DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

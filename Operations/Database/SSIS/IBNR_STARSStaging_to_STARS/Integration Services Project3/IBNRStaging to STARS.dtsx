@@ -1,0 +1,2917 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/14/2016 10:46:30 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JMAFF-LAP1"
+  DTS:CreatorName="TRG\Jmaff"
+  DTS:DTSID="{6822379A-9FA1-44AA-AFB2-8FE50B5B50DB}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IBNRStaging to STARS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{4F049807-4847-45CF-BC95-3E5D9996C285}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[devsql01.CWT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2CA61837-11BE-4F7C-9011-6A6B9909DC80}"
+      DTS:ObjectName="devsql01.CWT">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::IBNRStagingDBConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=devsql01;Initial Catalog=CWT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[devsql4.STARS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1DB90DE1-8654-4E97-84C2-80B33A240403}"
+      DTS:ObjectName="devsql4.STARS">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::STARSDBConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=devsql4;Initial Catalog=STARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANPRODBS01.ROC]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{27DDC1BA-8DE4-4658-BA51-920B96C0439C}"
+      DTS:ObjectName="MANPRODBS01.ROC">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::EmailConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANPRODBS01;Initial Catalog=ROC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C8B56089-B1B0-4BC9-9D0E-F1E1648D0002}"
+      DTS:ObjectName="EmailConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=MANPRODBS01;Initial Catalog=ROC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8A0B62B3-53A2-4681-B6A7-505B724EA0CB}"
+      DTS:ObjectName="IBNRStagingDBConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=devsql01;Initial Catalog=CWT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8709E7A5-F074-4BA7-8CF4-B2AD9976BC6B}"
+      DTS:ObjectName="STARSDBConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=devsql4;Initial Catalog=STARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{C9B798D1-4121-43B9-95EB-09D69D4D3DA3}"
+      DTS:ObjectName="sysUpdateUser">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F89BED1-74C0-4A1F-BC6C-AB28EACB4710}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailJobName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossImport</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B5F55151-AD85-4778-BDD7-59BF59045A24}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailReportName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossSTARSNAV</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B8DE2B7E-D46D-40B1-8581-CC223A5EEB6B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="expectedRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{053ACF4C-D9C6-4F1A-B3F5-99E44E868EB4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Recipients">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACD6A369-9C2E-42CC-B0DB-C7E81D6A79DF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="recordsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D90026E6-59C9-4DD7-914C-E0AA494424D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="sendMail">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D44CC9A-687C-4DF9-BC9A-CC7394DBAB05}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="STARSStagingCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4FDCD94-DB7A-49FC-899A-246931668C59}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sysUpdateUser">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNR_SSIS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43CECB91-7BF7-40CC-90C9-BB4F1757AC72}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="valuationDate">
+      <DTS:VariableValue
+        DTS:DataType="7">9/15/2016 1:01:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\doWork"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BB2180AD-D15D-4081-BA25-024D860E2324}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="doWork"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\doWork\Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\doWork\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\doWork\Derived Column.Inputs[Derived Column Input].Columns[SysUpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysUpdateDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateDate]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP2,3)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP2,3)GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\doWork\Derived Column.Inputs[Derived Column Input].Columns[SysUpdateUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SysUpdateUser"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateUser]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::sysUpdateUser]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::sysUpdateUser]</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\doWork\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\doWork\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\doWork\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\doWork\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\doWork\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\doWork\Row Count"
+              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::expectedRecords</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\doWork\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\doWork\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\doWork\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\doWork\Stars Staging"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stars Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBOR_STARSStaging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\doWork\Stars Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[devsql01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[devsql01.CWT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ImportExecutionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ImportExecutionID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ImportExecutionID]"
+                      name="ImportExecutionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ReportingEntityCode]"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]"
+                      name="ReportingEntityCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[EntityCode]"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EntityCode]"
+                      name="EntityCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ValuationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ValuationDate]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ValuationDate]"
+                      name="ValuationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SourceSystemCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemCode]"
+                      length="50"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SourceSystemCode]"
+                      name="SourceSystemCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[BusinessTypeCode]"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[BusinessTypeCode]"
+                      name="BusinessTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      name="CompanyCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[MajorPerilCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[MajorPerilCode]"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[MajorPerilCode]"
+                      name="MajorPerilCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ActuarialLineCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ActuarialLineCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ActuarialLineCode]"
+                      name="ActuarialLineCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      length="2"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReinsurerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ReinsurerID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReinsurerID]"
+                      name="ReinsurerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TreatyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TreatyID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TreatyID]"
+                      name="TreatyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PremiumYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PremiumYear]"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PremiumYear]"
+                      name="PremiumYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Term]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Term]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Term]"
+                      name="Term"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[AccidentYear]"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AccidentYear]"
+                      name="AccidentYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="50"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[RegisterNumber]"
+                      length="8"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[RegisterNumber]"
+                      name="RegisterNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[AffiliateCode]"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AffiliateCode]"
+                      name="AffiliateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Explanation]"
+                      length="100"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Explanation]"
+                      name="Explanation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ABCSubdivision]"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ABCSubdivision]"
+                      name="ABCSubdivision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Subsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Subsystem]"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Subsystem]"
+                      name="Subsystem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ASLOB]"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ASLOB]"
+                      name="ASLOB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidLoss]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidLoss]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidLoss]"
+                      name="PaidLoss"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidOverheadExpense]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidOverheadExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidOverheadExpense]"
+                      name="PaidOverheadExpense"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidAllocatedExpense]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidAllocatedExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidAllocatedExpense]"
+                      name="PaidAllocatedExpense"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidUnallocatedExpense]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidUnallocatedExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidUnallocatedExpense]"
+                      name="PaidUnallocatedExpense"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidSalSub]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidSalSub]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidSalSub]"
+                      name="PaidSalSub"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseLossReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseLossReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseLossReserve]"
+                      name="CaseLossReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseAllocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseAllocatedExpenseReserve]"
+                      name="CaseAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseUnallocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseUnallocatedExpenseReserve]"
+                      name="CaseUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRLossReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRLossReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRLossReserve]"
+                      name="IBNRLossReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNROverheadExpense]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNROverheadExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNROverheadExpense]"
+                      name="IBNROverheadExpense"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRAllocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRAllocatedExpenseReserve]"
+                      name="IBNRAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRUnallocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRUnallocatedExpenseReserve]"
+                      name="IBNRUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRSalSubReserve]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRSalSubReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRSalSubReserve]"
+                      name="IBNRSalSubReserve"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[WrittenPremium]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[WrittenPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[WrittenPremium]"
+                      name="WrittenPremium"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EarnedPremium]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[EarnedPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EarnedPremium]"
+                      name="EarnedPremium"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[UnearnedPremium]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[UnearnedPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[UnearnedPremium]"
+                      name="UnearnedPremium"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Commission]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Commission]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Commission]"
+                      name="Commission"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TaxesLicenseFee]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TaxesLicenseFee]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TaxesLicenseFee]"
+                      name="TaxesLicenseFee"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[FinanceCharge]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[FinanceCharge]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[FinanceCharge]"
+                      name="FinanceCharge"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[DividendPaid]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[DividendPaid]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[DividendPaid]"
+                      name="DividendPaid"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Cash]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Cash]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Cash]"
+                      name="Cash"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CededPayableAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CededPayableAmount]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CededPayableAmount]"
+                      name="CededPayableAmount"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysAddUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysAddUser]"
+                      length="10"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysAddUser]"
+                      name="SysAddUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysAddDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysAddDate]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysAddDate]"
+                      name="SysAddDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysUpdateUser]"
+                      length="10"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateUser]"
+                      name="SysUpdateUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysUpdateDate]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateDate]"
+                      name="SysUpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TransID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TransID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TransID]"
+                      name="TransID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[DataImportID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[DataImportID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[DataImportID]"
+                      name="DataImportID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ImportExecutionID]"
+                      dataType="i4"
+                      name="ImportExecutionID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportingEntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ValuationDate]"
+                      dataType="dbTimeStamp"
+                      name="ValuationDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SourceSystemCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BusinessTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CompanyCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[MajorPerilCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="MajorPerilCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ActuarialLineCode]"
+                      dataType="i4"
+                      name="ActuarialLineCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ReinsurerID]"
+                      dataType="i4"
+                      name="ReinsurerID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TreatyID]"
+                      dataType="i4"
+                      name="TreatyID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PremiumYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="PremiumYear" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Term]"
+                      dataType="i4"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="RegisterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AffiliateCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ABCSubdivision" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Subsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Subsystem" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ASLOB" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidLoss]"
+                      dataType="numeric"
+                      name="PaidLoss"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidOverheadExpense]"
+                      dataType="numeric"
+                      name="PaidOverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidAllocatedExpense]"
+                      dataType="numeric"
+                      name="PaidAllocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidUnallocatedExpense]"
+                      dataType="numeric"
+                      name="PaidUnallocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[PaidSalSub]"
+                      dataType="numeric"
+                      name="PaidSalSub"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseLossReserve]"
+                      dataType="numeric"
+                      name="CaseLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="CaseAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CaseUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="CaseUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRLossReserve]"
+                      dataType="numeric"
+                      name="IBNRLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNROverheadExpense]"
+                      dataType="numeric"
+                      name="IBNROverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="IBNRAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="IBNRUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[IBNRSalSubReserve]"
+                      dataType="numeric"
+                      name="IBNRSalSubReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[WrittenPremium]"
+                      dataType="numeric"
+                      name="WrittenPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[EarnedPremium]"
+                      dataType="numeric"
+                      name="EarnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[UnearnedPremium]"
+                      dataType="numeric"
+                      name="UnearnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Commission]"
+                      dataType="numeric"
+                      name="Commission"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TaxesLicenseFee]"
+                      dataType="numeric"
+                      name="TaxesLicenseFee"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[FinanceCharge]"
+                      dataType="numeric"
+                      name="FinanceCharge"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[DividendPaid]"
+                      dataType="numeric"
+                      name="DividendPaid"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[Cash]"
+                      dataType="numeric"
+                      name="Cash"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[CededPayableAmount]"
+                      dataType="numeric"
+                      name="CededPayableAmount"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysAddUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SysAddUser" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysAddDate]"
+                      dataType="dbTimeStamp"
+                      name="SysAddDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysUpdateUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SysUpdateUser" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[SysUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="SysUpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[TransID]"
+                      dataType="i4"
+                      name="TransID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].ExternalColumns[DataImportID]"
+                      dataType="i4"
+                      name="DataImportID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ImportExecutionID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ImportExecutionID]"
+                      name="ImportExecutionID" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ReportingEntityCode]"
+                      name="ReportingEntityCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[EntityCode]"
+                      name="EntityCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ValuationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ValuationDate]"
+                      name="ValuationDate" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SourceSystemCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SourceSystemCode]"
+                      name="SourceSystemCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[BusinessTypeCode]"
+                      name="BusinessTypeCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      name="CompanyCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[MajorPerilCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[MajorPerilCode]"
+                      name="MajorPerilCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ActuarialLineCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ActuarialLineCode]"
+                      name="ActuarialLineCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ReinsurerID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ReinsurerID]"
+                      name="ReinsurerID" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TreatyID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TreatyID]"
+                      name="TreatyID" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PremiumYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PremiumYear]"
+                      name="PremiumYear" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Term]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Term]"
+                      name="Term" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[AccidentYear]"
+                      name="AccidentYear" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[RegisterNumber]"
+                      name="RegisterNumber" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[AffiliateCode]"
+                      name="AffiliateCode" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Explanation]"
+                      name="Explanation" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ABCSubdivision]"
+                      name="ABCSubdivision" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Subsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Subsystem]"
+                      name="Subsystem" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ASLOB]"
+                      name="ASLOB" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidLoss]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidLoss]"
+                      name="PaidLoss"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidOverheadExpense]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidOverheadExpense]"
+                      name="PaidOverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidAllocatedExpense]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidAllocatedExpense]"
+                      name="PaidAllocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidUnallocatedExpense]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidUnallocatedExpense]"
+                      name="PaidUnallocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidSalSub]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[PaidSalSub]"
+                      name="PaidSalSub"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseLossReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseLossReserve]"
+                      name="CaseLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseAllocatedExpenseReserve]"
+                      name="CaseAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CaseUnallocatedExpenseReserve]"
+                      name="CaseUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRLossReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRLossReserve]"
+                      name="IBNRLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNROverheadExpense]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNROverheadExpense]"
+                      name="IBNROverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRAllocatedExpenseReserve]"
+                      name="IBNRAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRUnallocatedExpenseReserve]"
+                      name="IBNRUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRSalSubReserve]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[IBNRSalSubReserve]"
+                      name="IBNRSalSubReserve"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[WrittenPremium]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[WrittenPremium]"
+                      name="WrittenPremium"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[EarnedPremium]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[EarnedPremium]"
+                      name="EarnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[UnearnedPremium]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[UnearnedPremium]"
+                      name="UnearnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Commission]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Commission]"
+                      name="Commission"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TaxesLicenseFee]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TaxesLicenseFee]"
+                      name="TaxesLicenseFee"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[FinanceCharge]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[FinanceCharge]"
+                      name="FinanceCharge"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[DividendPaid]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[DividendPaid]"
+                      name="DividendPaid"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Cash]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[Cash]"
+                      name="Cash"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CededPayableAmount]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[CededPayableAmount]"
+                      name="CededPayableAmount"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysAddUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysAddUser]"
+                      name="SysAddUser" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysAddDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysAddDate]"
+                      name="SysAddDate" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysUpdateUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysUpdateUser]"
+                      name="SysUpdateUser" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysUpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[SysUpdateDate]"
+                      name="SysUpdateDate" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TransID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[TransID]"
+                      name="TransID" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[DataImportID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[DataImportID]"
+                      name="DataImportID" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\doWork\Stars Trans Table"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stars Trans Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Trans]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,FIRE_TRIGGERS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\doWork\Stars Trans Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[devsql4.STARS]"
+                  connectionManagerRefId="Package.ConnectionManagers[devsql4.STARS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ReportingEntityCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ReportingEntityCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ReportingEntityCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReportingEntityCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[EntityCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="EntityCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[EntityCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EntityCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ValuationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ValuationDate"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ValuationDate]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ValuationDate]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[SourceSystemCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SourceSystemCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SourceSystemCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[BusinessTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="BusinessTypeCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[BusinessTypeCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[CompanyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="CompanyCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CompanyCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[MajorPerilCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="MajorPerilCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[MajorPerilCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[MajorPerilCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ActuarialLineCode]"
+                      cachedDataType="i4"
+                      cachedName="ActuarialLineCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ActuarialLineCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="StateCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ReinsurerID]"
+                      cachedDataType="i4"
+                      cachedName="ReinsurerID"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ReinsurerID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ReinsurerID]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[TreatyID]"
+                      cachedDataType="i4"
+                      cachedName="TreatyID"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TreatyID]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TreatyID]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PremiumYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="PremiumYear"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PremiumYear]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PremiumYear]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Term]"
+                      cachedDataType="i4"
+                      cachedName="Term"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Term]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[AccidentYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="AccidentYear"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AccidentYear]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[RegisterNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="RegisterNumber"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[RegisterNumber]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[RegisterNumber]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[AffiliateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="AffiliateCode"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[AffiliateCode]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[AffiliateCode]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Explanation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Explanation"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Explanation]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ABCSubdivision]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ABCSubdivision"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ABCSubdivision]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ABCSubdivision]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Subsystem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Subsystem"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Subsystem]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Subsystem]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[ASLOB]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ASLOB"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[ASLOB]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PaidLoss]"
+                      cachedDataType="numeric"
+                      cachedName="PaidLoss"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidLoss]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidLoss]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PaidOverheadExpense]"
+                      cachedDataType="numeric"
+                      cachedName="PaidOverheadExpense"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidOverheadExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidOverheadExpense]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PaidAllocatedExpense]"
+                      cachedDataType="numeric"
+                      cachedName="PaidAllocatedExpense"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidAllocatedExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidAllocatedExpense]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PaidUnallocatedExpense]"
+                      cachedDataType="numeric"
+                      cachedName="PaidUnallocatedExpense"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidUnallocatedExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidUnallocatedExpense]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[PaidSalSub]"
+                      cachedDataType="numeric"
+                      cachedName="PaidSalSub"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidSalSub]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[PaidSalSub]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[CaseLossReserve]"
+                      cachedDataType="numeric"
+                      cachedName="CaseLossReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseLossReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseLossReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[CaseAllocatedExpenseReserve]"
+                      cachedDataType="numeric"
+                      cachedName="CaseAllocatedExpenseReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseAllocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseAllocatedExpenseReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[CaseUnallocatedExpenseReserve]"
+                      cachedDataType="numeric"
+                      cachedName="CaseUnallocatedExpenseReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseUnallocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CaseUnallocatedExpenseReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[IBNRLossReserve]"
+                      cachedDataType="numeric"
+                      cachedName="IBNRLossReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRLossReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRLossReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[IBNROverheadExpense]"
+                      cachedDataType="numeric"
+                      cachedName="IBNROverheadExpense"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNROverheadExpense]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNROverheadExpense]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[IBNRAllocatedExpenseReserve]"
+                      cachedDataType="numeric"
+                      cachedName="IBNRAllocatedExpenseReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRAllocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRAllocatedExpenseReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[IBNRUnallocatedExpenseReserve]"
+                      cachedDataType="numeric"
+                      cachedName="IBNRUnallocatedExpenseReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRUnallocatedExpenseReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRUnallocatedExpenseReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[IBNRSalSubReserve]"
+                      cachedDataType="numeric"
+                      cachedName="IBNRSalSubReserve"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRSalSubReserve]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[IBNRSalSubReserve]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[WrittenPremium]"
+                      cachedDataType="numeric"
+                      cachedName="WrittenPremium"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[WrittenPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[WrittenPremium]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[EarnedPremium]"
+                      cachedDataType="numeric"
+                      cachedName="EarnedPremium"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[EarnedPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[EarnedPremium]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[UnearnedPremium]"
+                      cachedDataType="numeric"
+                      cachedName="UnearnedPremium"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[UnearnedPremium]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[UnearnedPremium]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Commission]"
+                      cachedDataType="numeric"
+                      cachedName="Commission"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Commission]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Commission]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[TaxesLicenseFee]"
+                      cachedDataType="numeric"
+                      cachedName="TaxesLicenseFee"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TaxesLicenseFee]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[TaxesLicenseFee]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[FinanceCharge]"
+                      cachedDataType="numeric"
+                      cachedName="FinanceCharge"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[FinanceCharge]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[FinanceCharge]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[DividendPaid]"
+                      cachedDataType="numeric"
+                      cachedName="DividendPaid"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[DividendPaid]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[DividendPaid]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[Cash]"
+                      cachedDataType="numeric"
+                      cachedName="Cash"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Cash]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[Cash]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[CededPayableAmount]"
+                      cachedDataType="numeric"
+                      cachedName="CededPayableAmount"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CededPayableAmount]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[CededPayableAmount]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[SysUpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysUpdateDate"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysAddDate]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateDate]" />
+                    <inputColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].Columns[SysUpdateUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SysUpdateUser"
+                      externalMetadataColumnId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysAddUser]"
+                      lineageId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output].Columns[SysUpdateUser]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TransactionID]"
+                      dataType="i4"
+                      name="TransactionID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ReportingEntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportingEntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[EntityCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EntityCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ValuationDate]"
+                      dataType="dbTimeStamp"
+                      name="ValuationDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SourceSystemCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[BusinessTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BusinessTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CompanyCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[MajorPerilCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="MajorPerilCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ActuarialLineCode]"
+                      dataType="i4"
+                      name="ActuarialLineCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ReinsurerID]"
+                      dataType="i4"
+                      name="ReinsurerID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TreatyID]"
+                      dataType="i4"
+                      name="TreatyID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PremiumYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="PremiumYear" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      dataType="i4"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="RegisterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AffiliateCode" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ABCSubdivision" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Subsystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Subsystem" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[ASLOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ASLOB" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidLoss]"
+                      dataType="numeric"
+                      name="PaidLoss"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidOverheadExpense]"
+                      dataType="numeric"
+                      name="PaidOverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidAllocatedExpense]"
+                      dataType="numeric"
+                      name="PaidAllocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidUnallocatedExpense]"
+                      dataType="numeric"
+                      name="PaidUnallocatedExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[PaidSalSub]"
+                      dataType="numeric"
+                      name="PaidSalSub"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseLossReserve]"
+                      dataType="numeric"
+                      name="CaseLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="CaseAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CaseUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="CaseUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRLossReserve]"
+                      dataType="numeric"
+                      name="IBNRLossReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNROverheadExpense]"
+                      dataType="numeric"
+                      name="IBNROverheadExpense"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRAllocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="IBNRAllocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRUnallocatedExpenseReserve]"
+                      dataType="numeric"
+                      name="IBNRUnallocatedExpenseReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[IBNRSalSubReserve]"
+                      dataType="numeric"
+                      name="IBNRSalSubReserve"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[WrittenPremium]"
+                      dataType="numeric"
+                      name="WrittenPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[EarnedPremium]"
+                      dataType="numeric"
+                      name="EarnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[UnearnedPremium]"
+                      dataType="numeric"
+                      name="UnearnedPremium"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Commission]"
+                      dataType="numeric"
+                      name="Commission"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TaxesLicenseFee]"
+                      dataType="numeric"
+                      name="TaxesLicenseFee"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[FinanceCharge]"
+                      dataType="numeric"
+                      name="FinanceCharge"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[DividendPaid]"
+                      dataType="numeric"
+                      name="DividendPaid"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Cash]"
+                      dataType="numeric"
+                      name="Cash"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[CededPayableAmount]"
+                      dataType="numeric"
+                      name="CededPayableAmount"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysAddUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SysAddUser" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysAddDate]"
+                      dataType="dbTimeStamp"
+                      name="SysAddDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysUpdateUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SysUpdateUser" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[SysUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="SysUpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[TransID]"
+                      dataType="i4"
+                      name="TransID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\doWork\Stars Trans Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\Stars Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\doWork\Stars Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\doWork\Stars Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\doWork.Paths[Derived Column Output]"
+              endId="Package\doWork\Stars Trans Table.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\doWork\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\doWork.Paths[OLE DB Source Output]"
+              endId="Package\doWork\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\doWork\Stars Staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\doWork.Paths[Row Count Output 1]"
+              endId="Package\doWork\Derived Column.Inputs[Derived Column Input]"
+              name="Row Count Output 1"
+              startId="Package\doWork\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A072EA2F-A503-4072-B231-0C8445408333}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DB90DE1-8654-4E97-84C2-80B33A240403}"
+          SQLTask:SqlStatementSource="Declare @expectedRecords int&#xA;Declare @valuationDate Date&#xA;Declare @rows int&#xA;Declare @sendMail int&#xA;Declare @StagingCount int&#xA;Declare @usr varchar(20)&#xA;&#xA;SET @expectedRecords = ?&#xA;SET @valuationDate = ?&#xA;SET @StagingCount = ?&#xA;SET @usr = ?&#xA;SET @sendMail = 0;&#xA;&#xA;IF @expectedRecords != @StagingCount&#xA;&#x9;&#x9;DELETE FROM  dbo.Trans&#xA;&#x9;&#x9;WHERE  SysAddUser = @usr AND ValuationDate = @valuationDate;&#xA;ELSE&#xA;&#x9;&#x9;SET @sendMail = 1;&#xA;&#xA;SET ? = @sendMail" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::expectedRecords"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::STARSStagingCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::sysUpdateUser"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::sendMail"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Count from STARS_Staging"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EEAFF7DA-14E3-47C4-A6E3-2F131F4A2909}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Count from STARS_Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2CA61837-11BE-4F7C-9011-6A6B9909DC80}"
+          SQLTask:SqlStatementSource="DECLARE @count int, @valuationdate datetime;&#xA;&#xA;Set @valuationdate = ?&#xA;&#xA;SET @count = (SELECT count(*) FROM [dbo].[IBOR_STARSStaging] AS St WHERE SourceSystemCode = 'IBNR' AND ValuationDate = @valuationDate)&#xA;&#xA;Set ? = @count" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::STARSStagingCount"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Email Addresses"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ccc1948c-8fc0-4937-bad5-584aec30d1dd}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Email Addresses"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27DDC1BA-8DE4-4658-BA51-920B96C0439C}"
+          SQLTask:SqlStatementSource="EXECUTE [ROC].[dbo].[roc_GetNotificationList] ?,?,'User'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Recipients" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::EmailJobName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::EmailReportName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Valuation period"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{485F3783-5FEF-4D6B-A2AC-12368EFD3218}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Valuation period"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2CA61837-11BE-4F7C-9011-6A6B9909DC80}"
+          SQLTask:SqlStatementSource="Declare @valuationDate Date;&#xA;&#xA;SET @valuationDate = (SELECT [ValuationDate]&#xA;  from dbo.IBOR_Quarter&#xA;  where [IsActive] = 1);&#xA;&#xA;SET ? = @valuationDate;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="133"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Success Count - Send Email"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fe95da6f-54bc-413d-a463-5c555ae53faa}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Success Count - Send Email"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27DDC1BA-8DE4-4658-BA51-920B96C0439C}"
+          SQLTask:SqlStatementSource="DECLARE @Recipients varchar(500), @desc varchar(500), @count int, @SendMail int,@desc2 varchar(500), @fin varchar(500)&#xA;&#xA;SET @Recipients = ?&#xA;SET @count = ?&#xA;SET @SendMail = ?&#xA;SET @desc = 'The STARS staging data has been moved from Staging to Production.  The count moved is ' + convert(varchar(10),@count)&#xA;SET @desc2 = 'The STARS staging data move did not match counts  from Staging to Production.  The data was deleted.'&#xA;If @SendMail = 1&#xA;&#x9;SET @fin = @desc&#xA;ELSE&#xA;&#x9;SET @fin = @desc2&#xA;&#xA;EXEC msdb.dbo.sp_send_dbmail &#xA;@recipients = @Recipients,&#xA;@body = @fin,&#xA;@from_address = 'ITProductionSupport@trg.com',&#xA;@subject = 'STARS data move to Production'&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Recipients"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::expectedRecords"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::sendMail"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate records within period"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13142C73-DD18-41B4-93A8-38C31B5B4A2F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate records within period"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DB90DE1-8654-4E97-84C2-80B33A240403}"
+          SQLTask:SqlStatementSource="Declare @valuationDate date &#xA;Declare @usr varchar(20)&#xA;Set @valuationdate = ?&#xA;Set @usr = ?&#xA;&#xA; DELETE FROM  dbo.Trans&#xA;  where SysAddUser = @usr AND ValuationDate = @valuationDate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::sysUpdateUser"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{05D6B9C4-CF1A-44D6-943F-B8C64FDD34F2}"
+      DTS:From="Package\Get Valuation period"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate records within period" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B2FA3BA4-89E9-44A0-8959-B8DA8832F3D9}"
+      DTS:From="Package\Truncate records within period"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\doWork" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{33CEC7B2-C8CB-4B92-8346-F57EFA56C453}"
+      DTS:From="Package\doWork"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Get Count from STARS_Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5812F502-185C-4D08-8B9C-40DBE23F1A4E}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Get Email Addresses" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{79E15069-BEEA-4786-AEDC-DF40BF4B5E65}"
+      DTS:From="Package\Get Email Addresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Success Count - Send Email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8D70A00-AE5A-4F2B-B2B6-99D6F654354E}"
+      DTS:From="Package\Get Count from STARS_Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Execute SQL Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="117,42"
+          Id="Package\doWork"
+          TopLeft="396,203" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="374,296" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Get Count from STARS_Staging"
+          TopLeft="682,267" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Email Addresses"
+          TopLeft="362.363636363636,378.727272727273" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Valuation period"
+          TopLeft="362,42" />
+        <NodeLayout
+          Size="191,55"
+          Id="Package\Success Count - Send Email"
+          TopLeft="363.363636363636,476.727272727273" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Truncate records within period"
+          TopLeft="352.363636363636,125.090909090909" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="452.681818181818,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.090909090909"
+              Start="0,0"
+              End="0,33.590909090909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.590909090909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="454.681818181818,167.090909090909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.909090909091"
+              Start="0,0"
+              End="0,28.409090909091">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.409090909091" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="513,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169,58.3333333333333"
+              Start="0,0"
+              End="161.5,58.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="93.6788990825688,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.6788990825688,0"
+                    Point2="97.6788990825688,0"
+                    Point3="97.6788990825688,4" />
+                  <mssgle:LineSegment
+                    End="97.6788990825688,54.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.6788990825688,54.3333333333333"
+                    Point2="97.6788990825688,58.3333333333333"
+                    Point3="101.678899082569,58.3333333333333" />
+                  <mssgle:LineSegment
+                    End="161.5,58.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="453.681818181818,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.727272727273"
+              Start="0,0"
+              End="0,33.227272727273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.227272727273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="450.863636363636,420.727272727273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.00000000000006,56"
+              Start="0,0"
+              End="8.00000000000006,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="4.00000000000006,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.00000000000006,28"
+                    Point2="8.00000000000006,28"
+                    Point3="8.00000000000006,32" />
+                  <mssgle:LineSegment
+                    End="8.00000000000006,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="682,293.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143,23.3333333333333"
+              Start="0,0"
+              End="-135.5,23.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-56.348623853211,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.348623853211,0"
+                    Point2="-60.348623853211,0"
+                    Point3="-60.348623853211,4" />
+                  <mssgle:LineSegment
+                    End="-60.348623853211,19.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.348623853211,19.3333333333333"
+                    Point2="-60.348623853211,23.3333333333333"
+                    Point3="-64.348623853211,23.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-135.5,23.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\doWork">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\doWork\Stars Staging"
+          TopLeft="180,89" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\doWork\Derived Column"
+          TopLeft="174,213" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\doWork\Stars Trans Table"
+          TopLeft="337,320" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\doWork\Row Count"
+          TopLeft="371,160" />
+        <EdgeLayout
+          Id="Package\doWork.Paths[Row Count Output 1]"
+          TopLeft="371,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41,53"
+              Start="0,0"
+              End="-33.5,53">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-16.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.5,0"
+                    Point2="-20.5,0"
+                    Point3="-20.5,4" />
+                  <mssgle:LineSegment
+                    End="-20.5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,49"
+                    Point2="-20.5,53"
+                    Point3="-24.5,53" />
+                  <mssgle:LineSegment
+                    End="-33.5,53" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\doWork.Paths[OLE DB Source Output]"
+          TopLeft="251.5,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.5,29"
+              Start="0,0"
+              End="185.5,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="181.5,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.5,14.5"
+                    Point2="185.5,14.5"
+                    Point3="185.5,18.5" />
+                  <mssgle:LineSegment
+                    End="185.5,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\doWork.Paths[Derived Column Output]"
+          TopLeft="252,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167,65"
+              Start="0,0"
+              End="167,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="163,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163,32.5"
+                    Point2="167,32.5"
+                    Point3="167,36.5" />
+                  <mssgle:LineSegment
+                    End="167,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\doWork\Stars Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\doWork\Stars Trans Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

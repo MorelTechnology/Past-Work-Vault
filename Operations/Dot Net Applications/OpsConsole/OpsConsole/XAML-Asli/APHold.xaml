@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="OpsConsole.APHold"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="980">
+    <Grid x:Name="screenAPHold" Background="#FF89A3B2" >
+        <DataGrid x:Name="dgAG" Margin="10,57,10,253" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" SelectionUnit="Cell" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" AlternatingRowBackground="#FFC2D1DC" >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" Margin="0,0,9,5" VerticalAlignment="Bottom" Width="60" Height="36" FontWeight="Bold" />
+        <Button x:Name="btnExpandCollapse" Content="Hide Info" HorizontalAlignment="Left" Margin="70,0,0,5" VerticalAlignment="Bottom" Width="75" Height="36" FontWeight="Bold"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom" Width="56" Height="36" FontWeight="Bold"/>
+        <ComboBox x:Name="cbGroup" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="177" DisplayMemberPath="Description" SelectedValuePath="GroupID"/>
+        <ComboBox x:Name="cbReports" HorizontalAlignment="Left" Margin="192,23,0,0" VerticalAlignment="Top" Width="347" DisplayMemberPath="ReportName" SelectedValuePath="ReportURL"/>
+        <Button x:Name="btnEmail" Content="Send Notification Mail" HorizontalAlignment="Right" Margin="0,23,10,0" VerticalAlignment="Top" Width="144" Height="22" />
+        <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="AP Hold" VerticalAlignment="Top" Width="128" Foreground="White"/>
+        <Grid x:Name="gridLowerControls" Height="201" Margin="10,0,10,47" VerticalAlignment="Bottom" Background="#FF687A93">
+            <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Margin="220,4,0,0" TextWrapping="Wrap" Text="Change History" VerticalAlignment="Top" Width="116" Foreground="White" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,4,350,0" TextWrapping="Wrap" Text="Edits" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="16"/>
+            <Grid Width="200" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Background="White" Height="163" >
+                <ScrollViewer>
+                    <TextBlock x:Name="tbNote" TextWrapping="Wrap" Text=""  FontSize="11"  />
+                </ScrollViewer>
+            </Grid>
+            <DataGrid x:Name="dgChangeHistory" Margin="220,29,460,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" SelectionUnit="Cell" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False"  Height="163" Background="White" VerticalAlignment="Top"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Person" Width="100" Binding="{Binding Person}"/>
+                    <DataGridTextColumn Header="Limit" Width="170" Binding="{Binding Limit}"/>
+
+                    <DataGridTextColumn Header="Value" Width="70" Binding="{Binding To}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="by" Width="65" Binding="{Binding by}"/>
+                    <DataGridTextColumn Header="Date" Width="65" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="Ticket" Width="60" Binding="{Binding Ticket}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="dgEdits" Margin="0,29,10,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" SelectionUnit="Cell" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" HorizontalAlignment="Right" Width="440" Height="163" Background="White" VerticalAlignment="Top" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Person" Width="100" Binding="{Binding Person}"/>
+                    <DataGridTextColumn Header="Limit" Width="120" Binding="{Binding Limit}"/>
+                    <DataGridTextColumn Header="From" Width="70" Binding="{Binding From}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="To" Width="70" Binding="{Binding To}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Ticket" Width="60" Binding="{Binding Ticket}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Foreground" Value="{Binding TicketTextColor}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock x:Name="lblChangeHistoryDescription" HorizontalAlignment="Left" Margin="333,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Foreground="#FFDCD5D5" FontSize="11"/>
+
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="192,4,0,0" TextWrapping="Wrap" Text="Reports" VerticalAlignment="Top" Width="128" Foreground="White"/>
+        <Button x:Name="btnUndoEdit" Content="Undo Edit" HorizontalAlignment="Right" Margin="0,0,72,5" VerticalAlignment="Bottom" Width="68" Height="36" FontWeight="Bold"/>
+
+        <Grid HorizontalAlignment="Left" Height="37" Margin="622,0,0,5" VerticalAlignment="Bottom" Width="214" Background="#FF687A93">
+
+            <Button x:Name="btnColor1"  HorizontalAlignment="Left" Height="27" Margin="46,5,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectColor1" Fill="#FF52619E" Width="6" Height="16" Opacity="1"/>
+                    <TextBlock Padding="6,0,0,0"><Run Text="Scheme 1"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnColor2"  HorizontalAlignment="Left" Height="27" Margin="130,5,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectColor2" Fill="#FF52619E" Width="6" Height="16" Opacity=".3"/>
+                    <TextBlock Padding="6,0,0,0"><Run Text="Scheme 2"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="3,0,0,3" TextWrapping="Wrap" Text="Color Scheme" VerticalAlignment="Bottom" Width="37" Foreground="White" Height="30" FontSize="10" FontWeight="Bold" Background="#FF687A93" TextAlignment="Center"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="37" Margin="343,0,0,5" VerticalAlignment="Bottom" Width="274" Background="#FF687A93">
+            <Button x:Name="btnAddAssociate" HorizontalAlignment="Left" Margin="63,5,0,0" VerticalAlignment="Top" Width="66" Height="27" FontWeight="Bold">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center"><Run Text="Add"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveAssociate" HorizontalAlignment="Left" Margin="203,5,0,0" VerticalAlignment="Top" Width="66" Height="27" FontWeight="Bold">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center"><Run Text="Remove"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnEditAssociate" HorizontalAlignment="Left" Margin="133,5,0,0" VerticalAlignment="Top" Width="66" Height="27" FontWeight="Bold">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center"><Run Text="Edit"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="2,0,0,8" TextWrapping="Wrap" Text="Associates" VerticalAlignment="Bottom" Width="55" Foreground="White" Height="17" FontSize="10" FontWeight="Bold" Background="#FF687A93" TextAlignment="Center"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="37" Margin="151,0,0,5" VerticalAlignment="Bottom" Width="187" Background="#FF687A93">
+            <Button x:Name="btnAddSecondRow" HorizontalAlignment="Left" Margin="47,5,0,0" VerticalAlignment="Top" Width="66" Height="27" FontWeight="Bold">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center"><Run Text="Add"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveSecondRow" HorizontalAlignment="Left" Margin="117,5,0,0" VerticalAlignment="Top" Width="66" Height="27" FontWeight="Bold">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center"><Run Text="Remove"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="3,0,0,3" TextWrapping="Wrap" Text="Second Row" VerticalAlignment="Bottom" Width="37" Foreground="White" Height="30" FontSize="10" FontWeight="Bold" Background="#FF687A93" TextAlignment="Center"/>
+        </Grid>
+
+        <Button x:Name="btnSave_Copy" Content="Save" HorizontalAlignment="Right" Margin="0,0,9,5" VerticalAlignment="Bottom" Width="60" Height="36" FontWeight="Bold"/>
+
+    </Grid>
+</UserControl>

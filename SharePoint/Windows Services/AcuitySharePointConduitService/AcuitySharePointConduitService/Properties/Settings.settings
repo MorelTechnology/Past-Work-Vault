@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AcuitySharePointConduitService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SPSiteURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rivernetqa.trg.com/Demo</Value>
+    </Setting>
+    <Setting Name="AlertsListName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RiverStone Alerts1</Value>
+    </Setting>
+    <Setting Name="EventsListName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RiverStone Events1</Value>
+    </Setting>
+    <Setting Name="TasksListName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RiverStone Tasks1</Value>
+    </Setting>
+    <Setting Name="EnableAlertMonitoring" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableEventMonitoring" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EnableTaskMonitoring" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DataFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\jmore\AcuityDataFiles</Value>
+    </Setting>
+    <Setting Name="AlertsFilenameMask" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">alerts*.xml</Value>
+    </Setting>
+    <Setting Name="EventsFilenameMask" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">events*.xml</Value>
+    </Setting>
+    <Setting Name="TasksFilenameMask" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tasks*.xml</Value>
+    </Setting>
+    <Setting Name="DefaultAlertExpiresInDays" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="DefaultTaskDueInDays" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

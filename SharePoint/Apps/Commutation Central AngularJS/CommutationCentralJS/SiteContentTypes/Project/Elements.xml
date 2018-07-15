@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x010024DD6346A71140619BE9E111721355E7" Name="Project" Group="Custom Content Types" Description="Project content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{a2d833ad-3493-4732-9fd9-56881f1618e7}" DisplayName="Counterparty Name" Required="TRUE" Name="CounterpartyName" />
+      <FieldRef ID="{5b17cf21-230a-40b9-9873-d57d98e2738b}" DisplayName="Commutation Project ID" Required="FALSE" Name="CommutationProjectID" />
+      <FieldRef ID="{af325ac2-dad1-46a9-89a4-f55696a6c554}" DisplayName="Primary Manager ID" Required="TRUE" Name="PrimaryManagerID" />
+      <FieldRef ID="{6b0fbc1d-4b3d-4b91-9b53-d1b34f9f99dd}" DisplayName="Secondary Manager ID" Required="FALSE" Name="SecondaryManagerID" />
+      <FieldRef ID="{483b7b52-8a47-46f2-9f89-8501736d8589}" DisplayName="Lead Office" Required="FALSE" Name="LeadOffice" />
+      <FieldRef ID="{75ca311d-fbb1-4ca0-980c-4e838bc8481d}" DisplayName="Requestor ID" Required="TRUE" Name="RequestorID" />
+      <FieldRef ID="{52be5866-6ba8-4f57-80b8-cbb766eed567}" DisplayName="Request Type" Required="TRUE" Name="RequestType" />
+      <FieldRef ID="{460bdfea-1eb1-41ac-90e7-53300c2c5d70}" DisplayName="Request Date" Required="TRUE" Name="RequestDate" Format="DateOnly" />
+      <FieldRef ID="{640e6cf8-dc50-40a1-bc9b-ce4b8a45bcd6}" DisplayName="Assigned Date" Required="FALSE" Name="AssignedDate" Format="DateOnly" />
+      <FieldRef ID="{548099c2-2861-4940-a4a8-a097d8f5be33}" DisplayName="Deal Priority" Required="FALSE" Name="DealPriority" />
+      <FieldRef ID="{b4ce4b59-d259-49ab-8c42-dbae49811fcf}" DisplayName="Commutation Status" Required="TRUE" Name="CommutationStatus" />
+      <FieldRef ID="{5715e1a3-476a-4d01-b941-4276e0f89030}" DisplayName="Commutation Status Change Date" Required="FALSE" Name="CommutationStatusChangeDate" />
+      <FieldRef ID="{4154ac93-5149-4a91-a590-5d393b961261}" DisplayName="Dropped Reason" Required="FALSE" Name="DroppedReason" />
+      <FieldRef ID="{bfe1c7a2-c83f-404b-891c-e8d89a5af8d5}" DisplayName="Commutation Type" Required="FALSE" Name="CommutationType" />
+      <FieldRef ID="{02d8a2cb-889a-4c45-911a-98dc05726cb3}" DisplayName="Exclusions" Required="FALSE" Name="Exclusions" />
+      <FieldRef ID="{31bf11f0-6aa2-40cd-95d4-c2f79f076432}" DisplayName="Company Status" Required="FALSE" Name="CompanyStatus" />
+      <FieldRef ID="{84e1a26c-a0c0-4408-8a72-9b9c4de4eaa7}" DisplayName="Financial Authority Assumed" Required="FALSE" Name="FinancialAuthority" />
+      <FieldRef ID="{85af040a-8f5d-4389-a66c-5471a4e4b2b0}" DisplayName="Financial Authority Granted By" Required="FALSE" Name="FinancialAuthorityGrantedBy" />
+      <FieldRef ID="{6980a079-0104-4e64-bc89-f656b6fa86a6}" DisplayName="Financial Authority Granted By Date" Required="FALSE" Name="FinancialAuthorityGrantedByDate" />
+      <FieldRef ID="{8de55724-9106-43e6-874b-5f09da6f2ffe}" DisplayName="Oversight Manager ID" Required="FALSE" Name="OversightManagerID" />
+      <FieldRef ID="{62c12961-0fac-44bc-b040-df37e6097064}" DisplayName="Financial Authority Ceded" Required="FALSE" Name="FinancialAuthorityCeded" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

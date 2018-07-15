@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListUrl="Lists/Initiative Tasks">
+      <Receiver>
+        <Name>UpdateOriginalDueDateItemUpdating</Name>
+        <Type>ItemUpdating</Type>
+        <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+        <Class>GAIT_Event_Receivers.UpdateOriginalDueDate.UpdateOriginalDueDate</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+  </Receivers>
+  <Receivers ListUrl="Lists/Issue Tasks">
+    <Receiver>
+      <Name>UpdateOriginalDueDateItemUpdating</Name>
+      <Type>ItemUpdating</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>GAIT_Event_Receivers.UpdateOriginalDueDate.UpdateOriginalDueDate</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+  </Receivers>
+  <Receivers ListUrl="Lists/Initiative Tasks">
+    <Receiver>
+      <Name>UpdateOriginalDueDateItemAdding</Name>
+      <Type>ItemAdding</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>GAIT_Event_Receivers.UpdateOriginalDueDate.UpdateOriginalDueDate</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+  </Receivers>
+  <Receivers ListUrl="Lists/Issue Tasks">
+    <Receiver>
+      <Name>UpdateOriginalDueDateItemAdding</Name>
+      <Type>ItemAdding</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>GAIT_Event_Receivers.UpdateOriginalDueDate.UpdateOriginalDueDate</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+  </Receivers>
+</Elements>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.ListDefinition" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Projects\" Type="ElementManifest" />
+    <ProjectItemFile Source="Schema.xml" Target="Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="NewItem.aspx" Target="Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="EditItem.aspx" Target="Projects\" Type="ElementFile" />
+  </Files>
+  <ExtensionData>
+    <ExtensionDataItem Key="Microsoft.VisualStudio.SharePoint.ListSettings.ListFieldsContentTypeID" Value="0x0100f30bb2f6ac0047f89be996ff4ddc2ddc" />
+  </ExtensionData>
+</ProjectItem>

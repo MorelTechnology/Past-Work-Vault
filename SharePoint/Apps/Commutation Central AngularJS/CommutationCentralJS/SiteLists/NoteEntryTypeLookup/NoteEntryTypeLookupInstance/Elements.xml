@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Note Entry Type Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/NoteEntryTypeLookup" Description="A list of available note entry types">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="NoteEntryTypeName">Call</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="NoteEntryTypeName">Conference Call</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="NoteEntryTypeName">E-Mail</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="NoteEntryTypeName">Meeting</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="NoteEntryTypeName">Progress Note</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

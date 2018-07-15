@@ -1,0 +1,34 @@
+﻿<div class="all-activities">
+    <h3>All Activities <button class="btn btn-primary" type="button" ng-click="getActivities()">Refresh</button></h3>
+    <div>
+        <table datatable="ng" class="row-border hover" dt-options="activityDTOptions">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Activity Title</th>
+                    <th>Counterparty Name</th>
+                    <th>Assigned To</th>
+                    <th>Created By</th>
+                    <th>Activity Category</th>
+                    <th>Due Date</th>
+                    <th>Entry Date</th>
+                    <th>Activity Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="activity in activities">
+                    <td><a href="" title="Attach Document" ng-click="attachDocument('Activity', activity.ID)"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+                    <td><a href="" title="Open/Edit Activity" ng-click="editActivity(activity.ID)">{{activity.Description}}</a></td>
+                    <td>{{activity.Project.CounterpartyName}}</td>
+                    <td>{{activity.AssignedTo.Title}}</td>
+                    <td>{{activity.Author.Title}}</td>
+                    <td>{{activity.ActivityCategory.ActivityCategoryName}}</td>
+                    <td>{{activity.TaskDueDate | date:'M/d/yyyy'}}</td>
+                    <td>{{activity.EntryDate | date:'M/d/yyyy'}}</td>
+                    <td>{{activity.ActivityStatus.ActivityStatusName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

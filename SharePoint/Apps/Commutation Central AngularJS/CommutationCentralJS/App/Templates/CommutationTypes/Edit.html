@@ -1,0 +1,12 @@
+﻿<h2>Edit Commutation Type</h2>
+<hr />
+<uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+<table class="item-app-table">
+    <tr>
+        <td class="field-label">Commutation Type Name</td>
+        <td class="value"><input type="text" data-ng-model="commutationType.CommutationTypeName" /></td>
+    </tr>
+</table>
+<hr />
+<button type="button" class="btn btn-primary" data-ng-disabled="inProgress" data-ng-click="editItem(commutationType)">Save</button>
+<button type="button" class="btn btn-warning" data-ng-disabled="inProgress" data-ng-click="cancel()">Cancel</button>

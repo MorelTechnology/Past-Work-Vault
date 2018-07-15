@@ -1,0 +1,989 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/16/2018 3:12:31 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JGABEL-LAP1"
+  DTS:CreatorName="TRG\jgabe"
+  DTS:DTSID="{637895DC-C858-4466-A71B-A6DE6D6D57D3}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LogJamsHistory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{3A82F9B4-41A0-4981-BDFF-89D3BFE1F4D7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7EF91626-C02A-4794-98A4-A34EAF41F9CA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastCompletion">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Last Completion Date"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{809A6384-1E0A-486D-9C86-87B7A5D6D8DD}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Last Completion Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CF741193-4819-4E53-ACF4-147CC97D3623}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(Completion_Time), '1900-01-01') AS LastLogEntry&#xA;FROM utility.JAMS_Executions"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LastLogEntry"
+            SQLTask:DtsVariableName="User::LastCompletion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move Data to IAFramework"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{16E708AE-71E7-4EEA-A146-027C607EE103}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move Data to IAFramework"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Move Data to IAFramework\Data Conversion"
+              componentClassID="DTSTransform.DataConvert.3"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Move Data to IAFramework\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\Data Conversion.Inputs[Data Conversion Input].Columns[Server_Name]"
+                      cachedDataType="nText"
+                      cachedName="Server_Name"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[Server_Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Move Data to IAFramework\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Server_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Server_Name]"
+                      name="Copy of Server_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[Server_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Move Data to IAFramework\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Move Data to IAFramework\OLE DB Destination"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[utility].[JAMS_Executions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move Data to IAFramework\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{CF741193-4819-4E53-ACF4-147CC97D3623}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Con_IAFramework]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[job_id]"
+                      cachedDataType="i4"
+                      cachedName="job_id"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Id]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_id]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[job_name]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="job_name"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Name]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_name]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[setup_id]"
+                      cachedDataType="i4"
+                      cachedName="setup_id"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Id]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_id]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[final_status]"
+                      cachedDataType="nText"
+                      cachedName="final_status"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Final_Status]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[final_status]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[submitted_by]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="submitted_by"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Submitted_By]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[submitted_by]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sched_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="sched_time"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sched_Time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[sched_time]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="start_time"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[completion_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="completion_time"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Completion_Time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[completion_time]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[job_folder]"
+                      cachedDataType="wstr"
+                      cachedLength="129"
+                      cachedName="job_folder"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Folder]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_folder]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nodename]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="nodename"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nodename]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[nodename]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[setup_name]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="setup_name"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Name]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_name]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[setup_folder]"
+                      cachedDataType="wstr"
+                      cachedLength="129"
+                      cachedName="setup_folder"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Folder]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_folder]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[step]"
+                      cachedDataType="i4"
+                      cachedName="step"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Step_No]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[step]" />
+                    <inputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Server_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="Copy of Server_Name"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Server_Name]"
+                      lineageId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Server_Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalRunTime]"
+                      dataType="i4"
+                      name="TotalRunTime" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Id]"
+                      dataType="i4"
+                      name="Job_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Name]"
+                      dataType="wstr"
+                      length="64"
+                      name="Job_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Id]"
+                      dataType="i4"
+                      name="Setup_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Final_Status]"
+                      dataType="nText"
+                      name="Final_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Submitted_By]"
+                      dataType="wstr"
+                      length="64"
+                      name="Submitted_By" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sched_Time]"
+                      dataType="dbTimeStamp"
+                      name="Sched_Time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Time]"
+                      dataType="dbTimeStamp"
+                      name="Start_Time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Completion_Time]"
+                      dataType="dbTimeStamp"
+                      name="Completion_Time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job_Folder]"
+                      dataType="wstr"
+                      length="512"
+                      name="Job_Folder" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nodename]"
+                      dataType="wstr"
+                      length="256"
+                      name="Nodename" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Step_No]"
+                      dataType="i4"
+                      name="Step_No" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Name]"
+                      dataType="wstr"
+                      length="64"
+                      name="Setup_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Setup_Folder]"
+                      dataType="wstr"
+                      length="512"
+                      name="Setup_Folder" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Server_Name]"
+                      dataType="wstr"
+                      length="64"
+                      name="Server_Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Move Data to IAFramework\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Move Data to IAFramework\OLE DB Source"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Hist]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">WITH foldercte  (folder_id, folder_name, parent_folder_id)
+AS
+	(
+		SELECT t.folder_id, f.folder_name+'\'+t.folder_name, t.parent_folder_id
+		FROM folder f
+		INNER JOIN folder t
+			ON f.folder_id = t.parent_folder_id
+	)
+
+SELECT 
+h.job_id, h.job_name, h.setup_id, h.finalsts_text AS final_status, h.submitted_by, h.sched_time
+, h.start_time, h.completion_time, fc.folder_name AS job_folder
+, h.nodename, sd.step, m.setup_name, fs.folder_name AS setup_folder
+, CASE WHEN source LIKE '%AgentServer%'
+	THEN SUBSTRING(SUBSTRING(source, CHARINDEX('AgentServer', source)+ 16, 20), 1, CHARINDEX(',', SUBSTRING(source, CHARINDEX('AgentServer', source)+ 16, 20))-2) 
+	WHEN source LIKE '%/SERVER%'
+	THEN SUBSTRING(SUBSTRING(source, CHARINDEX('/SERVER', source)+ 8, 20), 1, CHARINDEX('/', SUBSTRING(source, CHARINDEX('/SERVER', source)+ 8, 20))-2) 
+	WHEN source LIKE '%ServerName%' and ISNULL(h.nodename, '') = ''
+	THEN SUBSTRING(SUBSTRING(source, CHARINDEX('ServerName', source)+ 15, 20), 1, CHARINDEX(',', SUBSTRING(source, CHARINDEX('ServerName', source)+ 15, 20))-2) 
+	ELSE 'MHT01JAMSLocal'
+END AS Server_Name
+FROM Hist h
+LEFT JOIN Job j
+	ON h.job_id = j.job_id
+LEFT JOIN SetupD sd
+	ON h.setup_id = sd.setup_id
+		AND h.job_id = sd.job_id
+		AND h.ovr_job_name = sd.ovr_name
+LEFT JOIN SetupM m
+	ON h.setup_id = m.setup_id
+LEFT JOIN foldercte fc
+	ON j.folder_id = fc.folder_id
+LEFT JOIN foldercte fs
+	ON m.folder_id = fs.folder_id
+WHERE h.job_id != 0
+AND h.completion_time IS NOT NULL
+AND completion_time &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{7EF91626-C02A-4794-98A4-A34EAF41F9CA};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move Data to IAFramework\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{5C8E0CE0-D5F3-488E-AFAD-14D96EC1D41C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Con_JAMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_name]"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_name]"
+                      name="job_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_id]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_id]"
+                      name="setup_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[final_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[final_status]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[final_status]"
+                      name="final_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[submitted_by]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[submitted_by]"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[submitted_by]"
+                      name="submitted_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[sched_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sched_time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[sched_time]"
+                      name="sched_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_time]"
+                      name="start_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[completion_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[completion_time]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[completion_time]"
+                      name="completion_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_folder]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_folder]"
+                      length="129"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[job_folder]"
+                      name="job_folder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[nodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nodename]"
+                      length="256"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[nodename]"
+                      name="nodename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[step]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[step]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[step]"
+                      name="step"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_name]"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_name]"
+                      name="setup_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_folder]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_folder]"
+                      length="129"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[setup_folder]"
+                      name="setup_folder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[Server_Name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Server_Name]"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].Columns[Server_Name]"
+                      name="Server_Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      dataType="i4"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_name]"
+                      dataType="wstr"
+                      length="64"
+                      name="job_name" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_id]"
+                      dataType="i4"
+                      name="setup_id" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[final_status]"
+                      dataType="nText"
+                      name="final_status" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[submitted_by]"
+                      dataType="wstr"
+                      length="64"
+                      name="submitted_by" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sched_time]"
+                      dataType="dbTimeStamp"
+                      name="sched_time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_time]"
+                      dataType="dbTimeStamp"
+                      name="start_time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[completion_time]"
+                      dataType="dbTimeStamp"
+                      name="completion_time" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[job_folder]"
+                      dataType="wstr"
+                      length="129"
+                      name="job_folder" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nodename]"
+                      dataType="wstr"
+                      length="256"
+                      name="nodename" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[step]"
+                      dataType="i4"
+                      name="step" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_name]"
+                      dataType="wstr"
+                      length="64"
+                      name="setup_name" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[setup_folder]"
+                      dataType="wstr"
+                      length="129"
+                      name="setup_folder" />
+                    <externalMetadataColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Server_Name]"
+                      dataType="nText"
+                      name="Server_Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      name="job_id" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_name]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_name]"
+                      name="job_name" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_id]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_id]"
+                      name="setup_id" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[final_status]"
+                      dataType="nText"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[final_status]"
+                      name="final_status" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[submitted_by]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[submitted_by]"
+                      name="submitted_by" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sched_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sched_time]"
+                      name="sched_time" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_time]"
+                      name="start_time" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[completion_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[completion_time]"
+                      name="completion_time" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_folder]"
+                      dataType="wstr"
+                      length="129"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[job_folder]"
+                      name="job_folder" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nodename]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nodename]"
+                      name="nodename" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[step]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[step]"
+                      name="step" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_name]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_name]"
+                      name="setup_name" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_folder]"
+                      dataType="wstr"
+                      length="129"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[setup_folder]"
+                      name="setup_folder" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Server_Name]"
+                      dataType="nText"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Server_Name]"
+                      name="Server_Name" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Move Data to IAFramework.Paths[Data Conversion Output]"
+              endId="Package\Move Data to IAFramework\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Move Data to IAFramework\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Move Data to IAFramework.Paths[OLE DB Source Output]"
+              endId="Package\Move Data to IAFramework\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Move Data to IAFramework\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{805530DF-FBF6-4BFA-A4AA-BB13D473C0C8}"
+      DTS:From="Package\Get Last Completion Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Move Data to IAFramework" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Get Last Completion Date"
+          TopLeft="157,100" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Move Data to IAFramework"
+          TopLeft="151,246" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="256.75,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Move Data to IAFramework">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Move Data to IAFramework\OLE DB Destination"
+          TopLeft="213,405" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Move Data to IAFramework\OLE DB Source"
+          TopLeft="228,50" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Move Data to IAFramework\Data Conversion"
+          TopLeft="233,215" />
+        <EdgeLayout
+          Id="Package\Move Data to IAFramework.Paths[OLE DB Source Output]"
+          TopLeft="304,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,123"
+              Start="0,0"
+              End="8,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.5"
+                    Point2="0,61.5"
+                    Point3="4,61.5" />
+                  <mssgle:LineSegment
+                    End="4,61.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,61.5"
+                    Point2="8,61.5"
+                    Point3="8,65.5" />
+                  <mssgle:LineSegment
+                    End="8,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Move Data to IAFramework.Paths[Data Conversion Output]"
+          TopLeft="312,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,148"
+              Start="0,0"
+              End="-12.5,140.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70"
+                    Point2="0,74"
+                    Point3="-4,74" />
+                  <mssgle:LineSegment
+                    End="-8.5,74" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,74"
+                    Point2="-12.5,74"
+                    Point3="-12.5,78" />
+                  <mssgle:LineSegment
+                    End="-12.5,140.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Move Data to IAFramework\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Move Data to IAFramework\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,916 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CashFlow"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="CashFlow.MainWindow"
+        mc:Ignorable="d"
+        Title="Cash Flow Analysis" Height="817" Width="1320" SizeChanged="Window_SizeChanged">
+
+    <Window.Resources>
+
+        <!--<Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+            <Setter Property="Background" Value="Red" />
+        </Style>-->
+
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="3" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle StrokeDashArray="1 2" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" Margin="2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFD4B887" Offset="0.0"/>
+            <GradientStop Color="#FFB28F51" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
+        <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFECF4FC" Offset="0.0"/>
+            <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF7EB4EA"/>
+        <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFEBF4FC" Offset="0.0"/>
+            <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FF000000"/>
+        <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFDAECFC" Offset="0.0"/>
+            <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FF569DE5"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="#FF569DE5"/>
+        <LinearGradientBrush x:Key="ComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFDAEBFC" Offset="0.0"/>
+            <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="#FF569DE5"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Glyph" Color="#FFBFBFBF"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="#FFF0F0F0"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Border" Color="#FFD9D9D9"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Border" Color="#FFBFBFBF"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
+        <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="templateRoot" SnapsToDevicePixels="true" Background="{StaticResource ComboBox.Static.Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{StaticResource ComboBox.Static.Border}">
+                            <Border x:Name="splitBorder" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" SnapsToDevicePixels="true" Margin="0" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="Transparent">
+                                <Path x:Name="arrow" VerticalAlignment="Center" Margin="0" HorizontalAlignment="Center" Fill="{StaticResource ComboBox.Static.Glyph}" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"/>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Static.Editable.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Static.Editable.Border}"/>
+                                <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Static.Editable.Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Static.Editable.Button.Border}"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.MouseOver.Glyph}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Border}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Editable.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Editable.Border}"/>
+                                <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.MouseOver.Editable.Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.MouseOver.Editable.Button.Border}"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Pressed.Glyph}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Border}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Editable.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Pressed.Editable.Border}"/>
+                                <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Pressed.Editable.Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Pressed.Editable.Button.Border}"/>
+                            </MultiDataTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Disabled.Glyph}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Border}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Editable.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Editable.Border}"/>
+                                <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Border}"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                    <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                            <ScrollViewer x:Name="DropDownScrollViewer">
+                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                        <Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                    </Canvas>
+                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </Themes:SystemDropShadowChrome>
+                </Popup>
+                <ToggleButton x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                    <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                    <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="false">
+                    <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+                <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                    <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                    <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
+        <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="MinWidth" Value="0"/>
+            <Setter Property="MinHeight" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <ScrollViewer x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxEditableTemplate" TargetType="{x:Type ComboBox}">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                    <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                            <ScrollViewer x:Name="DropDownScrollViewer">
+                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                        <Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                    </Canvas>
+                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </Themes:SystemDropShadowChrome>
+                </Popup>
+                <ToggleButton x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+                <Border x:Name="border" Background="{StaticResource TextBox.Static.Background}" Margin="{TemplateBinding BorderThickness}">
+                    <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+                <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                    <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                    <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="false">
+                    <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+                <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                    <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                    <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="ComboBoxStyle1" TargetType="{x:Type ComboBox}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Padding" Value="6,3,5,3"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="IsEditable" Value="true">
+                    <Setter Property="IsTabStop" Value="false"/>
+                    <Setter Property="Padding" Value="2"/>
+                    <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <!-- -->
+    <Viewbox x:Name="viewbox" Stretch="Fill">
+        <Grid x:Name="gridTL" Loaded="Grid_Loaded" Margin="0,0,0,0" >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF33302E" Offset="0"/>
+                    <GradientStop Color="#FF817D78" Offset="0.994"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid x:Name="gridFilter" Height="71" Margin="40,60,0,0" VerticalAlignment="Top" Background="#FF2C2826" HorizontalAlignment="Left" Width="768">
+                <TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Filtering" VerticalAlignment="Top" Width="73" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="cbAssociate" HorizontalAlignment="Left" Margin="8,35,0,0" VerticalAlignment="Top" Width="158" FontSize="16" DisplayMemberPath="AdjustedName" SelectedValuePath="ActiveDirectoryID" SelectionChanged="cbAssociate_SelectionChanged" >
+                </ComboBox>
+                <TextBox x:Name="ebFilter" HorizontalAlignment="Left" Height="27" Margin="172,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" TextChanged="ebFilter_TextChanged" KeyUp="ebFilter_KeyUp" FontWeight="Bold" Padding="0,3,0,4" />
+                <Image HorizontalAlignment="Left" Height="20" Margin="321,48,0,0" VerticalAlignment="Top" Width="29" Source="images/search1.png" Visibility="Collapsed" />
+                <Button x:Name="btnShowAll" HorizontalAlignment="Left" Height="41" Margin="434,23,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold" Click="btnShowAll_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectShowAll" Fill="#FF3464B8" Width="7" Height="24" Opacity="1" Stroke="#FF837D7D" />
+                        <Label Content="Show All" Foreground="#FF303030" Width="65" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnShowIncomplete" HorizontalAlignment="Left" Height="41" Margin="524,23,0,0" VerticalAlignment="Top" Width="76" FontWeight="Bold" Click="btnShowIncomplete_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectPending" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="Pending" Foreground="#FF303030" Width="58" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnShowApproved" HorizontalAlignment="Left" Height="41" Margin="605,23,0,0" VerticalAlignment="Top" Width="86" FontWeight="Bold" Click="btnShowApproved_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectApproved" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="Approved" Foreground="#FF303030" Width="67" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnShowDenied" HorizontalAlignment="Left" Height="41" Margin="696,23,0,0" VerticalAlignment="Top" Width="67" FontWeight="Bold" Click="btnShowDenied_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectDenied" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="Denied" Foreground="#FF303030" Width="54" />
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="8,20,0,0" TextWrapping="Wrap" Text="Associate" VerticalAlignment="Top" Width="73" Foreground="#FFCBC9C9" FontSize="10"/>
+                <TextBlock HorizontalAlignment="Left" Margin="174,20,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="73" Foreground="#FFCBC9C9" FontSize="10"/>
+                <Button x:Name="btnClearFilter" Content="X" HorizontalAlignment="Left" Width="27" Margin="269,35,0,0" Foreground="White" FontSize="13" FontWeight="Bold" Click="btnClearFilter_Click_1" BorderBrush="#FFABADB3" Height="27" VerticalAlignment="Top">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD49595" Offset="0"/>
+                            <GradientStop Color="#FF973C3C" Offset="0.5"/>
+                            <GradientStop Color="#FF974040" Offset="0.534"/>
+                            <GradientStop Color="#FF6A0D0D" Offset="0.989"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="303,20,0,0" TextWrapping="Wrap" Text="Special Tracking Group" VerticalAlignment="Top" Width="120" Foreground="#FFCBC9C9" FontSize="10"/>
+                <ComboBox x:Name="cbSpecialTrackingGroup" HorizontalAlignment="Left" Margin="303,35,0,0" VerticalAlignment="Top" Width="120" FontSize="12" DisplayMemberPath="SpecialTrackingGroup" SelectedValuePath="SpecialTrackingGroup" SelectionChanged="cbSpecialTrackingGroup_SelectionChanged" Height="26"/>
+            </Grid>
+
+            <Grid x:Name="toolbar" Height="50"    VerticalAlignment="Top" Background="#FFBA934F" Margin="0,3,0,0" >
+                <Image HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="305" Source="images/RiverStone-Logo-AllBlack-White-small.png" MouseRightButtonUp="Image_MouseRightButtonUp" Margin="4,4,0,0" />
+                <TextBlock HorizontalAlignment="Center" Margin="489,9,489,14" TextWrapping="Wrap" Text="Cash Flow Analysis" Width="334" FontFamily="Tahoma" FontSize="22" TextAlignment="Center" FontWeight="Bold" Foreground="#FFF1F2F2"/>
+                <TextBlock x:Name="lblWelcome" HorizontalAlignment="Right" Margin="0,4,8,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Franklin Gothic Book" Text="Welcome" TextAlignment="Center" Height="15" MouseLeftButtonUp="lblWelcome_MouseLeftButtonUp" Foreground="White"/>
+                <TextBlock x:Name="lblCurrentUser" HorizontalAlignment="Right" Margin="0,17,8,19" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" Text="" TextAlignment="Center" FontWeight="Bold" Foreground="White" MouseLeftButtonUp="lblCurrentUser_MouseLeftButtonUp"/>
+                <TextBlock x:Name="lblVersion" HorizontalAlignment="Right" Margin="0,33,8,7" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" TextAlignment="Center" FontSize="10" Foreground="White" MouseLeftButtonUp="lblVersion_MouseLeftButtonUp"><Run Text="Version 3.71"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                <TextBlock x:Name="lblEnvironment" HorizontalAlignment="Center" Margin="489,33,489,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontFamily="Franklin Gothic Heavy" TextAlignment="Center" Foreground="#FFD4B887" Text="Production"/>
+                <TextBlock x:Name="lblSubstitutingFor" HorizontalAlignment="Right" Margin="0,6,128,32" TextWrapping="Wrap" Width="140" FontFamily="Franklin Gothic Book" FontSize="11" Foreground="White" MouseLeftButtonUp="lblVersion_MouseLeftButtonUp" Text="Substituting for:"/>
+                <!--<ComboBox x:Name="cbSubstitutingFor" HorizontalAlignment="Right" Margin="0,19,126,0" VerticalAlignment="Top" Width="131" Background="#FF8F2424" BorderBrush="#FF5B2B2B" Foreground="White" Style="{DynamicResource ComboBoxStyle1}" Height="24" FontWeight="Bold" DisplayMemberPath="ForAdjustedName" SelectedValuePath="ActiveDirectoryID" SelectionChanged="cbSubstitutingFor_SelectionChanged">-->
+                <ComboBox x:Name="cbSubstitutingFor" HorizontalAlignment="Right" Margin="0,19,128,0" VerticalAlignment="Top" Width="140" BorderBrush="#FF5B2B2B" Foreground="White"  Height="24" FontWeight="Bold" DisplayMemberPath="ForAdjustedName" SelectedValuePath="ActiveDirectoryID" SelectionChanged="cbSubstitutingFor_SelectionChanged">
+                    <ComboBox.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="DarkGoldenrod" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Gold" />
+                    </ComboBox.Resources>
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFBA934F" Offset="0"/>
+                            <GradientStop Color="#FF876A38" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                </ComboBox>
+            </Grid>
+
+            <Grid x:Name="gridBlueBar" Margin="0,53,0,0" Background="#FF2C2826" Height="6" VerticalAlignment="Top" />
+
+
+
+
+            <Grid x:Name="gridManagerActions" Height="71" Margin="959,60,0,0" VerticalAlignment="Top" Background="#FF2C2826" Visibility="Visible" HorizontalAlignment="Left" Width="162">
+                <TextBlock x:Name="lblManagerActions" HorizontalAlignment="Left" Margin="11,0,0,0" TextWrapping="Wrap" Text="Manager Actions" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <Button x:Name="btnApprove" Content="Approve" HorizontalAlignment="Left" Margin="9,23,0,0" VerticalAlignment="Top" Width="70" Height="41" Click="btnApprove_Click"/>
+                <Button x:Name="btnReject" Content="Deny" HorizontalAlignment="Left" Margin="85,23,0,0" VerticalAlignment="Top" Width="70" Height="41" Click="btnReject_Click"/>
+            </Grid>
+
+            <Grid x:Name="gridApplication" Height="83" Margin="369,66,10,0" VerticalAlignment="Top" Background="#FF687A93" Visibility="Collapsed"  >
+                <TextBlock HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Search Application" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <TextBox x:Name="ebAppFilter" HorizontalAlignment="Left" Height="24" Margin="11,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" />
+                <Image HorizontalAlignment="Left" Height="20" Margin="161,31,0,0" VerticalAlignment="Top" Width="23" Source="images/search1.png" />
+                <Button x:Name="btnModifyApplicationAccess" HorizontalAlignment="Left" Height="61" Margin="198,11,0,0" VerticalAlignment="Top" Width="220" FontWeight="Bold" Visibility="Collapsed" >
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Modify access for" FontWeight="Bold" TextAlignment="Center" Foreground="#FF375468" FontSize="14"  />
+                        <TextBlock x:Name="lblModifyButtonUserName" Text="" FontWeight="Normal" TextAlignment="Center" Foreground="Black"  />
+                        <TextBlock x:Name="lblModifyButtonApplicationName" Text="" FontWeight="Normal" TextAlignment="Center"  />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnNewApplicationAccess" HorizontalAlignment="Left" Height="61" Margin="423,11,0,0" VerticalAlignment="Top" Width="220" FontWeight="Bold" Visibility="Collapsed" >
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Add access for" FontWeight="Bold" TextAlignment="Center" Foreground="#FF375468" FontSize="14"  />
+                        <TextBlock Text="a new user in" FontWeight="Normal" TextAlignment="Center" Foreground="Black"  />
+                        <TextBlock x:Name="lblNewUserApplicationName" Text="" FontWeight="Normal" TextAlignment="Center"  />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Grid x:Name="gridDate" Height="83" Margin="369,66,10,0" VerticalAlignment="Top" Background="#FF687A93" Visibility="Collapsed">
+                <TextBlock HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Date stubby - figure out later" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+            </Grid>
+            <Grid x:Name="gridAnalystActions" Height="71" Margin="812,60,0,0" VerticalAlignment="Top" Background="#FF2C2826" Visibility="Visible" HorizontalAlignment="Left" Width="143">
+                <TextBlock x:Name="lblAnalystActions" HorizontalAlignment="Left" Margin="11,0,0,0" TextWrapping="Wrap" Text="Analyst Actions" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <Button x:Name="btnMakeAvailable" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="58" Height="41" Click="btnMakeAvailable_Click">
+                    <StackPanel>
+                        <TextBlock Text="Submit" TextAlignment="Center" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnRecall" Visibility="Visible" HorizontalAlignment="Left" Margin="74,23,0,0" VerticalAlignment="Top" Width="58" Height="41" Click="btnRecall_Click">
+                    <StackPanel>
+                        <TextBlock Text="Recall" TextAlignment="Center" Margin="0,-2,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnAllocateFromPortfolios" Visibility="Collapsed" HorizontalAlignment="Left" Margin="76,23,0,0" VerticalAlignment="Top" Width="62" Height="41" Click="btnAllocateFromPortfolios_Click">
+                    <StackPanel>
+                        <TextBlock Text="Allocate" TextAlignment="Center" Margin="0,-2,0,0" />
+                        <TextBlock Text="from" TextAlignment="Center" Margin="0,-4,0,0" FontSize="11" />
+                        <TextBlock Text="Portfolios" TextAlignment="Center" Margin="0,-4,0,0" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Grid x:Name="gridAdditional" Height="71" Margin="1125,60,5,0" VerticalAlignment="Top" Background="#FF2C2826" Visibility="Visible" PreviewMouseLeftButtonDown="gridAdditional_PreviewMouseLeftButtonDown" PreviewMouseRightButtonUp="gridAdditional_PreviewMouseRightButtonUp">
+                <TextBlock x:Name="lblAdditional" HorizontalAlignment="Left" Margin="11,0,0,0" TextWrapping="Wrap" Text="Additional" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <Button x:Name="btnApprove1" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="56" Height="41" Click="btnApprove_Click" Content="Reports" Visibility="Collapsed"/>
+                <Button x:Name="btnSecurity" Content="Admin" HorizontalAlignment="Left" Margin="9,23,0,0" VerticalAlignment="Top" Width="48" Height="41" Click="btnSecurity_Click"/>
+                <Image x:Name="image1" HorizontalAlignment="Right" Height="42" VerticalAlignment="Top" Width="55" Source="images/help3.png" MouseLeftButtonUp="image1_MouseLeftButtonUp" Margin="0,23,8,0"/>
+                <Button x:Name="btnDashboard" HorizontalAlignment="Left" Margin="63,23,0,0" VerticalAlignment="Top" Width="56" Height="41" Click="btnDashboard_Click" Visibility="Hidden">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="#FF2C2826" Width="6" Height="15" VerticalAlignment="Bottom" HorizontalAlignment="Left"  />
+                        <Rectangle Fill="#FF2C2826" Width="6" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="2,0,0,0" />
+                        <Rectangle Fill="#FF2C2826" Width="6" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="2,0,0,0" />
+                        <Rectangle Fill="#FF2C2826" Width="6" Height="9" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="2,0,0,0" />
+                        <Rectangle Fill="#FF2C2826" Width="6" Height="15" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="2,0,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCalendar" HorizontalAlignment="Left" Margin="63,23,0,0" VerticalAlignment="Top" Width="56" Height="41" Visibility="Visible" Click="btnCalendar_Click">
+                    <Image Source="images/calendar48.png"></Image>
+                </Button>
+            </Grid>
+            <Grid x:Name="gridMain" Margin="45,128,5,11" Background="#FF938D89" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="448" />
+                </Grid.RowDefinitions>
+
+                <GridSplitter Grid.Row="1" x:Name="gridSplitter" HorizontalAlignment="Stretch" Height="5"  ResizeDirection="Rows" ShowsPreview="True" Background="#FF665A52" MouseDoubleClick="gridSplitter_MouseDoubleClick"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Work Matters" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <DataGrid x:Name="dgWM" Margin="9,7,11,32" HorizontalGridLinesBrush="#FFAEA4A4" VerticalGridLinesBrush="#FFAEA4A4" AutoGenerateColumns="False"  IsReadOnly="True" SelectionChanged="dgWM_SelectionChanged"   >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" 
+						Value="{Binding Background}"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+
+
+
+                        <DataGridTemplateColumn  Header="" Width="25">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding StatusSymbolText}" Foreground="{Binding StatusColor}" FontWeight="{Binding FW}" FontFamily="Wingdings" TextAlignment="Center" FontSize="16"  />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Status" Width="90" Binding="{Binding Status}" Visibility="Visible" />
+                        <DataGridTextColumn x:Name="colSTG" Header="Special Tracking Group" Width="132" Binding="{Binding SpecialTrackingGroup}" Visibility="Visible" />
+
+
+                        <DataGridTextColumn Header="Work Matter" Width="95" Binding="{Binding WorkMatter}" Visibility="Visible" />
+                        <DataGridTextColumn Header="Analyst" Width="100" Binding="{Binding AssignedAdjuster}" Visibility="Visible" />
+                        <DataGridTextColumn Header="Insured" Width="220" Binding="{Binding InsuredName}" Visibility="Visible" />
+                        <DataGridTextColumn Header="Team" Width="80" Binding="{Binding Team}" Visibility="Collapsed" />
+                        <DataGridTextColumn Header="Unit" Width="80" Binding="{Binding Unit}" Visibility="Collapsed" />
+
+
+                        <DataGridTextColumn Header="Work Matter Description" Width="240" Binding="{Binding WorkMatterDescription}" Visibility="Visible" />
+                        <DataGridTextColumn Header="Portfolio" Width="120" Binding="{Binding Portfolio}" Visibility="Visible" />
+
+                        <DataGridTextColumn Header="'15 Q1 Loss" Width="72" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                        <DataGridTextColumn Header="'15 Q1 Def" Width="72" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                        <DataGridTextColumn Header="'15 Q1 Cov/DJ" Width="88" Binding="{Binding AccessTypeName}" Visibility="Collapsed" />
+                        <DataGridTextColumn x:Name="colY1" Header="XXXX *" Width="64" Binding="{Binding Year1Total, StringFormat=C0}"/>
+                        <DataGridTextColumn x:Name="colY2" Header="XXXX *" Width="64" Binding="{Binding Year2Total, StringFormat=C0}"/>
+                        <DataGridTextColumn x:Name="colY3" Header="XXXX *" Width="64" Binding="{Binding Year3Total, StringFormat=C0}"/>
+                        <DataGridTextColumn x:Name="colY4" Header="XXXX *" Width="64" Binding="{Binding Year4Total, StringFormat=C0}"/>
+
+                        <DataGridTemplateColumn Width="30" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding HasAssociationsImage}" Width="15" Height="15" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!-- width for gridWMEntry went from 482 to 542 -->
+                <Grid x:Name="gridWMEntry" Margin="0,0,0,0" Background="#FF938D89" Visibility="Visible" Width="542" HorizontalAlignment="Left" AllowDrop="True" Grid.Row="2">
+                    <Border x:Name="borderSave" CornerRadius="15" HorizontalAlignment="Right" Margin="0,1,10,0" VerticalAlignment="Top" BorderThickness="4" Visibility="Visible" BorderBrush="#FFFADA7A">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button x:Name="btnSave" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnSave_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <TextBlock Text="Save" Margin="6,0,0,0" TextAlignment="Center" Width="44"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+                    <TextBlock x:Name="lblExpentry" HorizontalAlignment="Left" Margin="11,0,0,253" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="245" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                    <DataGrid x:Name="dgNumbers" Margin="11,0,9,18" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="#FF9E9494" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="False" FontSize="14" SelectionUnit="Cell" CanUserAddRows="False" PreviewMouseDoubleClick="dgNumbers_PreviewMouseDoubleClick" BorderThickness="1,1,1,0" CellEditEnding="dgNumbers_CellEditEnding" SelectionChanged="dgNumbers_SelectionChanged" SelectedCellsChanged="dgNumbers_SelectedCellsChanged" VerticalAlignment="Bottom" Height="236" Background="#FFF0F0F0" >
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="IsTabStop" Value="False" />
+                                <Setter Property="Focusable" Value="False" />
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="Background" 
+                        Value="{Binding Background}"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn x:Name="colPeriod" Header="Period" Width="80">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock x:Name="tbPeriod" Text="{Binding Period, Mode=TwoWay}" Background="#FFE6E6E6" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="colAppName1" Header="Loss" Width="88" IsReadOnly="False">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox x:Name="tbLoss"  IsEnabled="true" Text="{Binding Loss, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" IsReadOnly="{Binding LossRO}" BorderThickness="0" TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!--<DataGridTemplateColumn Header="Def Exp" Width="88">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding DefExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" BorderThickness="0" TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown"  />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+
+                            <DataGridTemplateColumn Header="Def Exp&#x0a;Within limits" Width="88">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding DefExpIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding DefExpInColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" IsReadOnly="{Binding DefExpInRO}" BorderThickness="0" TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Def Exp&#x0a;Outside limits" Width="95">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding DefExpOut, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding DefExpOutColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  IsReadOnly="{Binding DefExpOutRO}" BorderThickness="0" TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="columnUnknown" Header="Def Exp&#x0a;Unknown" Width="95" Visibility="Hidden">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding DefExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFC5A194" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  IsReadOnly="True" BorderThickness="0" TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <DataGridTemplateColumn Header="Cov / DJ Exp" Width="88">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding CovDJ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" BorderThickness="0"  TextAlignment="Right" PreviewKeyDown="TextBox_PreviewKeyDown" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="colAssociate4" Header="Total" Width="81" Visibility="Visible">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Total}" Background="LightGray" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"   TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Rectangle x:Name="rect2" Height="5"  Fill="#FF665A52" Margin="0,0,0,274" VerticalAlignment="Bottom"  />
+                    <TextBlock x:Name="lblWMentry" HorizontalAlignment="Left" Margin="11,2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="258" Foreground="White" FontSize="14" Height="26" FontWeight="Bold"/>
+                    <TextBlock x:Name="lblSelectExposure1" Margin="10,0,0,110"  FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black" Foreground="#FFB0AB9E" Text="Select an Exposure" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#00818181" TextAlignment="Center" Width="522" />
+                    <TextBlock x:Name="lblSelectExposure2" Margin="10,0,0,83"  FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black" Foreground="#7FA3D9FF" Text="Read Only" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#00F0F0F0" TextAlignment="Center" Width="523" />
+                    <TextBlock x:Name="lblError" HorizontalAlignment="Left" Margin="225,0,0,220" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="245" Foreground="#FFF9BABA" FontSize="14" FontWeight="Bold" TextAlignment="Right"/>
+                </Grid>
+                <!-- gridClaimInfo left Was 482 -->
+                <Rectangle x:Name="rect1" Width="5" Fill="#FF665A52" Grid.Row="2" HorizontalAlignment="Left" Margin="542,0,0,0"  />
+                <!-- gridClaimInfo left Was 487 -->
+                <Grid x:Name="gridClaimInfo" Margin="547,0,0,0" Background="#FF938D89" Visibility="Visible" AllowDrop="True" Grid.Row="2">
+                    <Border CornerRadius="15" HorizontalAlignment="Left" Margin="236,5,0,0" VerticalAlignment="Top" Background="#FFC3C1C1" Visibility="Visible" >
+                        <Button x:Name="btnPreviousCFA" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="104" Height="20" BorderThickness="0" Click="btnPreviousCFA_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="96">
+                                <Ellipse x:Name="ovalPreviousCFA" Fill="#FF3464B8" Width="13" Height="13" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock Text="Previous CFA" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="15" HorizontalAlignment="Left" Margin="460,5,0,0" VerticalAlignment="Top" Background="#FFC3C1C1" Visibility="Collapsed" >
+                        <Button x:Name="btnCriticalDates" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="104" Height="20" BorderThickness="0" Click="btnCriticalDates_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="96">
+                                <Ellipse x:Name="ovalAttributes3" Fill="#FF3464B8" Width="13" Height="13" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock Text="Critical Dates" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="15" HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top" Background="#FFC3C1C1" >
+                        <Button x:Name="btnNotifications" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="104" Height="20" BorderThickness="0" Click="btnNotifications_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="96">
+                                <Ellipse x:Name="ovalNotifications2" Fill="#FF3464B8" Width="13" Height="13" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock Text="Notifications" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                    <Border CornerRadius="15" HorizontalAlignment="Left" Margin="124,5,0,0" VerticalAlignment="Top" Background="#FFC3C1C1" >
+                        <Button x:Name="btnExposure" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="104" Height="20" BorderThickness="0" Click="btnExposure_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="96">
+                                <Ellipse x:Name="ovalExposure" Fill="#FF3464B8" Width="13" Height="13" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock Text="Exposure" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                    <local:ucCriticalDates x:Name="criticalDates" Margin="0,30,0,0" />
+                    <local:ucNotification x:Name="notification" Margin="0,30,0,0" />
+                    <local:ucExposure x:Name="exposure" Margin="0,30,0,0" />
+                    <local:ucHistory x:Name="history" Margin="0,30,0,0" />
+                    <local:ucClaims x:Name="claims" Margin="0,30,0,0" />
+                    <local:ucPreviousCFA x:Name="previousCFA" Margin="0,30,0,0" />
+
+                    <Border x:Name="borderSplit" CornerRadius="15" HorizontalAlignment="Right" Margin="0,5,157,0" VerticalAlignment="Top" Visibility="Collapsed" >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button x:Name="btnSplit" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnSplit_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <TextBlock x:Name="btnSplitText" Text="Split" Margin="0,0,0,0" TextAlignment="Center" Width="56"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+
+                    <Border x:Name="borderSpread" CornerRadius="15" HorizontalAlignment="Right" Margin="0,5,10,0" VerticalAlignment="Top" Visibility="Visible" >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button x:Name="btnSpread" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnSpread_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <TextBlock x:Name="btnSpreadText" Text="Allocate" Margin="0,0,0,0" TextAlignment="Center" Width="56"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                    <Border x:Name="borderSaveExposureSplit" CornerRadius="15" HorizontalAlignment="Right" Margin="0,5,82,0" VerticalAlignment="Top" Visibility="Visible" >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button x:Name="btnSaveExposureSplit" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnSaveExposureSplit_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <TextBlock x:Name="btnSplitText1" Text="Save" Margin="0,0,0,0" TextAlignment="Center" Width="56"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+
+                    <Border x:Name="borderShowDelta" CornerRadius="15" HorizontalAlignment="Right" Margin="0,5,154,0" VerticalAlignment="Top" Visibility="Visible" >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button x:Name="btnShowDelta" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnShowDelta_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <Ellipse x:Name="ovalDeltas" Fill="#FF3464B8" Width="8" Height="12" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock x:Name="xxxxxxxxx3" Text="Deltas" Margin="0,0,0,0" TextAlignment="Center" Width="42"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+
+
+                    <Border x:Name="borderShowTotals" CornerRadius="15" HorizontalAlignment="Right" Margin="0,5,226,0" VerticalAlignment="Top" Visibility="Visible" >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                                <GradientStop Color="#FFEAEAEA"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Button x:Name="btnShowTotals" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="64" Height="20" BorderThickness="0" Click="btnShowTotals_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="56">
+                                <Ellipse x:Name="ovalTotals" Fill="#FF3464B8" Width="8" Height="12" HorizontalAlignment="Left" Opacity=".2"/>
+                                <TextBlock x:Name="xxxxxxx3" Text="Totals" Margin="0,0,0,0" TextAlignment="Center" Width="42"  />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+
+
+
+                    <!-- <ScrollViewer VerticalScrollBarVisibility="Auto" IsEnabled="False"> -->
+                    <!-- </ScrollViewer> -->
+                </Grid>
+
+
+                <ComboBox x:Name="cbBasis" HorizontalAlignment="Left" Height="24" Margin="10,48,0,0" Grid.Row="2" VerticalAlignment="Top" Width="387" RenderTransformOrigin="0.5,0.5" SelectionChanged="cbBasis_SelectionChanged">
+                    <ComboBoxItem Content="Joint Model with Actuarial"/>
+                    <ComboBoxItem Content="10 Num Years"/>
+                    <ComboBoxItem Content="10% Annual Decay"/>
+                    <ComboBoxItem Content="Variable Annual Decay (Explain in Comments)"/>
+                    <ComboBoxItem Content="External Actuarial Model"/>
+                    <ComboBoxItem Content="Other (Explain in Comments)"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="11,30,0,0" TextWrapping="Wrap" Text="Basis" VerticalAlignment="Top" Width="85" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBox x:Name="txtComments" HorizontalAlignment="Left" Margin="11,135,0,287" Grid.Row="2" TextWrapping="Wrap" Text="" Width="520" VerticalContentAlignment="Stretch" SpellCheck.IsEnabled="True" AcceptsReturn="True" TextChanged="txtComments_TextChanged" UndoLimit="98" MaxLength="1000"/>
+                <TextBlock HorizontalAlignment="Left" Margin="11,118,0,0" TextWrapping="Wrap" Text="Comments" VerticalAlignment="Top" Width="277" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2"/>
+                <Ellipse x:Name="ovalNotifications" HorizontalAlignment="Left" Height="71" Margin="537,733,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="150" Stroke="#FFEEA60D" StrokeThickness="6"/>
+                <Rectangle x:Name="rectNotifications" HorizontalAlignment="Left" Height="65" Margin="609,670,0,0" StrokeThickness="0" VerticalAlignment="Top" Width="6" Fill="#FFEEA60D"/>
+                <TextBlock x:Name="lblNotifications" Margin="415,625,0,0"  FontSize="36" FontWeight="Bold" FontFamily="Segoe UI Black" Foreground="#FFEEA60D" Text="You have notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#BFF0F0F0" />
+                <ComboBox x:Name="cbConfidence" HorizontalAlignment="Left" Height="24" Margin="402,48,0,0" Grid.Row="2" VerticalAlignment="Top" Width="129" RenderTransformOrigin="0.5,0.5" SelectionChanged="cbConfidence_SelectionChanged">
+                    <ComboBoxItem Content="High &gt;75%"/>
+                    <ComboBoxItem Content="Medium 50%-75%"/>
+                    <ComboBoxItem Content="Low &lt;50%"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="402,30,0,0" TextWrapping="Wrap" Text="Confidence Rating" VerticalAlignment="Top" Width="119" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBlock HorizontalAlignment="Left" Margin="11,74,0,0" TextWrapping="Wrap" Text="RWC Loss" VerticalAlignment="Top" Width="85" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBox x:Name="txtRWCLoss" HorizontalAlignment="Left" Height="24" Margin="11,92,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" PreviewKeyDown="txtRWCLoss_PreviewKeyDown" TextChanged="txtRWCLoss_TextChanged" LostFocus="txtRWCLoss_LostFocus"/>
+                <TextBlock x:Name="lblCommentCounter" HorizontalAlignment="Left" Margin="432,120,0,0" TextWrapping="Wrap" Text="0 / 1000" VerticalAlignment="Top" Width="99" Foreground="#FFDEDEDE" Grid.Row="2" TextAlignment="Right"/>
+                <TextBlock HorizontalAlignment="Left" Margin="142,74,0,0" TextWrapping="Wrap" Text="RWC Def Exp" VerticalAlignment="Top" Width="85" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBox x:Name="txtRWCDefExp" HorizontalAlignment="Left" Height="24" Margin="142,92,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" PreviewKeyDown="txtRWCDefExp_PreviewKeyDown" TextChanged="txtRWCDefExp_TextChanged" LostFocus="txtRWCDefExp_LostFocus"/>
+                <TextBlock HorizontalAlignment="Left" Margin="273,74,0,0" TextWrapping="Wrap" Text="RWC Cov/DJ Exp" VerticalAlignment="Top" Width="108" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBox x:Name="txtRWCCovDJ" HorizontalAlignment="Left" Height="24" Margin="273,92,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" TextChanged="txtRWCCovDJ_TextChanged" LostFocus="txtRWCCovDJ_LostFocus"/>
+                <TextBox x:Name="txtRWCTotal" HorizontalAlignment="Left" IsReadOnly="True" Height="24" Margin="404,92,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Background="Gainsboro" />
+                <TextBlock HorizontalAlignment="Left" Margin="404,74,0,0" TextWrapping="Wrap" Text="Total RWC" VerticalAlignment="Top" Width="108" Foreground="#FFDEDEDE" FontSize="14" Grid.Row="2" Height="26"/>
+                <TextBlock x:Name="lblKey1" HorizontalAlignment="Left" Margin="16,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="116" Foreground="White" FontSize="14" Text="Key"  />
+                <TextBlock x:Name="lblKey3" HorizontalAlignment="Left" Margin="69,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="104" Foreground="White" FontSize="14" Text="Submitted"  />
+                <TextBlock x:Name="lblKey5" HorizontalAlignment="Left" Margin="166,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="95" Foreground="White" FontSize="14" Text="Approved"  />
+                <TextBlock x:Name="lblKey7" HorizontalAlignment="Left" Margin="264,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="132" Foreground="White" FontSize="14" Text="Denied"  />
+                <Image x:Name="imgKey1" HorizontalAlignment="Left" Height="21" Margin="324,0,0,5" VerticalAlignment="Bottom" Width="68" Source="images/whitelink16.png" Stretch="None"/>
+                <TextBlock x:Name="lblKey8" HorizontalAlignment="Left" Margin="345,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="263" Foreground="White" FontSize="14" Text="Associated with other Work Matters"  />
+                <TextBlock x:Name="lblKey2" HorizontalAlignment="Left" Margin="53,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="11" Foreground="SandyBrown" FontSize="16" Text="l" FontFamily="Wingdings" Height="18"  />
+                <TextBlock x:Name="lblKey4" HorizontalAlignment="Left" Margin="151,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="11" Foreground="MediumSeaGreen" FontSize="16" Text="l" FontFamily="Wingdings" Height="18"  />
+                <TextBlock x:Name="lblKey6" HorizontalAlignment="Left" Margin="244,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="11" Foreground="Firebrick" FontSize="16" Text="n" FontFamily="Wingdings" Height="18"  />
+                <Border x:Name="borderShowAssociations" CornerRadius="15" HorizontalAlignment="Right" Margin="0,0,11,3" VerticalAlignment="Bottom" Visibility="Visible" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA4A4A4" Offset="0.996"/>
+                            <GradientStop Color="#FFEAEAEA"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Button x:Name="btnShowAssociations" Style="{StaticResource MyButtonStyle}"  Margin="2" Background="#00000000" Foreground="Black" Width="36" Height="20" BorderThickness="0" Click="btnShowAssociations_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="17">
+                            <Image Source="images/link16.png" />
+                        </StackPanel>
+                    </Button>
+                </Border>
+                <Grid Grid.Row="0"  x:Name="gridFilterTop" Background="#FF89A3B2" Opacity=".6" Visibility="Collapsed" Margin="0,-79,0,0"  />
+                <Grid Grid.Row="2" Width="547" x:Name="gridFilterWMExp" Background="#FF89A3B2" Opacity=".6" Visibility="Collapsed" HorizontalAlignment="Left" Margin="-1,0,0,0"  />
+                <Grid Grid.Row="2" x:Name="gridFilterBottom" Background="#FF89A3B2" Opacity=".6" Visibility="Collapsed"  />
+                <TextBlock Grid.Row="2" x:Name="lblSaved" Margin="11,0,0,187"  FontSize="120" FontWeight="Bold" FontFamily="Segoe UI Black" Foreground="#FF7ED49D" Text="Saved" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#0039AA27" TextAlignment="Center" Width="520" Visibility="Hidden" />
+                <TextBlock x:Name="lblKey9" HorizontalAlignment="Left" Margin="596,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="263" Foreground="White" FontSize="14" Text="* PFI totals are for quarters known" FontStyle="Italic"  />
+            </Grid>
+
+            <Image x:Name="image" HorizontalAlignment="Left" Margin="0,60,0,0" Width="40" Stretch="None" Source="images/rocks-vertical-1280-thin.png"/>
+            <Grid x:Name="gridOpaque" Background="#FF89A3B2" Opacity="0.6" Visibility="Collapsed"  />
+            <Grid x:Name="gridHelp" Height="430" Width="465" Background="#FF665A52" Visibility="Collapsed">
+                <Grid Height="36" Margin="0" VerticalAlignment="Top" >
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF958478"/>
+                            <GradientStop Color="#FF463D38" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Help and Support" VerticalAlignment="Top" Width="652" Foreground="White" FontSize="24"/>
+                </Grid>
+                <Grid x:Name="gridTicket" Width="365" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Background="White" Height="253" Visibility="Hidden" >
+                    <ScrollViewer>
+                        <TextBlock x:Name="tbNote" TextWrapping="Wrap" Text=""  FontSize="11"  />
+                    </ScrollViewer>
+                </Grid>
+                <Grid Height="53" VerticalAlignment="Bottom" Background="#FF938D89" >
+                    <Button x:Name="btnCancel" Content="Close" HorizontalAlignment="Right" Height="41" Margin="0,5,8,0" VerticalAlignment="Top" Width="84" Click="btnCancel_Click"/>
+                </Grid>
+                <Button x:Name="btnVideo" HorizontalAlignment="Left" Height="88" Margin="29,53,0,0" VerticalAlignment="Top" Width="401" Click="btnVideo_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA8A79B" Offset="0.987"/>
+                            <GradientStop Color="#FFD8D7C3" Offset="0.5"/>
+                            <GradientStop Color="#FFA8A79B"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="370">
+                        <Image Source="images/movie.png" Height="61" Width="69" />
+                        <TextBlock Text=" Training Video" FontSize="36" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnUserGuide" HorizontalAlignment="Left" Height="88" Margin="29,158,0,0" VerticalAlignment="Top" Width="401" Click="btnUserGuide_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA8A79B" Offset="0.987"/>
+                            <GradientStop Color="#FFD8D7C3" Offset="0.5"/>
+                            <GradientStop Color="#FFA8A79B"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="370">
+                        <Image Source="images/document.png" Height="61" Width="69" />
+                        <TextBlock Text=" User's Guide" FontSize="36" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnReportBug" HorizontalAlignment="Left" Height="88" Margin="29,263,0,0" VerticalAlignment="Top" Width="401" Click="btnReportBug_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA8A79B" Offset="0.987"/>
+                            <GradientStop Color="#FFD8D7C3" Offset="0.5"/>
+                            <GradientStop Color="#FFA8A79B"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="370">
+                        <Image Source="images/helpdesk.png" Height="61" Width="69" />
+                        <TextBlock Text=" Report a Bug" FontSize="36" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+            <local:SecurityEdit x:Name="ucSecurity" Margin="40,60,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+            <local:RejectionReason x:Name="ucReason" Margin="0,50,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+            <local:SelectUser x:Name="ucQAUser" Margin="0,50,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+            <local:ucAssociated x:Name="associated" Margin="0,50,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+            <local:Dashboard x:Name="dashboard" Margin="0,50,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+            <local:ucCalendar x:Name="calendar" Margin="0,-0,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+
+            <Image x:Name="imgWait" Height="137" Margin="235,0,0,231" Source="images/please wait.png" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Hidden">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform x:Name="imgAngle" Angle="30"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Grid x:Name="gridBlueBar_Copy" Background="#FF2C2826" Height="6" VerticalAlignment="Top" />
+        </Grid>
+    </Viewbox>
+</Window>

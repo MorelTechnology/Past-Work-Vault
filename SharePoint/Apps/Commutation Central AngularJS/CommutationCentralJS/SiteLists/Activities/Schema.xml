@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Activities" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Activities" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x01002CB4ED0CADE34992A1653238065BA3F2" Name="Activity" Group="Custom Content Types" Description="Activity Content Type" Inherits="FALSE" Version="0"><FieldRefs><FieldRef ID="{d07a57ec-70be-496f-a62f-604ecf977714}" DisplayName="Description" Required="TRUE" Name="Description" /><FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" /><FieldRef ID="{a78eb960-b5b9-44c2-adac-0328783b6e3d}" DisplayName="Activity Category" Required="TRUE" Name="ActivityCategory" /><FieldRef ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" DisplayName="Entry Date" Required="TRUE" Name="EntryDate" Format="DateOnly" /><FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" DisplayName="$Resources:core,Assigned_To;" Required="TRUE" Name="AssignedTo" /><FieldRef ID="{63f33f6a-b060-420b-809f-6a711d181324}" DisplayName="Activity Priority" Required="FALSE" Name="ActivityPriority" /><FieldRef ID="{86245a4e-785c-4691-9b6e-c4ce28e56890}" DisplayName="Activity Status" Required="FALSE" Name="ActivityStatus" /><FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" DisplayName="$Resources:core,Due_Date;" Name="TaskDueDate" Format="DateOnly" /><FieldRef ID="{af33f780-2e9c-42ca-a810-1bfd11661021}" DisplayName="Activity Status Change Date" Required="FALSE" Name="ActivityStatusChangeDate" /><FieldRef ID="{c034f17d-ba6b-42f0-8d87-63cf98fb6179}" DisplayName="Activity Dropped Reason" Required="FALSE" Name="ActivityDroppedReason" /><FieldRef ID="{5684e6fc-6828-4fb8-94af-cd9af672b09d}" DisplayName="Initial Due Date" Required="FALSE" Name="InitialDueDate" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{d07a57ec-70be-496f-a62f-604ecf977714}" Name="Description" DisplayName="Description" Type="Text" Required="TRUE" Group="Custom Site Columns"></Field><Field ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" Name="Project" DisplayName="Project" Type="Lookup" Required="True" Group="Custom Site Columns" List="Lists/Projects" ShowField="CounterpartyName" RelationshipDeleteBehavior="Cascade" Indexed="TRUE"></Field><Field ID="{a78eb960-b5b9-44c2-adac-0328783b6e3d}" Name="ActivityCategory" DisplayName="Activity Category" Type="Lookup" Required="TRUE" Group="Custom Site Columns" List="Lists/Activity Category Lookup" ShowField="ActivityCategoryName" RelationshipDeleteBehavior="Restrict" Indexed="TRUE"></Field><Field ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" Name="EntryDate" DisplayName="Entry Date" Type="DateTime" Required="TRUE" Group="Custom Site Columns" Format="DateOnly"></Field><Field ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="AssignedTo" Group="$Resources:core,Issue_Task_Columns;" Type="User" List="UserInfo" DisplayName="$Resources:core,Assigned_To;" Required="TRUE" /><Field ID="{63f33f6a-b060-420b-809f-6a711d181324}" Name="ActivityPriority" DisplayName="Activity Priority" Type="Lookup" Required="FALSE" Group="Custom Site Columns" List="Lists/Activity Priority Lookup" ShowField="ActivityPriorityName" RelationshipDeleteBehavior="Restrict" Indexed="TRUE"></Field><Field ID="{86245a4e-785c-4691-9b6e-c4ce28e56890}" Name="ActivityStatus" DisplayName="Activity Status" Type="Lookup" Required="FALSE" Group="Custom Site Columns" List="Lists/Activity Status Lookup" ShowField="ActivityStatusName" RelationshipDeleteBehavior="Restrict" Indexed="TRUE"></Field><Field ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="TaskDueDate" Group="$Resources:core,Issue_Task_Columns;" Type="DateTime" DisplayName="$Resources:core,Due_Date;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="TaskDueDate" Format="DateOnly" /><Field ID="{af33f780-2e9c-42ca-a810-1bfd11661021}" Name="ActivityStatusChangeDate" DisplayName="Activity Status Change Date" Type="DateTime" Required="FALSE" Group="Custom Site Columns"></Field><Field ID="{c034f17d-ba6b-42f0-8d87-63cf98fb6179}" Name="ActivityDroppedReason" DisplayName="Activity Dropped Reason" Type="Lookup" Required="FALSE" Group="Custom Site Columns" List="Lists/Activity Dropped Reason Lookup" ShowField="ActivityDroppedReasonName" RelationshipDeleteBehavior="Restrict" Indexed="TRUE"></Field><Field ID="{5684e6fc-6828-4fb8-94af-cd9af672b09d}" Name="InitialDueDate" DisplayName="Initial Due Date" Type="DateTime" Required="FALSE" Group="Custom Site Columns"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="Description" /><FieldRef Name="Project" /><FieldRef Name="ActivityCategory" /><FieldRef Name="EntryDate" /><FieldRef Name="AssignedTo" /><FieldRef Name="ActivityPriority" /><FieldRef Name="ActivityStatus" /><FieldRef Name="TaskDueDate" /><FieldRef Name="ActivityStatusChangeDate" /><FieldRef Name="ActivityDroppedReason" /><FieldRef Name="InitialDueDate" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

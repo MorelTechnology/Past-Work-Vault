@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Application", "Integration Services Project1\Application.dtproj", "{DBA6560D-A263-4EB9-9BF1-70E4C2D186B9}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Integration\u0020Services\u0020Project1\\Application.dtproj
+		SccProjectName1 = Integration\u0020Services\u0020Project1
+		SccLocalPath1 = Integration\u0020Services\u0020Project1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBA6560D-A263-4EB9-9BF1-70E4C2D186B9}.Development|Default.ActiveCfg = Development
+		{DBA6560D-A263-4EB9-9BF1-70E4C2D186B9}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100943CCAC8644A4578B6A5F3C1342115C4" Name="Activity Document" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{d0511338-8eee-4c68-afaa-c24995ba4e6e}" DisplayName="Activity" Required="TRUE" Name="Activity" />
+      <FieldRef ID="{9dc3ce31-163f-4a1b-bdca-ce9c02ce06f9}" DisplayName="Counterparty Name" Required="TRUE" Name="CounterpartyName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

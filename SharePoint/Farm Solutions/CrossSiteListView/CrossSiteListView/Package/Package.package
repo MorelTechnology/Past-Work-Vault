@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ac0d5226-4407-461e-a5c5-2b34577b034d" solutionId="ac0d5226-4407-461e-a5c5-2b34577b034d" resetWebServer="false" sharePointProductVersion="15.0" name="CrossSiteListView" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="7a20dc11-3734-4160-b40d-268a8fdff9ea" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="4f97be21-237b-4209-af0e-2a1fe3a568b7" />
+    <projectItemReference itemId="2a2c8c6a-1b42-4194-8e7e-10fcdfb45a2b" />
+  </projectItems>
+</package>

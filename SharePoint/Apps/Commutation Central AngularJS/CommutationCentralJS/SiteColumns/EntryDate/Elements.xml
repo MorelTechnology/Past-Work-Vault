@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}"
+       Name="EntryDate"
+       DisplayName="Entry Date"
+       Type="DateTime"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       Format="DateOnly">
+  </Field>
+</Elements>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Dropped Reason Lookup" OnQuickLaunch="TRUE" TemplateType="10007" Url="Lists/Dropped Reason Lookup" Description="Dropped Reason Lookup">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Title">None</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Title">Price</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Title">Priority</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="Title">Third Party Interest</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="Title">Internal Interest</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="Title">Credit Issues</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="Title">Dispute Issues</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="Title">Resource</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">9</Field>
+          <Field Name="Title">Internal Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">10</Field>
+          <Field Name="Title">External Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">11</Field>
+          <Field Name="Title">Regulatory Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">12</Field>
+          <Field Name="Title">Other</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">13</Field>
+          <Field Name="Title">No Appetite</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

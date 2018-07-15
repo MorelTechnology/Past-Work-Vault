@@ -1,0 +1,174 @@
+ServiceID,Name,Description,LargeAreaDescription
+111,IDs (Accounts),User accounts are the actual user IDs used to enter the network environment (TRG domain).  It will eventually be given access to various applications, data, etc. but, in itself, it is the entry point for the individual to enter the environment overall.,User accounts are the actual user IDs used to enter the network environment (TRG domain).  It will eventually be given access to various applications, data, etc. but, in itself, it is the entry point for the individual to enter the environment overall.
+112,AD groups / access,Active directory (AD) is a directory service for the network used to authenticate and authorize all users and computers in a Windows domain.  Putting IDs into groups is beneficial to simplify administration and enforce security policies.  AD groups are used for two primary functions: security and distribution.  Distribution groups are specific to Outlook and the sending of email to a static group of recipients on a consistent basis.  Security is for groups of people to gain consistent access to files, folders, etc.  ,Active directory (AD) is a directory service for the network used to authenticate and authorize all users and computers in a Windows domain.  Putting IDs into groups is beneficial to simplify administration and enforce security policies.  AD groups are used for two primary functions: security and distribution.  Distribution groups are specific to Outlook and the sending of email to a static group of recipients on a consistent basis.  Security is for groups of people to gain consistent access to files, folders, etc.  
+113,Associate Changes,Each account definition includes the individual's name, office, department, position, etc.  This service is intended to support any changes to that information, such as name changes, position changes, reporting structure, etc.  ,Each account definition includes the individual's name, office, department, position, etc.  This service is intended to support any changes to that information, such as name changes, position changes, reporting structure, etc.  
+114,Databases,In general, access to databases should be granted via business applications which controls and documents all activity.  However, there are times when access is needed beyond the capabilities of the applications, such as direct database access or ODBC connections.,In general, access to databases should be granted via business applications which controls and documents all activity.  However, there are times when access is needed beyond the capabilities of the applications, such as direct database access or ODBC connections.
+115,File/Folder,A great deal of data is stored outside of databases, such as on SharePoint or on file shares (e.g. H: drive).  This service is specific to the file share access.  In general, access to files and folders is granted based on position/role.  However, there are times when this access is not granted automatically so it must be explicitly requested.,A great deal of data is stored outside of databases, such as on SharePoint or on file shares (e.g. H: drive).  This service is specific to the file share access.  In general, access to files and folders is granted based on position/role.  However, there are times when this access is not granted automatically so it must be explicitly requested.
+116,RiverStone Applications,Application access is determined by position and job function.  Standard application access is granted upon hire.  If additional access to applications is required, an explicit request must be submitted.  Applications included in this category are:
+Acuity
+Authority Guidelines
+Blue Jeans
+Commutation Central
+Concur
+Cornerstone/UltiPro
+DataHaven
+Data Warehouse
+File Trail
+FlyDoc
+Claims Center
+Contact Manager
+IBOR
+Jet Reports
+Maas360
+MacroView
+MoveIT
+Navision
+North Door Sanctions Checker (OFAC)
+Ops Console
+PaperVision
+PICS / Novation
+Sapiens
+SCOM
+Script Engine (RSSE)
+Service Desk
+SharePoint
+STARS
+TFS
+Time Tracking
+TrialNet
+Wings
+Xactium,Application access is determined by position and job function.  Standard application access is granted upon hire.  If additional access to applications is required, an explicit request must be submitted.  Applications included in this category are:
+Acuity
+Authority Guidelines
+Blue Jeans
+Commutation Central
+Concur
+Cornerstone/UltiPro
+DataHaven
+Data Warehouse
+File Trail
+FlyDoc
+Claims Center
+Contact Manager
+IBOR
+Jet Reports
+Maas360
+MacroView
+MoveIT
+Navision
+North Door Sanctions Checker (OFAC)
+Ops Console
+PaperVision
+PICS / Novation
+Sapiens
+SCOM
+Script Engine (RSSE)
+Service Desk
+SharePoint
+STARS
+TFS
+Time Tracking
+TrialNet
+Wings
+Xactium
+117,Affiliate Applications,Certain roles within RiverStone require use of applications at some of our affiliate sites.  Though RiverStone does not own these applications, we can assist in some of the support activities.  Applications included in this category are:
+CFINS - Crum & Foster
+Claims Assure
+First Mercury
+Hyperion
+Odyssey
+PINS
+WINS
+Zenith,Certain roles within RiverStone require use of applications at some of our affiliate sites.  Though RiverStone does not own these applications, we can assist in some of the support activities.  Applications included in this category are:
+CFINS - Crum & Foster
+Claims Assure
+First Mercury
+Hyperion
+Odyssey
+PINS
+WINS
+Zenith
+118,E-Mail Account,Access to your Outlook account is part of the standard setup for all associates.  There are occasions where additional accounts are required (e.g., shared group mailboxes) or access to others' accounts is required.  This service supports those needs.,Access to your Outlook account is part of the standard setup for all associates.  There are occasions where additional accounts are required (e.g., shared group mailboxes) or access to others' accounts is required.  This service supports those needs.
+119,SharePoint,SharePoint is a Microsoft web application framework and platform, providing a portal for collaboration, file sharing and storage, and document management.  RiverStone has a Home Page (RiverNet), containing corporate information, links, announcements, etc.  We also have separate sites broken out by business units and specific projects.  
+- Site Owners -
+Acquisitions - Karen Cronin, Tawhid Rahman, Timothy Donlon
+Acquisitions Done R Way - Karen Schoch
+Cybersecurity - Marc Vance
+Finance (main Site) - Matt Kunish
+Finance (Accounting) - Megan Cairns
+Finance (Actuarial) - Tetteh Otuteye
+Claims - Michael Owen, Wilson Townsend and/or Robert Sampson
+Operations - Joe Zampella
+BIU - Amy Shakow
+IT - Karyn Myers
+Project Management - Charissa Pulsifer
+OGC - John Siegart
+Corporate Legal - Sherryl Scott
+Assurance - Stephen Osborne
+Litigation Management - Jennifer Lemire
+Commutations - Matthew Cook
+Human Resources - Jim Kelly
+Reinsurance - Ann Weikers,SharePoint is a Microsoft web application framework and platform, providing a portal for collaboration, file sharing and storage, and document management.  RiverStone has a Home Page (RiverNet), containing corporate information, links, announcements, etc.  We also have separate sites broken out by business units and specific projects.  
+- Site Owners -
+Acquisitions - Karen Cronin, Tawhid Rahman, Timothy Donlon
+Acquisitions Done R Way - Karen Schoch
+Cybersecurity - Marc Vance
+Finance (main Site) - Matt Kunish
+Finance (Accounting) - Megan Cairns
+Finance (Actuarial) - Tetteh Otuteye
+Claims - Michael Owen, Wilson Townsend and/or Robert Sampson
+Operations - Joe Zampella
+BIU - Amy Shakow
+IT - Karyn Myers
+Project Management - Charissa Pulsifer
+OGC - John Siegart
+Corporate Legal - Sherryl Scott
+Assurance - Stephen Osborne
+Litigation Management - Jennifer Lemire
+Commutations - Matthew Cook
+Human Resources - Jim Kelly
+Reinsurance - Ann Weikers
+120,Password / Account Lockout,RiverStone's Group Policy dictates that network passwords must be changed every 45 days or sooner or they will expire.  Passwords must comply with the password policy (communicated to all associates at the time of hire).  All non-associate accounts are set to expire 30 days after enablement unless a specific termination date is communicated to IT.  If a password expires, the Password Reset Portal is to be used to reset it.  You MUST register within the portal while the ID is active in order to utilize it for resetting the password later.,RiverStone's Group Policy dictates that network passwords must be changed every 45 days or sooner or they will expire.  Passwords must comply with the password policy (communicated to all associates at the time of hire).  All non-associate accounts are set to expire 30 days after enablement unless a specific termination date is communicated to IT.  If a password expires, the Password Reset Portal is to be used to reset it.  You MUST register within the portal while the ID is active in order to utilize it for resetting the password later.
+121,Building Access,Access to all RiverStone offices requires an electronic security badge.  The badges are used at the card readers at all office entrances, though access will be restricted to those areas required by the associate.,Access to all RiverStone offices requires an electronic security badge.  The badges are used at the card readers at all office entrances, though access will be restricted to those areas required by the associate.
+122,Hire/Termination,Human Resources is to be involved any time a person (associate, contractor, consultant, temp, or intern) joins or leaves the RiverStone organization.  This service simplifies the New Hire and Termination processes for the Human Resources representative by joining multiple activities into a single request.  If an account is to be created or deleted for an affiliate employee or anyone else who is not actually part of the RiverStone organization specifically, the manager should go through the Accounts & Access > IDs (Accounts) option.  If in doubt, please see Human Resources.,Human Resources is to be involved any time a person (associate, contractor, consultant, temp, or intern) joins or leaves the RiverStone organization.  This service simplifies the New Hire and Termination processes for the Human Resources representative by joining multiple activities into a single request.  If an account is to be created or deleted for an affiliate employee or anyone else who is not actually part of the RiverStone organization specifically, the manager should go through the Accounts & Access > IDs (Accounts) option.  If in doubt, please see Human Resources.
+123,Software and Internal Business Apps,All software / applications that are installed on RiverStone PCs and directly supported by RiverStone's IT department are included in this service.  Initial install of the base software is triggered by the New Hire request process.  All subsequent activity (re-installs, administrative procedures, issues or problems, enhancement suggestions, or assistance with how to use the application) require a Service request.  ,All software / applications that are installed on RiverStone PCs and directly supported by RiverStone's IT department are included in this service.  Initial install of the base software is triggered by the New Hire request process.  All subsequent activity (re-installs, administrative procedures, issues or problems, enhancement suggestions, or assistance with how to use the application) require a Service request.  
+124,Batch Jobs,Some business processes require the use of batch jobs (predefined functions with no user interface).  These jobs will generally be defined by IT based on the functional design of a larger effort.  However, there may be occasions when the business user identifies enhancement opportunities as well.  This service addresses all administration of these jobs.  ,Some business processes require the use of batch jobs (predefined functions with no user interface).  These jobs will generally be defined by IT based on the functional design of a larger effort.  However, there may be occasions when the business user identifies enhancement opportunities as well.  This service addresses all administration of these jobs.  
+125,SQL Server,All databases supported by RiverStone's IT department are within the SQL Server environment.  Any activity against these databases is to be requested under this service.  Most activity at this level is specific to IT though there may be occasional exceptions.,All databases supported by RiverStone's IT department are within the SQL Server environment.  Any activity against these databases is to be requested under this service.  Most activity at this level is specific to IT though there may be occasional exceptions.
+126,File Share,Data that is not in databases is generally stored in a file share.  This would include individuals' H: drives as well as any other shared location.  Technically, SharePoint also falls into this category but, in general, SharePoint is administered differently so it falls into a different service.  See the SharePoint service for any needs there.,Data that is not in databases is generally stored in a file share.  This would include individuals' H: drives as well as any other shared location.  Technically, SharePoint also falls into this category but, in general, SharePoint is administered differently so it falls into a different service.  See the SharePoint service for any needs there.
+127,BIU Reports,The Business Intelligence Unit (BIU) is responsible for most reporting needs.  They not only handle most ad hoc reporting needs but also many of the more permanent reports.  This service handles all of those needs unless reporting requirements are provided under the umbrella of a larger project or enhancement.,The Business Intelligence Unit (BIU) is responsible for most reporting needs.  They not only handle most ad hoc reporting needs but also many of the more permanent reports.  This service handles all of those needs unless reporting requirements are provided under the umbrella of a larger project or enhancement.
+128,SSRS Reports,Reports that are needed on a more permanent basis (as opposed to a one-time ad hoc requirement) are developed by IT.  The request will generally come from either the BIU (out of a BIU Reports request) or the PMU (out of some other enhancement or project request).,Reports that are needed on a more permanent basis (as opposed to a one-time ad hoc requirement) are developed by IT.  The request will generally come from either the BIU (out of a BIU Reports request) or the PMU (out of some other enhancement or project request).
+129,Office / Cubicle,Periodically, changes are needed within an individual's office/cubicle.  This may be due to a relocation, an ergonomic assessment, or other concerns.  For safety reasons, any of these changes should be handled by the Facilities group.  This service handles those needs.  If an ergonomic assessment is needed/desired, please contact Human Resources directly to schedule one.,Periodically, changes are needed within an individual's office/cubicle.  This may be due to a relocation, an ergonomic assessment, or other concerns.  For safety reasons, any of these changes should be handled by the Facilities group.  This service handles those needs.  If an ergonomic assessment is needed/desired, please contact Human Resources directly to schedule one.
+130,Electrical,Facilities personnel monitors for any electrical issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.,Facilities personnel monitors for any electrical issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.
+131,HVAC,Facilities personnel monitors for any HVAC (Heating, Ventilation, Air Conditioning) -related issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.,Facilities personnel monitors for any HVAC (Heating, Ventilation, Air Conditioning) -related issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.
+132,Other,This service is intended to include all facilities-related services that are not specifically listed.,This service is intended to include all facilities-related services that are not specifically listed.
+133,Parking/Garage,The RiverStone garages are accessible via the company badge and are monitored by security cameras.  Therefore, they are assumed to be part of the office with the same protection.  Any issues within that space that compromise that protection are covered under this service.,The RiverStone garages are accessible via the company badge and are monitored by security cameras.  Therefore, they are assumed to be part of the office with the same protection.  Any issues within that space that compromise that protection are covered under this service.
+134,Plumbing,Facilities personnel monitors for any plumbing issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.,Facilities personnel monitors for any plumbing issues within the building.  However, things occur that they may not see immediately.  Individuals should report these items as soon as they are noticed to ensure they do not become a safety risk.
+135,Conference Rooms,Any needs or issues involving conference rooms are addressed within this service.,Any needs or issues involving conference rooms are addressed within this service.
+136,TFS,,
+137,Application Code,For desktop or web applications, the code is not embedded in the SQL Server databases.  For these items, an alternative method is needed for addressing changes and deployments.  This service handles those items that are not embedded within SQL Server. ,For desktop or web applications, the code is not embedded in the SQL Server databases.  For these items, an alternative method is needed for addressing changes and deployments.  This service handles those items that are not embedded within SQL Server. 
+138,Outlook,Outlook (including OWA) is RiverStone's method of email communication and is a key part of the Office 365 suite that also includes Lync, Excel, Word, etc.,Outlook (including OWA) is RiverStone's method of email communication and is a key part of the Office 365 suite that also includes Lync, Excel, Word, etc.
+139,Lync Issues,Lync is used by RiverStone for collaboration, on line meetings, phone calls, contact lists, and instant messaging. Lync is a key part of the Office 365 suite that also includes Outlook, Excel, Word, etc..  It eliminates the need for a desk phone for most associates and allows for screen sharing between associates on and off site from various locations.  Tutorials are available for Lync and are distributed during the onboarding process. ,Lync is used by RiverStone for collaboration, on line meetings, phone calls, contact lists, and instant messaging. Lync is a key part of the Office 365 suite that also includes Outlook, Excel, Word, etc..  It eliminates the need for a desk phone for most associates and allows for screen sharing between associates on and off site from various locations.  Tutorials are available for Lync and are distributed during the onboarding process. 
+140,FTPs,RiverStone uses a Secure File Transfer Protocol (SFTP), (MoveIT) for the purpose of securely transporting files between RiverStone and external sites.  SFTP would be used for transferring files containing sensitive information (that shouldn't be sent via email), files whose size exceeds the email attachment limit of 10MB, or to automate repetitive file transfers.,RiverStone uses a Secure File Transfer Protocol (SFTP), (MoveIT) for the purpose of securely transporting files between RiverStone and external sites.  SFTP would be used for transferring files containing sensitive information (that shouldn't be sent via email), files whose size exceeds the email attachment limit of 10MB, or to automate repetitive file transfers.
+141,Network Connectivity,This service relates to the ability to establish connections to the TRG domain (as opposed to having the proper ID and credentials for access), whether in the office or a remote location.  There are many reasons why connectivity may be blocked and many of those are beyond the control of RiverStone personnel (e.g. home internet provider or equipment issues, etc.).  Though the issue may affect connectivity through one device, another avenue may allow access to the Service Desk.  If you are unable to resolve the issue without RiverStone support but cannot reach the Service Desk, call 603.656.2515 to reach a technician directly.,This service relates to the ability to establish connections to the TRG domain (as opposed to having the proper ID and credentials for access), whether in the office or a remote location.  There are many reasons why connectivity may be blocked and many of those are beyond the control of RiverStone personnel (e.g. home internet provider or equipment issues, etc.).  Though the issue may affect connectivity through one device, another avenue may allow access to the Service Desk.  If you are unable to resolve the issue without RiverStone support but cannot reach the Service Desk, call 603.656.2515 to reach a technician directly.
+142,Auditor Setup,RiverStone regularly has auditors (State DOIs, independent auditors, reinsurance partners, etc.) review its processes.  Each of these auditors has requirements for their access (hardware, credentials, permissions, etc.).  ,RiverStone regularly has auditors (State DOIs, independent auditors, reinsurance partners, etc.) review its processes.  Each of these auditors has requirements for their access (hardware, credentials, permissions, etc.).  
+143,Compliance,Compliance is verified by producing evidence that processes and controls are being followed.,Compliance is verified by producing evidence that processes and controls are being followed.
+144,Acquisitions,Acquisition efforts require various shared document repositories.  When the due diligence phase is concluded, whether the purchase is made or not, additional work is needed to close down the portions, possibly expand others or complete the destruction of due diligence documents in compliance with seller request.,Acquisition efforts require various shared document repositories.  When the due diligence phase is concluded, whether the purchase is made or not, additional work is needed to close down the portions, possibly expand others or complete the destruction of due diligence documents in compliance with seller request.
+145,Discovery,Certain legal cases require the collection of data related to specific claims or other matters. This is generally coordinated by The Office of General Counsel (OGC) who requests that the data be staged so they can then search for what they need.  The data could include home directory data (H drive), shared drive, laptop hard drive or email.,Certain legal cases require the collection of data related to specific claims or other matters. This is generally coordinated by The Office of General Counsel (OGC) who requests that the data be staged so they can then search for what they need.  The data could include home directory data (H drive), shared drive, laptop hard drive or email.
+146,Phones,Due to Microsoft Lync, laptops and headsets are the preferred device in lieu of desktop phones, though desktop phones are preferred by some associates.  Corporate mobile devices are required for some individuals (based on their role) but not all.  Corporate mobile devices will be Blackberries unless the technical needs require an iPhone.  In either case, Verizon is RiverStone's mobile carrier.,Due to Microsoft Lync, laptops and headsets are the preferred device in lieu of desktop phones, though desktop phones are preferred by some associates.  Corporate mobile devices are required for some individuals (based on their role) but not all.  Corporate mobile devices will be Blackberries unless the technical needs require an iPhone.  In either case, Verizon is RiverStone's mobile carrier.
+147,Printer,There are public printers available in all departments.  In addition, some individuals require local printers (directly tied to your laptop/desktop) for confidentiality (or other) reasons.,There are public printers available in all departments.  In addition, some individuals require local printers (directly tied to your laptop/desktop) for confidentiality (or other) reasons.
+148,Laptops / desktops,All associates are issued a personal computer upon hire.  Associates are expected to bring their laptop home with them (if they work from home during the week or if the office is closed due to inclement weather or there a disaster prohibiting associates from entering the office.,All associates are issued a personal computer upon hire.  Associates are expected to bring their laptop home with them (if they work from home during the week or if the office is closed due to inclement weather or there a disaster prohibiting associates from entering the office.
+149,Scanner,RiverStone has multi-function devices that provide copy and scan service (as well as print) in Manchester, San Diego, and Atlanta offices.  The ARO mailroom in Manchester also has scanning services.  Submit a service request if you need assistance with a scanner configuration/setup and use.,RiverStone has multi-function devices that provide copy and scan service (as well as print) in Manchester, San Diego, and Atlanta offices.  The ARO mailroom in Manchester also has scanning services.  Submit a service request if you need assistance with a scanner configuration/setup and use.
+150,All other items,Many pieces of hardware warrant their own entries for tracking and reporting purposes.  However, some items (docking stations, monitors, mice, keyboards, headphones, cables, etc.) do not require this level of attention.  This service relates to any of those items that are not explicitly listed in other services.,Many pieces of hardware warrant their own entries for tracking and reporting purposes.  However, some items (docking stations, monitors, mice, keyboards, headphones, cables, etc.) do not require this level of attention.  This service relates to any of those items that are not explicitly listed in other services.
+151,Server,Most of RiverStone's servers are virtual and once defined, they appear and function as though they are  physical computers.   Setting changes and performance tuning may be needed based on application requirements and/or growth reasons.,Most of RiverStone's servers are virtual and once defined, they appear and function as though they are  physical computers.   Setting changes and performance tuning may be needed based on application requirements and/or growth reasons.
+152,Virus/Malware,Access to the internet (web sites, email, etc.) opens up the possibility of a virus or malware being introduced to your laptop.  Controls are in place and updated regularly to detect, prevent and/or quarantine viruses and malware, howver, on occasion issues are detected that need to be addressed and resolved.  The Cybersecurity Sharepoint site has additional information about virus/malware issues, security issues and best practices to minimize these problems.,Access to the internet (web sites, email, etc.) opens up the possibility of a virus or malware being introduced to your laptop.  Controls are in place and updated regularly to detect, prevent and/or quarantine viruses and malware, howver, on occasion issues are detected that need to be addressed and resolved.  The Cybersecurity Sharepoint site has additional information about virus/malware issues, security issues and best practices to minimize these problems.
+153,Cybersecurity,,
+154,SharePoint Sites,,
+155,Mail,ARO handles all mail delivery for RiverStone employees in Manchester.  ARO receives deliveries from the Post Office at about 8:20 each morning and, after sorting it, makes one delivery throughout the office each day.  They also pick up outgoing mail from designated locations during this round and throughout the day until 4:15 pm.  US mail is picked up at 5:00 pm and UPS leaves the building at 3:30 pm and 6:00 pm.,ARO handles all mail delivery for RiverStone employees in Manchester.  ARO receives deliveries from the Post Office at about 8:20 each morning and, after sorting it, makes one delivery throughout the office each day.  They also pick up outgoing mail from designated locations during this round and throughout the day until 4:15 pm.  US mail is picked up at 5:00 pm and UPS leaves the building at 3:30 pm and 6:00 pm.
+156,Office,ARO is responsible for providing all basic office supplies to RiverStone associates, including note pads, post-its, file folders, pens, pencils, paper clips, etc..  ,ARO is responsible for providing all basic office supplies to RiverStone associates, including note pads, post-its, file folders, pens, pencils, paper clips, etc..  
+157,Files (Archived / Onsite),Older paper files are stored in boxes either in the ARO storage rooms or offsite.  ARO coordinates the delivery and replacement of these files when needed.,Older paper files are stored in boxes either in the ARO storage rooms or offsite.  ARO coordinates the delivery and replacement of these files when needed.
+158,Application Support,Training is frequently needed for various applications, whether it is a review of a single function with an individual or a more comprehensive formal classroom training with a larger group.  Where possible, assistance should be sought within your own area.  However, there are times where additional help or one on one assistance is needed.  In some cases, what is thought to be a need for training is determined to be a need for additional permissions or possibly an enhancement to the application.  All of these options can be found in the service.,Training is frequently needed for various applications, whether it is a review of a single function with an individual or a more comprehensive formal classroom training with a larger group.  Where possible, assistance should be sought within your own area.  However, there are times where additional help or one on one assistance is needed.  In some cases, what is thought to be a need for training is determined to be a need for additional permissions or possibly an enhancement to the application.  All of these options can be found in the service.
+159,Help (Solutions DB),There are several options for online assistance, depending on the topic.  Various Job Aids are available where the application links are stored.  The Service Desk has a Solutions section.  Click on the Solutions tab within the Service Desk and do a search based on relevant keywords.  And each department has their own options for where documentation is stored.,There are several options for online assistance, depending on the topic.  Various Job Aids are available where the application links are stored.  The Service Desk has a Solutions section.  Click on the Solutions tab within the Service Desk and do a search based on relevant keywords.  And each department has their own options for where documentation is stored.
+160,New Project,New projects must be approved at the Leadership Team level.  They will generally trigger a new SharePoint site under PWA and will generally require some additional administrative work to establish the project structure and grant permissions to it.,New projects must be approved at the Leadership Team level.  They will generally trigger a new SharePoint site under PWA and will generally require some additional administrative work to establish the project structure and grant permissions to it.
+161,Equipment,,
+162,Technology Innovation,Innovation is encouraged in all areas within RiverStone in order to consistently improve our processes.  Technology can play a major role in improving processes and increasing efficiencies.  Associates are encouraged to submit their ideas regarding Technology innovations.,Innovation is encouraged in all areas within RiverStone in order to consistently improve our processes.  Technology can play a major role in improving processes and increasing efficiencies.  Associates are encouraged to submit their ideas regarding Technology innovations.
+163,Undefined,There has been an attempt to accommodate all potential needs within this Service Catalog.  However, the rapid changes in business and acquisitions, technologies and environments may precede the corresponding updates to the Catalog.  If the item you need cannot be found through searches or the Catalog index, this service can be used to accommodate your request.  Complete the service requests with the details of what you need.,There has been an attempt to accommodate all potential needs within this Service Catalog.  However, the rapid changes in business and acquisitions, technologies and environments may precede the corresponding updates to the Catalog.  If the item you need cannot be found through searches or the Catalog index, this service can be used to accommodate your request.  Complete the service requests with the details of what you need.

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1dc864b1-0022-4215-b053-0ec374373720}"
+       Name="RequestTypeName"
+       DisplayName="Request Type Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       EnforceUniqueValues="TRUE" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

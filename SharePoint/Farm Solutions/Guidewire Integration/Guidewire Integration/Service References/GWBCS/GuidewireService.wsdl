@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GuidewireService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="basicBindingConfig_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SPGuidewireService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGuidewire_GetAllWorkMatters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkMatters" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllWorkMatters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkMattersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterByID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllVendors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVendors" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllVendors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVendorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorByID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllWorkMatterDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkMatterDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllWorkMatterDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkMatterDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterDocumentBySPID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterDocumentBySPID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterDocumentBySPID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterDocumentBySPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterDocumentByPublicID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterDocumentByPublicID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetWorkMatterDocumentByPublicID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkMatterDocumentByPublicIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllVendorDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVendorDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetAllVendorDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVendorDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorDocumentBySPID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDocumentBySPID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorDocumentBySPID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDocumentBySPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorDocumentByPublicID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDocumentByPublicID" />
+  </wsdl:message>
+  <wsdl:message name="IGuidewire_GetVendorDocumentByPublicID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorDocumentByPublicIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGuidewire">
+    <wsdl:operation name="GetAllWorkMatters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetAllWorkMatters" message="tns:IGuidewire_GetAllWorkMatters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetAllWorkMattersResponse" message="tns:IGuidewire_GetAllWorkMatters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterByID" message="tns:IGuidewire_GetWorkMatterByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterByIDResponse" message="tns:IGuidewire_GetWorkMatterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVendors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetAllVendors" message="tns:IGuidewire_GetAllVendors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetAllVendorsResponse" message="tns:IGuidewire_GetAllVendors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetVendorByID" message="tns:IGuidewire_GetVendorByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetVendorByIDResponse" message="tns:IGuidewire_GetVendorByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkMatterDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetAllWorkMatterDocuments" message="tns:IGuidewire_GetAllWorkMatterDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetAllWorkMatterDocumentsResponse" message="tns:IGuidewire_GetAllWorkMatterDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterDocumentBySPID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterDocumentBySPID" message="tns:IGuidewire_GetWorkMatterDocumentBySPID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterDocumentBySPIDResponse" message="tns:IGuidewire_GetWorkMatterDocumentBySPID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterDocumentByPublicID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterDocumentByPublicID" message="tns:IGuidewire_GetWorkMatterDocumentByPublicID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetWorkMatterDocumentByPublicIDResponse" message="tns:IGuidewire_GetWorkMatterDocumentByPublicID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVendorDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetAllVendorDocuments" message="tns:IGuidewire_GetAllVendorDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetAllVendorDocumentsResponse" message="tns:IGuidewire_GetAllVendorDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDocumentBySPID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetVendorDocumentBySPID" message="tns:IGuidewire_GetVendorDocumentBySPID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetVendorDocumentBySPIDResponse" message="tns:IGuidewire_GetVendorDocumentBySPID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDocumentByPublicID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGuidewire/GetVendorDocumentByPublicID" message="tns:IGuidewire_GetVendorDocumentByPublicID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGuidewire/GetVendorDocumentByPublicIDResponse" message="tns:IGuidewire_GetVendorDocumentByPublicID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicBindingConfig" type="tns:IGuidewire">
+    <wsp:PolicyReference URI="#basicBindingConfig_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllWorkMatters">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetAllWorkMatters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterByID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetWorkMatterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVendors">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetAllVendors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorByID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetVendorByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkMatterDocuments">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetAllWorkMatterDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterDocumentBySPID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetWorkMatterDocumentBySPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkMatterDocumentByPublicID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetWorkMatterDocumentByPublicID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVendorDocuments">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetAllVendorDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDocumentBySPID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetVendorDocumentBySPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorDocumentByPublicID">
+      <soap:operation soapAction="http://tempuri.org/IGuidewire/GetVendorDocumentByPublicID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GuidewireService">
+    <wsdl:port name="basicBindingConfig" binding="tns:basicBindingConfig">
+      <soap:address location="http://qanetsp01/GWBCS/Guidewire.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

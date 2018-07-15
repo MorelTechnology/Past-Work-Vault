@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ada76af7-6d47-4ef5-8a40-5912bdc3256b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://mangwqa:8080/cc/ws/riverstone/webservice/document/trg_UpdateMetadataAPI?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="trg_UpdateMetadataAPI.wsdl" MetadataType="Wsdl" ID="58783e39-51fc-4c7c-8ef8-7b16e635f5d1" SourceId="1" SourceUrl="http://mangwqa:8080/cc/ws/riverstone/webservice/document/trg_UpdateMetadataAPI?WSDL" />
+    <MetadataFile FileName="soapheaders.xsd" MetadataType="Schema" ID="31b93e23-f1b7-4ce7-bd06-7ccd2827388c" SourceId="1" SourceUrl="http://mangwqa:8080/cc/ws/gw/xsd/guidewire/soapheaders.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="4eae2f14-3b1c-4007-b473-0e87ac6ffa09" solutionId="4eae2f14-3b1c-4007-b473-0e87ac6ffa09" resetWebServer="false" sharePointProductVersion="15.0" name="LitigationManagementWebParts" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="33900e6f-770c-4fe7-af30-759298c908ca" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="c6edab7f-d29e-45e6-906d-78d187a8d8ee" />
+    <projectItemReference itemId="d291b4d2-52cf-4030-91b4-6ec174cd2cad" />
+  </projectItems>
+</package>

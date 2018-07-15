@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{c8d9bd07-a597-4b6e-a9dd-44d6079c2ffd}"
+       Name="RecordCoordinator"
+       DisplayName="Record Coordinator"
+       Type="LookupMulti"
+       Required="TRUE"
+       Group="Riverstone Columns" List="Lists/Record Coordinators" ShowField="Title" PrependId="TRUE" Mult="TRUE" Overwrite="TRUE">
+  </Field>
+</Elements>

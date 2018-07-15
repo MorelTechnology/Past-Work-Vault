@@ -1,0 +1,94 @@
+﻿@page
+@model CashFlowService.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "WorkMattersView1";
+}
+
+<h2>Create</h2>
+
+<h4>WorkMatters</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.WorkMatter" class="control-label"></label>
+                <input asp-for="WorkMatters.WorkMatter" class="form-control" />
+                <span asp-validation-for="WorkMatters.WorkMatter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.SpecialTrackingGroup" class="control-label"></label>
+                <input asp-for="WorkMatters.SpecialTrackingGroup" class="form-control" />
+                <span asp-validation-for="WorkMatters.SpecialTrackingGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.WorkMatterDescription" class="control-label"></label>
+                <input asp-for="WorkMatters.WorkMatterDescription" class="form-control" />
+                <span asp-validation-for="WorkMatters.WorkMatterDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.InsuredName" class="control-label"></label>
+                <input asp-for="WorkMatters.InsuredName" class="form-control" />
+                <span asp-validation-for="WorkMatters.InsuredName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.AssignedAdjuster" class="control-label"></label>
+                <input asp-for="WorkMatters.AssignedAdjuster" class="form-control" />
+                <span asp-validation-for="WorkMatters.AssignedAdjuster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.StartUser" class="control-label"></label>
+                <input asp-for="WorkMatters.StartUser" class="form-control" />
+                <span asp-validation-for="WorkMatters.StartUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="WorkMatters.HasAssociations" /> @Html.DisplayNameFor(model => model.WorkMatters.HasAssociations))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.StartTime" class="control-label"></label>
+                <input asp-for="WorkMatters.StartTime" class="form-control" />
+                <span asp-validation-for="WorkMatters.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.EndUser" class="control-label"></label>
+                <input asp-for="WorkMatters.EndUser" class="form-control" />
+                <span asp-validation-for="WorkMatters.EndUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.EndTime" class="control-label"></label>
+                <input asp-for="WorkMatters.EndTime" class="form-control" />
+                <span asp-validation-for="WorkMatters.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="WorkMatters.Wmclosed" /> @Html.DisplayNameFor(model => model.WorkMatters.Wmclosed))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkMatters.WmclosedDate" class="control-label"></label>
+                <input asp-for="WorkMatters.WmclosedDate" class="form-control" />
+                <span asp-validation-for="WorkMatters.WmclosedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

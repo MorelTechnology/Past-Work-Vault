@@ -1,0 +1,195 @@
+﻿/* Place custom styles below */
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.tableCellNoWrap {
+    white-space: nowrap;
+}
+
+.jssort12 .w, .jssort12 .phv .w {
+    cursor: pointer;
+    position: relative;
+    WIDTH: 98px;
+    HEIGHT: 28px;
+    border: 1px solid gray;
+    top: 0px;
+    left: 0px;
+}
+
+.jssort12 .pav .w, .jssort12 .pdn .w {
+    border-bottom: 1px solid #fff;
+}
+
+.jssort12 .c {
+    color: #000;
+    font-size: 13px;
+}
+
+.jssort12 .p .c, .jssort12 .pav:hover .c {
+    background-color: #eee;
+}
+
+.jssort12 .pav .c, .jssort12 .p:hover .c, .jssort12 .phv .c {
+    background-color: #fff;
+}
+
+.jssort12 div[u="slides"] {
+    position: static !important;
+}
+
+.jssort04 .w, .jssort04 .pav:hover .w {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    border: #0099FF 1px solid;
+}
+
+* html .jssort04 .w {
+    width: /**/ 62px;
+    height: /**/ 32px;
+}
+
+.jssort04 .pdn .w, .jssort04 .pav .w {
+    border-style: solid;
+}
+
+.jssort04 .c {
+    width: 62px;
+    height: 32px;
+    filter: alpha(opacity=45);
+    opacity: .45;
+    transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -webkit-transition: opacity .6s;
+    -o-transition: opacity .6s;
+}
+
+.jssort04 .p:hover .c, .jssort04 .pav .c {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.jssort04 .p:hover .c {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+.DepartmentSlide {
+    margin: 10px;
+    overflow-x: auto;
+    color: #000;
+}
+
+table.dataTable tbody tr {
+    cursor: pointer;
+}
+
+.ui-tabs-vertical {
+    width: 75em;
+}
+
+    .ui-tabs-vertical > .ui-tabs-nav {
+        padding: .2em .1em .2em .2em;
+        float: left;
+        width: 12em;
+    }
+
+        .ui-tabs-vertical > .ui-tabs-nav li {
+            clear: left;
+            width: 100%;
+            border-bottom-width: 1px !important;
+            border-right-width: 0 !important;
+            margin: 0 -1px .2em 0;
+        }
+
+            .ui-tabs-vertical > .ui-tabs-nav li a {
+                display: block;
+                width: 100%;
+                outline: none;
+            }
+
+            .ui-tabs-vertical > .ui-tabs-nav li.ui-tabs-active {
+                padding-bottom: 0;
+                padding-right: .1em;
+                border-right-width: 1px;
+            }
+
+    .ui-tabs-vertical > .ui-tabs-panel {
+        padding: 1em !important;
+        float: right;
+        width: 60em;
+    }
+
+.wizardCellLeft {
+    border-left: 1px black solid;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    color: red;
+}
+
+.wizardCellRight {
+    border-top: 1px black solid;
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    padding-right: 20px;
+}
+
+    .wizardCellRight input {
+        font-size: 1em;
+    }
+
+.tryItButton {
+    border: 1px black solid;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    width: 55px;
+    border-radius: 10px;
+}
+
+    .tryItButton a {
+        color: white;
+        font-size: 14px;
+        display: block;
+        padding: 10px;
+    }
+
+        .tryItButton a:hover {
+            text-decoration: none;
+        }
+
+.jssora07l, .jssora07r, .jssora07ldn, .jssora07rdn {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    background: url(../Images/a07.png) no-repeat;
+    overflow: hidden;
+}
+
+.jssora07l {
+    background-position: -5px -35px;
+}
+
+.jssora07r {
+    background-position: -65px -35px;
+}
+
+.jssora07l:hover {
+    background-position: -125px -35px;
+}
+
+.jssora07r:hover {
+    background-position: -185px -35px;
+}
+
+.jssora07ldn {
+    background-position: -245px -35px;
+}
+
+.jssora07rdn {
+    background-position: -305px -35px;
+}

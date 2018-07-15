@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}"
+       Name="Project"
+       DisplayName="Project"
+       Type="Lookup"
+       Required="True"
+       Group="Custom Site Columns"
+       List="Lists/Projects"
+       ShowField="CounterpartyName"
+       RelationshipDeleteBehavior="Cascade"
+       Indexed="TRUE">
+  </Field>
+</Elements>

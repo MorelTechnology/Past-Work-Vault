@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reinsurance Voucher", "Reinsurance Voucher\Reinsurance Voucher.rptproj", "{6C8F208C-B792-49FA-8D1C-3C635311E1F3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Reinsurance\u0020Voucher\\Reinsurance\u0020Voucher.rptproj
+		SccProjectName1 = Reinsurance\u0020Voucher
+		SccLocalPath1 = Reinsurance\u0020Voucher
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Debug|Default.ActiveCfg = Debug
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Debug|Default.Build.0 = Debug
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Debug|Default.Deploy.0 = Debug
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.DebugLocal|Default.Build.0 = DebugLocal
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Release|Default.ActiveCfg = Release
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Release|Default.Build.0 = Release
+		{6C8F208C-B792-49FA-8D1C-3C635311E1F3}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

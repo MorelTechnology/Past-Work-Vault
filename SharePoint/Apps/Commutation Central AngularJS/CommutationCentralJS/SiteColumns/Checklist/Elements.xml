@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{012bae24-dd64-44e5-b6d3-04a2014bda91}"
+       Name="Checklist"
+       DisplayName="Checklist"
+       Type="Lookup"
+       Required="True"
+       Group="Custom Site Columns"
+       List="Lists/Checklists"
+       ShowField="Title"
+       RelationshipDeleteBehavior="Cascade"
+       Indexed="TRUE">
+  </Field>
+</Elements>

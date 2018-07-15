@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/10/2014 2:10:42 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="USITKADIPPL2C"
+  DTS:CreatorName="CORP\kadipp"
+  DTS:DTSID="{67781D4A-B9C2-4ED1-9294-86580E8B199D}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Acuity File Get Unzip Delete"
+  DTS:PackageType="5"
+  DTS:VersionBuild="158"
+  DTS:VersionGUID="{42FF09F8-DC4D-4B2F-871F-5FAC599207D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D92118C-FA28-4E95-B9BC-254F0DE16528}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filename">
+      <DTS:VariableValue
+        DTS:DataType="8">Acuity_SSIS.zip</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41615EE4-A1B7-4870-9461-15358208783D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="History">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29AA50CE-7EA4-4C29-8B92-174168280E8A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ScriptPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{01B3414C-42A3-4DA5-930E-93A465633B18}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ScriptPathDelete">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters_Delete.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1170932E-3491-4F37-8239-06B921A92890}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SftpHostName">
+      <DTS:VariableValue
+        DTS:DataType="8">sftp.trialnet.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4885F807-4956-40E6-95D1-A133217FE05F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sftplogpath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{67D39596-70EA-47CC-9DDA-7F267D9B406F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SftpPassword">
+      <DTS:VariableValue
+        DTS:DataType="8">Gat1aihoop</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BAAEA02-BEEE-4114-8880-88753DB5367E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SFTPUnZipPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{72004ECA-5C49-417D-9ADA-85D2FE7A889E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SftpUsername">
+      <DTS:VariableValue
+        DTS:DataType="8">qa_riverstone</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3626FA30-E070-44BA-A485-04CDA9CEC0E4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::ZipFilePath]  +  @[User::filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceZippath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\Acuity_SSIS.zip</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{61D4B6C7-49AE-44E8-B980-741588D0410C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="WINSCPPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\appprod1\batch$\Executables\WinSCP576\WinSCP.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A74E325B-CB02-4DEA-8A77-8C7B51594529}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="WINZIPPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Program Files (x86)\WinZip\WINZIP32.EXE</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B84014E1-EE1E-46AC-9D5D-D5E438264E61}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ZipFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchdev$\Acuity\DataDumpIn\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Acuity - Delete Data Dump File"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8595d325-876c-4cb6-b972-6dcba8774a06}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Acuity - Delete Data Dump File">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Acuity - Delete Data Dump File\Delete File from SFTP Site"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{71815286-b131-4c53-b879-eef2f2dc9d47}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete File from SFTP Site"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">"-script="+ @[$Project::ScriptPathDelete]+" "+"/parameter "+ @[$Project::SftpUsername] +" "+ @[$Project::SftpPassword]+" "+ @[$Project::SftpHostName] + " " + @[User::filename] +" "+"/log="+ @[$Project::Sftplogpath]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::WINSCPPath]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="\\appprod1\batch$\Executables\WinSCP576\WinSCP.com"
+              Arguments="-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters_Delete.txt /parameter qa_riverstone Gat1aihoop sftp.trialnet.com Acuity_SSIS.zip /log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Acuity - Get Data Dump File"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A808C96F-67F5-43F9-9D83-77DC3DC9CC1E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Acuity - Get Data Dump File">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Acuity - Get Data Dump File\Download File from SFTP Site"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{1DEBE705-042F-477C-9459-9B5320F258CC}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Download File from SFTP Site"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">"-script="+ @[$Project::ScriptPath]+" "+"/parameter "+ @[$Project::SftpUsername] +" "+ @[$Project::SftpPassword]+" "+ @[$Project::SftpHostName]+" "+ @[$Project::ZipFilePath] + " "+"/log="+ @[$Project::Sftplogpath]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::WINSCPPath]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="\\appprod1\batch$\Executables\WinSCP576\WinSCP.com"
+              Arguments="-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters.txt /parameter qa_riverstone Gat1aihoop sftp.trialnet.com \\mansan02\batchdev$\Acuity\DataDumpIn\ /log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{C48DEE7B-CFA8-41DC-A179-5164D8BEDBFB}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{537F2E9B-61B8-4181-886F-0FEC86A9F672}"
+        DTS:ObjectName="{537F2E9B-61B8-4181-886F-0FEC86A9F672}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::ZipFilePath]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\mansan02\batchdev$\Acuity\DataDumpIn\" />
+            <FEFEProperty
+              FileSpec="*.zip" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Move zip file to History"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="File System Task"
+          DTS:DTSID="{23BC1E00-513E-4A9C-A72D-F34E87857BBB}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move zip file to History"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::SourceZippath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="$Project::History"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Unzip file"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{E99DBE08-40DB-4A3B-8E16-11203450438A}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Unzip file"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">"-min"+" "+"-e"+" "+"-o"+" "+" "+   @[User::filename]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[$Project::WINZIPPath]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="WorkingDirectory">@[$Project::SFTPUnZipPath]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files (x86)\WinZip\WINZIP32.EXE"
+              Arguments="-min -e -o  Acuity_SSIS.zip"
+              WorkingDirectory="\\mansan02\batchdev$\Acuity\DataDumpIn\" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{48BFF830-8771-4681-8A9E-31F48F61182C}"
+          DTS:From="Package\Foreach Loop Container\Unzip file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Move zip file to History" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{16D2A6E0-C743-4663-A46A-C50F5BEEE79A}"
+          DTS:ObjectName="{16D2A6E0-C743-4663-A46A-C50F5BEEE79A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F369115-99A4-45F4-AF04-452D98180F11}"
+      DTS:From="Package\Acuity - Get Data Dump File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ED1A2034-042D-4BE4-88E8-D3D9372E99CE}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Acuity - Delete Data Dump File" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Acuity - Delete Data Dump File\Delete File from SFTP Site"
+          TopLeft="54.5,60" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="338,181"
+          Size="338,224"
+          Id="Package\Acuity - Delete Data Dump File"
+          TopLeft="847,120" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Acuity - Get Data Dump File\Download File from SFTP Site"
+          TopLeft="54.5,60" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="338,181"
+          Size="338,224"
+          Id="Package\Acuity - Get Data Dump File"
+          TopLeft="22.166666666667,121.333333333333" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Foreach Loop Container\Move zip file to History"
+          TopLeft="77.6666666666669,136.888888888889" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Foreach Loop Container\Unzip file"
+          TopLeft="77.6666666666666,42.0555555555555" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="173.666666666667,84.0555555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.8333333333335"
+              Start="0,0"
+              End="0,45.3333333333335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3333333333335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="346,234"
+          Size="346,277"
+          Id="Package\Foreach Loop Container"
+          TopLeft="417,92.222222222222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="360.166666666667,232.027777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.833333333333,0"
+              Start="0,0"
+              End="49.333333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.333333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="763,231.361111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,0"
+              Start="0,0"
+              End="76.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="76.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

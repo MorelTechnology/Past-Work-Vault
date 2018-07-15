@@ -1,0 +1,30 @@
+using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+
+namespace RSG.DMF.Fields.DMF_MOSS
+{
+	[DebuggerStepThrough]
+	[DesignerCategory("code")]
+	[GeneratedCode("System.Web.Services", "4.0.30319.1")]
+	public class QueryBDCCompletedEventArgs : AsyncCompletedEventArgs
+	{
+		private object[] results;
+
+		public DataSet Result
+		{
+			get
+			{
+				base.RaiseExceptionIfNecessary();
+				return (DataSet)this.results[0];
+			}
+		}
+
+		internal QueryBDCCompletedEventArgs(object[] results, Exception exception, bool cancelled, object userState) : base(exception, cancelled, userState)
+		{
+			this.results = results;
+		}
+	}
+}

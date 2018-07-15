@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="839f4f0f-8327-4eb5-bfb7-86e2fba27b28" ChangeDateTime="07/07/2016 15:20:22">
+    <Property Name="ElementName" Value="[Permission].[ApplicationUserAccess].[ExternalApplicationUserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Permission].[ApplicationUserAccess]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ApplicationUserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="93e92742-5490-466e-a308-7ec45df14641" ChangeDateTime="07/07/2016 15:20:36">
+    <Property Name="ElementName" Value="[Permission].[ApplicationUserAccess].[ExternalApplicationUserName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Permission].[ApplicationUserAccess]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ApplicationUserName" />
+  </Operation>
+</Operations>

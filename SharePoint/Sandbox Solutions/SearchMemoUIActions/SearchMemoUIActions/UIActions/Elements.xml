@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="RemovePublishButton" Location="CommandUI.Ribbon" RegistrationType="List" RegistrationId="10927BB8-9F5D-4F2D-B965-A97A29EDD175">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Documents.Workflow.Publish" />
+        <CommandUIDefinition Location="Ribbon.Documents.Workflow.Unpublish" />
+        <CommandUIDefinition Location="Ribbon.Documents.Workflow.Moderate" />
+        <CommandUIDefinition Location="Ribbon.Documents.Workflow.CancelApproval" />
+      </CommandUIDefinitions>
+    </CommandUIExtension>
+  </CustomAction>
+</Elements>

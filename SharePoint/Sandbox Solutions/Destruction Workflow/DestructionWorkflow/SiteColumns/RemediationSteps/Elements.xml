@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{476af70d-1832-4bd7-b957-f9c6c6bc11d0}"
+       Name="RemediationSteps"
+       DisplayName="Remediation Steps"
+       Type="Note"
+       Required="FALSE"
+       Group="Riverstone Columns" RichText="FALSE">
+  </Field>
+</Elements>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="conTipsSummary"
+  DTS:DTSID="{C996BC64-BA7D-48D0-8B22-D712AEA9F104}"
+  DTS:CreationName="FLATFILE">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"\\\\MANSAN02\\BATCHDEV$\\BIU_Reports\\rpt_TIPSReport_Validation_" +
+
+(DT_WSTR, 4)YEAR(GETDATE()) +
+
+RIGHT("00" + (DT_WSTR, 2)MONTH(GETDATE()), 2) +
+
+RIGHT("00" + (DT_WSTR, 2)DAY(GETDATE()), 2) + ".txt"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="1033"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:ColumnNamesInFirstDataRow="True"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x003C_none_x003E_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="\\MANSAN02\BATCHDEV$\BIU_Reports\rpt_TIPSReport_Validation_20180417.txt">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="50"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Claim_No"
+          DTS:DTSID="{C1A1B199-117F-4DB0-95F7-078E3BCE9A5D}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="50"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Historic_RiverStone_Claim_No"
+          DTS:DTSID="{504C2EFB-6EEF-48F9-A9DD-5B91C95E18DB}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="50"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Client_Claim_No"
+          DTS:DTSID="{CA64FFBA-1C84-4BCA-9C8A-B52131EED6D0}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="6"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="ASLOB_Cd"
+          DTS:DTSID="{693665F6-79A4-400B-8C48-8AD3C3ADA67A}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="100"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="NAIC_Desc"
+          DTS:DTSID="{8BD24E7B-733C-4F37-8E3A-CDD04C9E530E}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Date_Of_Loss"
+          DTS:DTSID="{F04028CD-320A-472B-A3FE-0219D33ED1F7}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="AccidentYear"
+          DTS:DTSID="{5738E901-D9D4-4555-8B8A-F0FC60BDD707}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="135"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Exposure_Open_Dt"
+          DTS:DTSID="{67C433FA-4AFA-4ED8-A68E-4F42FB0BC1FB}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Exposure_Close_Dt"
+          DTS:DTSID="{F7F7764C-8715-4B83-84B5-54DB489C6BDA}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="2"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Jurisdiction_St"
+          DTS:DTSID="{1927ED63-859F-4EDB-AF9F-015D162954C1}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="20"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Exposure_Status_Cd"
+          DTS:DTSID="{AF17EE73-1F09-4536-B1E7-EBC7C09A86EE}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="4"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Exposure_No"
+          DTS:DTSID="{7B0CD3CB-1CC5-45DA-ACE0-CC54ED13400E}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="40"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Coverage_Desc"
+          DTS:DTSID="{CD3171BF-F99B-4E9C-987E-702A45B338C5}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="20"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Policy_No"
+          DTS:DTSID="{74CDF530-73EA-4EB0-92C1-566CD1B31D80}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="100"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Insured_Nm"
+          DTS:DTSID="{B46A4ACA-80BF-4528-89BB-A4FC9BB249CF}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Policy_Effective_Dt"
+          DTS:DTSID="{F89B36ED-0033-4881-8BED-859F6332F70A}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Policy_Expiration_Dt"
+          DTS:DTSID="{D198E75A-E791-439B-B303-6BAE6DC698A9}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Cancel_Dt"
+          DTS:DTSID="{B081AD4C-70A2-46EC-96E2-73ABF012CB40}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:MaximumWidth="2"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="RiskState"
+          DTS:DTSID="{54984801-636F-4FDB-9F2F-3D0808295F10}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Loss Reserve"
+          DTS:DTSID="{02527B53-0F0B-4F54-AC48-B30C35ADF300}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Expense Reserve"
+          DTS:DTSID="{C7D6E71D-3FAD-4649-AAB7-4E499A20C5DD}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="38"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Net_Paid_Loss"
+          DTS:DTSID="{D365C293-3A09-4862-B184-49E86A6470BF}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="38"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Net_Paid_Expense"
+          DTS:DTSID="{642847A1-ABE6-4BB9-AA70-7F785F393024}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Paid Loss"
+          DTS:DTSID="{C0BC72F3-CC14-4B5A-810D-107FAD2B7ABD}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Expense In Limits"
+          DTS:DTSID="{CE17D9DA-2BDE-4D69-8F44-329E7E0BD3B0}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Other Expense"
+          DTS:DTSID="{C87BD41C-C03B-4751-B6C1-3A7292364A25}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Coverage Expense"
+          DTS:DTSID="{20C420C4-AF53-4F62-8450-7977DC342357}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x007C_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Recovered Deductible Amount"
+          DTS:DTSID="{1908F9D9-10FA-4739-AF78-EBC1105875C5}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:DataType="131"
+          DTS:DataPrecision="18"
+          DTS:DataScale="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Recovered SalSub Amount"
+          DTS:DTSID="{C3DF508C-95B4-4E0F-B0D0-5C60C2335DBE}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

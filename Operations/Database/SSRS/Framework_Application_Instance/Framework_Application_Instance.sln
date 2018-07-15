@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Framework_Application_Instance", "Framework_Application_Instance\Framework_Application_Instance.rptproj", "{AEAA7497-1443-4750-ADE1-A435B9D6B388}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Framework_Application_Instance\\Framework_Application_Instance.rptproj
+		SccProjectName1 = Framework_Application_Instance
+		SccLocalPath1 = Framework_Application_Instance
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Debug|Default.ActiveCfg = Debug
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Debug|Default.Build.0 = Debug
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Debug|Default.Deploy.0 = Debug
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.DebugLocal|Default.Build.0 = DebugLocal
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Release|Default.ActiveCfg = Release
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Release|Default.Build.0 = Release
+		{AEAA7497-1443-4750-ADE1-A435B9D6B388}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{29a65580-997d-4d12-a416-1e3a5acaf186}"
+       Name="Contact"
+       DisplayName="Contact"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       List="Lists/Contact Lookup"
+       ShowField="FullName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

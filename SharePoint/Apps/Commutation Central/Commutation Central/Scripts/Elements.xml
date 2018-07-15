@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Scripts">
+    <File Path="Scripts\jquery-1.8.2.min.js" Url="Scripts/jquery-1.8.2.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.8.2.js" Url="Scripts/jquery-1.8.2.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.8.2.intellisense.js" Url="Scripts/jquery-1.8.2.intellisense.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\AllItems.js" Url="Scripts/Activities/AllItems.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\Created By Me.js" Url="Scripts/Activities/Created By Me.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\EditItem.js" Url="Scripts/Activities/EditItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\NewItem.js" Url="Scripts/Activities/NewItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\NewItem1.js" Url="Scripts/Activities/NewItem1.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\CheckList\EditItem.js" Url="Scripts/CheckList/EditItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Contacts\AttachItem.js" Url="Scripts/Contacts/AttachItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Contacts\EditItem.js" Url="Scripts/Contacts/EditItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Contacts\NewItem.js" Url="Scripts/Contacts/NewItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Documents\AttachDocument.js" Url="Scripts/Documents/AttachDocument.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Documents\DocumentManagement.js" Url="Scripts/Documents/DocumentManagement.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Documents\UploadFile.js" Url="Scripts/Documents/UploadFile.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\AllItems.js" Url="Scripts/Notes/AllItems.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\EditItem.js" Url="Scripts/Notes/EditItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\NewItem.js" Url="Scripts/Notes/NewItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\NewItem1.js" Url="Scripts/Notes/NewItem1.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\AllItems.js" Url="Scripts/Projects/AllItems.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\CompletedDropped Projects.js" Url="Scripts/Projects/CompletedDropped Projects.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\EditItem.js" Url="Scripts/Projects/EditItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\NewItem.js" Url="Scripts/Projects/NewItem.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\QuickLaunch\QuickLaunch.js" Url="Scripts/QuickLaunch/QuickLaunch.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\bootstrap-wysiwyg.js" Url="Scripts/bootstrap-wysiwyg.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\CompatibilityCheck.js" Url="Scripts/CompatibilityCheck.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Default.js" Url="Scripts/Default.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery.formatCurrency-1.4.0.min.js" Url="Scripts/jquery.formatCurrency-1.4.0.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery.validate.js" Url="Scripts/jquery.validate.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-ui.js" Url="Scripts/jquery-ui.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\NewItemRedirect.js" Url="Scripts/Projects/NewItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\EditItemRedirect.js" Url="Scripts/Projects/EditItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\NewItemRedirect.js" Url="Scripts/Activities/NewItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Activities\EditItemRedirect.js" Url="Scripts/Activities/EditItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\CheckList\EditItemRedirect.js" Url="Scripts/CheckList/EditItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Contacts\NewItemRedirect.js" Url="Scripts/Contacts/NewItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\EditItemRedirect.js" Url="Scripts/Notes/EditItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Notes\NewItemRedirect.js" Url="Scripts/Notes/NewItemRedirect.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\Completed Projects.js" Url="Scripts/Projects/Completed Projects.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Projects\Dropped Projects.js" Url="Scripts/Projects/Dropped Projects.js" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

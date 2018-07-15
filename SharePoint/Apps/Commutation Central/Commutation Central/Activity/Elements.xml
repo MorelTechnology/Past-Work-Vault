@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Field
+       ID="{d0511338-8eee-4c68-afaa-c24995ba4e6e}"
+       Name="Activity"
+       DisplayName="Activity"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" List="Lists/Activity" ShowField="Title">
+  </Field>
+</Elements>

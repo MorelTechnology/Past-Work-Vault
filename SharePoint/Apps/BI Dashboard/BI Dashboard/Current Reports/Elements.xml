@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ClientWebPart Name="Reports Dashboard" Title="Reports Dashboard" Description="Displays a dashboard of current and historical reports in each report set" DefaultWidth="540" DefaultHeight="200">
+
+    <!-- Content element identifies the location of the page that will render inside the client web part
+         Properties are referenced on the query string using the pattern _propertyName_
+         Example: Src="~appWebUrl/Pages/ClientWebPart1.aspx?Property1=_property1_" -->
+    <!--<Content Type="html" Src="~appWebUrl/Pages/_DisplayTemplate_?{StandardTokens}" />-->
+    <Content Type="html" Src="~appWebUrl/Pages/Initialization.aspx?{StandardTokens}"/>
+
+    <!-- Define properties in the Properties element.
+         Remember to put Property Name on the Src attribute of the Content element above. -->
+    <Properties>
+      <Property Name="DisplayTemplate" DefaultValue="Reports Dashboard Vertical Tabs.aspx" PersonalizationScope="user" WebBrowsable="true" WebCategory="BI Dashboard Personalization" WebDescription="The display template used to render the dashboard" WebDisplayName="Display Template" Type="enum" RequiresDesignerPermission="false">
+        <EnumItems>
+          <EnumItem WebDisplayName="Tables" Value="Reports Dashboard.aspx"/>
+          <EnumItem WebDisplayName="Horizontal Tabs" Value="Reports Dashboard Horizontal Slider.aspx"/>
+          <EnumItem WebDisplayName="Vertical Tabs" Value="Reports Dashboard Vertical Tabs.aspx"/>
+        </EnumItems>
+      </Property>
+    </Properties>
+
+  </ClientWebPart>
+</Elements>

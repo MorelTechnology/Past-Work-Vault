@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SPGuidewireService" />
+  <xs:element name="GetAllWorkMatters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NameDenorm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trg_WorkMatterDescription" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWorkMattersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetAllWorkMattersResult" nillable="true" type="q1:ArrayOfWorkMatter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetWorkMatterByIDResult" nillable="true" type="q2:WorkMatter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVendors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ContactID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVendorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetAllVendorsResult" nillable="true" type="q3:ArrayOfVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ContactID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetVendorByIDResult" nillable="true" type="q4:Vendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWorkMatterDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ClaimNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WorkMatterDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWorkMatterDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetAllWorkMatterDocumentsResult" nillable="true" type="q5:ArrayOfWorkMatterDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterDocumentBySPID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterDocumentBySPIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetWorkMatterDocumentBySPIDResult" nillable="true" type="q6:WorkMatterDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterDocumentByPublicID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkMatterDocumentByPublicIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetWorkMatterDocumentByPublicIDResult" nillable="true" type="q7:WorkMatterDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVendorDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContactID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllVendorDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetAllVendorDocumentsResult" nillable="true" type="q8:ArrayOfVendorDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorDocumentBySPID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SPID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorDocumentBySPIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetVendorDocumentBySPIDResult" nillable="true" type="q9:VendorDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorDocumentByPublicID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorDocumentByPublicIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SPGuidewireService" minOccurs="0" name="GetVendorDocumentByPublicIDResult" nillable="true" type="q10:VendorDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BF07DC9-AE7A-400D-AC56-AE231C084D97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DestructionWorkflow</RootNamespace>
+    <AssemblyName>DestructionWorkflow</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Activities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.DesignTime.Activities, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DestructionWorkflow\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{392f17f9-0a95-407d-98c9-7681a721b284}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{70ec96d9-e842-411a-a5ac-6a7c146e4ec8}</FeatureId>
+    </None>
+    <None Include="Features\Feature2\Feature2.feature">
+      <FeatureId>{dd8ea9ff-d384-4929-bc85-661b4b3a210c}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Lists\DestructionWorkflowTasks\DestructionWorkflowTasksInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{35f47669-a86f-4792-b3c6-9d041c25c816}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\DestructionWorkflowTasks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1b121603-af4a-49a2-a9c2-3727f9b6130b}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\RecordCoordinators\RecordCoordinatorsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{58e86305-61a0-40e4-aeca-56b3f37ef59f}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\RecordCoordinators\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6d9ec22c-bd71-4479-a28b-7110dceba995}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{59c8180c-709b-4d13-b386-d2b005cc7413}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SiteColumns\Members\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2be9ede2-ccfb-48b4-b4d8-32a5b82d144d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RecordCoordinator\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1c374f2f-e5dc-48b4-97c5-677afc4da365}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\RemediationSteps\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{53a6573e-b584-487a-955c-548f4bec885b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\ResumeOutcome\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{08c65082-5e3d-4ad3-9be9-4e4a10a53e7b}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteColumns\Submit\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0be3d610-96bb-4000-b058-32b5b5aae01d}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\RecordCoordinator\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5cd24876-d3e1-4b8e-a77f-ede38cfab7fc}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\RemediateTask\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{43b84d75-1373-45ae-88fe-9281966f2efb}</SharePointProjectItemId>
+    </None>
+    <None Include="SiteContentTypes\SelectCoordinatorTask\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ac69d22e-28c7-42e4-ac63-c004bda462b6}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <XamlAppDef Include="DestructionWorkflow\Workflow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DestructionWorkflow\Elements.xml" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature2\Feature2.Template.xml">
+      <DependentUpon>Feature2.feature</DependentUpon>
+    </Content>
+    <Content Include="Lists\DestructionWorkflowTasks\DestructionWorkflowTasksInstance\Elements.xml" />
+    <Content Include="Lists\DestructionWorkflowTasks\Elements.xml" />
+    <Content Include="Lists\DestructionWorkflowTasks\Schema.xml" />
+    <Content Include="Lists\RecordCoordinators\Elements.xml" />
+    <Content Include="Lists\RecordCoordinators\RecordCoordinatorsInstance\Elements.xml" />
+    <Content Include="Lists\RecordCoordinators\Schema.xml" />
+    <Content Include="SiteColumns\Members\Elements.xml" />
+    <Content Include="SiteColumns\RecordCoordinator\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteColumns\RemediationSteps\Elements.xml" />
+    <Content Include="SiteColumns\ResumeOutcome\Elements.xml" />
+    <Content Include="SiteColumns\Submit\Elements.xml" />
+    <Content Include="SiteContentTypes\RecordCoordinator\Elements.xml" />
+    <Content Include="SiteContentTypes\RemediateTask\Elements.xml" />
+    <Content Include="SiteContentTypes\SelectCoordinatorTask\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

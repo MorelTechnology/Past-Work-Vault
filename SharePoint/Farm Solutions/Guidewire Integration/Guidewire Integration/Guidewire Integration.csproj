@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CFDD229-A443-4D82-8BAC-93039697BE86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Guidewire_Integration</RootNamespace>
+    <AssemblyName>Guidewire Integration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <TokenReplacementFileExtensions>svc</TokenReplacementFileExtensions>
+    <ActiveDeploymentConfiguration>Default</ActiveDeploymentConfiguration>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PostDeploymentCommand>
+    </PostDeploymentCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.BusinessData, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.BusinessData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.DocumentManagement, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Policy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Portal, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="DisabledEventsScope.cs" />
+    <Compile Include="DropOffLibraryItemChanged\DropOffLibraryItemChanged.cs" />
+    <Compile Include="MIMETypes.cs" />
+    <Compile Include="Features\GuidewireContentOrganizerEvents\GuidewireContentOrganizerEvents.EventReceiver.cs">
+      <DependentUpon>GuidewireContentOrganizerEvents.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GuidewireIntegrationProvisioning\GuidewireIntegrationProvisioning.EventReceiver.cs">
+      <DependentUpon>GuidewireIntegrationProvisioning.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GuidewireIntegration\GuidewireIntegration.EventReceiver.cs">
+      <DependentUpon>GuidewireIntegration.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Guidewire.cs" />
+    <Compile Include="GuidewireDocumentIDProvider.cs" />
+    <Compile Include="IGuidewire.cs" />
+    <Compile Include="LargeDocumentServiceHost.cs" />
+    <Compile Include="LargeDocumentServiceHostFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GuidewireWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GWBCS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
+    <Compile Include="VendorDocumentChanged\VendorDocumentChanged.cs" />
+    <Compile Include="VendorDocumentRouter.cs" />
+    <Compile Include="WorkMatterDocumentChanged\WorkMatterDocumentChanged.cs" />
+    <Compile Include="WorkMatterDocumentRouter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DropOffLibraryItemChanged\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8d45a735-55d1-4e23-83b0-44535a7b9b5f}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\GuidewireContentOrganizerEvents\GuidewireContentOrganizerEvents.feature">
+      <FeatureId>{89f50255-0d7a-422c-a60e-51cf37b44906}</FeatureId>
+    </None>
+    <None Include="Features\GuidewireIntegrationProvisioning\GuidewireIntegrationProvisioning.feature">
+      <FeatureId>{4ed59633-ba42-4c87-9087-ae1bc92d4e2f}</FeatureId>
+    </None>
+    <None Include="Features\GuidewireIntegration\GuidewireIntegration.feature">
+      <FeatureId>{62433b49-549b-47c6-809b-399ec0a8b3d7}</FeatureId>
+    </None>
+    <None Include="ISAPI\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b85ddbe0-0663-4fb0-bc39-0ba851a8436c}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{cc8374b3-20a6-4314-9052-691fa047c3a1}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PostDeployScript.ps1" />
+    <None Include="Service References\GuidewireWS\soapheaders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GuidewireWS\trg_UpdateMetadataAPI.wsdl" />
+    <None Include="Service References\GWBCS\Guidewire.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GWBCS\Guidewire1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GWBCS\Guidewire2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GWBCS\GuidewireService.wsdl" />
+    <None Include="Service References\GWBCS\Guidewire_Integration.GWBCS.Vendor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GWBCS\Guidewire_Integration.GWBCS.VendorDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GWBCS\Guidewire_Integration.GWBCS.WorkMatter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GWBCS\Guidewire_Integration.GWBCS.WorkMatterDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="VendorDocumentChanged\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5f035abd-b749-44bc-b1c0-93ba66d80170}</SharePointProjectItemId>
+    </None>
+    <None Include="WorkMatterDocumentChanged\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e7fa41b4-4860-4006-9b5b-9708f3c27cde}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DropOffLibraryItemChanged\Elements.xml" />
+    <Content Include="Features\GuidewireContentOrganizerEvents\GuidewireContentOrganizerEvents.Template.xml">
+      <DependentUpon>GuidewireContentOrganizerEvents.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\GuidewireIntegrationProvisioning\GuidewireIntegrationProvisioning.Template.xml">
+      <DependentUpon>GuidewireIntegrationProvisioning.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\GuidewireIntegration\GuidewireIntegration.Template.xml">
+      <DependentUpon>GuidewireIntegration.feature</DependentUpon>
+    </Content>
+    <None Include="Service References\GuidewireWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GuidewireWS\configuration.svcinfo" />
+    <None Include="Service References\GuidewireWS\configuration91.svcinfo" />
+    <Content Include="ISAPI\Guidewire.svc" />
+    <None Include="Service References\GWBCS\Guidewire.disco" />
+    <None Include="Service References\GWBCS\configuration91.svcinfo" />
+    <None Include="Service References\GWBCS\configuration.svcinfo" />
+    <None Include="Service References\GWBCS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="VendorDocumentChanged\Elements.xml" />
+    <Content Include="WorkMatterDocumentChanged\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GuidewireWS\" />
+    <WCFMetadataStorage Include="Service References\GWBCS\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

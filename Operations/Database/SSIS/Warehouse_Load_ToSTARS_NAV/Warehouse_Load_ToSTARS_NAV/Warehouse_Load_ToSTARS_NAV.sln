@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Warehouse_Load_ToSTARS_NAV", "Warehouse_Load_ToSTARS_NAV.dtproj", "{DDF1BD8D-00E3-45C3-9EEA-619A71E8762C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDF1BD8D-00E3-45C3-9EEA-619A71E8762C}.Development|Default.ActiveCfg = Development
+		{DDF1BD8D-00E3-45C3-9EEA-619A71E8762C}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

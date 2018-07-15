@@ -1,0 +1,197 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/26/2017 1:46:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RKASU-LAP"
+  DTS:CreatorName="TRG\rkasu"
+  DTS:DTSID="{F062DE3C-4175-4E18-BA23-1262EF2F4DC1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ZenithLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{99FFEE3E-443F-4156-A8D9-F1E74B58BB28}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB8E6A2C-6EC3-4168-B38B-6E77BDBF6447}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackageName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FBACB1B2-B68B-43CE-834A-BB33A75B9E72}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SrvName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SourceFileRootDirectory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c4ebcd0b-708e-406e-95e0-7e225a2d424c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SourceFileRootDirectory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AF575CA1-DBB1-4DBF-896A-AA2719C17999}"
+          SQLTask:SqlStatementSource="&#xA;DECLARE @var0 NVARCHAR(100)&#xA;&#xA;DECLARE @var1 NVARCHAR(500)&#xA;&#xA;set  @var0 = ?&#xA;set @var1  =?&#xA;&#xA;&#xA;DECLARE @var2 NVARCHAR(500) &#xA;&#xA;set @var2  = ?&#xA;&#xA;DECLARE @var3 NVARCHAR(500) &#xA;&#xA;set @var3 = ?&#xA;&#xA;DECLARE @var4 NVARCHAR(500) &#xA;&#xA;set @var4 = ?&#xA;DECLARE @var5 NVARCHAR(500) &#xA;&#xA;set @var5 = ?&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pSourceFileRootDir', @ParameterValue=@var0, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pArchiveDir', @ParameterValue=@var1, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pRS_Stage_OLEDB_ConnStr', @ParameterValue=@var2, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pRS_ODS_OLEDB_ConnStr', @ParameterValue=@var3, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pRS_StageGlobal_OLEDB_ConnStr', @ParameterValue=@var4, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[UpdateOrAddApplicationPackageParameter] @ApplicationPackageID = 153, @ParameterName=N'pSSISDB_OLEDB_ConnStr', @ParameterValue=@var5, @ObjectType=20&#xA;&#xA;EXEC [SSISDB].[custom].[execute_catalog_parent_package] @ApplicationName = N'ZenithMonthlyLoad'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::SourceFileRootDir"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Project::ArchiveDir"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="$Project::CS_RS_Stage"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="$Project::CS_RS_ODS"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="$Project::CS_RS_StageGLobal"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="$Project::CS_SSISDB"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{8FF2FEC3-85BE-4FEC-AC9A-C3380F362B5A}"
+      DTS:EventID="356393460"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D7197D28-CFC2-4856-A1FF-1CE86AF55F25}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Send Mail Task"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{F437267F-F3EE-43C9-B4D8-56C2F2CB73DE}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">"ITProductionSupport@trg.com"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"The " + @[System::PackageName] + " Package has failed on "+ 
+
+ @[User::SrvName] +"
+
+Status         : Failed
+
+Execution Start Time :" + (DT_WSTR, 50) (DT_DATE) @[System::StartTime]  + "
+
+Exection End Time    :" + (DT_WSTR, 50) (DT_DATE) GETDATE() + "\n\nTaskName: " + @[System::SourceDescription]  +"
+
+
+Error Description:
+
+ "+ @[System::ErrorDescription]  +"
+
+
+
+
+This is an auto generated email. Please do not respond to this."</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">@[System::PackageName]+" - Failure"</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::Email_Distribution_List]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{F841A59D-90D5-4CE4-A6D8-BAB01D7F570D}"
+              SendMailTask:From="ITProductionSupport@trg.com"
+              SendMailTask:To="roja_kasula@trg.com"
+              SendMailTask:Subject="ZenithLoad - Failure"
+              SendMailTask:MessageSource="The ZenithLoad Package has failed on &#xA;&#xA;Status         : Failed&#xA;&#xA;Execution Start Time :10/2/2017 9:36:45 AM&#xA;&#xA;Exection End Time    :10/2/2017 11:05:01 AM&#xA;&#xA;TaskName: &#xA;&#xA;&#xA;Error Description:&#xA;&#xA; &#xA;&#xA;&#xA;&#xA;&#xA;This is an auto generated email. Please do not respond to this." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Execute SourceFileRootDirectory"
+          TopLeft="300,173" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="601,159" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

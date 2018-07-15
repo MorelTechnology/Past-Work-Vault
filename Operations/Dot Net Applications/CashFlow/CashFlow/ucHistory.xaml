@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="CashFlow.ucHistory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CashFlow"
+             mc:Ignorable="d" 
+             d:DesignHeight="340" d:DesignWidth="735">
+    <Grid x:Name="gridMain" Background="#FF938D89">
+        <DataGrid x:Name="dgWorkMatterHistory" Margin="10,27,10,254" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="#FF9E9494" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" FontSize="14" SelectionUnit="Cell" CanUserAddRows="False" BorderThickness="1,1,1,0" >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Width="85" Binding="{Binding StartTime, StringFormat={}{0:MM/dd/yyyy}}" Visibility="Visible" />
+                <DataGridTextColumn Header="Changed by" Width="90" Binding="{Binding AdjustedName}" Visibility="Visible" />
+                <DataGridTextColumn Header="Status" Width="90" Binding="{Binding Status}" Visibility="Visible" />
+                <DataGridTextColumn Header="Basis" Width="150" Binding="{Binding Basis}" Visibility="Visible" />
+                <DataGridTextColumn Header="Comments" Width="120" Binding="{Binding Comments}" Visibility="Visible" />
+                <DataGridTextColumn Header="RWC Loss" Width="90" Binding="{Binding RWCLoss}" Visibility="Visible" />
+                <DataGridTextColumn Header="RWC Def Exp" Width="90" Binding="{Binding RWCDefExp}" Visibility="Visible" />
+                <DataGridTextColumn Header="RWC Cov/DJ" Width="90" Binding="{Binding RWCCovDJ}" Visibility="Visible" />
+                <DataGridTextColumn Header="Confidence" Width="90" Binding="{Binding Confidence}" Visibility="Visible" />
+                <DataGridTextColumn Header="Reason" Width="160" Binding="{Binding DeclinedReason}" Visibility="Visible" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="lblWMentry" HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Work Matter History" VerticalAlignment="Top" Width="245" Foreground="White" FontSize="14"/>
+        <TextBlock x:Name="lblWMentry_Copy" HorizontalAlignment="Left" Margin="10,0,0,233" TextWrapping="Wrap" Text="Exposure History" VerticalAlignment="Bottom" Width="245" Foreground="White" FontSize="14"/>
+        <DataGrid x:Name="dgExposureHistory" Margin="10,0,0,10" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="#FF9E9494" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" FontSize="14" SelectionUnit="Cell" CanUserAddRows="False" BorderThickness="1,1,1,0" VerticalAlignment="Bottom" Height="223" HorizontalAlignment="Left" Width="223"  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Width="85" Binding="{Binding StartTime, StringFormat=\{0:MM/dd/yyyy\}}" Visibility="Visible" />
+                <DataGridTextColumn Header="Changed by" Width="110" Binding="{Binding AdjustedName}" Visibility="Visible" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dgNumbersHistory" Margin="238,0,10,10" HorizontalGridLinesBrush="LightGray" IsEnabled="False" VerticalGridLinesBrush="#FF9E9494" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" FontSize="14" SelectionUnit="Cell" CanUserAddRows="False" BorderThickness="1,1,1,0" VerticalAlignment="Bottom" Height="223" >
+
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" 
+                        Value="{Binding Background}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn x:Name="colPeriod" Header="Period" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="tbPeriod" Text="{Binding Period, Mode=TwoWay}" Background="#FFE6E6E6" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="colAppName1" Header="Loss" Width="90" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox  IsEnabled="true" Text="{Binding Loss, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" IsReadOnly="{Binding LossRO}" BorderThickness="0" TextAlignment="Right" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Def Exp" Width="90"  IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding DefExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" BorderThickness="0" TextAlignment="Right"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Cov DJ / Exp" Width="90"  IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding CovDJ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding LDCColor}" Foreground="{Binding Foreground}" FontWeight="{Binding FW}" BorderThickness="0"  TextAlignment="Right" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="colAssociate4" Header="Total" Width="90" Visibility="Visible">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Total}" Background="LightGray" Foreground="{Binding Foreground}" FontWeight="{Binding FW}"   TextAlignment="Right" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

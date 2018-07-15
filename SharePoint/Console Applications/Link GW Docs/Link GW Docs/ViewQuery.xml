@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<View Scope="Recursive" ContentTypeID="0x">
+  <Query>
+    <OrderBy>
+      <FieldRef Name="Modified" Ascending="False" />
+    </OrderBy>
+    <Where>
+      <Or>
+        <IsNull>
+          <FieldRef Name="Update_x0020_Required"/>
+        </IsNull>
+        <Eq>
+          <FieldRef Name="Update_x0020_Required"/>
+          <Value Type="Choice">Yes</Value>
+        </Eq>
+      </Or>
+    </Where>
+  </Query>
+  <RowLimit>2000</RowLimit>
+</View>

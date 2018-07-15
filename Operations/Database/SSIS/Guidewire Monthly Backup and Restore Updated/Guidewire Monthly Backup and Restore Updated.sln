@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Guidewire Monthly Backup and Restore Updated", "Guidewire Monthly Backup and Restore Updated\Guidewire Monthly Backup and Restore Updated.dtproj", "{8E97D5AE-6028-49B8-8B2A-1CB8F2C12B66}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Guidewire\u0020Monthly\u0020Backup\u0020and\u0020Restore\u0020Updated\\Guidewire\u0020Monthly\u0020Backup\u0020and\u0020Restore\u0020Updated.dtproj
+		SccProjectName1 = Guidewire\u0020Monthly\u0020Backup\u0020and\u0020Restore\u0020Updated
+		SccLocalPath1 = Guidewire\u0020Monthly\u0020Backup\u0020and\u0020Restore\u0020Updated
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E97D5AE-6028-49B8-8B2A-1CB8F2C12B66}.Development|Default.ActiveCfg = Development
+		{8E97D5AE-6028-49B8-8B2A-1CB8F2C12B66}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

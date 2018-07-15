@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{5715e1a3-476a-4d01-b941-4276e0f89030}"
+       Name="CommutationStatusChangeDate"
+       DisplayName="Commutation Status Change Date"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

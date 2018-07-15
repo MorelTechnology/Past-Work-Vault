@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Claims Loss Run Report by Customer", "Claims Loss Run Report by Customer\Claims Loss Run Report by Customer.rptproj", "{6DCB3200-5AAD-4322-ADE2-3495B760C54C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Claims\u0020Loss\u0020Run\u0020Report\u0020by\u0020Customer\\Claims\u0020Loss\u0020Run\u0020Report\u0020by\u0020Customer.rptproj
+		SccProjectName1 = Claims\u0020Loss\u0020Run\u0020Report\u0020by\u0020Customer
+		SccLocalPath1 = Claims\u0020Loss\u0020Run\u0020Report\u0020by\u0020Customer
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Debug|Default.ActiveCfg = Debug
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Debug|Default.Build.0 = Debug
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Debug|Default.Deploy.0 = Debug
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.DebugLocal|Default.Build.0 = DebugLocal
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Release|Default.ActiveCfg = Release
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Release|Default.Build.0 = Release
+		{6DCB3200-5AAD-4322-ADE2-3495B760C54C}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

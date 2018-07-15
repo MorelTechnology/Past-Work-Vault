@@ -1,0 +1,11 @@
+#Automatically abort script on errors
+option batch off 
+# Disable overwrite confirmations that conflicy with the previous
+option confirm off 
+#Connect using a password
+open sftp://%1%:%2%@%3% -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+#Force binary mode transfer
+option transfer binary
+#get file from the remote directory
+get -latest *.zip %4%
+exit

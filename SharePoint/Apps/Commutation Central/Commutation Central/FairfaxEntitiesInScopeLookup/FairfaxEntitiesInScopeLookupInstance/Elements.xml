@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Fairfax Entities In Scope Lookup" OnQuickLaunch="TRUE" TemplateType="10013" Url="Lists/Fairfax Entities In Scope Lookup" Description="Listing of available Fairfax entities">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Title">FFH - WW</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Title">FFH - US</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Title">FFH - EUR</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="Title">TRG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="Title">ODYR</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="Title">CIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="Title">ASI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="Title">MET</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">9</Field>
+          <Field Name="Title">CFI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">10</Field>
+          <Field Name="Title">TIG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">11</Field>
+          <Field Name="Title">IIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">12</Field>
+          <Field Name="Title">FMT</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">13</Field>
+          <Field Name="Title">RIUK</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">14</Field>
+          <Field Name="Title">RIL</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">15</Field>
+          <Field Name="Title">RMA</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">16</Field>
+          <Field Name="Title">FORD</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">17</Field>
+          <Field Name="Title">CICA</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">18</Field>
+          <Field Name="Title">HUDS</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">19</Field>
+          <Field Name="Title">CIC - CFI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">20</Field>
+          <Field Name="Title">CIC - FM</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">21</Field>
+          <Field Name="Title">CIC - CS</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">22</Field>
+          <Field Name="Title">NBDG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">23</Field>
+          <Field Name="Title">OTHER</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">24</Field>
+          <Field Name="Title">GFIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">25</Field>
+          <Field Name="Title">VAL</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">26</Field>
+          <Field Name="Title">ZEN</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

@@ -1,0 +1,28 @@
+﻿<div class="all-contacts">
+    <h3>All Contacts <button class="btn btn-primary" type="button" ng-click="getAllContacts()">Refresh</button></h3>
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover" dt-options="contactsDTOptions">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Company</th>
+                    <th>Business Phone</th>
+                    <th>Home Phone</th>
+                    <th>Email Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="contact in contacts">
+                    <td><a href="" ng-click="editContact(contact.ID)" title="Edit Contact">{{contact.Title}}</td>
+                    <td>{{contact.FirstName}}</td>
+                    <td>{{contact.Company}}</td>
+                    <td>{{contact.WorkPhone}}</td>
+                    <td>{{contact.HomePhone}}</td>
+                    <td><a href="mailto:{{contact.Email}}">{{contact.Email}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

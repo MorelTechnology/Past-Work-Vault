@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{d04140d7-da69-418f-8cd9-c7301a2d6e71}"
+       Name="DealCheckListItem"
+       DisplayName="Deal Check List Item"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" List="Lists/Deal Check List" ShowField="ID">
+  </Field>
+</Elements>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{62c12961-0fac-44bc-b040-df37e6097064}"
+       Name="FinancialAuthorityCeded"
+       DisplayName="Financial Authority Ceded"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

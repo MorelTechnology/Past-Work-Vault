@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Destruction Workflow Tasks" OnQuickLaunch="TRUE" TemplateType="171" Url="Lists/Destruction Workflow Tasks" Description="Destruction Workflow Tasks"></ListInstance>
+</Elements>

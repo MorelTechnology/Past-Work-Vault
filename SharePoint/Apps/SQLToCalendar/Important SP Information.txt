@@ -1,0 +1,52 @@
+﻿This text file contains important information regarding certificates and GUIDs for this app.\
+DEV
+Token Issuer ID:
+a8846482-1576-4890-90f9-33f88a77d8f9
+
+Certificate serial number:
+‎049b07a7061e55
+
+Output from AppRegNew.aspx:
+The app identifier has been successfully created. 
+
+
+App Id:    9ac42934-f9fd-453b-9068-bc6ab3f58e03  
+App Secret:    KST9Xz3eI0E3Ht2py1/4d9cOCVpQfB4+q6GruiF+4vo=  
+Title:    SQL To Calendar  
+App Domain:    devnetsp01.trg.com  
+Redirect URI:     
+
+
+QA
+Output from AppRegNew.aspx:
+The app identifier has been successfully created. 
+
+
+App Id:    93bb6253-4655-4452-b2eb-06d574274c53  
+App Secret:    QPR+qBKXbCeOeFyJTIqqtQeXcpXMgkT2oyuYJ0jHXn4=  
+Title:    SQL To Calendar  
+App Domain:    qanetsp01.trg.com  
+Redirect URI:     
+
+Certificate Serial Number:
+049b07a7061e55
+
+Token Issuer ID:
+573fe29b-605c-49ae-9f5c-da01d73054b3
+
+PROD
+Output from AppRegNew.aspx:
+The app identifier has been successfully created. 
+
+
+App Id:    f7ff95b8-5037-4d90-bcdf-b6f2de9ded46  
+App Secret:    T/39rQkET2bT+sBVOw3yl5jj39akIy8gtUXkb43qDCM=  
+Title:    SQL To Calendar  
+App Domain:    prodnetsp01.trg.com  
+Redirect URI:     
+
+Certificate Serial Number:
+049b07a7061e55
+
+Token Issuer ID:
+8588f995-d7ac-4460-9e77-06ac919b9ba1

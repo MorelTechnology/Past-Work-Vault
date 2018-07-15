@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="OpsConsole.schedActionTicket"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="362" d:DesignWidth="1000">
+    <Grid>
+        <Border x:Name="border1" Background="#FF689391" Margin="10,10,10,0" CornerRadius="20" >
+            <Grid >
+                <Grid Background="#FF84ACAC" Margin="665,42,0,160" Width="184" HorizontalAlignment="Left">
+                    <ComboBox x:Name="cbSite" Margin="5,70,0,0" Height="26" Width="169" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <ComboBoxItem Content="Not in any site"/>
+                        <ComboBoxItem Content="Atlanta"/>
+                        <ComboBoxItem Content="Remote"/>
+                        <ComboBoxItem Content="Manchester"/>
+                        <ComboBoxItem Content="San Diego"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cbGroup" Margin="5,117,0,0" Height="26" Width="169" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <ComboBoxItem Content="ARO"/>
+                        <ComboBoxItem Content="BIU"/>
+                        <ComboBoxItem Content="BIU Reinsurance Ops"/>
+                        <ComboBoxItem Content="DBA"/>
+                        <ComboBoxItem Content="Facilities"/>
+                        <ComboBoxItem Content="HelpIT"/>
+                        <ComboBoxItem Content="Production Support"/>
+                        <ComboBoxItem Content="Project Management"/>
+                        <ComboBoxItem Content="Release Management"/>
+                        <ComboBoxItem Content="SharePoint Administration"/>
+                        <ComboBoxItem Content="Software Development"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cbPriority" Margin="5,23,0,0" Height="26" Width="169" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <ComboBoxItem Content="Low"/>
+                        <ComboBoxItem Content="Medium"/>
+                        <ComboBoxItem Content="High"/>
+                        <ComboBoxItem Content="Urgent"/>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left" Margin="5,97,-5,0" TextWrapping="Wrap" Text="Group" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="14"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="5,50,0,0" TextWrapping="Wrap" Text="Site" VerticalAlignment="Top" Width="126" Foreground="White" FontSize="14"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="5,3,-5,0" TextWrapping="Wrap" Text="Priority" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="14"/>
+                </Grid>
+                <TextBox x:Name="ebSubject" Margin="21,203,15,121" />
+                <TextBox x:Name="ebDescription" Margin="21,257,15,10" AcceptsReturn="True" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,184,0,0" TextWrapping="Wrap" Text="Subject" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="21,235,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="21,44,0,0" TextWrapping="Wrap" Text="Service Desk Category" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="14"/>
+                <DataGrid x:Name="dgCat" Margin="21,65,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+
+                <TextBlock HorizontalAlignment="Left" Margin="233,44,0,0" TextWrapping="Wrap" Text="Service Desk SubCategory" VerticalAlignment="Top" Width="205" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="444,44,0,0" TextWrapping="Wrap" Text="Service Desk Item" VerticalAlignment="Top" Width="205" Foreground="White" FontSize="14"/>
+                <DataGrid x:Name="dgSubCat" Margin="233,65,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" SelectionChanged="dgSubCat_SelectionChanged" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="dgItem" Margin="444,65,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+                <TextBlock HorizontalAlignment="Left" Margin="26,6,0,0" TextWrapping="Wrap" Text="create a Ticket" VerticalAlignment="Top" Width="210" Foreground="White" Height="37" FontSize="18" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

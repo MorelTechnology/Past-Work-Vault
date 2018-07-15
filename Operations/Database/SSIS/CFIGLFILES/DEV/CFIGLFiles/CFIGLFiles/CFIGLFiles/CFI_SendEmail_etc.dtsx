@@ -1,0 +1,118 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/4/2013 11:58:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPOLL-LAP7"
+  DTS:CreatorName="TRG\ppoll"
+  DTS:DTSID="{BD2837E3-CAB4-4366-862A-2E78CC37B589}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CFI_SendEmail_etc"
+  DTS:PackageType="5"
+  DTS:VersionBuild="409"
+  DTS:VersionGUID="{0ECF0E22-4B90-4D50-AF0E-8DFD86D5168F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D23D5678-4A19-4E5B-BB0A-3F3079E4D8B8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="JobName">
+      <DTS:VariableValue
+        DTS:DataType="8">CreateCFIGLFiles</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{BF82A010-8778-4843-85FE-293329062302}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[$Project::HomeDirectory] + "\\" + "CFICaseReserves.txt" + 
+"|" + @[$Project::HomeDirectory] + "\\" + "CFIPaids.txt" + 
+"|" + @[$Project::HomeDirectory] + "\\" + "CFIQuarterSummary.txt" + 
+"|" + @[$Project::HomeDirectory] + "\\" + "CFIFileSummary.txt"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Project::CFI_DistributionList]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{2E103E11-A22C-4D51-B7FB-A060981FE400}"
+          SendMailTask:From="ITProductionSupport@trg.com"
+          SendMailTask:To="James_gabel@trg.com"
+          SendMailTask:Subject="CFI GL Excel Files"
+          SendMailTask:MessageSource="Attached please find  Excel Workbook with case reserves entries, paid loss entries, file summary and quarter summary reports." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="\\MANSAN02\BATCHDEV$\CFI\CFIGLFILES\CFICaseReserves.txt|\\MANSAN02\BATCHDEV$\CFI\CFIGLFILES\CFIPaids.txt|\\MANSAN02\BATCHDEV$\CFI\CFIGLFILES\CFIQuarterSummary.txt|\\MANSAN02\BATCHDEV$\CFI\CFIGLFILES\CFIFileSummary.txt" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="150,54"
+          Id="Package\Send Mail Task"
+          TopLeft="63.4285727471722,148.670595032616" />
+        <AnnotationLayout
+          Text="Copies Excel Spreadsheets to History Directory "
+          ParentId="Package"
+          Size="387,44"
+          Id="dc7dc39b-9d6e-4cea-98fb-111f41c51092"
+          TopLeft="5.5,33.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Sends the files via email to Bill G"
+          ParentId="Package"
+          Size="306,44"
+          Id="56e4cf18-6210-482c-bb6e-e36c214b44fe"
+          TopLeft="5.5,55.8773584905661">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

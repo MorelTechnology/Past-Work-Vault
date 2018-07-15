@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{85af040a-8f5d-4389-a66c-5471a4e4b2b0}"
+       Name="FinancialAuthorityGrantedBy"
+       DisplayName="Financial Authority Granted By"
+       Type="User"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

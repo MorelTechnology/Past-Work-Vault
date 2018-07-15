@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Sapiens SSRS Solution", "Sapiens SSRS Solution\Sapiens SSRS Solution.rptproj", "{26C1C8A4-1287-4467-954B-2E54233D4C6D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sapiens\u0020SSRS\u0020Solution\\Sapiens\u0020SSRS\u0020Solution.rptproj
+		SccProjectName1 = Sapiens\u0020SSRS\u0020Solution
+		SccLocalPath1 = Sapiens\u0020SSRS\u0020Solution
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Debug|Default.ActiveCfg = Debug
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Debug|Default.Build.0 = Debug
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Debug|Default.Deploy.0 = Debug
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.DebugLocal|Default.Build.0 = DebugLocal
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Release|Default.ActiveCfg = Release
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Release|Default.Build.0 = Release
+		{26C1C8A4-1287-4467-954B-2E54233D4C6D}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

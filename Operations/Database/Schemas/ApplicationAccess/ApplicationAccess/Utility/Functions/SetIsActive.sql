@@ -1,0 +1,10 @@
+﻿CREATE FUNCTION [Utility].[SetIsActive]
+(
+	@EffectiveDate DATE,
+	@ExpirationDate DATE
+)
+RETURNS INT
+AS
+BEGIN
+	RETURN (CASE WHEN @EffectiveDate <= CURRENT_TIMESTAMP AND @ExpirationDate > CURRENT_TIMESTAMP THEN 1 ELSE 0 END)
+END

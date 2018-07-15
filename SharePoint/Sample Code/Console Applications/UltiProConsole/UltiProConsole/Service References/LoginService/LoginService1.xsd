@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ultipro.com/contracts" elementFormDefault="qualified" targetNamespace="http://www.ultipro.com/contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://service4.ultipro.com/services/LoginService?xsd=xsd2" namespace="http://www.ultipro.com/services/loginservice" />
+  <xs:element name="TokenRequest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.ultipro.com/services/loginservice" minOccurs="0" ref="q1:Status" />
+        <xs:element xmlns:q2="http://www.ultipro.com/services/loginservice" minOccurs="0" ref="q2:StatusMessage" />
+        <xs:element xmlns:q3="http://www.ultipro.com/services/loginservice" minOccurs="0" ref="q3:Token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="AuthenticationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="Failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthenticationStatus" nillable="true" type="tns:AuthenticationStatus" />
+</xs:schema>

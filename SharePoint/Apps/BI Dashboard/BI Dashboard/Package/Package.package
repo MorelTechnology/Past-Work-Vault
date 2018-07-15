@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="6038ff78-5986-47dc-99a9-a88de89772d4" solutionId="6038ff78-5986-47dc-99a9-a88de89772d4" resetWebServer="false" sharePointProductVersion="15.0" name="BI_Dashboard" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="45172d2a-be49-4e1e-b53b-9c63e9d9a705" />
+    <featureReference itemId="81516af5-034a-4180-8a63-88b23803bf11" />
+  </features>
+</package>

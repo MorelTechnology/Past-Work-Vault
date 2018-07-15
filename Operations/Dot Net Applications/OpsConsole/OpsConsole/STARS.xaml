@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="OpsConsole.STARS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="1040" d:DesignWidth="1200">
+    <Grid Background="#FF89A3B2">
+        <TextBlock x:Name="lblOccurances" HorizontalAlignment="Left" Margin="10,0,0,11" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="294" Foreground="White" FontSize="18"/>
+        <Grid Height="415" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF687A93">
+            <Grid Height="36" VerticalAlignment="Top"   Margin="0,0,0,0"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle1" HorizontalAlignment="Left" Margin="8,0,0,-28" TextWrapping="Wrap" Text="Import adjustment figures" VerticalAlignment="Top" Width="726" Foreground="White" FontSize="24"/>
+            </Grid>
+            <Button x:Name="btnOpenAdjustments" HorizontalAlignment="Left" Margin="12,341,0,0" VerticalAlignment="Top" Width="168" Height="63" Click="btnOpenAdjustments_Click">
+                <StackPanel>
+                    <TextBlock Text="Open Spreadsheet with:" FontWeight="Bold" />
+                    <TextBlock Text="  - Taxes, Licenses and Fees" />
+                    <TextBlock Text="  - Commissions" />
+                </StackPanel>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="267" Margin="12,65,0,0" VerticalAlignment="Top" Source="images/SampleSpreadsheet.png" Stretch="UniformToFill" Width="907"/>
+            <TextBlock HorizontalAlignment="Left" Margin="935,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" Foreground="White" Height="231"><Run Text="Taxes, Licenses and Fees"/><LineBreak/><Run Text="   Col A - Amount"/><LineBreak/><Run Text="   Col B - State"/><LineBreak/><Run Text="   Col D - Extract LOB"/><LineBreak/><Run Text="   Col F - Company name"/><LineBreak/><Run/><LineBreak/><Run Text="Commissions"/><LineBreak/><Run Text="   Col H - Amount"/><LineBreak/><Run Text="   Col I - State"/><LineBreak/><Run Text="   Col K - Extract LOB"/><LineBreak/><Run Text="   Col M - Company name"/><LineBreak/><Run/><LineBreak/><Run Text="Data starts on Row 3"/></TextBlock>
+            <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="191,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="559" Foreground="White" FontSize="24" Height="37"/>
+            <TextBlock HorizontalAlignment="Left" Margin="17,46,0,0" TextWrapping="Wrap" Text="The spreadsheet should look like this:" VerticalAlignment="Top" Width="370" Foreground="White" />
+            <TextBlock x:Name="lblStatus2" HorizontalAlignment="Left" Margin="191,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" Foreground="White" FontSize="16" Height="24"/>
+        </Grid>
+        <Grid  Margin="10,436,10,10" Background="#FF687A93">
+            <Grid Height="36" VerticalAlignment="Top"   Margin="0,0,0,0"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle2" HorizontalAlignment="Left" Margin="8,0,0,-28" TextWrapping="Wrap" Text="Modify a STARS State Page Extract Spreadsheet" VerticalAlignment="Top" Width="726" Foreground="White" FontSize="24"/>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" Margin="375,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Foreground="White" Height="158"><Run Text="For this spreadsheet"/><LineBreak/><Run Text="   Col B - State Code"/><LineBreak/><Run Text="   Col D - Extract LOB"/><LineBreak/><Run Text="   Col S - Taxes, Licenses and Fees"/><LineBreak/><Run Text="   Col T - Commissions"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="17,46,0,0" TextWrapping="Wrap" Text="Choose the company this sheet belongs to" VerticalAlignment="Top" Width="370" Foreground="White" />
+            <ListBox x:Name="lbCompanies" HorizontalAlignment="Left" Height="171" Margin="17,67,0,0" VerticalAlignment="Top" Width="339"/>
+            <Button x:Name="btnModifyStarsSpreadsheet" HorizontalAlignment="Left" Margin="17,243,0,0" VerticalAlignment="Top" Width="144" Height="63" Click="btnModifyStarsSpreadsheet_Click">
+                <StackPanel>
+                    <TextBlock Text="Modify a " FontWeight="Bold" />
+                    <TextBlock Text="STARS spreadsheet:" FontWeight="Bold" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

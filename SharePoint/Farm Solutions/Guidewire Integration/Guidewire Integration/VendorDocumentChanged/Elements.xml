@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListUrl="Vendor Documents">
+    <Receiver>
+      <Name>VendorDocumentChangedItemUpdating</Name>
+      <Type>ItemUpdating</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>Guidewire_Integration.VendorDocumentChanged.VendorDocumentChanged</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+      <Receiver>
+        <Name>VendorDocumentChangedItemDeleted</Name>
+        <Type>ItemDeleted</Type>
+        <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+        <Class>Guidewire_Integration.VendorDocumentChanged.VendorDocumentChanged</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+  </Receivers>
+</Elements>

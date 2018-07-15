@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8820b3f7-d588-4c48-96c9-cf1f66678c3a}"
+       Name="LeadOfficeName"
+       DisplayName="Lead Office Name"
+       Type="Text"
+       Required="True"
+       Group="Custom Site Columns"
+       EnforceUniqueValues="true"
+       Indexed="true">
+  </Field>
+</Elements>

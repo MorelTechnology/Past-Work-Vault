@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "TRACS Remarks", "TRACS Remarks\TRACS Remarks.rptproj", "{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TRACS\u0020Remarks\\TRACS\u0020Remarks.rptproj
+		SccProjectName1 = TRACS\u0020Remarks
+		SccLocalPath1 = TRACS\u0020Remarks
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Debug|Default.ActiveCfg = Debug
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Debug|Default.Build.0 = Debug
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Debug|Default.Deploy.0 = Debug
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.DebugLocal|Default.Build.0 = DebugLocal
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Release|Default.ActiveCfg = Release
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Release|Default.Build.0 = Release
+		{5C77AA47-29BA-41FF-80D9-6A6F10BCB540}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Dropped Reason Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Dropped Reason Lookup" Description="Provides a list of available dropped reasons">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="DroppedReasonName">None</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="DroppedReasonName">Price</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="DroppedReasonName">Priority</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="DroppedReasonName">Third Party Interest</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="DroppedReasonName">Internal Interest</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="DroppedReasonName">Credit Issues</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="DroppedReasonName">Dispute Issues</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="DroppedReasonName">Resource</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">9</Field>
+          <Field Name="DroppedReasonName">Internal Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">10</Field>
+          <Field Name="DroppedReasonName">External Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">11</Field>
+          <Field Name="DroppedReasonName">Regulatory Approval</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">12</Field>
+          <Field Name="DroppedReasonName">Other</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">13</Field>
+          <Field Name="DroppedReasonName">No Appetite</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

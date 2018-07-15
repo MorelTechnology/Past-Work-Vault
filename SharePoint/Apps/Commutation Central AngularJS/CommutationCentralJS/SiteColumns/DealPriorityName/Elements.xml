@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{b3599157-82b6-4306-99d1-35c93deabc9b}"
+       Name="DealPriorityName"
+       DisplayName="Deal Priority Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       EnforceUniqueValues="TRUE" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

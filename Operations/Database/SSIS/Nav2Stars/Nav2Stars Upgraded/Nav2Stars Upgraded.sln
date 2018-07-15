@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Nav2Stars Upgraded", "Nav2Stars BIQAETL01\Nav2Stars Upgraded.dtproj", "{5D830769-FB66-42D6-A919-F18149BFF339}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Nav2Stars\u0020BIQAETL01\\Nav2Stars\u0020Upgraded.dtproj
+		SccProjectName1 = Nav2Stars\u0020BIQAETL01
+		SccLocalPath1 = Nav2Stars\u0020BIQAETL01
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D830769-FB66-42D6-A919-F18149BFF339}.Development|Default.ActiveCfg = Development
+		{5D830769-FB66-42D6-A919-F18149BFF339}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

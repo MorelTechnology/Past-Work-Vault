@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Ops Console Access Report", "Ops Console Access Report\Ops Console Access Report.rptproj", "{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Ops\u0020Console\u0020Access\u0020Report\\Ops\u0020Console\u0020Access\u0020Report.rptproj
+		SccProjectName1 = Ops\u0020Console\u0020Access\u0020Report
+		SccLocalPath1 = Ops\u0020Console\u0020Access\u0020Report
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Debug|Default.ActiveCfg = Debug
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Debug|Default.Build.0 = Debug
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Debug|Default.Deploy.0 = Debug
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.DebugLocal|Default.Build.0 = DebugLocal
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Release|Default.ActiveCfg = Release
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Release|Default.Build.0 = Release
+		{D930A91B-8DE3-4A8E-A3A6-9003DD7F6DD7}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

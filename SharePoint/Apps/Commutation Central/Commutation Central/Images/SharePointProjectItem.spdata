@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="AppIcon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Binoculars.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="document.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="door_in.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="green-circle.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="loading.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="ltgen.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="notes.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="PaperClip3_Black.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="stop-sign.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="uploading.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="yellow-triangle.jpg" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

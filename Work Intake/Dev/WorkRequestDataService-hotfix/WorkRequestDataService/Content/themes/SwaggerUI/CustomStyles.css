@@ -1,0 +1,148 @@
+/* Re-brand the top bar with the RiverStone Logo and add a background cover */
+body {
+    background-image: url('/Content/images/rocks.jpg') !important;
+    background-size: cover !important;
+}
+
+#swagger-ui .scheme-container {
+    visibility: hidden !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+}
+/**
+    #swagger-ui .scheme-container label {
+        color: silver !important;
+    }
+
+    #swagger-ui .scheme-container select {
+        background-color: silver !important;
+    }
+*/
+
+#swagger-ui > section > div.topbar {
+    background-color: #000000 !important;
+}
+
+    #swagger-ui > section > div.topbar > div > div > a > img {
+        display: none !important;
+    }
+
+    #swagger-ui > section > div.topbar > div > div > a {
+        color: transparent !important;
+    }
+
+    #swagger-ui > section > div.topbar > div > div > a {
+        background: url("/Content/images/riverstone-logo.png") !important;
+        background-size: 65% !important;
+        background-repeat: no-repeat !important;
+        margin-left: 1% !important;
+        margin-top: 5px !important;
+        position: relative !important;
+    }
+
+/* Hide unnecessary display elements which don't change */
+.base-url, .url, .download-url-wrapper {
+    display: none !important;
+}
+
+/* Hack to re-position the title to the top-bar */
+#swagger-ui .title {
+    margin-left: 25% !important;
+    margin-top: -105px !important;
+    color: #fff !important;
+    position: relative !important;
+}
+/* Shrink extra dead-space */
+#swagger-ui .info {
+    height: 0!important;
+}
+
+/* Re-style filter */
+#swagger-ui .operation-filter-input {
+    display: none !important;
+    background-color: cornsilk !important;
+}
+
+/* Re-style the tag blocks for visibility */
+#swagger-ui H4.opblock-tag {
+    color: #fff !important;
+}
+
+#swagger-ui .opblock-tag {
+    background-color: gray !important;
+    border-radius: 10px !important;
+    border: 6px silver outset !important;
+}
+
+    #swagger-ui .opblock-tag .markdown {
+        color: white!important;
+        margin: 0 0 0 20px !important;
+        border: 1px solid darkgray;
+        padding: 2px 15px 2px 15px !important;
+        border-radius: 5px !important;
+    }
+
+#swagger-ui .expand-operation {
+    border: 1px solid silver !important;
+    border-radius: 10px !important;
+    background-color: lightsteelblue !important;
+}
+
+#swagger-ui .try-out .btn {
+    background-color: lightgreen !important;
+}
+
+#swagger-ui .opblock {
+    background: gainsboro !important;
+    margin-left: auto !important;
+    border: 5px white outset !important;
+    margin: 1px 10px 5px 2% !important;
+}
+
+#swagger-ui .models H4 {
+    font-size: 24px;
+    color: lightyellow !important;
+}
+
+#swagger-ui .models {
+    background-color: gray !important;
+    border-radius: 10px !important;
+}
+
+    #swagger-ui .models H4 > svg {
+        border: 1px solid silver !important;
+        border-radius: 5px !important;
+        zoom: 1.4;
+        background-color: lightsteelblue !important;
+    }
+
+    #swagger-ui .models .model-container {
+        background-color: gainsboro !important;
+    }
+
+input[type=text] {
+    font: 15px courier !important;
+    font-style: italic !important;
+    min-width: 10% !important;
+    max-width: 99% !important;
+    box-sizing: border-box !important;
+    border: 4px inset !important;
+}
+input[type=text]:focus {
+    font-style: initial !important;
+}
+    input[type=text]::-webkit-input-placeholder {
+        color: silver !important;
+    }
+
+    input[type=text]::-moz-placeholder {
+        color: silver !important;
+    }
+
+    input[type=text]:-ms-input-placeholder {
+        color: silver !important;
+    }
+
+    input[type=text]::-moz-placeholder {
+        color: silver !important;
+    }

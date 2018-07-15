@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/7/2017 1:58:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RKASU-LAP"
+  DTS:CreatorName="TRG\rkasu"
+  DTS:DTSID="{A13AF74E-066F-444D-8EBE-5A34208A95CB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CFI_LoadSQLTables"
+  DTS:PackageType="5"
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{B108EA65-D6ED-411A-82D8-2E95C3DDA39A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get case reserves entries for CFI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C15B35F0-E655-432C-8833-2FE5D4A3CE33}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get case reserves entries for CFI"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3E009AD6-D99A-49BB-B113-D8FFC13CA441}"
+          SQLTask:SqlStatementSource="DECLARE  @CurrentMonthED  VARCHAR(10)&#xA;SELECT&#xA; @CurrentMonthED = CONVERT(VARCHAR(10), EOMONTH(GETDATE()), 120)&#xA;&#xA;exec dbo.batch_CreateCFICaseReserves @CurrentMonthED" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get paid losses entries for CFI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5f024644-898e-438c-acfb-2ce8a3582c00}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get paid losses entries for CFI"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3E009AD6-D99A-49BB-B113-D8FFC13CA441}"
+          SQLTask:SqlStatementSource="DECLARE  @CurrentMonthED  VARCHAR(10)&#xA;SELECT  @CurrentMonthED = CONVERT(VARCHAR(10), EOMONTH(GETDATE()), 120)&#xA;exec dbo.batch_CreateCFIPaids @CurrentMonthED" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get the totals for the quarter balancing report"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{86cd1da7-fb6f-418d-91fe-ebb028e5dafe}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get the totals for the quarter balancing report"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3E009AD6-D99A-49BB-B113-D8FFC13CA441}"
+          SQLTask:SqlStatementSource="DECLARE  @CurrentMonthED  VARCHAR(10)&#xA;SELECT  @CurrentMonthED = CONVERT(VARCHAR(10), EOMONTH(GETDATE()), 120)&#xA;exec dbo.batch_CreateCFIQuarterSummaryReport  @CurrentMonthED" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move files to history"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:DelayValidation="True"
+      DTS:Description="Move txt files to history folder"
+      DTS:DTSID="{29CECD6B-41C4-4ED0-875B-3C443699FF8A}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move files to history">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{8AEAC772-F7E9-4AED-832B-84B9BAE33C72}"
+        DTS:ObjectName="{8AEAC772-F7E9-4AED-832B-84B9BAE33C72}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::varSourceFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\mansan02\BATCHQA$\CFI\CFIGLFiles" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{34DA9BC2-FB0A-46F8-B63F-A28A4FC0E6F4}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="varFileNameWithExt">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{D9214CE0-D623-4C99-9C28-05F9F51DFE79}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="varHistoryFolder">
+          <DTS:VariableValue
+            DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{46000325-A2C3-4E02-96BB-85294E1A0A1B}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::varHistoryFolder] + &quot;\\&quot; + &#xA;(DT_WSTR, 4)YEAR(GETDATE()) +&#xA;RIGHT(&quot;00&quot; + (DT_WSTR, 2)MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;00&quot; + (DT_WSTR, 2)DAY(GETDATE()), 2) + &quot;_&quot; +&#xA; @[User::varFileNameWithExt]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="varRenameFile">
+          <DTS:VariableValue
+            DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History\20180131_</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{F73F6D0E-C39B-42E8-8029-B0236DAF7887}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="varSourceFolder">
+          <DTS:VariableValue
+            DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{71930CD5-9E42-46E1-B2D1-E196D3BA143A}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::varSourceFolder] + &quot;\\&quot; +  @[User::varFileNameWithExt]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="varSourceFolderandFile">
+          <DTS:VariableValue
+            DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Move files to history\Move File To History Folder"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{C11A2958-99FA-4BFB-BB92-D7037C00381B}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move File To History Folder"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::varSourceFolderandFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::varRenameFile"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{6ED47F6E-5BC7-429A-AEA6-8F40BF99D1E5}"
+          DTS:ObjectName="{6ED47F6E-5BC7-429A-AEA6-8F40BF99D1E5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::varFileNameWithExt" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{73BB6104-740B-4523-BB6E-AD578713EEAC}"
+      DTS:From="Package\Get case reserves entries for CFI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get paid losses entries for CFI" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3778C272-8706-474F-89F3-65A421B6F464}"
+      DTS:From="Package\Get paid losses entries for CFI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Get the totals for the quarter balancing report" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{EA300936-EC1C-42AC-A3B3-4F0F9794E402}"
+      DTS:From="Package\Get the totals for the quarter balancing report"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Move files to history" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="174.4,59.2"
+          Id="Package\Get case reserves entries for CFI"
+          TopLeft="39.4285716231988,205.847062832427" />
+        <NodeLayout
+          Size="179.2,54.4"
+          Id="Package\Get paid losses entries for CFI"
+          TopLeft="37.6326532252667,311.089078310204" />
+        <NodeLayout
+          Size="179.2,54.4"
+          Id="Package\Get the totals for the quarter balancing report"
+          TopLeft="468.775517710444,208.519326489784" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Move files to history\Move File To History Folder"
+          TopLeft="54.7102061849989,77.6672285858737" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="328.8,174.4"
+          Size="328.8,217.6"
+          Id="Package\Move files to history"
+          TopLeft="427.453067264196,292.262180751983" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="126.930612424233,265.047062832427">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.0420154777769"
+              Start="0,0"
+              End="0,38.5420154777769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5420154777769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="155.7659865586,311.089078310204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="374.076197818511,-48.1697518204201"
+              Start="0,0"
+              End="374.076197818511,-40.6697518204201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-20.08487591021" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-20.08487591021"
+                    Point2="0,-24.08487591021"
+                    Point3="4,-24.08487591021" />
+                  <mssgle:LineSegment
+                    End="370.076197818511,-24.08487591021" />
+                  <mssgle:CubicBezierSegment
+                    Point1="370.076197818511,-24.08487591021"
+                    Point2="374.076197818511,-24.08487591021"
+                    Point3="374.076197818511,-28.08487591021" />
+                  <mssgle:LineSegment
+                    End="374.076197818511,-40.6697518204201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="589.380959153987,262.919326489784">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29.342854262199"
+              Start="0,0"
+              End="0,21.842854262199">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.842854262199" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Loads 4 tables in RS_Reporting Database "
+          ParentId="Package"
+          Size="345.6,44"
+          Id="ce181954-e351-4f61-8c38-790dc0a334d9"
+          TopLeft="31.2244898508312,118.208402086023">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="(CFICaseReserves,CFIFilesSummary, CFIPaids, CFIQuarterSummary)"
+          ParentId="Package"
+          Size="787.2,44"
+          Id="08bcce7a-ea6a-4a1c-bd0f-056afbb4addc"
+          TopLeft="27.8571428547101,138.375515749055">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Moves files to history and deletes \\MANSAN02\BATCHQA$\CFI\CFIGLFiles\"
+          ParentId="Package"
+          Size="621.6,44"
+          Id="39213584-9b5b-4cbd-8a1c-ef597c7c8ea3"
+          TopLeft="30.408163306317,158.50394617967">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

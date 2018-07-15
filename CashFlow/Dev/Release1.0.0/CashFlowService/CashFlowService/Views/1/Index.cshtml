@@ -1,0 +1,116 @@
+﻿@page
+@model CashFlowService.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "WorkMattersView1";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].SpecialTrackingGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].WorkMatterDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].InsuredName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].AssignedAdjuster)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].AssignedManager)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].StartUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].Portfolio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].HasAssociations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].EndUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].Wmclosed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkMatters[0].WmclosedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WorkMatters)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialTrackingGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkMatterDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsuredName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedAdjuster)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedManager)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Portfolio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasAssociations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wmclosed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WmclosedDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.WorkMatter">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.WorkMatter">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.WorkMatter">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

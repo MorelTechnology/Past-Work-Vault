@@ -1,0 +1,26 @@
+﻿<uib-accordion-group heading="Views" is-open="true">
+    <ul class="level1" style="list-style: none;">
+        <li class="static"><a ng-class="getClass('/')" href="#/">Home</a></li>
+        <li class="static"><a ng-class="getClass('/AllOpenProjects')" href="#/AllOpenProjects">Open Projects</a></li>
+        <li class="static"><a ng-class="getClass('/AllActivities')" href="#/AllActivities">Activities</a></li>
+        <li class="static"><a ng-class="getClass('/AllNotes')" href="#/AllNotes">Notes</a></li>
+        <li class="static"><a ng-class="getClass('/CommutationDocuments')" href="#/CommutationDocuments">Commutation Documents</a></li>
+        <li class="static"><a ng-class="getClass('/AllContacts')" href="#/AllContacts">Contacts</a></li>
+        <li class="static"><a ng-class="getClass('/CompletedProjects')" href="#/CompletedProjects">Completed Projects</a></li>
+        <li class="static"><a ng-class="getClass('/DroppedProjects')" href="#/DroppedProjects">Dropped Projects</a></li>
+        <li class="static"><a ng-class="getClass('/MyActivities')" href="#/MyActivities">Activities Assigned to Me</a></li>
+        <li class="static"><a ng-class="getClass('/Reports')" href="">Reports (Coming Soon)</a></li>
+    </ul>
+</uib-accordion-group>
+<uib-accordion-group heading="Quick Actions" is-open="true">
+    <ul class="level1" style="list-style: none;">
+        <li class="static"><a href="#" ng-class="getClass('NeverActive')" ng-click="openModal('../App/Templates/Projects/Add.html', 'addProjectItemCtrl', 'new-project-dialog')">Add Commutation</a></li>
+        <li class="static"><a href="#" ng-class="getClass('NeverActive')" ng-click="openBlankActivityModal()">Add Activity</a></li>
+        <li class="static"><a href="#" ng-class="getClass('NeverActive')" ng-click="openBlankNoteModal()">Add Note</a></li>
+    </ul>
+</uib-accordion-group>
+<uib-accordion-group heading="Admin Tasks" is-open="true">
+    <ul class="level1" style="list-style: none;">
+        <li class="static"><a ng-class="getClass('/Admin/ControlPanel')" href="#/Admin/ControlPanel">Admin Control Panel</a></li>
+    </ul>
+</uib-accordion-group>

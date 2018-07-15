@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ultipro.com/contracts" elementFormDefault="qualified" targetNamespace="http://www.ultipro.com/contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EmployeeIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmployeeIdentifier" nillable="true" type="tns:EmployeeIdentifier" />
+  <xs:complexType name="EntityIdentifier">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="EntityIdentifier" nillable="true" type="tns:EntityIdentifier" />
+  <xs:complexType name="EmployeeNumberIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmployeeNumberIdentifier" nillable="true" type="tns:EmployeeNumberIdentifier" />
+  <xs:complexType name="SsnIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ssn" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SsnIdentifier" nillable="true" type="tns:SsnIdentifier" />
+  <xs:complexType name="EmailAddressIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmailAddressIdentifier" nillable="true" type="tns:EmailAddressIdentifier" />
+  <xs:complexType name="UserDefinedIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserDefinedIdentifier" nillable="true" type="tns:UserDefinedIdentifier" />
+  <xs:complexType name="SinIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Sin" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SinIdentifier" nillable="true" type="tns:SinIdentifier" />
+  <xs:complexType name="NationalIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmployeeIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NationalIdentifier" nillable="true" type="tns:NationalIdentifier" />
+  <xs:complexType name="AddressGetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfAddress" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddressGetResponse" nillable="true" type="tns:AddressGetResponse" />
+  <xs:complexType name="GetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ReadResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetResponse" nillable="true" type="tns:GetResponse" />
+  <xs:complexType name="ReadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OperationResult" nillable="true" type="tns:Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReadResponse" nillable="true" type="tns:ReadResponse" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HasErrors" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasWarnings" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfOperationMessage" />
+      <xs:element minOccurs="0" name="PagingInfo" nillable="true" type="tns:PagingInfo" />
+      <xs:element minOccurs="0" name="RequestNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+  <xs:complexType name="ArrayOfOperationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OperationMessage" nillable="true" type="tns:OperationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperationMessage" nillable="true" type="tns:ArrayOfOperationMessage" />
+  <xs:complexType name="OperationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogEntryId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Severity" type="tns:Severity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationMessage" nillable="true" type="tns:OperationMessage" />
+  <xs:simpleType name="Severity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Information" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Severity" nillable="true" type="tns:Severity" />
+  <xs:complexType name="PagingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentPage" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PageTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalItems" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingInfo" nillable="true" type="tns:PagingInfo" />
+  <xs:complexType name="ArrayOfAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeIdentifier" nillable="true" type="tns:EmployeeIdentifier" />
+      <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipOrPostalCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="EmployeeQuery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullOrPartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Job" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastHire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationLevel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationLevel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationLevel3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationLevel4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalHire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeClockId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeQuery" nillable="true" type="tns:EmployeeQuery" />
+  <xs:complexType name="AddressFindResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FindResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfEmployeeAddress" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddressFindResponse" nillable="true" type="tns:AddressFindResponse" />
+  <xs:complexType name="FindResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ReadResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindResponse" nillable="true" type="tns:FindResponse" />
+  <xs:complexType name="ArrayOfEmployeeAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeAddress" nillable="true" type="tns:EmployeeAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeAddress" nillable="true" type="tns:ArrayOfEmployeeAddress" />
+  <xs:complexType name="EmployeeAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmployeeAddress" nillable="true" type="tns:EmployeeAddress" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="AddressUpdateResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UpdateResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddressUpdateResponse" nillable="true" type="tns:AddressUpdateResponse" />
+  <xs:complexType name="UpdateResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WriteResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateResponse" nillable="true" type="tns:UpdateResponse" />
+  <xs:complexType name="WriteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HasErrors" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasWarnings" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OperationResult" nillable="true" type="tns:Result" />
+      <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfResult" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WriteResponse" nillable="true" type="tns:WriteResponse" />
+  <xs:complexType name="ArrayOfResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Result" nillable="true" type="tns:Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResult" nillable="true" type="tns:ArrayOfResult" />
+</xs:schema>

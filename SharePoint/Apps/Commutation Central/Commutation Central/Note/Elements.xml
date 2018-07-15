@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{bdadf886-bf17-43ee-a015-704bc2544dc3}"
+       Name="Note"
+       DisplayName="Note"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" List="Lists/Notes" ShowField="ID">
+  </Field>
+</Elements>

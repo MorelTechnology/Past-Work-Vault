@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Edit Company In Scope</h3>
+</div>
+<div class="modal-body" ng-form="editItemForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table class="item-app-table">
+        <tr>
+            <td class="field-label">Company Name</td>
+            <td class="value"><input type="text" data-ng-model="companyInScope.CompanyName" /></td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !editItemForm.$valid" ng-click="editItem(companyInScope)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

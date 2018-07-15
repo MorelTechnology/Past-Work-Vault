@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1159def7-5e66-4d67-b556-b0eb42c97793" solutionId="1159def7-5e66-4d67-b556-b0eb42c97793" resetWebServer="false" sharePointProductVersion="15.0" name="SharePointTabify" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="97a64a5d-e715-4502-b03a-69cafa87c7c3" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="3d082a8b-6c10-4323-bd26-27229c73dd90" />
+    <projectItemReference itemId="2f7c17c0-92cf-403f-b82d-04c6217bbc7e" />
+  </projectItems>
+</package>

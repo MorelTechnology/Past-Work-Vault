@@ -1,0 +1,110 @@
+#MyMattersApplication .columns .alert {font-size: 11px; font-style:italic;  margin: 0px 5px -2px 5px; padding: 0px 0px 0px 0px; text-align:center;}
+#MyMattersApplication .dropdown-menu {font-size:12px; margin: 25px 0px 0px 15px; box-shadow: 15px 15px 20px gray;}
+#MyMattersApplication .dropdown-menu a:hover {background-color: #0e5d87; color: #fff;}
+#MyMattersApplication .help{font-size:22px; filter: invert(70%);}
+#MyMattersApplication subtext { color:gray; margin-left:2px; font-size:11px;}
+#MyMattersApplication #displayOptions { display:none margin:5px; }
+#MyMattersApplication #displayOptions  button {width: 155px; padding:0px; margin: 3px;}
+#MyMattersApplication #displayOptionsPanel { display:none; background-color: #f2f2f2; margin: 2px; padding:5px; width:65%; border-radius:5px;}
+#MyMatters {font-size: 12px;}
+#MyMatters .tabulator-row { height:22px; }
+.tabulator-col { height: 22px; }
+.showSearch { height: 56px!important; }
+.truncate { width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
+/* Glyphicon Animations */
+.animate { -animation: spin .7s infinite linear; -webkit-animation: spinwebkit .7s infinite linear; }
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+@-webkit-keyframes spinwebkit {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+/* Tabulator Hacks */
+/*Alternating Rows */
+.tabulator .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+  background-color: #cce0ff;}
+/* Group Header Gradients*/
+.tabulator-group-header{
+background: rgb(246,248,249)!important; /* Old browsers */
+background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%)!important;; /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%)!important; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%)!important;; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 )!important;; /* IE6-9 */}
+
+
+/* Bootstrap Hacks */
+/* Matter Count Badge */
+.badge {background-color:lightgray; color:gray!important; font-size:9px;}
+
+/* Dropdown Menu dynamic columns */
+@media screen and (max-width: 875px) {
+  .columns {
+    height: 200px;
+    width: 200px;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (min-width: 876px) {
+  .columns {
+    -moz-column-count: 2;
+    /* Firefox */
+    -webkit-column-count: 2;
+    /* Safari and Chrome */
+    column-count: 2;
+    width: 360px;
+    height:300px;
+  }
+}
+
+
+.btn-toggle {
+  background-color: gray;
+  color: inherit;
+  transition: all .5s;
+ }
+
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover,
+.btn-primary.btn-outline:active,
+.btn-success.btn-outline:active,
+.btn-info.btn-outline:active,
+.btn-warning.btn-outline:active,
+.btn-danger.btn-outline:active {
+    color: #fff;
+}

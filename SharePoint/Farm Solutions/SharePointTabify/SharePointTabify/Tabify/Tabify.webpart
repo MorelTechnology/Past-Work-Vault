@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SharePointTabify.Tabify.Tabify, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Tabify</property>
+        <property name="Description" type="string">When added to a page, this webpart allows placement of other web parts inside a highly customizable tabbed interface, based on the JQuery tabs widget. </property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

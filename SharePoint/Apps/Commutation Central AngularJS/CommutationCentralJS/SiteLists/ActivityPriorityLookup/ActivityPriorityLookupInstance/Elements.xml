@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Activity Priority Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Activity Priority Lookup" Description="Provides a listing of available Activity Priorities">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="ActivityPriorityName">Low</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="ActivityPriorityName">Medium</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="ActivityPriorityName">High</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

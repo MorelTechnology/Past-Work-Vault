@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100BD6DD26286014E0DB773F76611DBFC9C" Name="Deal Priority" Group="Custom Content Types" Description="Deal priority content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{b3599157-82b6-4306-99d1-35c93deabc9b}" DisplayName="Deal Priority Name" Required="TRUE" Name="DealPriorityName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

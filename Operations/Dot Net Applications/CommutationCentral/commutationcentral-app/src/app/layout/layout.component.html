@@ -1,0 +1,22 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="main-container">
+  <!-- Global PrimeNg Growl component so that any child module/component can send a message using the MessageService -->
+  <p-growl [life]="5000"></p-growl>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <!-- Global PrimeNg Breadcrumb component so that any child component can establish route breadcrumbs using the BreadcrumbService -->
+        <p-breadcrumb [model]="breadcrumb" [home]="home"></p-breadcrumb>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- Area on the page where child components render -->
+        <router-outlet></router-outlet>
+        <!-- Area to hold animations when modules are lazy loaded -->
+        <app-transition-dialog></app-transition-dialog>
+      </div>
+    </div>
+  </div>
+</section>

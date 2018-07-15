@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>sdsNAV</DataSourceReference>
+      <CommandText>SELECT        Code, Description, [Subcos List], [IFRS Basis List], [STAT Basis List], [STAT Adj Basis List]
+FROM            [THC_RiverStone$Legal Entity]
+ORDER BY Code</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Code">
+        <DataField>Code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Description">
+        <DataField>Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Subcos_List">
+        <DataField>Subcos List</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="IFRS_Basis_List">
+        <DataField>IFRS Basis List</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="STAT_Basis_List">
+        <DataField>STAT Basis List</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="STAT_Adj_Basis_List">
+        <DataField>STAT Adj Basis List</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

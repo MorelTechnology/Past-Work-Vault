@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Activity Category Lookup" OnQuickLaunch="TRUE" TemplateType="10000" Url="Lists/Activity Category Lookup" Description="Activity Category Lookup">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Title">Project Scope</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Title">Coding Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Title">Data Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="Title">Reconciliation Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="Title">Collateral Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="Title">Claims Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="Title">Dispute Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="Title">Finance Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">9</Field>
+          <Field Name="Title">RI Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">10</Field>
+          <Field Name="Title">OGC Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">11</Field>
+          <Field Name="Title">Documentation Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">12</Field>
+          <Field Name="Title">Release Agreement</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">13</Field>
+          <Field Name="Title">Update Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">14</Field>
+          <Field Name="Title">Housekeeping Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">15</Field>
+          <Field Name="Title">SOX Issue</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">16</Field>
+          <Field Name="Title">Other</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">17</Field>
+          <Field Name="Title">Arrange Meeting</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">18</Field>
+          <Field Name="Title">Offer</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">19</Field>
+          <Field Name="Title">Follow Up</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">20</Field>
+          <Field Name="Title">Question</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

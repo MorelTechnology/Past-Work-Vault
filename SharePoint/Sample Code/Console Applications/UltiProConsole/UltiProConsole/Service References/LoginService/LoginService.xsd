@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ultipro.com/services/loginservice" elementFormDefault="qualified" targetNamespace="http://www.ultipro.com/services/loginservice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://service4.ultipro.com/services/LoginService?xsd=xsd0" namespace="http://www.ultipro.com/contracts" />
+  <xs:element name="ClientAccessKey" nillable="true" type="xs:string" />
+  <xs:element name="Password" nillable="true" type="xs:string" />
+  <xs:element name="UserAccessKey" nillable="true" type="xs:string" />
+  <xs:element name="UserName" nillable="true" type="xs:string" />
+  <xs:element xmlns:q1="http://www.ultipro.com/contracts" name="Status" type="q1:AuthenticationStatus" />
+  <xs:element name="StatusMessage" nillable="true" type="xs:string" />
+  <xs:element name="Token" nillable="true" type="xs:string" />
+</xs:schema>

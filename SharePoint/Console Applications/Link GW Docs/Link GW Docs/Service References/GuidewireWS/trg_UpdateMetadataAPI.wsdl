@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:pogo="http://example.com/riverstone/webservice/document" xmlns:gwwsdl="http://guidewire.com/pl/wsdl" xmlns:gwsoap="http://guidewire.com/ws/soapheaders" xmlns="http://example.com/riverstone/webservice/document/trg_UpdateMetadataAPI" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="trg_UpdateMetadataAPI" targetNamespace="http://example.com/riverstone/webservice/document/trg_UpdateMetadataAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/riverstone/webservice/document/trg_UpdateMetadataAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../../gw/xsd/guidewire/soapheaders.xsd" namespace="http://guidewire.com/ws/soapheaders" />
+      <xs:import namespace="http://example.com/riverstone/webservice/document" />
+      <xs:element name="updateMetadata">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="metadata" type="pogo:trg_DocumentInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateMetadataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/riverstone/webservice/document" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="trg_DocumentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documentID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:trg_MetadataPair" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="operation" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="trg_MetadataPair">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateMetadata">
+    <wsdl:part name="parameters" element="updateMetadata" />
+  </wsdl:message>
+  <wsdl:message name="updateMetadataResponse">
+    <wsdl:part name="parameters" element="updateMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="gw-authentication">
+    <wsdl:part name="gw-authentication" element="gwsoap:authentication" />
+  </wsdl:message>
+  <wsdl:message name="gw-locale">
+    <wsdl:part name="gw-locale" element="gwsoap:locale" />
+  </wsdl:message>
+  <wsdl:portType name="trg_UpdateMetadataAPIPortType">
+    <wsdl:operation name="updateMetadata">
+      <wsdl:input name="updateMetadata" message="updateMetadata" />
+      <wsdl:output name="updateMetadataResponse" message="updateMetadataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="trg_UpdateMetadataAPISoap12Binding" type="trg_UpdateMetadataAPIPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateMetadata">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updateMetadata">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateMetadataResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="trg_UpdateMetadataAPISoap11Binding" type="trg_UpdateMetadataAPIPortType">
+    <soap11:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateMetadata">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="updateMetadata">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateMetadataResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="trg_UpdateMetadataAPI">
+    <wsdl:port name="trg_UpdateMetadataAPISoap12Port" binding="trg_UpdateMetadataAPISoap12Binding">
+      <soap12:address location="http://mangwqa:8080/cc/ws/riverstone/webservice/document/trg_UpdateMetadataAPI" />
+      <gwwsdl:address location="${cc}/ws/riverstone/webservice/document/trg_UpdateMetadataAPI" />
+    </wsdl:port>
+    <wsdl:port name="trg_UpdateMetadataAPISoap11Port" binding="trg_UpdateMetadataAPISoap11Binding">
+      <soap11:address location="http://mangwqa:8080/cc/ws/riverstone/webservice/document/trg_UpdateMetadataAPI/soap11" />
+      <gwwsdl:address location="${cc}/ws/riverstone/webservice/document/trg_UpdateMetadataAPI/soap11" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

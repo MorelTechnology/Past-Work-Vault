@@ -1,0 +1,75 @@
+<p class="h2 text-center">
+  Please enter or select the following information:
+</p>
+<div [formGroup]="corporateGoalsFormGroup" class="pt-3">
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="queryingCorporateGoals" class="form-group row">
+        <i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+      </div>
+      <div class="form-group row">
+          <label class="col-12">Request Title:
+            <span class="font-weight-bold" [ngClass]="{'text-danger': corporateGoalsFormGroup.controls.title.invalid, 'text-success': corporateGoalsFormGroup.controls.title.valid}">Required</span>
+          </label>
+          <div class="col-12">
+            <input id="title" type="text" formControlName="title" class="form-control" pInputText placeholder="Request Title" pTooltip="Enter a high level summary description of the work being requested"
+              tooltipEvent="focus">
+            <small *ngIf="!corporateGoalsFormGroup.controls.title.valid && !corporateGoalsFormGroup.controls.title.pristine" class="text-danger">
+              Title is required
+            </small>
+          </div>
+        </div>
+      <div *ngIf="corporateGoalOptions" class="form-group row">
+        <label class="col-12">Please select the RiverStone corporate goal or corporate objective this project supports: (check all that apply)
+          <a href="https://rivernet2n.trg.com/sites/Operations/Documents/CorporateGoals.pdf?Web=1" target="_blank" title="Click here to see a definition of the Corporate Goals"><i class="fa fa-info-circle"></i></a>
+          <span class="font-weight-bold" [ngClass]="{'text-danger': corporateGoalsFormGroup.controls.corporateGoals.invalid, 'text-success': corporateGoalsFormGroup.controls.corporateGoals.valid}">Required</span>
+        </label>
+        <div class="col col-md-8 col-lg-8 col-xl-6" pTooltip="Identify and select the Corporate Goal(s) or Corporate Objective(s) that are impacted by the work being requested"
+          tooltipPosition="left">
+          <div *ngFor="let option of corporateGoalOptions">
+            <p-checkbox [formControl]="corporateGoalsFormGroup.controls['corporateGoals']" [value]="option" [label]="option"></p-checkbox>
+          </div>
+        </div>
+        <small *ngIf="!corporateGoalsFormGroup.controls.corporateGoals.valid && !corporateGoalsFormGroup.controls.corporateGoals.pristine"
+          class="col-12 text-danger">
+          Please select at least one goal
+        </small>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Describe how this work will support meeting the corporate goal(s) or corporate objective(s) you selected above:
+          <span class="font-weight-bold" [ngClass]="{'text-danger': corporateGoalsFormGroup.controls.goalSupport.invalid, 'text-success': corporateGoalsFormGroup.controls.goalSupport.valid}">Required</span>
+        </label>
+        <div class="col-12">
+          <textarea id="goalSupport" formControlName="goalSupport" class="form-control" pInputTextArea [rows]="5" autoResize="autoResize"
+            pTooltip="Describe in detail how each of the selected Corporate Goal(s) or Corporate Objective(s) will be impacted by the work being requested" tooltipEvent="focus"></textarea>
+          <small *ngIf="!corporateGoalsFormGroup.controls.goalSupport.valid && !corporateGoalsFormGroup.controls.goalSupport.pristine"
+            class="text-danger">
+            This field is required
+          </small>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Does this project also support a department goal and/or objective?
+          <span class="font-weight-bold" [ngClass]="{'text-danger': corporateGoalsFormGroup.controls.supportsDept.invalid, 'text-success': corporateGoalsFormGroup.controls.supportsDept.valid}">Required</span>
+        </label>
+        <div class="col-12" pTooltip="Identify if there are Departmental Goal(s) or Department Objective(s) that are impacted by the work being requested" tooltipPosition="left">
+          <p-radioButton class="pr-3" name="supportsDept" [value]="true" label="Yes" formControlName="supportsDept"></p-radioButton>
+          <p-radioButton name="supportsDept" [value]="false" label="No" formControlName="supportsDept"></p-radioButton>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">If yes, please list the department and the specific goal and/or objective:
+          <span *ngIf="corporateGoalsFormGroup.controls.supportsDept.value === true" class="font-weight-bold" [ngClass]="{'text-danger': corporateGoalsFormGroup.controls.deptGoalSupport.invalid, 'text-success': corporateGoalsFormGroup.controls.deptGoalSupport.valid}">Required</span>
+          <span *ngIf="corporateGoalsFormGroup.controls.supportsDept.value !== true" class="font-weight-bold">Optional</span>
+        </label>
+        <div class="col-12">
+          <input id="deptGoalSupport" type="text" formControlName="deptGoalSupport" class="form-control" pInputText pTooltip="List each Departmental Goal(s) or Department Objective(s) that will be impacted by the work being requested" tooltipEvent="focus">
+          <small *ngIf="!corporateGoalsFormGroup.controls.deptGoalSupport.valid && corporateGoalsFormGroup.controls.supportsDept.value === true"
+            class="text-danger">
+            This field is required
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

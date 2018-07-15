@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Pages">
+    <File Path="Pages\Default.aspx" Url="Pages/Default.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Activities\AllItems.aspx" Url="Pages/Activities/AllItems.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Activities\Created By Me.aspx" Url="Pages/Activities/Created By Me.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Activities\EditItem.aspx" Url="Pages/Activities/EditItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Activities\NewItem.aspx" Url="Pages/Activities/NewItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Activities\NewItem1.aspx" Url="Pages/Activities/NewItem1.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\CheckList\EditItem.aspx" Url="Pages/CheckList/EditItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Contacts\AttachItem.aspx" Url="Pages/Contacts/AttachItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Contacts\EditItem.aspx" Url="Pages/Contacts/EditItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Contacts\NewItem.aspx" Url="Pages/Contacts/NewItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Documents\AttachDocument.aspx" Url="Pages/Documents/AttachDocument.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Notes\AllItems.aspx" Url="Pages/Notes/AllItems.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Notes\EditItem.aspx" Url="Pages/Notes/EditItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Notes\NewItem.aspx" Url="Pages/Notes/NewItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Notes\NewItem1.aspx" Url="Pages/Notes/NewItem1.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\AllItems.aspx" Url="Pages/Projects/AllItems.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\CompletedDropped Projects.aspx" Url="Pages/Projects/CompletedDropped Projects.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\EditItem.aspx" Url="Pages/Projects/EditItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\NewItem.aspx" Url="Pages/Projects/NewItem.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\NotSupported.aspx" Url="Pages/NotSupported.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\Completed Projects.aspx" Url="Pages/Projects/Completed Projects.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Projects\Dropped Projects.aspx" Url="Pages/Projects/Dropped Projects.aspx" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

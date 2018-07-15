@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{28d26078-a957-4a56-9c92-0794720746fe}"
+       Name="PreliminaryValuationDate"
+       DisplayName="Preliminary Valuation Date"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       Format="DateOnly">
+  </Field>
+</Elements>

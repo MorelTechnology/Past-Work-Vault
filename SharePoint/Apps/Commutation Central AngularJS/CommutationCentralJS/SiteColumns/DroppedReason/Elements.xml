@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{4154ac93-5149-4a91-a590-5d393b961261}"
+       Name="DroppedReason"
+       DisplayName="Dropped Reason"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       List="Lists/Dropped Reason Lookup" 
+       ShowField="DroppedReasonName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

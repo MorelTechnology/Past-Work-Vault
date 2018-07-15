@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="Reinsurance">
+      <DataSourceReference>Reinsurance</DataSourceReference>
+      <rd:DataSourceID>788c191a-c008-4bd9-a649-4759d4bb5b3c</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="AggregateClaimsList">
+      <Fields>
+        <Field Name="ClaimNos">
+          <DataField>ClaimNos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>Reinsurance</DataSourceName>
+        <CommandText>Declare @AggregateClaimList as varchar(MAX)
+
+IF @OTWC_WC = 'OTWC'
+	BEGIN
+	
+		SELECT @AggregateClaimList = ISNULL(@AggregateClaimList + ', ', '') + ClaimNo
+		FROM dbo.AggregateClaim
+		WHERE GroupID = (SELECT DISTINCT GroupID FROM dbo.AggregateClaim WHERE ClaimNo = @ClaimNo)
+
+	END
+ELSE IF @OTWC_WC = 'WC'
+	BEGIN 
+
+		SELECT @AggregateClaimList = ISNULL(@AggregateClaimList + ', ', '') + ClientClaimNo
+		FROM dbo.AggregateClaim
+		WHERE GroupID = (SELECT DISTINCT GroupID FROM dbo.AggregateClaim WHERE ClientClaimNo = @ClientClaimNo)
+
+	END
+	
+SELECT @AggregateClaimList AS ClaimNos</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OTWC_WC">
+            <Value>=Parameters!OTWC_WC.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ClaimNo">
+            <Value>=Parameters!ClaimNo.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ClientClaimNo">
+            <Value>=Parameters!ClientClaimNo.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>7.35in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.22in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ClaimNo">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>="AGGREGATING CLAIM #’S: " &amp; Fields!ClaimNos.Value</Value>
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ClaimNo</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details">
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>AggregateClaimsList</DataSetName>
+        <Height>0.22in</Height>
+        <Width>7.35in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.2675in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="OTWC_WC">
+      <DataType>String</DataType>
+      <Prompt>OTWC WC</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClaimNo">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Claim No</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClientClaimNo">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Client Claim No</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>7.35in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <rd:ReportID>7a41399a-3f36-42b2-a047-89ae3494cc34</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

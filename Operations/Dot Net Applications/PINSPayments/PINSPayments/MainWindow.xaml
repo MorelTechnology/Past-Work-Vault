@@ -1,0 +1,97 @@
+﻿<Window x:Class="PINSPayments.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PINSPayments"
+        mc:Ignorable="d"
+        Title="PINS Payments Console" Height="850" Width="1100">
+    <Grid x:Name="outergrid" Background="#FFEEEFF0">
+        <Grid x:Name="toolbar" HorizontalAlignment="Left" Height="50"  Width="{Binding ActualWidth, ElementName=outergrid}"  VerticalAlignment="Top" Background="#FFBA934F" Margin="0,10,0,0" MouseRightButtonUp="toolbar_MouseRightButtonUp" >
+            <Image HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="261" Source="images/RiverStone-Logo-AllBlack-White-small.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1" Margin="7,10,0,0"/>
+            <TextBlock HorizontalAlignment="Center" Margin="100,3,100,0" TextWrapping="Wrap" Text="PINS Payments Console" VerticalAlignment="Top" Width="334" FontFamily="Tahoma" FontSize="22" TextAlignment="Center" FontWeight="Bold" Foreground="#FFF1F2F2"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,6,8,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Franklin Gothic Book" Text="Welcome" TextAlignment="Center" Height="15" Foreground="#FFF1F2F2"/>
+            <TextBlock x:Name="lblCurrentUser" HorizontalAlignment="Right" Margin="0,19,8,17" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" Text="Welcome" TextAlignment="Center" FontWeight="Bold" Foreground="#FFF1F2F2"/>
+            <TextBlock x:Name="lblScreenName" HorizontalAlignment="Center" Margin="379,31,379,0" TextWrapping="Wrap" Text="Home Screen" VerticalAlignment="Top" Width="334" FontFamily="Tahoma" FontSize="14" TextAlignment="Center" FontWeight="Bold" Foreground="#FFF1F2F2"/>
+            <TextBlock x:Name="lblVersion" HorizontalAlignment="Right" Margin="0,35,8,5" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" TextAlignment="Center" FontSize="10" Foreground="#FFF1F2F2"><Run Text="Version 1.01"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="lblEnvironment" HorizontalAlignment="Right" Margin="0,13,106,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontFamily="Franklin Gothic Heavy" FontSize="22" TextAlignment="Center" Foreground="LightGray" Text="DEV"/>
+            <TextBlock x:Name="lblAccessLevel" HorizontalAlignment="Right" Margin="0,35,106,5" TextWrapping="Wrap" Width="134" FontFamily="Franklin Gothic Book" TextAlignment="Center" FontSize="10" Foreground="#FFF1F2F2"><Run Text=""/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        </Grid>
+
+        <Grid x:Name="gridBlueBar" Background="#FF2C2826" Height="10" VerticalAlignment="Top" />
+
+        <Grid x:Name="gridWorkArea" Margin="0,54,0,0" >
+            <Grid x:Name="gridInnerWorkArea">
+                <!--
+                <local:SwitchUser  x:Name="screenSwitch" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="{Binding ElementName=outergrid, Path=ActualWidth}" Height="{Binding ElementName=outergrid, Path=ActualHeight}" Visibility="Hidden"/>
+                <local:APVendorMap x:Name="screenVendorMap" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                -->
+                <local:APHold x:Name="screenHold" Visibility="Visible" Margin="40,56,0,0" />
+                <local:APManageCeded x:Name="screenManageCeded" Visibility="Collapsed" Margin="40,56,0,0" />
+                <local:APPayments x:Name="screenPayments" Visibility="Collapsed" Margin="40,56,0,0" />
+                <Image x:Name="image" HorizontalAlignment="Left" Margin="0,6,0,0" Width="40" Stretch="None" Source="images/rocks-vertical-1280-thin.png"/>
+            </Grid>
+            <!--<ScrollViewer x:Name="scrollWrapPanel" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+                <WrapPanel x:Name="wpWrapPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding ElementName=outergrid, Path=ActualWidth}"  >
+                </WrapPanel>
+            </ScrollViewer>-->
+            <!-- local:EditData Margin="0,0,0,0"/ -->
+        </Grid>
+        <Grid Margin="40,60,0,0" VerticalAlignment="Top" Background="#FF2C2826" Height="56">
+            <Button x:Name="btnHoldScreen" HorizontalAlignment="Left" Height="41" Margin="10,8,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold" Click="btnHoldScreen_Click" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9C9C9C" Offset="0"/>
+                        <GradientStop Color="#FF9C9C9C" Offset="1"/>
+                        <GradientStop Color="#FFBAB2AD" Offset="0.552"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectHold" Fill="#FF2C2826" Width="7" Height="24" Stroke="#FFBA934F" StrokeThickness="0" />
+                    <Label Content="Assumed Payments" FontSize="14" Foreground="#FF303030" Width="151" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnManageCededCompanyHold" HorizontalAlignment="Left" Height="41" Margin="185,8,0,0" VerticalAlignment="Top" Width="244" FontWeight="Bold" Click="btnManageCededCompanyHold_Click" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9C9C9C" Offset="0"/>
+                        <GradientStop Color="#FF9C9C9C" Offset="1"/>
+                        <GradientStop Color="#FFBAB2AD" Offset="0.552"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectHold1" Fill="#FF2C2826" Width="7" Height="24" Stroke="#FFBA934F" Opacity="0.2" StrokeThickness="0" />
+                    <Label Content="Manage Ceding Company Hold
+                           " FontSize="14" Foreground="#FF303030" Width="227" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAssumedPayments" HorizontalAlignment="Left" Height="41" Margin="434,8,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold" Click="btnAssumedPayments_Click" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9C9C9C" Offset="0"/>
+                        <GradientStop Color="#FF9C9C9C" Offset="1"/>
+                        <GradientStop Color="#FFBAB2AD" Offset="0.552"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectHold2" Fill="#FF2C2826" Width="7" Height="24" Stroke="#FFBA934F" Opacity="0.2" StrokeThickness="0" />
+                    <Label Content="Payment Status" FontSize="14" Foreground="#FF303030" Width="151" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnActivateCheckRun" HorizontalAlignment="Right" Height="41" Margin="620,8,10,0" VerticalAlignment="Top" Width="149" FontWeight="Bold" Click="btnActivateCheckRun_Click" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9C9C9C" Offset="0"/>
+                        <GradientStop Color="#FF9C9C9C" Offset="1"/>
+                        <GradientStop Color="#FFBAB2AD" Offset="0.552"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Activate Check Run" FontSize="14" Foreground="#FF303030" Width="138" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+        <local:SelectUser x:Name="ucQAUser" Margin="0,58,0,0" Width="Auto" Height="Auto" Visibility="Collapsed"/>
+    </Grid>
+</Window>

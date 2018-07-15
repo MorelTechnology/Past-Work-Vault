@@ -1,0 +1,1884 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/14/2016 10:46:30 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="JMAFF-LAP1"
+  DTS:CreatorName="TRG\Jmaff"
+  DTS:DTSID="{AAF2F22B-E3B1-4CF8-A1D6-5FA9043D3084}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IBNRStaging to NAV"
+  DTS:PackageType="5"
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{BD49BF05-2BFC-4FBC-9297-CAACF7F10BD1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[devsql01.CWT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B0ECD11A-755F-462C-AABE-18867F55F2D9}"
+      DTS:ObjectName="devsql01.CWT">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::IBNRStagingConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=devsql01;Initial Catalog=CWT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DEVSQL01.Navision2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1089D790-405A-46CF-B829-1262B81073D6}"
+      DTS:ObjectName="DEVSQL01.Navision2">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::NAVDBConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DEVSQL01;Initial Catalog=Navision2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANPRODBS01.ROC]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EF442DB5-E8DA-409F-ACE7-E764A9DBE08D}"
+      DTS:ObjectName="MANPRODBS01.ROC">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::EmailConnection]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANPRODBS01;Initial Catalog=ROC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{07B80F61-73CC-41DC-9798-759E6BCA451C}"
+      DTS:ObjectName="EmailConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=MANPRODBS01;Initial Catalog=ROC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DADFD405-D14A-4BC9-BE2F-5CEA22B449DF}"
+      DTS:ObjectName="IBNRStagingConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=devsql01;Initial Catalog=CWT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2E54A103-626D-4911-9DDC-BD4ED0B2DBCD}"
+      DTS:ObjectName="NAVDBConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=DEVSQL01;Initial Catalog=Navision2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{91A27C5D-25A4-44DD-A522-7B5A638F7815}"
+      DTS:ObjectName="sysUpdateUser">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74911CD5-835E-49FF-9790-069A719F2FA5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailJobName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossImport</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2214B767-FEC7-459B-BBF5-ABB1A3C7C75C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailReportName">
+      <DTS:VariableValue
+        DTS:DataType="8">IBNRGrossSTARSNAV</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{709E0963-EB9D-4D18-9C16-E7933B32B0BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="expectedRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20F42C85-3CC0-431D-B128-6798FB4539C5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NAVDelete">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{45D55E68-1049-4515-9BFA-B21A42A437E4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NavInitCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DF1C6458-B72F-4801-83E9-FD1E11C2BB07}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NAVStagingCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED6DC873-40A2-4F1B-A813-63CC5C513347}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Recipients">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F4EFAED-DAF9-4FA1-B8BF-FE4579E776CE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="recordsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82ED9CF7-DAEE-4ED6-8DAE-47B027398A53}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="sendMail">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{799E1DF3-E7B2-4011-BF97-620EA9EC0731}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="sysUpdateUser">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2E9B3B0-ECC6-4210-B6E0-067B3756D297}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="valuationDate">
+      <DTS:VariableValue
+        DTS:DataType="7">9/15/2016 1:01:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Compare Staging vs NAV counts"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EB0B1067-5362-4A18-9A69-50FA8E81525F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Compare Staging vs NAV counts"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1089D790-405A-46CF-B829-1262B81073D6}"
+          SQLTask:SqlStatementSource="Declare @expectedRecords int&#xA;Declare @valuationDate Date&#xA;Declare @rows int&#xA;Declare @sendMail int&#xA;Declare @StagingCount int&#xA;Declare @NAVInit int&#xA;Declare @NAVDelete int&#xA;&#xA;SET @expectedRecords = ?&#xA;SET @valuationDate = ?&#xA;SET @StagingCount = ?&#xA;SET @NAVInit = ?&#xA;SET @NAVDelete = ?&#xA;SET @sendMail = 0;&#xA;&#xA;IF (@NAVInit &gt;0 AND @NAVDelete = 0)&#xA;&#x9;SET @expectedRecords = @expectedRecords + @NAVInit;&#xA;&#xA;&#xA;IF @expectedRecords != @StagingCount&#xA;&#x9;&#x9;DELETE FROM  [dbo].[THC_RiverStone$G_L File Interface]&#xA;&#x9;&#x9;WHERE [Sub System] = 'IBN' AND [Validation Date] = @valuationDate;&#xA;ELSE&#xA;&#x9;&#x9;SET @sendMail = 1;&#xA;&#xA;SET ? = @sendMail" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::expectedRecords"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::NAVStagingCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::NavInitCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::NAVDelete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::sendMail"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\doWork"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8C20DFF9-70EA-4910-9BB3-253123B8BBD9}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="doWork"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\doWork\NAV Staging"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="NAV Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IBOR_NAVStaging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\doWork\NAV Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[devsql01.CWT]"
+                  connectionManagerRefId="Package.ConnectionManagers[devsql01.CWT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[ImportExecutionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[ImportExecutionID]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[ImportExecutionID]"
+                      name="ImportExecutionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="50"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      length="8"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Entry No_]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Entry No_]"
+                      name="Entry No_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 1 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]"
+                      name="Global Dimension 1 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 2 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]"
+                      name="Global Dimension 2 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 3 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 3 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 3 Code]"
+                      name="Shortcut Dimension 3 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 4 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 4 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 4 Code]"
+                      name="Shortcut Dimension 4 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 5 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 5 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 5 Code]"
+                      name="Shortcut Dimension 5 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 6 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 6 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 6 Code]"
+                      name="Shortcut Dimension 6 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[G_L Account No_]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[G_L Account No_]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[G_L Account No_]"
+                      name="G_L Account No_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Validation Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Validation Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Validation Date]"
+                      name="Validation Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Future]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Future]"
+                      length="30"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Future]"
+                      name="Future"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Reason Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Reason Code]"
+                      length="10"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Reason Code]"
+                      name="Reason Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Journal ID]"
+                      length="30"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal ID]"
+                      name="Journal ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Posting Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Posting Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Posting Date]"
+                      name="Posting Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Document No_]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Document No_]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Document No_]"
+                      name="Document No_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Journal Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal Date]"
+                      name="Journal Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Run Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Run Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Run Date]"
+                      name="Run Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Sub System]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Sub System]"
+                      length="10"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Sub System]"
+                      name="Sub System"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 7 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 7 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 7 Code]"
+                      name="Shortcut Dimension 7 Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 8 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 8 Code]"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 8 Code]"
+                      name="Shortcut Dimension 8 Code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[ImportExecutionID]"
+                      dataType="i4"
+                      name="ImportExecutionID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                      dataType="i4"
+                      name="Entry No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 1 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Global Dimension 1 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 2 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Global Dimension 2 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 3 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 3 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 4 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 4 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 5 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 5 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 6 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 6 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[G_L Account No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="G_L Account No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Validation Date]"
+                      dataType="dbTimeStamp"
+                      name="Validation Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Future]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Future" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="numeric"
+                      name="Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Reason Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Reason Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Journal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Journal ID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Posting Date]"
+                      dataType="dbTimeStamp"
+                      name="Posting Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Document No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Document No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Journal Date]"
+                      dataType="dbTimeStamp"
+                      name="Journal Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Run Date]"
+                      dataType="dbTimeStamp"
+                      name="Run Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Sub System]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Sub System" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 7 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 7 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].ExternalColumns[Shortcut Dimension 8 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 8 Code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ImportExecutionID]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ImportExecutionID]"
+                      name="ImportExecutionID" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                      name="Entry No_" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Global Dimension 1 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Global Dimension 1 Code]"
+                      name="Global Dimension 1 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Global Dimension 2 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Global Dimension 2 Code]"
+                      name="Global Dimension 2 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 3 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 3 Code]"
+                      name="Shortcut Dimension 3 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 4 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 4 Code]"
+                      name="Shortcut Dimension 4 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 5 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 5 Code]"
+                      name="Shortcut Dimension 5 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 6 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 6 Code]"
+                      name="Shortcut Dimension 6 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[G_L Account No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[G_L Account No_]"
+                      name="G_L Account No_" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Validation Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Validation Date]"
+                      name="Validation Date" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Future]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Future]"
+                      name="Future" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="numeric"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Reason Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Reason Code]"
+                      name="Reason Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Journal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Journal ID]"
+                      name="Journal ID" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Posting Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Posting Date]"
+                      name="Posting Date" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Document No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Document No_]"
+                      name="Document No_" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Journal Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Journal Date]"
+                      name="Journal Date" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Run Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Run Date]"
+                      name="Run Date" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Sub System]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Sub System]"
+                      name="Sub System" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 7 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 7 Code]"
+                      name="Shortcut Dimension 7 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 8 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[Shortcut Dimension 8 Code]"
+                      name="Shortcut Dimension 8 Code" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\doWork\NAV Trans Table"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="NAV Trans Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[THC_RiverStone$G_L File Interface]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\doWork\NAV Trans Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DEVSQL01.Navision2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DEVSQL01.Navision2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Global Dimension 1 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Global Dimension 1 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 1 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Global Dimension 2 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Global Dimension 2 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 2 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 3 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 3 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 3 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 3 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 4 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 4 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 4 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 4 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 5 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 5 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 5 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 5 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 6 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 6 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 6 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 6 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[G_L Account No_]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="G_L Account No_"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[G_L Account No_]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[G_L Account No_]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Validation Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Validation Date"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Validation Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Validation Date]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Future]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Future"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Future]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Future]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="numeric"
+                      cachedName="Amount"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Reason Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Reason Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Reason Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Reason Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Journal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Journal ID"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Journal ID]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal ID]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Posting Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Posting Date"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Posting Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Posting Date]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Document No_]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Document No_"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Document No_]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Document No_]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Journal Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Journal Date"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Journal Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Journal Date]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Run Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Run Date"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Run Date]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Run Date]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Sub System]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Sub System"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Sub System]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Sub System]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 7 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 7 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 7 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 7 Code]" />
+                    <inputColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].Columns[Shortcut Dimension 8 Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Shortcut Dimension 8 Code"
+                      externalMetadataColumnId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 8 Code]"
+                      lineageId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output].Columns[Shortcut Dimension 8 Code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Entry No_]"
+                      dataType="i4"
+                      name="Entry No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 1 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Global Dimension 1 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 2 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Global Dimension 2 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 3 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 3 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 4 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 4 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 5 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 5 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 6 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 6 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[G_L Account No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="G_L Account No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Validation Date]"
+                      dataType="dbTimeStamp"
+                      name="Validation Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Future]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Future" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="numeric"
+                      name="Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Reason Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Reason Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Journal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Journal ID" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Posting Date]"
+                      dataType="dbTimeStamp"
+                      name="Posting Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Document No_]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Document No_" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Journal Date]"
+                      dataType="dbTimeStamp"
+                      name="Journal Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Run Date]"
+                      dataType="dbTimeStamp"
+                      name="Run Date" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Sub System]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Sub System" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 7 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 7 Code" />
+                    <externalMetadataColumn
+                      refId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input].ExternalColumns[Shortcut Dimension 8 Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Shortcut Dimension 8 Code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\doWork\NAV Trans Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\doWork\NAV Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\doWork\NAV Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\doWork\NAV Trans Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\doWork\Row Count"
+              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::expectedRecords</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\doWork\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\doWork\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\doWork\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\doWork.Paths[OLE DB Source Output]"
+              endId="Package\doWork\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\doWork\NAV Staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\doWork.Paths[Row Count Output 1]"
+              endId="Package\doWork\NAV Trans Table.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\doWork\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Count from NAV_Staging"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{42C1F39B-86FC-413A-BC57-B05EBE5A869C}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Count from NAV_Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1089D790-405A-46CF-B829-1262B81073D6}"
+          SQLTask:SqlStatementSource="DECLARE @count int, @valuationdate datetime;&#xA;&#xA;Set @valuationdate = ?&#xA;&#xA;SET @count = (SELECT count(*) FROM[dbo].[THC_RiverStone$G_L File Interface] AS St WHERE [Sub System] = 'IBN' AND [Validation Date] = @valuationDate)&#xA;&#xA;Set ? = @count" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::NAVStagingCount"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Email Addresses"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FF1D831C-6463-4D8A-BF26-E77F1A37C1D5}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Email Addresses"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EF442DB5-E8DA-409F-ACE7-E764A9DBE08D}"
+          SQLTask:SqlStatementSource="EXECUTE [ROC].[dbo].[roc_GetNotificationList] ?,?,'User'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Recipients" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::EmailJobName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::EmailReportName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get NAV delete variable"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{bb49ffc8-7ad0-4c4a-86b6-6bd1ed099b5e}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get NAV delete variable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0ECD11A-755F-462C-AABE-18867F55F2D9}"
+          SQLTask:SqlStatementSource="Declare @NAVDelete int;&#xA;&#xA;SET @NAVDelete = (SELECT [Delete_From_NAV]&#xA;  from dbo.IBOR_NAV_Delete);&#xA;&#xA;SET ? = @NAVDelete;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::NAVDelete"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get NAV Initial Count"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{66a951f1-3a72-403e-aa79-3384ed8760b0}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get NAV Initial Count"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1089D790-405A-46CF-B829-1262B81073D6}"
+          SQLTask:SqlStatementSource="DECLARE @count int, @valuationdate datetime;&#xA;&#xA;Set @valuationdate = ?&#xA;&#xA;SET @count = (SELECT count(*) FROM[dbo].[THC_RiverStone$G_L File Interface] AS St WHERE [Sub System] = 'IBN' AND [Validation Date] = @valuationDate)&#xA;&#xA;Set ? = @count" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::NavInitCount"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="2"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Valuation period"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{91A98F29-9A05-4D0D-860E-EAD8A19917D1}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Valuation period"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0ECD11A-755F-462C-AABE-18867F55F2D9}"
+          SQLTask:SqlStatementSource="Declare @valuationDate Datetime;&#xA;&#xA;SET @valuationDate = (SELECT [ValuationDate]&#xA;  from dbo.IBOR_Quarter&#xA;  where [IsActive] = 1);&#xA;&#xA;SET ? = @valuationDate;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="133"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Success Count - Send Email"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FBA4993B-6247-4FA4-B51B-B63D29329171}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Success Count - Send Email"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EF442DB5-E8DA-409F-ACE7-E764A9DBE08D}"
+          SQLTask:SqlStatementSource="DECLARE @Recipients varchar(500), @desc varchar(500), @count int, @desc2 varchar(500), @fin varchar(500), @SendMail int&#xA;&#xA;SET @Recipients = ?&#xA;SET @count = ?&#xA;SET @SendMail = ?&#xA;SET @desc = 'The NAV staging data has been moved from Staging to Production.  The count moved is ' + convert(varchar(10),@count)&#xA;SET @desc2 = 'The NAV staging data move did not match counts  from Staging to Production.  The data was deleted.'&#xA;If @SendMail = 1&#xA;&#x9;SET @fin = @desc&#xA;ELSE&#xA;&#x9;SET @fin = @desc2&#xA;&#xA;&#xA;EXEC msdb.dbo.sp_send_dbmail &#xA;@recipients = @Recipients,&#xA;@body = @fin,&#xA;@from_address = 'ITProductionSupport@trg.com',&#xA;@subject = 'NAV data move to Production'&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Recipients"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::expectedRecords"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::sendMail"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate records within period"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9E37B5EF-88B7-474F-B0BD-1E926BB9D3FF}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate records within period"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0"
+      DTS:TransactionOption="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1089D790-405A-46CF-B829-1262B81073D6}"
+          SQLTask:SqlStatementSource="Declare @valuationDate datetime &#xA;Declare @NavDelete int&#xA;&#xA;Set @valuationDate = ?&#xA;Set @NavDelete = ?&#xA;&#xA;If @NavDelete = 1&#xA;BEGIN&#xA; DELETE FROM  [dbo].[THC_RiverStone$G_L File Interface]&#xA;  where [Sub System] = 'IBN' and  [Validation Date] = @valuationDate&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::valuationDate"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::NAVDelete"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5E5B8B08-8BD0-4A81-81E9-FB487F5CB411}"
+      DTS:From="Package\Get Valuation period"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get NAV Initial Count" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D501BAD-FC74-4C71-A04C-731048BD5785}"
+      DTS:From="Package\Truncate records within period"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\doWork" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D279AD5-FD27-4542-8675-55C149EC12F7}"
+      DTS:From="Package\doWork"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Get Count from NAV_Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{86B3D4A1-221B-4C43-A545-269EDF3F7B8F}"
+      DTS:From="Package\Compare Staging vs NAV counts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Get Email Addresses" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BE107B9A-747C-4D6F-B0C9-EEFA9F525EBF}"
+      DTS:From="Package\Get Email Addresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Success Count - Send Email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{01A073D6-E6E4-49F5-9D4F-DD2B5EC5F5F5}"
+      DTS:From="Package\Get Count from NAV_Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Compare Staging vs NAV counts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{48A87DC9-7E0E-420F-99B5-3F13E764918F}"
+      DTS:From="Package\Get NAV delete variable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Truncate records within period" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8AF1C05-A7F3-4E72-84EE-4AB2E1BB7DD5}"
+      DTS:From="Package\Get NAV Initial Count"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Get NAV delete variable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="117,42"
+          Id="Package\doWork"
+          TopLeft="346.5,244" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Compare Staging vs NAV counts"
+          TopLeft="285.5,415" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Get Count from NAV_Staging"
+          TopLeft="294.5,333" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Email Addresses"
+          TopLeft="315.863636363636,500.727272727273" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Valuation period"
+          TopLeft="40,9" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Success Count - Send Email"
+          TopLeft="298.863636363636,599.727272727273" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Truncate records within period"
+          TopLeft="307.863636363636,165.090909090909" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="407,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="403.181818181818,457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.727272727273"
+              Start="0,0"
+              End="0,36.227272727273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.227272727273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="405.5,375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Get NAV delete variable"
+          TopLeft="309,87" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="407.681818181818,207.090909090909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.909090909091"
+              Start="0,0"
+              End="0,29.409090909091">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.409090909091" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="407.931818181818,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.090909090909"
+              Start="0,0"
+              End="0,28.590909090909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.590909090909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Get NAV Initial Count"
+          TopLeft="312,7" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="217,29">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95,0"
+              Start="0,0"
+              End="87.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="87.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="404,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="404.613636363636,542.727272727273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\doWork">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\doWork\NAV Staging"
+          TopLeft="180,89" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\doWork\NAV Trans Table"
+          TopLeft="174,301" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\doWork\Row Count"
+          TopLeft="190,185" />
+        <EdgeLayout
+          Id="Package\doWork.Paths[OLE DB Source Output]"
+          TopLeft="253,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\doWork.Paths[Row Count Output 1]"
+          TopLeft="255,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\doWork\NAV Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\doWork\NAV Trans Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

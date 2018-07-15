@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IBNR Staging to STARS NAV", "Integration Services Project3\IBNR Staging to STARS NAV.dtproj", "{D1C0F759-5D7D-49A4-BD1A-ADA8816516F1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Integration\u0020Services\u0020Project3\\IBNR\u0020Staging\u0020to\u0020STARS\u0020NAV.dtproj
+		SccProjectName1 = Integration\u0020Services\u0020Project3
+		SccLocalPath1 = Integration\u0020Services\u0020Project3
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1C0F759-5D7D-49A4-BD1A-ADA8816516F1}.Development|Default.ActiveCfg = Development
+		{D1C0F759-5D7D-49A4-BD1A-ADA8816516F1}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

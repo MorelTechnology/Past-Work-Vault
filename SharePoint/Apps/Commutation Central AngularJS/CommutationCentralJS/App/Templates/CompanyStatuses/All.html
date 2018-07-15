@@ -1,0 +1,24 @@
+﻿<div class="all-companyStatuses">
+    <h3>Company Statuses</h3>
+    <button class="btn btn-primary" type="button" ng-click="open()">Add New Company Status</button>
+    <hr />
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Company Status Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="companyStatus in companyStatuses">
+                    <td>
+                        {{companyStatus.CompanyStatusName}}
+                        <a href="#/CompanyStatuses/Edit/{{companyStatus.ID}}"><img src="../Images/icon_edit_48px-128.png" title="Edit Company Status Name" style="width:16px; margin-left: 5px;" /></a>
+                        <a href="" data-ng-click="removeItem(companyStatus)"><img src="../Images/icon-delete.png" title="Delete Company Status" style="width:16px; margin-left: 5px;" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

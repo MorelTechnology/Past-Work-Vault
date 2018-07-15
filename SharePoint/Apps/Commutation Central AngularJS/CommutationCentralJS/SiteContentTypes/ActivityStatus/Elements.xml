@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100601F3183FCFB4FAE9E9FF3963A18E005" Name="Activity Status" Group="Custom Content Types" Description="Activity Status content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{2b671255-3f16-4601-8812-4d1fcd5724a5}" DisplayName="Activity Status Name" Required="TRUE" Name="ActivityStatusName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

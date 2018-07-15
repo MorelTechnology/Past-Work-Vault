@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Scripts\" Type="ElementManifest" />
+    <ProjectItemFile Source="jquery-1.8.2.min.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.8.2.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.8.2.intellisense.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\AllItems.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\Created By Me.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\EditItem.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\NewItem.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\NewItem1.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="CheckList\EditItem.js" Target="Scripts\CheckList\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\AttachItem.js" Target="Scripts\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\EditItem.js" Target="Scripts\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\NewItem.js" Target="Scripts\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Documents\AttachDocument.js" Target="Scripts\Documents\" Type="ElementFile" />
+    <ProjectItemFile Source="Documents\DocumentManagement.js" Target="Scripts\Documents\" Type="ElementFile" />
+    <ProjectItemFile Source="Documents\UploadFile.js" Target="Scripts\Documents\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\AllItems.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\EditItem.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\NewItem.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\NewItem1.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\AllItems.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\CompletedDropped Projects.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\EditItem.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\NewItem.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="QuickLaunch\QuickLaunch.js" Target="Scripts\QuickLaunch\" Type="ElementFile" />
+    <ProjectItemFile Source="bootstrap-wysiwyg.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="CompatibilityCheck.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Default.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.formatCurrency-1.4.0.min.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.validate.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-ui.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\NewItemRedirect.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\EditItemRedirect.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\NewItemRedirect.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\EditItemRedirect.js" Target="Scripts\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="CheckList\EditItemRedirect.js" Target="Scripts\CheckList\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\NewItemRedirect.js" Target="Scripts\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\EditItemRedirect.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\NewItemRedirect.js" Target="Scripts\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\Completed Projects.js" Target="Scripts\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\Dropped Projects.js" Target="Scripts\Projects\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{75ca311d-fbb1-4ca0-980c-4e838bc8481d}"
+       Name="RequestorID"
+       DisplayName="Requestor ID"
+       Type="User"
+       Required="TRUE"
+       UserSelectionMode="PeopleOnly"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

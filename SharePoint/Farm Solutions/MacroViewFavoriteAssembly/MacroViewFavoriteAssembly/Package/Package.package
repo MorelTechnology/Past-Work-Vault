@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="4ed96877-0896-459e-9991-e917cbc743bd" solutionId="4ed96877-0896-459e-9991-e917cbc743bd" resetWebServer="false" name="MacroViewFavoriteAssembly" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="b50b8b6a-b349-4cba-a5ef-33c45b6a86f2" />
+  </features>
+</package>

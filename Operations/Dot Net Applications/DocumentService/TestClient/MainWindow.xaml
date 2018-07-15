@@ -1,0 +1,35 @@
+﻿<Window x:Class="TestClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestClient"
+        mc:Ignorable="d"
+        Title="Service Test Client" Height="440" Width="844">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="414*" />
+            <ColumnDefinition Width="408*" />
+        </Grid.ColumnDefinitions>
+        <Button Content="Call using WCF/SOAP" Height="39" HorizontalAlignment="Left" Margin="25,26,0,0" Name="btnSOAPCall" VerticalAlignment="Top" Width="356" Click="btnSOAPCall_Click" />
+        <DataGrid AutoGenerateColumns="False" Height="275" HorizontalAlignment="Left" 
+                  Margin="22,86,0,0" Name="dgSOAP" VerticalAlignment="Top" Width="367" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Call using REST" Grid.Column="1" Height="39" HorizontalAlignment="Left" 
+                Margin="18,26,0,0" Name="btnRESTCall" VerticalAlignment="Top" Width="347" Click="btnRESTCall_Click" />
+        <DataGrid AutoGenerateColumns="False" Grid.Column="1" 
+                  Height="275" HorizontalAlignment="Left" Margin="18,86,0,0" Name="dgREST" 
+                  VerticalAlignment="Top" Width="347"  ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

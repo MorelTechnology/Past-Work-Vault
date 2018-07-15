@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Financial Entries" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Financial Entries" Description="Contains financial entries for Fairfax entities in scope"></ListInstance>
+</Elements>

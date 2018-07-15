@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <Body>
+    <ReportItems>
+      <Subreport Name="APH_NonDJ">
+        <ReportName>sub_TopTensCD_APH_ALL</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>APH</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="APH_NonDJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>APH</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>0.33819in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="APH_Loss">
+        <ReportName>sub_TopTensCD_APH_ALL</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>APH</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>LOSS</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>0.67639in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="CD_NonDJ">
+        <ReportName>sub_TopTensCD_APH_ALL</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>CD</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>1.01458in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="CD_NonDJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>CD</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>1.35277in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="CD_Loss">
+        <ReportName>sub_TopTensCD_APH_ALL</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>CD</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>LOSS</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>1.69097in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="OTWC_NonDJ">
+        <ReportName>sub_TopTensOTWC_XSWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>OTWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>2.04513in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="OTWC_NonDJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>OTWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>2.38332in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="OTWC_Loss">
+        <ReportName>sub_TopTensOTWC_XSWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>OTWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>LOSS</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>2.72152in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="XSWC_NonDJ">
+        <ReportName>sub_TopTensOTWC_XSWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>XSWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>3.07038in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="XSWC_NonDJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>XSWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>3.40857in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="XSWC_Loss">
+        <ReportName>sub_TopTensOTWC_XSWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>XSWC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>LOSS</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>3.74677in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="WC_NonDJ">
+        <ReportName>sub_TopTensWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>WC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>4.10093in</Top>
+        <Left>0.02084in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="WC_NonDJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>WC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>NONDJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>4.43912in</Top>
+        <Left>0.02084in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="WC_Loss">
+        <ReportName>sub_TopTensWC</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>WC</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>LOSS</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>4.77732in</Top>
+        <Left>0.02084in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="ALL_DJ">
+        <ReportName>sub_TopTensCD_APH_ALL</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>&lt;ALL&gt;</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>DJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>5.1176in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+      <Subreport Name="ALL_DJ_Vendor">
+        <ReportName>sub_TopTensVendor</ReportName>
+        <Parameters>
+          <Parameter Name="Class">
+            <Value>&lt;ALL&gt;</Value>
+          </Parameter>
+          <Parameter Name="DBKindCode">
+            <Value>DJ</Value>
+          </Parameter>
+          <Parameter Name="ReportYearMonth">
+            <Value>=Parameters!ReportYearMonth.Value</Value>
+          </Parameter>
+        </Parameters>
+        <KeepTogether>true</KeepTogether>
+        <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+        <Top>5.45579in</Top>
+        <Left>0.01042in</Left>
+        <Height>0.3125in</Height>
+        <Width>2.39583in</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+    </ReportItems>
+    <Height>5.78513in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="ReportYearMonth">
+      <DataType>String</DataType>
+      <Prompt>Report Year Month</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>2.41667in</Width>
+  <Page>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.5in</LeftMargin>
+    <TopMargin>0.2in</TopMargin>
+    <BottomMargin>0.2in</BottomMargin>
+    <Style />
+  </Page>
+  <rd:ReportID>2e30613c-b575-4c20-b23c-cf67a5695f2c</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

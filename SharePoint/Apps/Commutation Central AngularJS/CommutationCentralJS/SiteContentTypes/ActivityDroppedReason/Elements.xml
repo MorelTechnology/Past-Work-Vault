@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01004A0FA0EB20BE408FB60F763E8731B184" Name="Activity Dropped Reason" Group="Custom Content Types" Description="Activity Dropped Reason content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{e14494f6-7ed4-4939-af06-57e1776fbc88}" DisplayName="Activity Dropped Reason Name" Required="TRUE" Name="ActivityDroppedReasonName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

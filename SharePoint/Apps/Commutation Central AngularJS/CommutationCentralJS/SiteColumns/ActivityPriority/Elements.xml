@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{63f33f6a-b060-420b-809f-6a711d181324}"
+       Name="ActivityPriority"
+       DisplayName="Activity Priority"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns"
+       List="Lists/Activity Priority Lookup"
+       ShowField="ActivityPriorityName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

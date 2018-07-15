@@ -1,0 +1,24 @@
+﻿<div class="all-activityPriorities">
+    <h3>Activity Priorities</h3>
+    <button class="btn btn-primary" type="button" ng-click="open()">Add New Activity Priority</button>
+    <hr />
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Activity Priority Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="activityPriority in activityPriorities">
+                    <td>
+                        {{activityPriority.ActivityPriorityName}}
+                        <a href="#/ActivityPriorities/Edit/{{activityPriority.ID}}"><img src="../Images/icon_edit_48px-128.png" title="Edit Activity Priority Name" style="width:16px; margin-left: 5px;" /></a>
+                        <a href="" data-ng-click="removeItem(activityPriority)"><img src="../Images/icon-delete.png" title="Delete Activity Priority" style="width:16px; margin-left: 5px;" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

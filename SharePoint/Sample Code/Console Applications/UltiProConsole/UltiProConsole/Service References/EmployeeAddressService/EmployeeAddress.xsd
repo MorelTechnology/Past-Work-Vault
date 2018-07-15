@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ultipro.com/services/employeeaddress" elementFormDefault="qualified" targetNamespace="http://www.ultipro.com/services/employeeaddress" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd5" namespace="http://www.ultipro.com/contracts" />
+  <xs:element name="GetAddressByEmployeeIdentifier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.ultipro.com/contracts" minOccurs="0" name="employeeIdentifier" nillable="true" type="q1:EmployeeIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressByEmployeeIdentifierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.ultipro.com/contracts" minOccurs="0" name="GetAddressByEmployeeIdentifierResult" nillable="true" type="q2:AddressGetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://www.ultipro.com/contracts" minOccurs="0" name="query" nillable="true" type="q3:EmployeeQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://www.ultipro.com/contracts" minOccurs="0" name="FindAddressesResult" nillable="true" type="q4:AddressFindResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://www.ultipro.com/contracts" minOccurs="0" name="entities" nillable="true" type="q5:ArrayOfAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.ultipro.com/contracts" minOccurs="0" name="UpdateAddressResult" nillable="true" type="q6:AddressUpdateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

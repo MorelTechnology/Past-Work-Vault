@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3d9a00cb-b36a-423f-8e9e-2ea9bf970ce8" solutionId="3d9a00cb-b36a-423f-8e9e-2ea9bf970ce8" resetWebServer="false" sharePointProductVersion="15.0" name="SearchMemoUIActions" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="afc03d72-4b03-46cd-a46c-95e3524420d2" />
+  </features>
+</package>

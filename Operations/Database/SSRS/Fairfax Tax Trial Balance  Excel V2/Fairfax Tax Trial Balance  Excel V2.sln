@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Fairfax Tax Trial Balance  Excel V2", "Fairfax Tax Trial Balance  Excel V2\Fairfax Tax Trial Balance  Excel V2.rptproj", "{37A40A63-6AA3-4CBA-82A7-007702064F32}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Fairfax\u0020Tax\u0020Trial\u0020Balance\u0020\u0020Excel\u0020V2\\Fairfax\u0020Tax\u0020Trial\u0020Balance\u0020\u0020Excel\u0020V2.rptproj
+		SccProjectName1 = Fairfax\u0020Tax\u0020Trial\u0020Balance\u0020\u0020Excel\u0020V2
+		SccLocalPath1 = Fairfax\u0020Tax\u0020Trial\u0020Balance\u0020\u0020Excel\u0020V2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Debug|Default.ActiveCfg = Debug
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Debug|Default.Build.0 = Debug
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Debug|Default.Deploy.0 = Debug
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.DebugLocal|Default.Build.0 = DebugLocal
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Release|Default.ActiveCfg = Release
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Release|Default.Build.0 = Release
+		{37A40A63-6AA3-4CBA-82A7-007702064F32}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+<div *ngIf="queryingWorkRequest">
+  <p class="text-center"><i class="fa fa-5x fa-circle-o-notch fa-spin"></i></p>
+</div>
+<div *ngIf="workRequest">
+  <p class="h4 text-center">Thank you for submitting a work request. Your Request ID is:
+    <a [routerLink]="['/work-requests/request', workRequest.RequestID]">{{workRequest.RequestID}}</a>
+  </p>
+</div>
+<div *ngIf="retrievalError">
+  <p class="h4 text-center text-danger">
+    <i class="fa fa-exclamation-triangle"></i> There was an error saving this work request. Please try submitting your request again.
+    <i class="fa fa-exclamation-triangle"></i>
+  </p>
+</div>
+<div class="pt-5">
+  <p class="h5 text-center">
+    Return to the Work Intake Tool <a routerLink="/">Home Page</a>
+  </p>
+</div>

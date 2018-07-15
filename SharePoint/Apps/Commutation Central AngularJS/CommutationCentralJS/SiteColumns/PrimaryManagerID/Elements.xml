@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{af325ac2-dad1-46a9-89a4-f55696a6c554}"
+       Name="PrimaryManagerID"
+       DisplayName="Primary Manager ID"
+       Type="User"
+       Required="TRUE"
+       UserSelectionMode="PeopleOnly"
+       UserSelectionScope="0"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,3 @@
+﻿<%@ServiceHost Language="C#" Debug="true"
+    Service="Guidewire_Integration.Guidewire, $SharePoint.Project.AssemblyFullName$"
+    Factory="Guidewire_Integration.LargeDocumentServiceHostFactory, $SharePoint.Project.AssemblyFullName$" %>

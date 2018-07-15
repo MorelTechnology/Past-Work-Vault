@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Pages\" Type="ElementManifest" />
+    <ProjectItemFile Source="Default.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\AllItems.aspx" Target="Pages\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\Created By Me.aspx" Target="Pages\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\EditItem.aspx" Target="Pages\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\NewItem.aspx" Target="Pages\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="Activities\NewItem1.aspx" Target="Pages\Activities\" Type="ElementFile" />
+    <ProjectItemFile Source="CheckList\EditItem.aspx" Target="Pages\CheckList\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\AttachItem.aspx" Target="Pages\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\EditItem.aspx" Target="Pages\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Contacts\NewItem.aspx" Target="Pages\Contacts\" Type="ElementFile" />
+    <ProjectItemFile Source="Documents\AttachDocument.aspx" Target="Pages\Documents\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\AllItems.aspx" Target="Pages\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\EditItem.aspx" Target="Pages\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\NewItem.aspx" Target="Pages\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Notes\NewItem1.aspx" Target="Pages\Notes\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\AllItems.aspx" Target="Pages\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\CompletedDropped Projects.aspx" Target="Pages\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\EditItem.aspx" Target="Pages\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\NewItem.aspx" Target="Pages\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="NotSupported.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\Completed Projects.aspx" Target="Pages\Projects\" Type="ElementFile" />
+    <ProjectItemFile Source="Projects\Dropped Projects.aspx" Target="Pages\Projects\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

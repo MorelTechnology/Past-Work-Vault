@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100D1061A1E536542E9813A999FBC7CB3E1" Name="Request Type" Group="Custom Content Types" Description="Request type content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{1dc864b1-0022-4215-b053-0ec374373720}" DisplayName="Request Type Name" Required="TRUE" Name="RequestTypeName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

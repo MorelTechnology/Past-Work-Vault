@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100B657747FA1744D95B9A09BF1191C7641" Name="Checklist Document" Group="Custom Content Types" Description="Checklist Document content type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" />
+      <FieldRef ID="{012bae24-dd64-44e5-b6d3-04a2014bda91}" DisplayName="Checklist" Required="True" Name="Checklist" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,141 @@
+﻿/* Place custom styles below */
+input[type=button], input[type=reset], input[type=submit], button {
+    min-width: 0px;
+}
+#contentBox {
+    margin-left: 0px;
+}
+.leftNav {
+    margin-right: 20px;
+    width: 200px;
+    position: absolute;
+}
+.leftNav .panel-body {
+    padding: 0px;
+}
+.leftNav ul {
+    padding-left: 0px;
+}
+.leftNav ul.level1 > li.static > a.level1 {
+    background: #023D86;
+    color: #FFFFFF;
+    border-top: thin #CCC solid;
+    padding: 5px 20px;
+    font-size: 1em;
+    font-family: "Segoe UI","Segoe",Tahoma,Arial, Helvetica, sans-serif;
+    display: block;
+}
+.leftNav ul.level1 > li.static > a.level1.selected {
+    background: black;
+}
+.leftNav ul.level1 > li.static > a.level2 {
+    font-size: 1em;
+    font-family: "Segoe UI","Segoe",Tahoma,Arial, Helvetica, sans-serif;
+    color: #666666;
+    padding: 5px 20px 5px 40px;
+    display: block;
+    white-space: normal;
+}
+.leftNav ul.level1 > li.static > a.level2.selected {
+    background: black;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.leftNav ul.level1 > li.static > a.level2:hover{
+    background-color:#cde6f7;
+    text-decoration: none;
+}
+.controlPanelTable td {
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.controlPanelTable button.btn-primary {
+    width: 120px;
+    height: 74px;
+    white-space: normal;
+}
+.item-app-table .value {
+    padding-left: 10px;
+}
+.sectionTable {
+	border: #bfbfbf 1pt solid;
+	text-align: center;
+}
+.sectionTable > thead > tr > th {
+	text-align: left;
+	box-sizing: border-box;
+	border-bottom: #6890be 1.5pt solid;
+	padding: 16px 32px 14px 10px;
+}
+.sectionTable > tbody > tr > td {
+	padding: 4px 5px 4px 22px;
+	text-align: left;
+	word-wrap: normal;
+}
+.sectionTable > tbody > tr > td:not(.value) {
+    white-space: nowrap;
+}
+.new-project-dialog .modal-dialog {
+    width: 1095px;
+    min-width: 800px;
+}
+.edit-project-dialog .modal-dialog {
+    width: 1215px;
+    min-width: 800px;
+}
+.new-activity-dialog .modal-dialog {
+    width: 800px;
+    min-width: 800px;
+}
+.edit-activity-dialog .modal-dialog {
+    width: 1095px;
+    min-width: 800px;
+}
+.new-note-dialog .modal-dialog {
+    width: 800px;
+    min-width: 800px;
+}
+.edit-note-dialog .modal-dialog {
+    width: 1095px;
+    min-width: 800px;
+}
+.new-checklist-dialog .modal-dialog {
+    width: 800px;
+    min-width: 800px;
+}
+.edit-checklist-dialog .modal-dialog {
+    width: 1095px;
+    min-width: 800px;
+}
+.input-group-btn button {
+    min-width: 0;
+}
+.sp-peoplepicker-autoFillContainer{
+    z-index: 99999;
+}
+.tableCellNoWrap
+{
+    white-space: nowrap;
+}
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+#PreliminarySummary td, #PreliminarySummary th, #FinalSummary td, #FinalSummary th {
+    min-width: 110px;
+    text-align: right;
+}
+#PreliminarySummary td:first-child, #AuthorityGrantedSummary td:first-child, #FinalSummary td:first-child {
+    text-align: left;
+}
+#AuthorityGrantedSummary td {
+    min-width: 110px;
+}
+.note {
+    min-width: 250px;
+    max-width: 600px;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ClientWebPart Name="StockTicker" Title="Stock Ticker" Description="Displays stock information for a selected symbol, including current price, daily trend, and 52 week high/low." DefaultWidth="500" DefaultHeight="200">
+
+    <!-- Content element identifies the location of the page that will render inside the client web part
+         Properties are referenced on the query string using the pattern _propertyName_
+         Example: Src="~appWebUrl/Pages/ClientWebPart1.aspx?Property1=_property1_" -->
+    <Content Type="html" Src="~appWebUrl/Pages/Stock Ticker.aspx?{StandardTokens}&amp;StockSymbol=_StockSymbol_&amp;Currency=_Currency_" />
+
+    <!-- Define properties in the Properties element.
+         Remember to put Property Name on the Src attribute of the Content element above. -->
+    <Properties>
+      <Property Name="StockSymbol" Type="string" RequiresDesignerPermission="true" DefaultValue="GOOG" WebDisplayName="Stock Symbol" WebDescription="The symbol of the stock to be displayed." WebCategory="Stock Ticker Configuration" />
+      <Property Name="Currency" Type="string" RequiresDesignerPermission="true" DefaultValue="USD" WebDisplayName="Currency" WebDescription="Currency for stock values" WebCategory="Stock Ticker Configuration"/>
+    </Properties>
+
+  </ClientWebPart>
+</Elements>

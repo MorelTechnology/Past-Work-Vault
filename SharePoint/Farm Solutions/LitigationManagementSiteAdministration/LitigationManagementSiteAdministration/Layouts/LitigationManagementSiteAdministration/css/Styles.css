@@ -1,0 +1,85 @@
+﻿.trgWebPart 
+{
+    width: 650px;
+    /* Visual Interest 
+    padding: 15px 10px 15px 25px;
+    border: 15px #e6e6e6 outset;
+    background: lightgray;
+    */
+}
+
+
+.trgItemEntry 
+{
+    margin: 15px;
+    min-height: 25px;
+    height: auto !important;
+}
+
+.trgInputFieldTitle 
+{
+    width: 150px;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.trgInputField 
+{
+    width: 450px;
+    float: left;
+    margin-left: 5px;
+}
+
+.trgRequired:before 
+{
+    content: "*";
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: -13px;
+}
+
+.trgButton 
+{
+    margin: auto;
+    width: 50%;
+}
+
+.trgButton input[type="submit"] 
+{
+    margin: 15px 5px auto;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 6px;
+    padding: 5px;
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-weight: bold;
+    background-color: #d7d6d6;
+}
+
+
+h1.trgTitle 
+{
+    font-weight: bold;
+    margin: 0px 0px 25px 15px;
+}
+
+/* Style override if used in JQuery Tab container*/
+.ui-widget {font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif!important; font-size:13px!important;}
+
+.trgWPPropertylabel
+{
+    display: block!important;
+    margin: 2px!important;
+}
+
+.trgWPPropertyInput
+{
+    display: block!important;
+    margin-bottom:10px!important;
+}

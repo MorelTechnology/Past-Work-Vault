@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SharePointSiteCreator.SiteCreator.SiteCreator, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Subsite Creator</property>
+        <property name="Description" type="string">
+          This webpart is intended to simplify adding subsites to the current site.  It
+          adds a control to a webpart page which requests a single input, (site title), and provisions a site using the same
+          template as the parent site.  The site is created with unique permissions. With this version of this control, sites are
+          created with a single members group with contribute access."
+        </property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

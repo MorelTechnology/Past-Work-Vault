@@ -1,0 +1,847 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Commutation Details</h3>
+</div>
+<div class="modal-body" ng-form="editItemForm">
+    <uib-tabset type="pills" justified="true">
+        <!--Project Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Project</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <!--Project Information-->
+            <table style="width:100%" class="item-app-table sectionTable" title="Project Information">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Project Information</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label for="CounterpartyName">Counterparty Name:<span class="text-danger">*</span></label></td>
+                        <td colspan="3" class="value"><input type="text" class="form-control" name="CounterpartyName" data-ng-model="project.CounterpartyName" required /></td>
+                        <td><label for="CommutationProjectID">Project ID:</label></td>
+                        <td class="value"><input type="text" class="form-control" name="CommutationProjectID" data-ng-model="project.CommutationProjectID" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="PrimaryManagerID">Primary Manager:<span class="text-danger">*</span></label></td>
+                        <td class="value"><sp-people-picker name="PrimaryManagerID" data-ng-model="project.PrimaryManager" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control" required></sp-people-picker></td>
+                        <td><label for="SecondaryManagerID">Secondary Manager:</label></td>
+                        <td class="value"><sp-people-picker name="SecondaryManagerID" data-ng-model="project.SecondaryManager" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control"></sp-people-picker></td>
+                        <td><label for="LeadOffice">Lead Office:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="LeadOffice" class="form-control" data-ng-model="formData.selectedLeadOffice" data-ng-options="leadOffice.LeadOfficeName for leadOffice in formData.dropDownChoices.leadOffices track by leadOffice.Id" required>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="RequestorID">Requestor:<span class="text-danger">*</span></label></td>
+                        <td class="value"><sp-people-picker name="RequestorID" data-ng-model="project.Requestor" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control" required></sp-people-picker></td>
+                        <td><label for="RequestType">Request Type:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="RequestType" class="form-control" data-ng-model="formData.selectedRequestType" data-ng-options="requestType.RequestTypeName for requestType in formData.dropDownChoices.requestTypes track by requestType.Id" required></select>
+                        </td>
+                        <td><label for="RequestDate">Request Date:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <p class="input-group">
+                                <input type="text" name="RequestDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="formData.requestDate" is-open="calendarPopup1.opened" datepicker-options="dateOptions" required close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openCalendarPopup1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="CommutationType">Commutation Type:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="CommutationType" class="form-control" data-ng-model="formData.selectedCommutationType" data-ng-options="commutationType.CommutationTypeName for commutationType in formData.dropDownChoices.commutationTypes track by commutationType.Id" required></select>
+                        </td>
+                        <td><label for="CommutationStatus">Commutation Status:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="CommutationStatus" class="form-control" data-ng-model="formData.selectedCommutationStatus" data-ng-options="commutationStatus.CommutationStatusName for commutationStatus in formData.dropDownChoices.commutationStatuses track by commutationStatus.Id" required ng-change="commutationStatusChange()"></select>
+                        </td>
+                        <td><label for="DroppedReason" ng-show="droppedReasonVisible">Dropped Reason:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="DroppedReason" class="form-control" data-ng-model="formData.selectedDroppedReason" data-ng-options="droppedReason.DroppedReasonName for droppedReason in formData.dropDownChoices.droppedReasons track by droppedReason.Id" required ng-change="validateDroppedReason()" ng-show="droppedReasonVisible"></select>
+                            <span class="text-danger" ng-show="droppedReasonVisible && !editItemForm.DroppedReason.$valid">{{droppedReasonInvalidReason}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="OversightManagerID">Oversight Manager:</label></td>
+                        <td class="value">
+                            <sp-people-picker name="OversightManagerID" data-ng-model="project.OversightManager" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control"></sp-people-picker>
+                        </td>
+                        <td><label for="DealPriority">Deal Priority:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="DealPriority" class="form-control" data-ng-model="formData.selectedDealPriority" data-ng-options="dealPriority.DealPriorityName for dealPriority in formData.dropDownChoices.dealPriorities track by dealPriority.Id" required></select>
+                        </td>
+                        <td><label for="CompanyStatus">Company Status:<span class="text-danger">*</span></label></td>
+                        <td class="value">
+                            <select name="CompanyStatus" class="form-control" data-ng-model="formData.selectedCompanyStatus" data-ng-options="companyStatus.CompanyStatusName for companyStatus in formData.dropDownChoices.companyStatuses track by companyStatus.Id" required></select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <!--Project Documents-->
+            <table style="width:100%" class="document-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Documents</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Attach Documents: <div class="btn btn-primary" data-ng-disabled="projectDocumentUploadProgress.inProgress" ngf-select="attachProjectDocuments($files)" multiple="multiple">Browse for Files...</div>
+                            <uib-progressbar class="progress-striped active" value="projectDocumentUploadProgress.percentComplete" data-ng-show="projectDocumentUploadProgress.inProgress">{{projectDocumentUploadProgress.action}}</uib-progressbar>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width: 100%;" dt-options="projectDocumentsDTOptions">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Filename</th>
+                                        <th>Date Modified</th>
+                                        <th>Modified By</th>
+                                        <th>Date Created</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="projectDocument in projectDocuments">
+                                        <td><a href="" ng-click="deleteProjectDocument(projectDocument.Id)" title="Delete Project Document"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                                        <td><a href="{{projectDocument.File.ServerRelativeUrl}}" target="_blank">{{projectDocument.File.Name}}</a></td>
+                                        <td>{{projectDocument.FormData.Modified}}</td>
+                                        <td>{{projectDocument.Editor.Title}}</td>
+                                        <td>{{projectDocument.FormData.Created}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </uib-tab>
+        <!--Parties Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Parties</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <!--Companies in Scope-->
+            <table style="width:100%" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Companies In Scope</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="CompanyName">Company Name:</label>
+                            <input type="text" class="form-control" style="display: inline-block; width: 200px;" name="CompanyName" data-ng-model="formData.companyNameToAdd" />
+                            <button type="button" class="btn btn-primary" ng-click="addCompanyInScope(formData.companyNameToAdd)" ng-disabled="companiesInScopeInProgress">Add Company</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Company Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <uib-progressbar class="progress-striped active" value="100" data-ng-show="companiesInScopeInProgress"></uib-progressbar>
+                                    <tr data-ng-repeat="companyInScope in companiesInScope">
+                                        <td>
+                                            <span>{{companyInScope.CompanyName}}</span>
+                                            <a href="" ng-click="editCompanyInScope(companyInScope.Id)" title="Edit Company in Scope"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            <a href="" ng-click="deleteCompanyInScope(companyInScope.Id)" title="Delete Company in Scope"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <!--Fairfax Entities in Scope-->
+            <table style="width:100%" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Fairfax Entities in Scope</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="FairfaxEntityToAdd">Select a Fairfax Entity to add to this project:</label>
+                            <select name="FairfaxEntityToAdd" class="form-control" style="display: inline-block; width: 200px;" data-ng-model="formData.selectedFairfaxEntity" data-ng-options="fairfaxEntity.FairfaxEntityName for fairfaxEntity in formData.dropDownChoices.fairfaxEntities track by fairfaxEntity.Id"></select>
+                            <button type="button" class="btn btn-primary" ng-click="addFairfaxEntityInScope(formData.selectedFairfaxEntity)" ng-disabled="fairfaxEntitiesInScopeInProgress">Add Fairfax Entity</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Fairfax Entity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <uib-progressbar class="progress-striped active" data-ng-show="fairfaxEntitiesInScopeInProgress">{{fairfaxEntitiesInScopeAction}}</uib-progressbar>
+                                    <tr data-ng-repeat="fairfaxEntityInScope in fairfaxEntitiesInScope">
+                                        <td>
+                                            <span>{{fairfaxEntityInScope.FairfaxEntity.FairfaxEntityName}}</span>
+                                            <a href="" ng-click="deleteFairfaxEntityInScope(fairfaxEntityInScope.Id)" title="Delete Fairfax Entity In Scope"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <!--Contacts-->
+            <table style="width:100%" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Contacts</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="createContact()">Create Contact</button>
+                            <button type="button" class="btn btn-primary" ng-click="assignContact()">Assign a Contact to this Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" dt-options="contactsInScopeDTOptions" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <uib-progressbar class="progress-striped active" value="100" data-ng-show="contactsInScopeInProgress"></uib-progressbar>
+                                    <tr data-ng-repeat="contactInScope in contactsInScope">
+                                        <td>
+                                            <a href="" ng-click="editContactInScope(contactInScope.Contact.ID)" title="Edit Contact In Scope"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            <a href="" ng-click="deleteContactInScope(contactInScope.Id)" title="Delete Contact In Scope"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                        </td>
+                                        <td>{{contactInScope.Contact.Title}}</td>
+                                        <td>{{contactInScope.Contact.FirstName}}</td>
+                                        <td>{{contactInScope.Contact.Email}}</td>
+                                        <td>{{contactInScope.Contact.WorkPhone}}</td>
+                                        <td>{{contactInScope.Contact.WorkCity}}</td>
+                                        <td>{{contactInScope.Contact.WorkState}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </uib-tab>
+        <!--Financial Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Financial</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="financialEntriesInProgress"></uib-progressbar>
+            <uib-tabset>
+                <!--Summary Tab-->
+                <uib-tab>
+                    <uib-tab-heading><h5>Total</h5></uib-tab-heading>
+                    <!--Project Information-->
+                    <table style="width:100%" class="item-app-table sectionTable">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Financial</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label for="CommutationProjectID">Project ID:</label></td>
+                                <td class="value"><input type="text" class="form-control" name="CommutationProjectID" data-ng-model="project.CommutationProjectID" /></td>
+                                <td><label for="CounterpartyName">Counterparty Name:<span class="text-danger">*</span></label></td>
+                                <td class="value"><input type="text" class="form-control" name="CounterpartyName" data-ng-model="project.CounterpartyName" required /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <!--Preliminary Estimate-->
+                    <table style="width:100%" class="item-app-table sectionTable">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Preliminary Estimate</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="table-responsive">
+                                        <table id="PreliminarySummary" class="table" style="width:auto;">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Unpaid</th>
+                                                    <th>Case</th>
+                                                    <th>IBNR</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Assumed</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryAssumedUnpaidTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryAssumedCaseTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryAssumedIBNRTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryAssumedTotalAllEntities(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCededUnpaidTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCededCaseTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCededIBNRTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCededTotalAllEntities(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Net</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryUnpaidNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCaseNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryIBNRNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryTotalAllEntities(financialEntries))}}</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <!--Authority Granted-->
+                    <table style="width:100%" class="item-app-table sectionTable form-inline">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Authority Granted</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="AuthorityGrantedBy">Granted By:</label>
+                                </td>
+                                <td class="value">
+                                    <sp-people-picker name="AuthorityGrantedBy" data-ng-model="project.AuthorityGrantedBy" css-width="210px" css-height="auto" allow-multi="false" css-additional-class="form-control"></sp-people-picker>
+                                </td>
+                                <td>
+                                    <label for="GrantedByDate">Granted By Date:</label>
+                                </td>
+                                <td class="value">
+                                    <p class="input-group">
+                                        <input type="text" name="GrantedByDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="formData.authorityGrantedByDate" is-open="calendarPopup4.opened" datepicker-options="dateOptions" close-text="Close" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="openCalendarPopup4()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="99">
+                                    <div class="table-responsive">
+                                        <table id="AuthorityGrantedSummary" class="table" style="width:auto;">
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Assumed</label></td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="project.FinancialAuthorityAssumed" ng-currency />)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="project.FinancialAuthorityCeded" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Net</label></td>
+                                                    <td style="text-align:right;"><label>{{convertToCurrency(getAuthorityGrantedNet(project))}}</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <!--Final Commutation Values-->
+                    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Final Commutation Values</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="table-responsive">
+                                        <table class="table" style="width:auto;" id="FinalSummary">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Unpaid</th>
+                                                    <th>Reserves</th>
+                                                    <th>IBNR</th>
+                                                    <th>Total</th>
+                                                    <th style="width:110px;"></th>
+                                                    <th></th>
+                                                    <th>Transaction</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Assumed</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalAssumedUnpaidTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalAssumedReservesTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalAssumedIBNRTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalAssumedTotalAllEntities(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Assumed</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionAssumedTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCededUnpaidTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCededReservesTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCededIBNRTotal(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCededTotalAllEntities(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionCededTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Net</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalUnpaidNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalReservesNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalIBNRNetAllEntities(financialEntries))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalNetTotalAllEntities(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>BDP Used</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionBDPUsedTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Commutation Value</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCommutationValueTotal(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Net Ceded</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionNetCededAllEntities(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Incurred Impact</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalIncurredImpactAllEntities(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Collateral</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionCollateralTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Gross of BDP</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalUltimateImpactGrossAllEntities(financialEntries))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Net Cash</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionNetCashTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Credit Provision</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalCreditProvisionTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Dispute Provision</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalDisputeProvisionTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Net of Provisions (GAAP)</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalGAAPTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Penalties (Overdue / Unsecured)</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalPenaltiesTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Net of Provisions / Penalties (STAT)</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalSTATTotal(financialEntries))}}</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <!--Each Financial Entry Tab-->
+                <uib-tab data-ng-repeat="financialEntry in financialEntries">
+                    <uib-tab-heading><h5>{{financialEntry.FairfaxEntityName}}</h5></uib-tab-heading>
+                    <!--Project Information-->
+                    <table style="width:100%" class="item-app-table sectionTable">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Financial</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label for="CommutationProjectID">Project ID:</label></td>
+                                <td class="value"><input type="text" class="form-control" name="CommutationProjectID" data-ng-model="project.CommutationProjectID" /></td>
+                                <td><label for="CounterpartyName">Counterparty Name:<span class="text-danger">*</span></label></td>
+                                <td class="value"><input type="text" class="form-control" name="CounterpartyName" data-ng-model="project.CounterpartyName" required /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <!--Preliminary Estimate-->
+                    <table style="width:100%" class="item-app-table sectionTable form-inline">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Preliminary Estimate</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <label>Valuation Date:</label>
+                                        <div class="input-group" style="width:150px;">
+                                            <input type="text" name="PreliminaryValuationDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="financialEntry.FormData.PreliminaryValuationDate" is-open="calendarPopup2.opened" datepicker-options="dateOptions" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="openCalendarPopup2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="table-responsive">
+                                        <table class="table" style="width:auto;">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Unpaid</th>
+                                                    <th>Case</th>
+                                                    <th>IBNR</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Assumed</label></td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.PreliminaryAssumedUnpaid" ng-currency />)</td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.PreliminaryAssumedCase" ng-currency />)</td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.PreliminaryAssumedIBNR" ng-currency />)</td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryAssumed(financialEntry))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.PreliminaryCededUnpaid" ng-currency /></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.PreliminaryCededCase" ng-currency /></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.PreliminaryCededIBNR" ng-currency /></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCeded(financialEntry))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Net</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryUnpaidNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryCaseNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryIBNRNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getPreliminaryTotal(financialEntry))}}</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <!--Final Commutation Values-->
+                    <table style="width:100%" class="item-app-table sectionTable form-inline">
+                        <thead>
+                            <tr>
+                                <th colspan="99"><h4>Final Commutation Values</h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <label>Valuation Date:</label>
+                                        <div class="input-group" style="width:150px;">
+                                            <input type="text" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="financialEntry.FormData.FinalValuationDate" is-open="calendarPopup3.opened" datepicker-options="dateOptions" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="openCalendarPopup3()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="table-responsive">
+                                        <table class="table" style="width:auto;">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Unpaid</th>
+                                                    <th>Reserves</th>
+                                                    <th>IBNR</th>
+                                                    <th>Total</th>
+                                                    <th style="width:110px;"></th>
+                                                    <th></th>
+                                                    <th>Transaction</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Assumed</label></td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.FinalAssumedUnpaid" ng-currency />)</td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.FinalAssumedReserves" ng-currency />)</td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.FinalAssumedIBNR" ng-currency />)</td>
+                                                    <td><label>{{convertToCurrency(getFinalAssumed(financialEntry))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Assumed</label></td>
+                                                    <td>(<input type="text" style="width:110px; color:red;" class="form-control" data-ng-model="financialEntry.FinalTransactionAssumed" ng-currency />)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalCededUnpaid" ng-currency /></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalCededReserves" ng-currency /></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalCededIBNR" ng-currency /></td>
+                                                    <td><label>{{convertToCurrency(getFinalCeded(financialEntry))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Ceded</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalTransactionCeded" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Net</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalUnpaidNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalReservesNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalIBNRNet(financialEntry))}}</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalNetTotal(financialEntry))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>BDP Used</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalTransactionBDPUsed" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Commutation Value</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalCommutationValue" ng-currency /></td>
+                                                    <td></td>
+                                                    <td><label>Net Ceded</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionNetCeded(financialEntry))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Incurred Impact</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalIncurredImpact(financialEntry))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Collateral</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalTransactionCollateral" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Gross of BDP</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalUltimateImpactGross(financialEntry))}}</label></td>
+                                                    <td></td>
+                                                    <td><label>Net Cash</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalTransactionNetCash(financialEntry))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Credit Provision</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalCreditProvision" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Dispute Provision</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalDisputeProvision" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Net of Provisions (GAAP)</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalGAAP(financialEntry))}}</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Penalties (Overdue / Unsecured)</label></td>
+                                                    <td><input type="text" style="width:110px;" class="form-control" data-ng-model="financialEntry.FinalPenalties" ng-currency /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><label>Ultimate Impact Net of Provisions / Penalties (STAT)</label></td>
+                                                    <td><label>{{convertToCurrency(getFinalSTAT(financialEntry))}}</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <uib-progressbar class="progress-striped active" value="100" data-ng-show="financialEntryInProgress">Saving financial entry...</uib-progressbar>
+                    <uib-alert ng-repeat="alert in financialEntryAlerts" type="{{alert.type}}" close="closeFinancialEntryAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}</uib-alert>
+                    <button class="btn btn-primary" type="button" ng-click="saveFinancialEntry(financialEntry)">Save Financial Entry</button>
+                </uib-tab>
+            </uib-tabset>
+        </uib-tab>
+        <!--Activities Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Activities</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="activitiesInProgress"></uib-progressbar>
+            <!--Activities-->
+            <table style="width:100%;" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Activities</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="createActivity()">Add Activity</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width:100%;" dt-options="activitiesDTOptions">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Description</th>
+                                        <th>Activity Category</th>
+                                        <th>Entry Date</th>
+                                        <th>Assigned To</th>
+                                        <th>Priority</th>
+                                        <th>Activity Status</th>
+                                        <th>Due Date</th>
+                                        <th>Status Change Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="activity in activities">
+                                        <td>
+                                            <a href="" ng-click="deleteActivity(activity.Id)" title="Delete Activity"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                            <span class="glyphicon glyphicon-paperclip" ng-show="activity.HasAttachments" aria-hidden="true" aria-label="Has Attachment(s)" title="Has Attachment(s)"></span>
+                                        </td>
+                                        <td><a href="" ng-click="editActivity(activity.Id)" title="Edit Activity">{{activity.Description}}</a></td>
+                                        <td>{{activity.ActivityCategory.ActivityCategoryName}}</td>
+                                        <td>{{activity.EntryDate | date:'MM/dd/yyyy'}}</td>
+                                        <td>{{activity.AssignedTo.Title}}</td>
+                                        <td>{{activity.ActivityPriority.ActivityPriorityName}}</td>
+                                        <td>{{activity.ActivityStatus.ActivityStatusName}}</td>
+                                        <td>{{activity.TaskDueDate | date:'MM/dd/yyyy'}}</td>
+                                        <td>{{activity.ActivityStatusChangeDate | date:'MM/dd/yyyy'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </uib-tab>
+        <!--Notes Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Notes</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="notesInProgress"></uib-progressbar>
+            <!--Notes-->
+            <table style="width:100%;" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Notes</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="createNote()">Add Note</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width:100%;" dt-options="notesDTOptions">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Entry Type</th>
+                                        <th>Content</th>
+                                        <th>Entry Date</th>
+                                        <th>Modified By</th>
+                                        <th>Modified</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="note in notes">
+                                        <td>
+                                            <a href="" ng-click="deleteNote(note.Id)" title="Delete Note"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                            <span class="glyphicon glyphicon-paperclip" ng-show="note.HasAttachments" aria-hidden="true" aria-label="Has Attachment(s)" title="Has Attachment(s)"></span>
+                                        </td>
+                                        <td><a href="" ng-click="editNote(note.Id)" title="Edit Note">{{note.NoteEntryType.NoteEntryTypeName}}</a></td>
+                                        <td><div class="note ellipsis">{{note.NoteContent}}</div></td>
+                                        <td>{{note.EntryDate | date:'MM/dd/yyyy'}}</td>
+                                        <td>{{note.Editor.Title}}</td>
+                                        <td>{{note.Modified | date:'M/d/yyyy'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </uib-tab>
+        <!--Check List Tab-->
+        <uib-tab>
+            <uib-tab-heading><h4>Checklist</h4></uib-tab-heading>
+            <hr />
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+            <uib-progressbar class="progress-striped active" value="100" data-ng-show="notesInProgress"></uib-progressbar>
+            <!--Notes-->
+            <table style="width:100%;" class="item-app-table sectionTable">
+                <thead>
+                    <tr>
+                        <th colspan="99"><h4>Checklist</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <table datatable="ng" class="row-border hover" style="width:100%;" dt-options="notesDTOptions">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Checklist Item</th>
+                                        <th>Applicable</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="checklist in checklists">
+                                        <td>
+                                            <span class="glyphicon glyphicon-paperclip" ng-show="checklist.HasAttachments" aria-hidden="true" aria-label="Has Attachment(s)" title="Has Attachment(s)"></span>
+                                        </td>
+                                        <td><a href="" ng-click="editChecklist(checklist.Id)" title="Edit Checklist">{{checklist.Title}}</a></td>
+                                        <td>
+                                            <div data-ng-if="checklist.ChecklistApplicable == 0 || checklist.ChecklistApplicable == 1">{{checklist.ChecklistApplicable == 1 ? "Yes" : "No"}}</div>
+                                            <div data-ng-if="checklist.ChecklistApplicable != 0 && checklist.ChecklistApplicable != 1">Pending Review</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !editItemForm.$valid" ng-click="editItem(project)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

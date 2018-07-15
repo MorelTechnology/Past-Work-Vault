@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Fairfax Entities In Scope" OnQuickLaunch="TRUE" TemplateType="10014" Url="Lists/Fairfax Entities In Scope" Description="List of Fairfax entities that are in scope for a project"></ListInstance>
+</Elements>

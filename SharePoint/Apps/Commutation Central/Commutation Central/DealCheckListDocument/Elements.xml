@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x01010017DA0464AAF249568EAA69861F71A9E2" Name="Deal Check List Document" Group="Custom Content Types" Description="Document that is attached to a deal check list item" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{d04140d7-da69-418f-8cd9-c7301a2d6e71}" DisplayName="Deal Check List Item" Required="TRUE" Name="DealCheckListItem" />
+      <FieldRef ID="{9dc3ce31-163f-4a1b-bdca-ce9c02ce06f9}" DisplayName="Counterparty Name" Required="TRUE" Name="CounterpartyName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

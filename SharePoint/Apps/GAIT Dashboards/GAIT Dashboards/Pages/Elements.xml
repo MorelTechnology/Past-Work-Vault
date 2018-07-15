@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Pages">
+    <File Path="Pages\Default.aspx" Url="Pages/Default.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\InitiativesDashboard.aspx" Url="Pages/InitiativesDashboard.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\WorkMattersDashboard.aspx" Url="Pages/WorkMattersDashboard.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\GAITDashboard.aspx" Url="Pages/GAITDashboard.aspx" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

@@ -1,0 +1,34 @@
+﻿<div class="all-projects">
+    <h3>All Open Projects <button class="btn btn-primary" type="button" ng-click="getItems()">Refresh</button></h3>
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover" dt-options="dtOptions">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Counterparty Name</th>
+                    <th>Primary Manager</th>
+                    <th>Secondary Manager</th>
+                    <th>Lead Office</th>
+                    <th>Assigned Date</th>
+                    <th>Last Modified</th>
+                    <th>Commutation Status</th>
+                    <th>Financial Authority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="project in projects">
+                    <td>{{project.ID}}</td>
+                    <td><a href="" ng-click="editProject(project.Id)" title="Open/Edit Project">{{project.CounterpartyName}}</a></td>
+                    <td>{{project.PrimaryManagerID.Title}}</td>
+                    <td>{{project.SecondaryManagerID.Title}}</td>
+                    <td>{{project.LeadOffice.LeadOfficeName}}</td>
+                    <td>{{project.AssignedDate | date:'M/d/yyyy'}}</td>
+                    <td>{{project.Modified | date:'M/d/yyyy'}}</td>
+                    <td>{{project.CommutationStatus.CommutationStatusName}}</td>
+                    <td>{{project.SummaryFinancials.FinancialAuthority | currency:"$":0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

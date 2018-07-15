@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{b4ce4b59-d259-49ab-8c42-dbae49811fcf}"
+       Name="CommutationStatus"
+       DisplayName="Commutation Status"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       List="Lists/Commutation Status Lookup" 
+       ShowField="CommutationStatusName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

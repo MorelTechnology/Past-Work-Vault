@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CashFlowDataImport.Configuration" GeneratedClassName="Import">
+  <Profiles />
+  <Settings>
+    <Setting Name="whatIfMode" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="sourceExcelFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\temp\ALVINO.xlsx</Value>
+    </Setting>
+    <Setting Name="sqlServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sqlTest2012r2</Value>
+    </Setting>
+    <Setting Name="sqlDatabaseName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CashFlow</Value>
+    </Setting>
+    <Setting Name="sqlTableName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">data.CashFlowEntry</Value>
+    </Setting>
+    <Setting Name="excelWorksheetName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Entry Data</Value>
+    </Setting>
+    <Setting Name="logFileLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\temp\log.txt</Value>
+    </Setting>
+    <Setting Name="sqlNotificationsTableName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">data.Notifications</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

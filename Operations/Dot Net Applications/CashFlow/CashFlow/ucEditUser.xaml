@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="CashFlow.ucEditUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CashFlow"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1190">
+    <Grid  >
+        <Grid Background="#FF89A3B2" Opacity="0.6" Visibility="Visible"   />
+        <Grid  Margin="0,0,0,0" Background="#FF405895" Width="330" Height="220">
+            <Grid Height="36" Margin="0" VerticalAlignment="Top" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Modify User" VerticalAlignment="Top" Width="652" Foreground="White" FontSize="24"/>
+            </Grid>
+
+            <Grid x:Name="gridTicket" Width="365" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Background="White" Height="253" Visibility="Hidden" >
+                <ScrollViewer>
+                    <TextBlock x:Name="tbNote" TextWrapping="Wrap" Text=""  FontSize="11"  />
+                </ScrollViewer>
+            </Grid>
+            <Grid Height="53" Margin="0" VerticalAlignment="Bottom" Background="#FF82879C" >
+                <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" Height="41" Margin="0,5,7,0" VerticalAlignment="Top" Width="84" FontWeight="Bold" Click="btnSave_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Right" Height="41" Margin="0,5,97,0" VerticalAlignment="Top" Width="84" Click="btnCancel_Click"/>
+            </Grid>
+            <ComboBox x:Name="cbUnitManager" HorizontalAlignment="Left" Margin="115,48,0,0" VerticalAlignment="Top" Width="204"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Unit Manager" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+            <ComboBox x:Name="cbTeamManager" HorizontalAlignment="Left" Margin="115,75,0,0" VerticalAlignment="Top" Width="204"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,77,0,0" TextWrapping="Wrap" Text="Team Manager" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+            <TextBox x:Name="ebFilter_Copy" HorizontalAlignment="Left" Height="24" Margin="115,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Visibility="Collapsed" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Approval Limit" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14" Visibility="Collapsed"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,132,0,0" TextWrapping="Wrap" Text="Administrator" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+            <CheckBox x:Name="xbAdministrator" Content="" HorizontalAlignment="Left" Height="17" Margin="114,134,0,0" VerticalAlignment="Top" Width="168" Foreground="White" FontSize="10"/>
+            <Button x:Name="btnClaims" HorizontalAlignment="Left" Height="25" Margin="222,101,0,0" VerticalAlignment="Top" Width="97" FontWeight="Bold" Visibility="Collapsed" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectAG" Fill="#FF3464B8" Width="5" Height="16" Opacity="1" Stroke="#FF837D7D" />
+                    <StackPanel>
+                        <Label Content="Link to Authority" FontSize="10" Foreground="#FF303030" Width="85" FontWeight="Normal" Margin="0,-7,0,0" />
+                        <Label Content="Guidelines" FontSize="10" Foreground="#FF303030" Width="85" FontWeight="Normal" Margin="0,-13,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

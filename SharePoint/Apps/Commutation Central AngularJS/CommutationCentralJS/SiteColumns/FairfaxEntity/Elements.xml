@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a3b636ac-1bd4-4c63-9efa-a0dfc15f47cd}"
+       Name="FairfaxEntity"
+       DisplayName="Fairfax Entity"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       List="Lists/Fairfax Entity Lookup"
+       ShowField="FairfaxEntityName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

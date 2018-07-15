@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{30fcd923-71d0-4d22-b5b4-c77cb58c99d2}"
+       Name="PreliminaryAssumedCase"
+       DisplayName="Preliminary Assumed Case"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

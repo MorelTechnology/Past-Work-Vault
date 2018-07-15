@@ -1,0 +1,2414 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/12/2010 1:06:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KGOSS-LAP"
+  DTS:CreatorName="TRG\kgoss"
+  DTS:Description="Import transactions from Navision."
+  DTS:DTSID="{505729AE-82EC-45B9-904E-8CF9DD735B07}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Nav2Stars"
+  DTS:VersionBuild="105"
+  DTS:VersionGUID="{D0DF316C-A468-492B-8E33-C68E852A99B1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7A31CF11-06D3-451D-B2CA-72D73A266156}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::StarsCon]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLUAT01;Initial Catalog=STARS;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:Description="nav2stars"
+      DTS:DTSID="{903A9D61-F38C-4A57-BE45-61CB9DCC198D}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Nav2StarsFileCon]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\mansan02\batchuat$\Navision\nav2star.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="Company"
+              DTS:DTSID="{46E276A4-E784-49A1-9CDC-6FC45B237E2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="AffiliateCode"
+              DTS:DTSID="{8354FA38-8270-4BD2-BBFB-CACA04E62011}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:ObjectName="Account"
+              DTS:DTSID="{63B57F8E-BB12-4B95-A81C-65AFA6349FDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="State"
+              DTS:DTSID="{8BE0D697-F089-42DB-80B8-3C81C574130D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="LOB"
+              DTS:DTSID="{35856120-6FEF-4DDB-B6D0-CDDB834EE7D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="AccidentYear"
+              DTS:DTSID="{82A19166-4C0C-4976-BAA3-F02B04458DC7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="TreatyCode"
+              DTS:DTSID="{BE41F49B-3D3A-4524-A164-21525EEB9B71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="TreatyEffectiveDate"
+              DTS:DTSID="{8371E2D0-DD52-458F-9954-7F402BBB3C12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="20"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{77A9EEC6-347A-4CB8-B551-BE1A3435C48A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="SubSystem"
+              DTS:DTSID="{FD2A298A-5EE4-474C-A707-5144579EE730}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="RegisterNumber"
+              DTS:DTSID="{BF8795B3-75E8-485F-8212-A5366D5EE123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="110"
+              DTS:MaximumWidth="110"
+              DTS:DataType="129"
+              DTS:ObjectName="Explanation"
+              DTS:DTSID="{07F4B0AB-BDF0-48A2-9D7C-FA9407C77D63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="ValuationDate"
+              DTS:DTSID="{26E6A2AF-E913-41E7-A38B-B1A9B2D436A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="ABCSubdivision"
+              DTS:DTSID="{62E45D1E-D9C0-4CD4-A9FD-557D0651FE9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:ObjectName="CRLF"
+              DTS:DTSID="{DBDE790A-DAFD-45D8-8C4E-77DB8881135A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\ssisconfigs\BatchSystemGeneralConfig.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{CB87D330-7ABB-4B3C-9B19-393C715BFD14}"
+      DTS:ObjectName="BatchSystemGeneralConfig" />
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\ssisconfigs\BatchProductionSystemConfig.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{588A21FC-5057-4CDB-A67F-9EF16CF34A82}"
+      DTS:ObjectName="BatchProductionSystemConfig" />
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\ssisconfigs\nav2stars.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{B686F6C5-9B61-436A-A138-42D79542D8CF}"
+      DTS:ObjectName="nav2stars" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10DA0C28-FA03-424E-A446-17D603D0653C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorMessage">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F039A8BA-2C53-4FCA-BF63-3F7238038C0E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileExists">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69FC4965-EC75-479C-A8A9-DE308D670811}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{14A89964-A662-4A2C-A683-4255AAB7FC40}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Nav2StarsFileCon">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batchuat$\Navision\nav2star.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{A7F24810-47E1-4BEB-A639-7249BD3AB00A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Company"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Company]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[AffiliateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="AffiliateCode"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AffiliateCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Account]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Account"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Account]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[LOB]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="LOB"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[LOB]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[AccidentYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="AccidentYear"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AccidentYear]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[TreatyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="TreatyCode"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[TreatyEffectiveDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="TreatyEffectiveDate"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyEffectiveDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Amount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Amount"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[SubSystem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SubSystem"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[SubSystem]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[RegisterNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="RegisterNumber"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[RegisterNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Explanation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="110"
+                      cachedName="Explanation"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Explanation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[ValuationDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ValuationDate"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ValuationDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[ABCSubdivision]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ABCSubdivision"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ABCSubdivision]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Company]"
+                      name="Company"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Company]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AffiliateCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AffiliateCode]"
+                      name="AffiliateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AffiliateCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Account]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Account]"
+                      name="Account"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Account]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[LOB]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[LOB]"
+                      name="LOB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[LOB]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AccidentYear]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AccidentYear]"
+                      name="AccidentYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AccidentYear]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyCode]"
+                      name="TreatyCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyEffectiveDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyEffectiveDate]"
+                      name="TreatyEffectiveDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyEffectiveDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Amount]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[SubSystem]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[SubSystem]"
+                      name="SubSystem"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[SubSystem]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[RegisterNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[RegisterNumber]"
+                      name="RegisterNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[RegisterNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Explanation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="110"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Explanation]"
+                      name="Explanation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Explanation]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ValuationDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ValuationDate]"
+                      name="ValuationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ValuationDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ABCSubdivision]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ABCSubdivision]"
+                      name="ABCSubdivision"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ABCSubdivision]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Destination - nav2stars"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - nav2stars"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[nav2stars]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Destination - nav2stars.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[Company]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Company"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Company]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Company]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[AffiliateCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="AffiliateCode"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[AffiliateCode]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AffiliateCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[Account]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Account"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Account]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Account]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[LOB]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="LOB"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[LOB]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[LOB]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[AccidentYear]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="AccidentYear"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[AccidentYear]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[AccidentYear]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[TreatyCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="TreatyCode"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TreatyCode]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[TreatyEffectiveDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="TreatyEffectiveDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TreatyEffectiveDate]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[TreatyEffectiveDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[Amount]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[SubSystem]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="SubSystem"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[SubSystem]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[SubSystem]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[RegisterNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="RegisterNumber"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[RegisterNumber]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[RegisterNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[Explanation]"
+                      cachedDataType="wstr"
+                      cachedLength="110"
+                      cachedName="Explanation"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Explanation]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Explanation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[ValuationDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ValuationDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[ValuationDate]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ValuationDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].Columns[ABCSubdivision]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ABCSubdivision"
+                      externalMetadataColumnId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[ABCSubdivision]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[ABCSubdivision]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[nav2starsid]"
+                      dataType="i4"
+                      name="nav2starsid" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Company]"
+                      dataType="wstr"
+                      length="10"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[AffiliateCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="AffiliateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Account]"
+                      dataType="wstr"
+                      length="20"
+                      name="Account" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="10"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[LOB]"
+                      dataType="wstr"
+                      length="10"
+                      name="LOB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[AccidentYear]"
+                      dataType="wstr"
+                      length="10"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TreatyCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="TreatyCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TreatyEffectiveDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="TreatyEffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Amount]"
+                      dataType="wstr"
+                      length="20"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[SubSystem]"
+                      dataType="wstr"
+                      length="10"
+                      name="SubSystem" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[RegisterNumber]"
+                      dataType="wstr"
+                      length="10"
+                      name="RegisterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[Explanation]"
+                      dataType="wstr"
+                      length="110"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[ValuationDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="ValuationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[ABCSubdivision]"
+                      dataType="wstr"
+                      length="10"
+                      name="ABCSubdivision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[ImportTime]"
+                      dataType="dbTimeStamp"
+                      name="ImportTime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TransProcessedTime]"
+                      dataType="dbTimeStamp"
+                      name="TransProcessedTime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input].ExternalColumns[TransactionID]"
+                      dataType="i4"
+                      name="TransactionID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Destination - nav2stars.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Destination - nav2stars.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Destination - nav2stars.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Destination - nav2stars.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Source - nav2star_txt"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - nav2star_txt"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Source - nav2star_txt.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Company]"
+                      name="Company"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[AffiliateCode]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AffiliateCode]"
+                      name="AffiliateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Account]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Account]"
+                      length="8"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Account]"
+                      name="Account"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[LOB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[LOB]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[LOB]"
+                      name="LOB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[AccidentYear]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[AccidentYear]"
+                      name="AccidentYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[TreatyCode]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyCode]"
+                      name="TreatyCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyEffectiveDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[TreatyEffectiveDate]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[TreatyEffectiveDate]"
+                      name="TreatyEffectiveDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[SubSystem]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[SubSystem]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[SubSystem]"
+                      name="SubSystem"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[RegisterNumber]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[RegisterNumber]"
+                      name="RegisterNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Explanation]"
+                      length="110"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[Explanation]"
+                      name="Explanation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ValuationDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[ValuationDate]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ValuationDate]"
+                      name="ValuationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[ABCSubdivision]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].Columns[ABCSubdivision]"
+                      name="ABCSubdivision"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[AffiliateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="AffiliateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Account]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Account" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[LOB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="LOB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[AccidentYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="AccidentYear" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[TreatyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="TreatyCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[TreatyEffectiveDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="TreatyEffectiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[SubSystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SubSystem" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[RegisterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="RegisterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[Explanation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="110"
+                      name="Explanation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[ValuationDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ValuationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[ABCSubdivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ABCSubdivision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output].ExternalColumns[CRLF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CRLF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Destination - nav2stars.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Source - nav2star_txt.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0C469F4F-5F63-4814-B63F-64C6245D69B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A31CF11-06D3-451D-B2CA-72D73A266156}"
+          SQLTask:SqlStatementSource="exec str_ImportNavision2Stars" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FileMaintenance"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="FileMaintenance"
+      DTS:DTSID="{2DE0783E-E661-4D01-8A54-9A2F61E3CF43}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FileMaintenance"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ScriptTask_cac1653b624547a39271cdb33f30a77b"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="VisualBasic"
+          ReadWriteVariables="Nav2StarsFileCon, ErrorMessage, FileExists">
+          <ProjectItem
+            Name="ScriptMain.vb"
+            Encoding="UTF8"><![CDATA[' Microsoft SQL Server Integration Services Script Task
+' Write scripts using Microsoft Visual Basic
+' The ScriptMain class is the entry point of the Script Task.
+
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+Imports System.IO
+
+<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+	Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+	Enum ScriptResults
+		Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+		Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+	End Enum
+
+	' The execution engine calls this method when the task executes.
+	' To access the object model, use the Dts object. Connections, variables, events,
+	' and logging features are available as static members of the Dts class.
+	' Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+
+	Public Sub Main()
+        Dim ffConnection As String = _
+              DirectCast(Dts.Connections("SourceConnectionFlatFile").AcquireConnection(Nothing), _
+              String)
+        Dim flatFileInfo As New FileInfo(ffConnection)
+        Dim path As String
+        Dim currentDate As Date
+        Dim dateStamp As String
+        Dim timeStamp As String
+        Dim newFileName As String
+        Dim errorMessageHeader As String
+        Dim errorMessage As String
+        ' Dim accessTest As FileStream
+
+        errorMessageHeader = "Nav2Stars FileMaintenance failed with the following error:  "
+        If flatFileInfo.Exists() Then
+            currentDate = Now()
+            dateStamp = currentDate.Month.ToString() + "_" + currentDate.Day.ToString() + "_" + currentDate.Year.ToString()
+            timeStamp = currentDate.TimeOfDay.ToString().Substring(0, currentDate.TimeOfDay.ToString().IndexOf(Convert.ToChar("."))).Replace(Convert.ToChar(":"), Convert.ToChar("_"))
+            path = flatFileInfo.FullName().Substring(0, flatFileInfo.FullName().IndexOf(Convert.ToChar(".")))
+            newFileName = path + "_" + dateStamp + "_" + timeStamp + ".txt"            
+            Try
+                flatFileInfo.MoveTo(newFileName)
+                Dts.Variables("Nav2StarsFileCon").Value = newFileName
+                Dts.Variables("FileExists").Value = True
+                Dts.TaskResult = ScriptResults.Success
+            Catch i As IOException
+                errorMessage = errorMessageHeader + i.Message
+                Dts.Events.FireWarning(0, "nav2stars", i.Message, "", 0)
+                Dts.Events.FireError(0, "nav2stars", errorMessage, "", 0)
+                Dts.Variables("ErrorMessage").Value = errorMessage
+                Dts.Connections("SourceConnectionFlatFile").ConnectionString = ""
+                Dts.TaskResult = ScriptResults.Failure
+            Catch e As Exception
+                errorMessage = errorMessageHeader + e.Message
+                Dts.Events.FireWarning(0, "nav2stars", errorMessage, "", 0)
+                Dts.Variables("ErrorMessage").Value = errorMessage
+                Dts.TaskResult = ScriptResults.Failure
+
+            End Try
+
+        Else
+    'TODO: it's possible there will be no file to import so figure out way to end gracefully
+            'errorMessage = errorMessageHeader + "File " + flatFileInfo.FullName() + " does not exist."
+            'Dts.Events.FireWarning(0, "nav2stars", errorMessage, "", 0)
+            'Dts.Variables("ErrorMessage").Value = errorMessage
+            'Dts.Connections("SourceConnectionFlatFile").ConnectionString = ""
+            'Dts.TaskResult = ScriptResults.Failure
+            Dts.Variables("FileExists").Value = False
+            Dts.TaskResult = ScriptResults.Success
+        End If
+	End Sub
+
+End Class]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="scripttask_cac1653b624547a39271cdb33f30a77b.vbproj"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ScriptTask_cac1653b624547a39271cdb33f30a77b.vbproj</RootNamespace>
+    <AssemblyName>ScriptTask_cac1653b624547a39271cdb33f30a77b.vbproj</AssemblyName>
+    <StartupObject></StartupObject>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ProjectGuid>{8A8283C6-FE74-46C8-B0E0-89669B691AA1}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptMain.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" />
+        <Host Name="SSIS_ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Settings.Designer.vb"
+            Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>scripttask_cac1653b624547a39271cdb33f30a77b</msb:CodeName>
+		<msb:DisplayName>scripttask_cac1653b624547a39271cdb33f30a77b</msb:DisplayName>
+		<msb:ProjectId>{7B9B471C-37E5-4A9B-9EC4-5BD0DAB77346}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="scripttask_cac1653b624547a39271cdb33f30a77b.vbproj"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="ScriptMain.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\AssemblyInfo.vb"
+            Encoding="UTF8"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("ScriptTask_cac1653b624547a39271cdb33f30a77b.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyProduct("ScriptTask_cac1653b624547a39271cdb33f30a77b.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @ Microsoft 2010")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("49088a4b-7ad5-4650-ada5-8a4a156f24cb")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
+          <ProjectItem
+            Name="My Project\Resources.Designer.vb"
+            Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace]]></ProjectItem>
+          <BinaryItem
+            Name="ScriptTask_cac1653b624547a39271cdb33f30a77b.vbproj.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDANYywVkAAAAAAAAAAOAAAiELAQsAACIAAAAIAAAAAAAArkAA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACgAAAAAgAAAAAAAAIAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAFRAAABXAAAAAGAAAKAEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAtCAAAAAgAAAAIgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAKAEAAAAYAAAAAYAAAAkAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAKgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACQ
+QAAAAAAAAEgAAAACAAUAfCYAANgZAAABAAAAAAAAAMQlAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKAEAAAoqHgIoBAAACiqmcwYAAAqAAQAABHMHAAAKgAIA
+AARzCAAACoADAAAEcwkAAAqABAAABCoAABMwAQALAAAAAQAAEX4BAAAEbwoAAAoqABMwAQALAAAA
+AgAAEX4CAAAEbwsAAAoqABMwAQALAAAAAwAAEX4DAAAEbwwAAAoqABMwAQALAAAABAAAEX4EAAAE
+bw0AAAoqABMwAgANAAAABQAAEQIDKBEAAAooEgAACioAAAATMAEABwAAAAYAABECKBMAAAoqABMw
+AQALAAAABwAAEdAFAAACKBQAAAoqABMwAQAHAAAACAAAEQIoFQAACioAEzABABAAAAAJAAARAowB
+AAAbLQYoAQAAKyoCKhMwAgAQAAAACgAAEQMSAP4VAgAAGwaBAgAAGyoeAigXAAAKKhMwAgAoAAAA
+CwAAEQJ7GQAACm8aAAAKCweMAwAAGy0SKAIAACsLAnsZAAAKB28bAAAKBypKAigXAAAKAnMcAAAK
+fRkAAAoqAB4CKBcAAAoqEzACAC0AAAAMAAARfgYAAAQtIHIBAABw0AcAAAIoFAAACm8eAAAKcx8A
+AAoLB4AGAAAEfgYAAAQqAAAAEzABAAYAAAANAAARfgcAAAQqAAAeAoAHAAAEKkJzFwAACigRAAAK
+gAkAAAQqAAAAHgIoIAAACiobMAEAPwAAAA4AABF+CAAABC0yfgkAAAQoEQAACighAAAKfggAAAQt
+HHMWAAAGgAgAAATeEH4JAAAEKBEAAAooIgAACtx+CAAABCoAARAAAAIAHQAMKQAQAAAAAB4CKCQA
+AAoqGzAGAOoCAAAPAAARAm8lAAAKbyYAAApyMwAAcG8nAAAKFG8oAAAKdCMAAAETBBEEcykAAAoT
+BXJlAABwDREFbyoAAAo5gAIAACgrAAAKChuNIwAAARMOEQ4WEgAoLAAAChMNEg0oLQAACqIRDhdy
+3wAAcKIRDhgSACguAAAKEwwSDCgtAAAKohEOGXLfAABwohEOGhIAKC8AAAoTCxILKC0AAAqiEQ4o
+MAAACgsSACgxAAAKEw8SD/4WHwAAAW8VAAAKFhIAKDEAAAoTEBIQ/hYfAAABbxUAAApy4wAAcCgy
+AAAKbzMAAApvNAAACnLnAABwKDIAAApy3wAAcCgyAAAKbzUAAAoTCBEFbzYAAAoWEQVvNgAACnLj
+AABwKDIAAApvMwAACm80AAAKEwccjSMAAAETDhEOFhEHohEOF3LfAABwohEOGAeiEQ4Zct8AAHCi
+EQ4aEQiiEQ4bcusAAHCiEQ4oMAAAChMGEQURBm83AAAKAm8lAAAKbzgAAApy9QAAcG85AAAKEQZv
+OgAACgJvJQAACm84AAAKchcBAHBvOQAACheMKgAAAW86AAAKAm8lAAAKFm87AAAK3TQBAAAlKDwA
+AAoTCQkRCW89AAAKKD4AAAoMAm8lAAAKbz8AAAoWci0BAHARCW89AAAKckEBAHAWb0AAAAoCbyUA
+AApvPwAAChZyLQEAcAhyQQEAcBZvQQAACiYCbyUAAApvOAAACnJDAQBwbzkAAAoIbzoAAAoCbyUA
+AApvJgAACnIzAABwbycAAApyQQEAcG9CAAAKAm8lAAAKF287AAAKKEMAAArdjQAAACUoPAAAChMK
+CREKbz0AAAooPgAACgwCbyUAAApvPwAAChZyLQEAcAhyQQEAcBZvQAAACgJvJQAACm84AAAKckMB
+AHBvOQAACghvOgAACgJvJQAAChdvOwAACihDAAAK3iwCbyUAAApvOAAACnIXAQBwbzkAAAoWjCoA
+AAFvOgAACgJvJQAAChZvOwAACioAAAEcAAAAAF8BVrUBpx0AAAEAAF8BVlwCYR4AAAG0AAAAzsrv
+vgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJz
+aW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0
+ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBB
+RFC0AAAAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAnAgAACN+AAAICQAAMAsA
+ACNTdHJpbmdzAAAAADgUAABgAQAAI1VTAJgVAAAQAAAAI0dVSUQAAACoFQAAMAQAACNCbG9iAAAA
+AAAAAAIAAAFXHaIJCQ8AAAD6JTMAFgAAAQAAADkAAAAKAAAADAAAABkAAAAEAAAAUAAAAAIAAAA2
+AAAADwAAAAQAAAAIAAAACQAAAAkAAAABAAAABQAAAAEAAAADAAAAAwAAAAIAAAAAAPYKAQAAAAAA
+CgB4AU4BCgCsAY4BBgC8AbUBCgAUAk4BBgCSArUBCgAUA+oCBgBKAzkDBgB3A2IDDgDeA8kDEgBd
+BDQEBgB+BLUBDgCxBJsEDgDKBJsEDgD3BN8EBgAhBQ4FCgBgBTkFCgB4BRMADgCtBZAFBgDiBcIF
+BgAABrUBBgAkBrUBCgA9BhMABgCBBmIGBgCnBpUGBgDOBr0GBgDhBg4FBgD+BrUBBgARBwcHBgAa
+BwcHBgAmB7UBBgAwB7UBEgA5BzQEFgCSB3IHFgCuB3IHBgDbB7UBCgDtBxMABgALCLUBBgA3CLUB
+BgBgCAcHFgCDCHIHFgCbCHIHBgCkCLUBCgC7CDkFEgDjCDQEBgA/CbUBEgBVCTQEBgC+CcIFBgDe
+CcIFBgAWCvwJBgAvCpUGBgBMCmIGBgBaCpUGBgB1CpUGBgCQCpUGBgCpCpUGBgDCCpUGBgDfCpUG
+AAAAAAEAAAAAAAEAAQAAAAAAKQA3AAUAAQABAAAAAABtADcACQABAAIAAAEQAHgANwANAAEAAwAF
+AQAAggAAAA0ABQAIAAUBAACQAAAADQAFAA8AAAAAAKsAtwANAAYAEQAAARAA9wACASUACAAVAAEA
+AAA1AQIBKQAKABgAAgEAAEABAAAtAAoAGgAxANcBIAAxAAACLQAxACICOgAxAEcCRwAhACMDkAAR
+AFoDnQARAIMDoQARAPYDvwARAP4DwwAGBoME2QBWgIsE3ABWgJME3ABQIAAAAAAGGIgBEwABAFgg
+AAAAAAYYiAETAAEAYCAAAAAAERjDARcAAQCMIAAAAAATCMoBGwABAKQgAAAAABMI8AEoAAEAvCAA
+AAAAEwgZAjUAAQDUIAAAAAATCDcCQgABAOwgAAAAAEYCfQJjAAEACCEAAAAARgKGAmgAAgAcIQAA
+AACDAJcCbAACADQhAAAAAEYCnwJxAAIASCEAAAAAEQCoAngAAgBkIQAAAAABAMYCgAADAIAhAAAA
+AAYYiAETAAQAiCEAAAAAAwjaAosABAC8IQAAAAAGGIgBEwAEANAhAAAAAAMYiAETAAQA2CEAAAAA
+FgiPA6UABAAUIgAAAAAWCKMDqgAEACgiAAAAABYIrwOvAAQAMCIAAAAAERjDARcABQBEIgAAAAAG
+GIgBEwAFAEwiAAAAABYICwTGAAUAqCIAAAAABhiIARMABQCwIgAAAAAGAHkEEwAFAAAAAQCEAgAA
+AQC9AgAAAQC9AgAAAQC7AwkAiAETAGEAiAHqAHEAiAH5ABEAiAETAHkAiAETACQAiAETACwAiAET
+ADQAiAETADwAiAETACQA2gKLACwA2gKLADQA2gKLADwA2gKLAIEAiAETAIkAiAETAJEAiAFIAZkA
+8QWTARkAfQJjABkAhgJoACkAEgagARkAnwJxAKkALgawARkAiAETALEAiAHAAUQAIwOQAEwACwSL
+AEwAWAY9AkwAiAETALkAiAFMAikAsAZXAjkAiAFcAkkAiAETAMkA1gZ4AskA3AZ4AtEAiAETAFEA
+iAETAFEASweCAgEBngeIAgkBwAeOAhEByQeVAuEAiAFIAeEA4geaAiEB+QeeAtkAAQhoACkBnwJx
+ANkAEQhoANkAGQhoABkBIgijAtkAKQipAjEBPwiuAhkBRgizAhkBTgi4AhkBWAi+AjkBbwhxAOEA
+fAhIAQEBjQjEAkEBwAfKAkkBWAbRAgEBrAjWAlkBxwjbAvEA1whxABkBIgjhAgEB9wjnAmEBAgnt
+AmEBDgn2AhEBGAlIAVkBLQkXAGkBiAFMAnEBiAETAHkBiAHWAoEBiAETAIkBiAFIAZEBiAFIAZkB
+iAFIAaEBiAFIAakBiAFIAbEBiAFIAbkBiAFIAcEBiAFIAckBiAFIAQgALADgAAgAMADlACkAgwB1
+AS4AcwIfBC4AgwLnAy4AawLnAy4AOwIjAy4AYwLHAy4AewJRAi4AMwIaAy4AQwJCAy4ASwKKAy4A
+UwKXAy4A6wBRAi4AIwLBAy4AWwJRAkAAKwDlAEAAEwDwAEMAGwD/AEMAEwDwAEkAgwBhAWMAGwD/
+AGMAEwDwAGkAgwCGAYAAKwDlAIMAcwDlAIMAewDlAIMAGwD/AIkAgwBNAaAAKwDlAKMAwwDIAaMA
+EwDwAMAAKwDlAMMAEwDwAMMA6wBRAskAEwBvAuAAKwDlAOkAEwBvAgABKwDlAAABEwDwAAkBGwHl
+ACABEwDwACABKwDlACMBIwJRAiMBKwLlAEABKwDlAEABEwDwAGABEwDwAGABKwDlAIABKwDlAKAB
+KwDlAMABKwDlAMABEwDwAOABKwDlAAACKwDlAAACEwDwADQBOQE+AUMBmAGcAacBrAG7AbsBQwJj
+AmoCfQL/AgQAAQAGAAUABwAGAAgACAAAAKwBTwAAAGUCVAAAABQCWQAAAHECXgAAAC0DmAAAAEoD
+tQAAAMEDugAAALsDywACAAQAAwACAAUABQACAAYABwACAAcACQACAA8ACwACABIADQACABMADwAB
+ABQADwACABcAEQB1AHUAiAAYAR8BJgEtASoCMQIEgAAAAQAAAAAAAAAAAAAAAAACAQAABAAAAAAA
+AAAAAAAAAQAKAAAAAAAKAAAAAAAAAAAAAAAKABMAAAAAAAQAAAAAAAAAAAAAAAEAtQEAAAAADAAA
+AAAAAAAAAAAA0AAVBAAAAAAMAAAAAAAAAAAAAADQAFMHAAAAAAAAAAABAAAAdwkAAAUABAAGAAQA
+CgAJAAAAEAAMALsCAAAQABkAuwIAAAAAGwC7Ai0AtgEtADgCAAAAPE1vZHVsZT4AbXNjb3JsaWIA
+TWljcm9zb2Z0LlZpc3VhbEJhc2ljAE15QXBwbGljYXRpb24AU2NyaXB0VGFza19jYWMxNjUzYjYy
+NDU0N2EzOTI3MWNkYjMzZjMwYTc3Yi52YnByb2ouTXkATXlDb21wdXRlcgBNeVByb2plY3QATXlX
+ZWJTZXJ2aWNlcwBUaHJlYWRTYWZlT2JqZWN0UHJvdmlkZXJgMQBNeVJlc291cmNlcwBTY3JpcHRU
+YXNrX2NhYzE2NTNiNjI0NTQ3YTM5MjcxY2RiMzNmMzBhNzdiLnZicHJvai5NeS5SZXNvdXJjZXMA
+TXlTZXR0aW5ncwBTY3JpcHRUYXNrX2NhYzE2NTNiNjI0NTQ3YTM5MjcxY2RiMzNmMzBhNzdiLnZi
+cHJvagBTY3JpcHRNYWluAFNjcmlwdFJlc3VsdHMATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkFwcGxp
+Y2F0aW9uU2VydmljZXMAQXBwbGljYXRpb25CYXNlAC5jdG9yAE1pY3Jvc29mdC5WaXN1YWxCYXNp
+Yy5EZXZpY2VzAENvbXB1dGVyAFN5c3RlbQBPYmplY3QALmNjdG9yAGdldF9Db21wdXRlcgBtX0Nv
+bXB1dGVyT2JqZWN0UHJvdmlkZXIAZ2V0X0FwcGxpY2F0aW9uAG1fQXBwT2JqZWN0UHJvdmlkZXIA
+VXNlcgBnZXRfVXNlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBnZXRfV2ViU2VydmljZXMAbV9NeVdl
+YlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIAQXBwbGljYXRpb24AV2ViU2VydmljZXMARXF1YWxzAG8A
+R2V0SGFzaENvZGUAVHlwZQBHZXRUeXBlAFRvU3RyaW5nAENyZWF0ZV9fSW5zdGFuY2VfXwBUAGlu
+c3RhbmNlAERpc3Bvc2VfX0luc3RhbmNlX18AZ2V0X0dldEluc3RhbmNlAE1pY3Jvc29mdC5WaXN1
+YWxCYXNpYy5NeVNlcnZpY2VzLkludGVybmFsAENvbnRleHRWYWx1ZWAxAG1fQ29udGV4dABHZXRJ
+bnN0YW5jZQBTeXN0ZW0uUmVzb3VyY2VzAFJlc291cmNlTWFuYWdlcgBfcmVzTWdyAFN5c3RlbS5H
+bG9iYWxpemF0aW9uAEN1bHR1cmVJbmZvAF9yZXNDdWx0dXJlAGdldF9SZXNvdXJjZU1hbmFnZXIA
+Z2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAVmFsdWUAQ3VsdHVyZQBTeXN0ZW0uQ29uZmlndXJhdGlv
+bgBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBtX1ZhbHVlAG1fU3luY09iamVjdABnZXRfVmFsdWUA
+TWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRh
+c2tzLlNjcmlwdFRhc2sAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAE1haW4ARW51bQB2YWx1
+ZV9fAFN1Y2Nlc3MARmFpbHVyZQBTeXN0ZW0uQ29tcG9uZW50TW9kZWwARWRpdG9yQnJvd3NhYmxl
+QXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZVN0YXRlAFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVyAEdl
+bmVyYXRlZENvZGVBdHRyaWJ1dGUAU3lzdGVtLkRpYWdub3N0aWNzAERlYnVnZ2VySGlkZGVuQXR0
+cmlidXRlAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5Db21waWxlclNlcnZpY2VzAFN0YW5kYXJkTW9k
+dWxlQXR0cmlidXRlAEhpZGVNb2R1bGVOYW1lQXR0cmlidXRlAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bC5EZXNpZ24ASGVscEtleXdvcmRBdHRyaWJ1dGUAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2
+aWNlcwBSdW50aW1lSGVscGVycwBHZXRPYmplY3RWYWx1ZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRU
+eXBlRnJvbUhhbmRsZQBBY3RpdmF0b3IAQ3JlYXRlSW5zdGFuY2UATXlHcm91cENvbGxlY3Rpb25B
+dHRyaWJ1dGUAc2V0X1ZhbHVlAFN5c3RlbS5SdW50aW1lLkludGVyb3BTZXJ2aWNlcwBDb21WaXNp
+YmxlQXR0cmlidXRlAFN5c3RlbS5SZWZsZWN0aW9uAEFzc2VtYmx5AGdldF9Bc3NlbWJseQBTeXN0
+ZW0uVGhyZWFkaW5nAE1vbml0b3IARW50ZXIARXhpdABEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmli
+dXRlAERhdGVUaW1lAFN5c3RlbS5JTwBGaWxlSW5mbwBJT0V4Y2VwdGlvbgBFeGNlcHRpb24AVGlt
+ZVNwYW4AU2NyaXB0T2JqZWN0TW9kZWwAZ2V0X0R0cwBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFn
+ZWREVFMATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBDb25uZWN0aW9ucwBnZXRfQ29u
+bmVjdGlvbnMAQ29ubmVjdGlvbk1hbmFnZXIAZ2V0X0l0ZW0AQWNxdWlyZUNvbm5lY3Rpb24AU3Ry
+aW5nAGdldF9FeGlzdHMARGF0ZUFuZFRpbWUAZ2V0X05vdwBnZXRfTW9udGgASW50MzIAZ2V0X0Rh
+eQBnZXRfWWVhcgBDb25jYXQAZ2V0X1RpbWVPZkRheQBDb252ZXJ0AFRvQ2hhcgBJbmRleE9mAFN1
+YnN0cmluZwBSZXBsYWNlAEZpbGVTeXN0ZW1JbmZvAGdldF9GdWxsTmFtZQBNb3ZlVG8AVmFyaWFi
+bGVzAGdldF9WYXJpYWJsZXMAVmFyaWFibGUAQm9vbGVhbgBzZXRfVGFza1Jlc3VsdABQcm9qZWN0
+RGF0YQBTZXRQcm9qZWN0RXJyb3IAZ2V0X01lc3NhZ2UARXZlbnRzT2JqZWN0V3JhcHBlcgBnZXRf
+RXZlbnRzAEZpcmVXYXJuaW5nAEZpcmVFcnJvcgBzZXRfQ29ubmVjdGlvblN0cmluZwBDbGVhclBy
+b2plY3RFcnJvcgBDTFNDb21wbGlhbnRBdHRyaWJ1dGUAU1NJU1NjcmlwdFRhc2tFbnRyeVBvaW50
+QXR0cmlidXRlAFNjcmlwdFRhc2tfY2FjMTY1M2I2MjQ1NDdhMzkyNzFjZGIzM2YzMGE3N2IudmJw
+cm9qLlJlc291cmNlcy5yZXNvdXJjZXMAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBS
+dW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRh
+cmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUZpbGVWZXJzaW9uQXR0cmlidXRlAEd1aWRB
+dHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRy
+aWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBB
+c3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAU2NyaXB0
+VGFza19jYWMxNjUzYjYyNDU0N2EzOTI3MWNkYjMzZjMwYTc3Yi52YnByb2ouZGxsAAAAAAAxTQB5
+AC4AUgBlAHMAbwB1AHIAYwBlAHMALgBNAHkAUgBlAHMAbwB1AHIAYwBlAHMAADFTAG8AdQByAGMA
+ZQBDAG8AbgBuAGUAYwB0AGkAbwBuAEYAbABhAHQARgBpAGwAZQAAeU4AYQB2ADIAUwB0AGEAcgBz
+ACAARgBpAGwAZQBNAGEAaQBuAHQAZQBuAGEAbgBjAGUAIABmAGEAaQBsAGUAZAAgAHcAaQB0AGgA
+IAB0AGgAZQAgAGYAbwBsAGwAbwB3AGkAbgBnACAAZQByAHIAbwByADoAIAAgAAADXwAAAy4AAAM6
+AAAJLgB0AHgAdAAAIU4AYQB2ADIAUwB0AGEAcgBzAEYAaQBsAGUAQwBvAG4AABVGAGkAbABlAEUA
+eABpAHMAdABzAAATbgBhAHYAMgBzAHQAYQByAHMAAAEAGUUAcgByAG8AcgBNAGUAcwBzAGEAZwBl
+AAAAAADrilKwl088R4U3tvJRUZTiAAi3elxWGTTgiQiwP19/EdUKOgMgAAEDAAABBAAAEgwHBhUS
+GAESDAQAABIIBwYVEhgBEggEAAASEQcGFRIYARIRBAAAEhQHBhUSGAESFAQIABIMBAgAEggECAAS
+EQQIABIUBCABAhwDIAAIBCAAEhUDIAAOAh4ABxABAR4AHgAHMAEBARAeAAITAAQgABMABwYVEhkB
+EwAEKAATAAMGEh0DBhIhBAAAEh0EAAASIQUAAQESIQQIABIdBAgAEiEDBhIgAgYcBAAAEiAECAAS
+IAiJhF3NgIDMkQIGCAMGESgEAAAAAAQBAAAABSABARE1CAEAAQAAAAAABSACAQ4OGAEACk15VGVt
+cGxhdGUIMTAuMC4wLjAAAAYVEhgBEgwGFRIYARIIBhUSGAESEQYVEhgBEhQEBwESDAQHARIIBAcB
+EhEEBwESFAQgAQEOEwEADk15LldlYlNlcnZpY2VzAAATAQAOTXkuQXBwbGljYXRpb24AABABAAtN
+eS5Db21wdXRlcgAADAEAB015LlVzZXIAAAQAARwcAwcBAgMHAQgGAAESFRFRBAcBEhUDBwEOBRAB
+AB4ABAoBHgAEBwEeAAcgBAEODg4OYQEANFN5c3RlbS5XZWIuU2VydmljZXMuUHJvdG9jb2xzLlNv
+YXBIdHRwQ2xpZW50UHJvdG9jb2wSQ3JlYXRlX19JbnN0YW5jZV9fE0Rpc3Bvc2VfX0luc3RhbmNl
+X18AAAAGFRIYARMABhUSGQETAAQKARMABSABARMACAcDEwATABMABCABAQIFAQAAAAAEIAASYQYg
+AgEOEmEGBwISHRIdBAcBEiEIAQACAAAAAAAEAAEBHAQHARIgBSAAEoCBBSAAEoCFBiABEoCJHAQg
+ARwcAyAAAgQAABFtBQABDh0OBCAAEX0EAAEDDgQgAQgDBSACDggIBSACDgMDBSAAEoChBiABEoCl
+HAQgAQEcBCABAQgFAAEBEnkFAAIODg4FIAASgLEIIAUBCA4ODggIIAUCCA4ODggaBxERbQ4ODg4S
+cQ4ODhJ1EnkICAgdDhF9EX0IAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MB
+RwEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC4wAQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRAu
+TkVUIEZyYW1ld29yayA0DAEABzEuMC4wLjAAACkBACQ0OTA4OGE0Yi03YWQ1LTQ2NTAtYWRhNS04
+YTRhMTU2ZjI0Y2IAAAUBAAEAAB8BABpDb3B5cmlnaHQgQCBNaWNyb3NvZnQgMjAxMAAANwEAMlNj
+cmlwdFRhc2tfY2FjMTY1M2I2MjQ1NDdhMzkyNzFjZGIzM2YzMGE3N2IudmJwcm9qAAAOAQAJTWlj
+cm9zb2Z0AAAAAHxAAAAAAAAAAAAAAJ5AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQQAAAAAAA
+AAAAAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAA
+AAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAA
+AEgEAAAAAAAAAAAAAEgENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+
+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBh
+AHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAA
+sASoAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAACEAwAAAQAwADAAMAAwADAANABi
+ADAAAAA0AAoAAQBDAG8AbQBwAGEAbgB5AE4AYQBtAGUAAAAAAE0AaQBjAHIAbwBzAG8AZgB0AAAA
+kAAzAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAYwByAGkAcAB0AFQAYQBz
+AGsAXwBjAGEAYwAxADYANQAzAGIANgAyADQANQA0ADcAYQAzADkAMgA3ADEAYwBkAGIAMwAzAGYA
+MwAwAGEANwA3AGIALgB2AGIAcAByAG8AagAAAAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBu
+AAAAAAAxAC4AMAAuADAALgAwAAAAkAA3AAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAGMA
+cgBpAHAAdABUAGEAcwBrAF8AYwBhAGMAMQA2ADUAMwBiADYAMgA0ADUANAA3AGEAMwA5ADIANwAx
+AGMAZABiADMAMwBmADMAMABhADcANwBiAC4AdgBiAHAAcgBvAGoALgBkAGwAbAAAAAAAXAAbAAEA
+TABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAATQBp
+AGMAcgBvAHMAbwBmAHQAIAAyADAAMQAwAAAAAACYADcAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwA
+ZQBuAGEAbQBlAAAAUwBjAHIAaQBwAHQAVABhAHMAawBfAGMAYQBjADEANgA1ADMAYgA2ADIANAA1
+ADQANwBhADMAOQAyADcAMQBjAGQAYgAzADMAZgAzADAAYQA3ADcAYgAuAHYAYgBwAHIAbwBqAC4A
+ZABsAGwAAAAAAIgAMwABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBjAHIAaQBwAHQAVABh
+AHMAawBfAGMAYQBjADEANgA1ADMAYgA2ADIANAA1ADQANwBhADMAOQAyADcAMQBjAGQAYgAzADMA
+ZgAzADAAYQA3ADcAYgAuAHYAYgBwAHIAbwBqAAAAAAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQBy
+AHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIA
+cwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAACwMAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{83FDCC5B-77F0-483B-B532-F85B356BEB11}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::FileExists]==True"
+      DTS:From="Package\FileMaintenance"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C3CE0FFC-FD6D-4978-969A-5D661C96F3D4}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Task"
+          TopLeft="5.99056603773585,139.801886792453" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Execute SQL Task"
+          TopLeft="5.91509433962264,255.990566037736" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FileMaintenance"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="83.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.50943396226415,92.301886792453"
+              Start="0,0"
+              End="-9.50943396226415,84.801886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.1509433962265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.1509433962265"
+                    Point2="0,46.1509433962265"
+                    Point3="-4,46.1509433962265" />
+                  <mssgle:LineSegment
+                    End="-5.50943396226415,46.1509433962265" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.50943396226415,46.1509433962265"
+                    Point2="-9.50943396226415,46.1509433962265"
+                    Point3="-9.50943396226415,50.1509433962265" />
+                  <mssgle:LineSegment
+                    End="-9.50943396226415,84.801886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.7547169811321,51.1509433962265,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="73.877358490566,183.72641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-0.0754716981132049,72.2641509433962"
+              Start="0,0"
+              End="-0.0754716981132049,64.7641509433962">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1132075471698" />
+                  <mssgle:LineSegment
+                    End="-0.0754716981132049,36.1132075471698" />
+                  <mssgle:LineSegment
+                    End="-0.0754716981132049,64.7641509433962" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Task\Source - nav2star_txt"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Data Flow Task\Data Conversion 1"
+          TopLeft="18.5,235.160377358491" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Data Flow Task\Destination - nav2stars"
+          TopLeft="32.5,342.820754716981" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="73.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.5,185.660377358491"
+              Start="0,0"
+              End="28.5,178.160377358491">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.8301886792453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,88.8301886792453"
+                    Point2="0,92.8301886792453"
+                    Point3="4,92.8301886792453" />
+                  <mssgle:LineSegment
+                    End="24.5,92.8301886792453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,92.8301886792453"
+                    Point2="28.5,92.8301886792453"
+                    Point3="28.5,96.8301886792453" />
+                  <mssgle:LineSegment
+                    End="28.5,178.160377358491" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="101.25,277.160377358491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.6603773584904"
+              Start="0,0"
+              End="0,58.1603773584904">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.1603773584904" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

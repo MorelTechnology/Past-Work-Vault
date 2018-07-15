@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Claim Group Exceptions", "Claim Group Exceptions\Claim Group Exceptions.rptproj", "{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Claim\u0020Group\u0020Exceptions\\Claim\u0020Group\u0020Exceptions.rptproj
+		SccProjectName1 = Claim\u0020Group\u0020Exceptions
+		SccLocalPath1 = Claim\u0020Group\u0020Exceptions
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Debug|Default.ActiveCfg = Debug
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Debug|Default.Build.0 = Debug
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Debug|Default.Deploy.0 = Debug
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.DebugLocal|Default.Build.0 = DebugLocal
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Release|Default.ActiveCfg = Release
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Release|Default.Build.0 = Release
+		{C4E9E7DC-5027-4EE1-9B2C-8B741292AA47}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

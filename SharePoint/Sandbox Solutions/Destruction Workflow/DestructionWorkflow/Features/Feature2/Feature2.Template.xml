@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/">
+<UpgradeActions>
+<VersionRange BeginVersion="0.0.0.0" EndVersion="3.0.0.4">
+<ApplyElementManifests>
+<ElementManifest Location="DestructionWorkflow\Elements.xml"/>
+</ApplyElementManifests>
+</VersionRange>
+</UpgradeActions>
+</Feature>

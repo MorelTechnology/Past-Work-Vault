@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{460bdfea-1eb1-41ac-90e7-53300c2c5d70}"
+       Name="RequestDate"
+       DisplayName="Request Date"
+       Type="DateTime"
+       Required="TRUE"
+       Format="DateOnly"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

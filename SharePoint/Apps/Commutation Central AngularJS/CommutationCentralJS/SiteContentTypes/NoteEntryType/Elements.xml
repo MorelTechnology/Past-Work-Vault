@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01000C855D7599494CA2B2AA4A35B9ADC501" Name="Note Entry Type" Group="Custom Content Types" Description="Note Entry Type content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{f9a9ca41-51e9-44b8-b178-617046cb7854}" DisplayName="Note Entry Type Name" Required="TRUE" Name="NoteEntryTypeName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

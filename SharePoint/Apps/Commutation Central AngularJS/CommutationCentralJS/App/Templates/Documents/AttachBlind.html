@@ -1,0 +1,40 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Attach Document for {{attachEntityTitle}}</h3>
+</div>
+<div class="modal-body">
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" ngf-select ng-model="uploadFiles" ngf-multiple="true" ngf-keep="'distinct'">Browse for Files...</div>
+                    <uib-progressbar class="progress-striped active" value="documentUploadProgress.percentComplete" data-ng-show="documentUploadProgress.inProgress">{{documentUploadProgress.action}}</uib-progressbar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="file in uploadFiles | orderBy:'name'">
+                                <td>{{file.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="attach()" ng-disabled="documentUploadProgress.inProgress">Attach</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()" ng-disabled="documentUploadProgress.inProgress">Cancel</button>
+</div>

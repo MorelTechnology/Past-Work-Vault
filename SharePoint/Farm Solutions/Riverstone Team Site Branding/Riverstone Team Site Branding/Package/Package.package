@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="98eefd09-4402-4e76-9ae0-636b12b39afd" solutionId="98eefd09-4402-4e76-9ae0-636b12b39afd" resetWebServer="false" sharePointProductVersion="15.0" name="Riverstone_Team_Site_Branding" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="9d4de5bb-9202-4535-8d50-e5073f63a69a" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="ec5f1112-3fdd-432c-9dec-6f9e824b2947" />
+    <projectItemReference itemId="a6f3d53e-8957-4500-8535-27a5ead4c076" />
+  </projectItems>
+</package>

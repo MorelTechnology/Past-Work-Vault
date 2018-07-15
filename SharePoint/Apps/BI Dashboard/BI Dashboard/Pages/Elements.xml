@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Pages">
+    <File Path="Pages\Default.aspx" Url="Pages/Default.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Reports Dashboard.aspx" Url="Pages/Reports Dashboard.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Reports Dashboard Horizontal Slider.aspx" Url="Pages/Reports Dashboard Horizontal Slider.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Reports Dashboard Vertical Tabs.aspx" Url="Pages/Reports Dashboard Vertical Tabs.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Initialization.aspx" Url="Pages/Initialization.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\Reset Preferences.aspx" Url="Pages/Reset Preferences.aspx" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

@@ -1,0 +1,24 @@
+﻿<div class="all-activityDroppedReasons">
+    <h3>Activity Dropped Reasons</h3>
+    <button class="btn btn-primary" type="button" ng-click="open()">Add New Activity Dropped Reason</button>
+    <hr />
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Activity Dropped Reason Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="activityDroppedReason in activityDroppedReasons">
+                    <td>
+                        {{activityDroppedReason.ActivityDroppedReasonName}}
+                        <a href="#/ActivityDroppedReasons/Edit/{{activityDroppedReason.ID}}"><img src="../Images/icon_edit_48px-128.png" title="Edit Activity Dropped Reason Name" style="width:16px; margin-left: 5px;" /></a>
+                        <a href="" data-ng-click="removeItem(activityDroppedReason)"><img src="../Images/icon-delete.png" title="Delete Activity Dropped Reason" style="width:16px; margin-left: 5px;" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

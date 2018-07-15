@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{5d7e9944-4401-4ff9-9b92-1cac9790c0d0}"
+       Name="FinalTransactionAssumed"
+       DisplayName="Final Transaction Assumed"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

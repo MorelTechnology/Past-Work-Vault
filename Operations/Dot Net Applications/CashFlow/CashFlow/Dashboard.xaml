@@ -1,0 +1,244 @@
+﻿<UserControl x:Class="CashFlow.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CashFlow"
+             mc:Ignorable="d" 
+         Height="817" Width="1240">
+
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="3" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid Background="#FF665A52" Margin="0,0,0,0">
+
+        <Grid x:Name="gridSuperMain" >
+
+            <!--<StackPanel Orientation="Horizontal" Width="900">-->
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="superColumnOne" Width="240" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1" x:Name="gridSplitterVertical" VerticalAlignment="Stretch" Width="5"  ResizeDirection="Columns" ShowsPreview="True" Background="#FF665A52"/>
+
+            <Grid Grid.Column="0" x:Name="gridDefinition" Background="#FF2C2826" Grid.ColumnSpan="2" Margin="1,0,4,0">
+
+                <StackPanel Orientation="Vertical" Margin="28,41,0,0" Width="206" HorizontalAlignment="Left" VerticalAlignment="Top" Height="640">
+                    <Border CornerRadius="7" Background="#FF665A52">
+                        <Grid Height="52" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Dashboard type" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbDashboardType" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="cbDashboardType_SelectionChanged"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderCompareQuarter1" CornerRadius="7" Background="#FF665A52" Margin="1,8,-1,0" Visibility="Visible" >
+                        <Grid Height="52" Visibility="Visible" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Compare Quarter" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbCompareQuarter1" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="cbFilterBy_SelectionChanged"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderCompareQuarter2" CornerRadius="7" Background="#FF665A52" Margin="1,8,-1,0" Visibility="Visible" >
+                        <Grid Height="52" Visibility="Visible" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Compare to Quarter" VerticalAlignment="Top" Width="192" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbCompareQuarter2" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="cbFilterBy_SelectionChanged"/>
+                        </Grid>
+                    </Border>
+
+
+                    <Border x:Name="borderDepartment" CornerRadius="7" Background="#FF665A52" Margin="1,8,-1,0" Visibility="Visible" >
+                        <Grid x:Name="gridDepartment" Height="52" Visibility="Visible" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Department" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="cbFilterBy_SelectionChanged"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderFilterBy" CornerRadius="7" Background="#FF665A52" Margin="0,8,0,0" >
+                        <Grid Height="152" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Filter by" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbFilterBy" HorizontalAlignment="Left" Margin="4,27,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="cbFilterBy_SelectionChanged"/>
+                            <ListBox x:Name="filterLB" HorizontalAlignment="Left" Height="92" Margin="4,50,0,0" VerticalAlignment="Top" Width="198" SelectionMode="Extended" Visibility="Visible" />
+                            <TextBox x:Name="filterText" HorizontalAlignment="Left" Height="23" Margin="4,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"  Visibility="Collapsed"/>
+                            <TextBlock x:Name="lblOr2" HorizontalAlignment="Left" Margin="4,74,0,0" TextWrapping="Wrap" Text="or" VerticalAlignment="Top" Width="24" Foreground="White" FontSize="14"  Visibility="Collapsed"/>
+                            <TextBox x:Name="filterText2" HorizontalAlignment="Left" Height="23" Margin="28,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="174"  Visibility="Collapsed"/>
+                            <TextBlock x:Name="lblOr3" HorizontalAlignment="Left" Margin="4,98,0,0" TextWrapping="Wrap" Text="or" VerticalAlignment="Top" Width="24" Foreground="White" FontSize="14"  Visibility="Collapsed"/>
+                            <TextBox x:Name="filterText3" HorizontalAlignment="Left" Height="23" Margin="28,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="174"  Visibility="Collapsed"/>
+                            <TextBlock x:Name="lblOr4" HorizontalAlignment="Left" Margin="4,122,0,0" TextWrapping="Wrap" Text="or" VerticalAlignment="Top" Width="24" Foreground="White" FontSize="14" Visibility="Collapsed"/>
+                            <TextBox x:Name="filterText4" HorizontalAlignment="Left" Height="23" Margin="28,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="174" Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderGroupPrimary" CornerRadius="7" Background="#FF665A52" Margin="0,8,0,0" >
+                        <Grid Height="52" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Group by primary" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbGroupPrimary" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderGroupSecondary" CornerRadius="7" Background="#FF665A52" Margin="0,8,0,0" >
+                        <Grid Height="52" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Group by secondary" VerticalAlignment="Top" Width="171" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbGroupSecondary" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderSumOn" CornerRadius="7" Background="#FF665A52" Margin="0,8,0,0" >
+                        <Grid Height="52" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Sum on" VerticalAlignment="Top" Width="171" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbSumOn" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198"/>
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="borderSumOn2" CornerRadius="7" Background="#FF665A52" Margin="0,8,0,0" >
+                        <Grid Height="52" >
+                            <TextBlock HorizontalAlignment="Left" Margin="4,3,0,0" TextWrapping="Wrap" Text="Sum on" VerticalAlignment="Top" Width="171" Foreground="White" FontSize="14"/>
+                            <ComboBox x:Name="cbSumOn2" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="198"/>
+                        </Grid>
+                    </Border>
+
+
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Left" Margin="28,7,0,0" TextWrapping="Wrap" Text="Definition" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <Image x:Name="imgExpandCollapse" HorizontalAlignment="Left" Height="19" Margin="6,7,0,0" VerticalAlignment="Top" Width="16" Source="images/ExpandCollapseSmall.png" MouseLeftButtonUp="imgExpandCollapse_MouseLeftButtonUp" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="rt" Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Button x:Name="btnAddSubBy_Copy"  HorizontalAlignment="Left" Margin="28,0,0,13" VerticalAlignment="Bottom" Width="202" Height="29">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Save Dashboard" Width="108" TextAlignment="Center" Margin="0,-2,0,0" FontWeight="Bold" />
+                        <!--<TextBlock Text="" FontSize="10" Margin="0,-4,0,0" TextAlignment="Center" />-->
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="28,0,0,82" TextWrapping="Wrap" Text="Previously saved dashboards" VerticalAlignment="Bottom" Width="187" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="cbGroupSecondary_Copy" HorizontalAlignment="Left" Margin="28,0,0,58" VerticalAlignment="Bottom" Width="202"/>
+
+
+            </Grid>
+
+            <Grid x:Name="gridMain" Grid.Column="2" Margin="0" Background="#FF2C2826" Visibility="Visible">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="428" />
+                </Grid.RowDefinitions>
+
+                <GridSplitter Grid.Row="1" x:Name="gridSplitter" HorizontalAlignment="Stretch" Height="5"  ResizeDirection="Rows" ShowsPreview="True" Background="#FF665A52"/>
+
+                <Rectangle Height="5" Fill="#FF665A52" Margin="0,0,0,309" VerticalAlignment="Bottom" Visibility="Collapsed" />
+                <Rectangle Width="6" Grid.Row="2" Fill="#FF665A52" Margin="0,0,89,0" HorizontalAlignment="Right"  />
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap" Text="Data" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <DataGrid x:Name="dgData" Grid.Row="0" Margin="10,29,10,10" HorizontalGridLinesBrush="#FFCEC4C4" VerticalGridLinesBrush="#FFCEC4C4" AutoGenerateColumns="False"  IsReadOnly="True"   >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Portfolio" Width="130" Binding="{Binding Portfolio}"/>
+                        <DataGridTextColumn Header="Sum of 3Q 2018 Entry" Width="140" Binding="{Binding Three, StringFormat=C0}"/>
+                        <DataGridTextColumn Header="Sum of 41 2018 Entry" Width="140" Binding="{Binding Four, StringFormat=C0}"/>
+                        <DataGridTextColumn Header="Change 3Q to 4Q" Width="140" Binding="{Binding Diff, StringFormat=C0}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="dgDataAdHoc" Grid.Row="0" Margin="10,29,10,10" HorizontalGridLinesBrush="#FFCEC4C4" VerticalGridLinesBrush="#FFCEC4C4" AutoGenerateColumns="False"  IsReadOnly="True"   >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <DataGrid x:Name="dgDataTop" Grid.Row="0" Margin="10,29,10,10" HorizontalGridLinesBrush="#FFCEC4C4" VerticalGridLinesBrush="#FFCEC4C4" AutoGenerateColumns="False"  IsReadOnly="True"   >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="WorkMatter" Width="110" Binding="{Binding WM}"/>
+                        <DataGridTextColumn Header="WorkMatter Description" Width="280" Binding="{Binding Desc}"/>
+
+                        <DataGridTemplateColumn Header="Sum of 3Q 2018 Entry" SortMemberPath="Sum of 3Q 2018 Entry" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextAlignment="Right" Text="{Binding Q3, StringFormat=C0}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Sum of 4Q 2018 Entry" SortMemberPath="Sum of 4Q 2018 Entry" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextAlignment="Right" Text="{Binding Q4, StringFormat=C0}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="Difference" SortMemberPath="Difference" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Right" Text="{Binding Diff, StringFormat=C0}" Foreground="{Binding Color}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <TextBlock Grid.Row="2" HorizontalAlignment="Left" Margin="10,2,0,0" TextWrapping="Wrap" Text="Graph" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+                <Button x:Name="btnClose2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,9,9" VerticalAlignment="Bottom" Width="70" Height="29" Click="btnClose2_Click">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="btnClose" Text="Close" Width="59" TextAlignment="Center" Margin="0,-2,0,0" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+                <local:graph x:Name="graphMain" Grid.Row="2" HorizontalAlignment="Left" Margin="10,24,0,10" Width="484" BorderThickness="0" SizeChanged="graphMain_SizeChanged" BarClicked="graphMain_BarClicked"/>
+                <local:graph x:Name="graphBaby" Grid.Row="2" Margin="499,24,100,10" BorderThickness="0" SizeChanged="graphMain_SizeChanged"/>
+            </Grid>
+
+            <!--<Grid x:Name="gridFilterO" Background="#FF89A3B2" Opacity="0.6" Visibility="Collapsed"  />-->
+
+            <!--</StackPanel>-->
+
+        </Grid>
+    </Grid>
+</UserControl>

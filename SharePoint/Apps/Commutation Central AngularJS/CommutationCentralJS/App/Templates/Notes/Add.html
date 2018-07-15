@@ -1,0 +1,84 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Add New Note</h3>
+</div>
+<div class="modal-body" ng-form="noteForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Add Note for {{project.CounterpartyName}}</h4>
+                    <input type="text" ng-model="project" placeholder="Type a project name..." uib-typeahead="project as project.CounterpartyName for project in getProjects($viewValue)" type-ahead-loading="FormData.projects.loadingProjects" typeahead-no-results="FormData.projects.noResults" typeahead-editable="false" class="form-control" ng-hide="projectPreResolved" ng-disabled="projectPreResolved" required />
+                    <i ng-show="FormData.projects.loadingProjects" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="FormData.projects.noResults">
+                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                    </div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+    <br />
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Enter Note</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="NoteEntryType">Entry Type:<span class="text-danger">*</span></label></td>
+                <td class="value" style="width: 50%">
+                    <select name="NoteEntryType" class="form-control" data-ng-model="formData.selectedNoteEntryType" data-ng-options="noteEntryType.NoteEntryTypeName for noteEntryType in formData.dropDownChoices.noteEntryTypes track by noteEntryType.NoteEntryTypeName" required></select>
+                </td>
+                <td><label for="EntryDate">Entry Date:<span class="text-danger">*</span></label></td>
+                <td class="value" style="width: 50%">
+                    <p class="input-group">
+                        <input type="text" name="EntryDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="formData.selectedEntryDate" is-open="calendarPopup1.opened" datepicker-options="dateOptions" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendarPopup1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="value"><textarea rows="5" class="form-control" style="width:100%;" name="NoteContent" data-ng-model="note.NoteContent" required></textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" ngf-select ng-model="uploadFiles" ngf-multiple="true" ngf-keep="'distinct'">Browse for Files...</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="file in uploadFiles | orderBy:'name'">
+                                <td>{{file.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !noteForm.$valid" ng-click="addItem(note)">Add</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

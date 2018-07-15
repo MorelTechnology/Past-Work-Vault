@@ -1,0 +1,12 @@
+﻿<h2>Edit Deal Priority</h2>
+<hr />
+<uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+<table class="item-app-table">
+    <tr>
+        <td class="field-label">Deal Priority Name</td>
+        <td class="value"><input type="text" data-ng-model="dealPriority.DealPriorityName" /></td>
+    </tr>
+</table>
+<hr />
+<button type="button" class="btn btn-primary" data-ng-disabled="inProgress" data-ng-click="editItem(dealPriority)">Save</button>
+<button type="button" class="btn btn-warning" data-ng-disabled="inProgress" data-ng-click="cancel()">Cancel</button>

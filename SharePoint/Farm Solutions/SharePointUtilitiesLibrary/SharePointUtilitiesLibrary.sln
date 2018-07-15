@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointUtilitiesLibrary", "SharePointUtilitiesLibrary\SharePointUtilitiesLibrary.csproj", "{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointUtilitiesLibraryTests", "SharePointUtilitiesLibraryTests\SharePointUtilitiesLibraryTests.csproj", "{7108557E-695A-46C3-A7F9-E53AEC70CE14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Description = A library of Utilities to assist in Programatically administering SharePoint Server.
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Debug|x64.ActiveCfg = Debug|x64
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Debug|x64.Build.0 = Debug|x64
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Release|x64.ActiveCfg = Release|x64
+		{0EB936AC-72EF-4DDC-8EB0-5A30A762A341}.Release|x64.Build.0 = Release|x64
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Debug|x64.Build.0 = Debug|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Release|x64.ActiveCfg = Release|Any CPU
+		{7108557E-695A-46C3-A7F9-E53AEC70CE14}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SharePointUtilitiesLibrary\\SharePointUtilitiesLibrary.csproj
+		SccProjectName1 = SharePointUtilitiesLibrary
+		SccLocalPath1 = SharePointUtilitiesLibrary
+		SccProjectUniqueName2 = SharePointUtilitiesLibraryTests\\SharePointUtilitiesLibraryTests.csproj
+		SccProjectName2 = SharePointUtilitiesLibraryTests
+		SccLocalPath2 = SharePointUtilitiesLibraryTests
+	EndGlobalSection
+EndGlobal

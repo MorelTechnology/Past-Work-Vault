@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{69d7cac1-9d41-4ab2-89f3-cf8d618f55b5}"
+       Name="FinalValuationDate"
+       DisplayName="Final Valuation Date"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       Format="DateOnly">
+  </Field>
+</Elements>

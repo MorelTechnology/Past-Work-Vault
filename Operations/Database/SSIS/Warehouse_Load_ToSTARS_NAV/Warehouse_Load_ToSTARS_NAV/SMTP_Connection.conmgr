@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SMTP_Connection"
+  DTS:DTSID="{E87460E1-1208-4D0D-BB36-7355A527895E}"
+  DTS:Description="SMTP Connection to send out emails"
+  DTS:CreationName="SMTP">
+  <DTS:ObjectData>
+    <SmtpConnectionManager
+      ConnectionString="SmtpServer=manrelay01.trg.com;UseWindowsAuthentication=False;EnableSsl=False;Timeout=2000;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,2398 @@
+<?xml version="1.0"?><DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts" DTS:ExecutableType="SSIS.Package.2">
+<DTS:Property DTS:Name="PackageFormatVersion">3</DTS:Property>
+<DTS:Property DTS:Name="VersionComments"></DTS:Property>
+<DTS:Property DTS:Name="CreatorName">TRG\smarc</DTS:Property>
+<DTS:Property DTS:Name="CreatorComputerName">SMARC-LAP1</DTS:Property>
+<DTS:Property DTS:Name="CreationDate" DTS:DataType="7">4/2/2015 8:26:23 AM</DTS:Property>
+<DTS:Property DTS:Name="PackageType">5</DTS:Property>
+<DTS:Property DTS:Name="ProtectionLevel">1</DTS:Property>
+<DTS:Property DTS:Name="MaxConcurrentExecutables">-1</DTS:Property>
+<DTS:Property DTS:Name="PackagePriorityClass">0</DTS:Property>
+<DTS:Property DTS:Name="VersionMajor">1</DTS:Property>
+<DTS:Property DTS:Name="VersionMinor">0</DTS:Property>
+<DTS:Property DTS:Name="VersionBuild">61</DTS:Property>
+<DTS:Property DTS:Name="VersionGUID">{9FEBBD35-AE9C-4651-8C18-08384AA5D80F}</DTS:Property>
+<DTS:Property DTS:Name="EnableConfig">-1</DTS:Property>
+<DTS:Property DTS:Name="CheckpointFileName"></DTS:Property>
+<DTS:Property DTS:Name="SaveCheckpoints">0</DTS:Property>
+<DTS:Property DTS:Name="CheckpointUsage">0</DTS:Property>
+<DTS:Property DTS:Name="SuppressConfigurationWarnings">0</DTS:Property>
+<DTS:Configuration>
+<DTS:Property DTS:Name="ConfigurationType">1</DTS:Property>
+<DTS:Property DTS:Name="ConfigurationString">C:\scott\ImportAssociatesFromAD\ImportAssociatesFromAD\ImportAssociatesFromAD.dtsConfig</DTS:Property>
+<DTS:Property DTS:Name="ConfigurationVariable"></DTS:Property>
+<DTS:Property DTS:Name="ObjectName">Configuration 1</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{C949C59E-6359-4C88-A783-2E17A64317EC}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Configuration>
+<DTS:Property DTS:Name="LastModifiedProductVersion">10.50.1600.1</DTS:Property>
+<DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
+<DTS:Property DTS:Name="ExecValue" DTS:DataType="3">0</DTS:Property>
+<DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
+<DTS:Property DTS:Name="Disabled">0</DTS:Property>
+<DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
+<DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
+<DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
+<DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
+<DTS:Property DTS:Name="LocaleID">1033</DTS:Property>
+<DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
+<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">Data Source=SQLTEST2012R2;Initial Catalog=ServiceDesk;Integrated Security=True</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">connectionString</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{5BA7FF01-1EA9-4EE9-AA88-97E3398EB733}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">DEV</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">environment</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{0D62D1DF-F9F7-43CC-83BA-495B01B16C99}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">ROC_JOBS</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">rsseApp</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{6F7389CD-BB33-4DA1-9577-6051B7517EF5}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">GET_ALL_PEOPLE</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">rsseScript</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{2A16936D-53E1-4D3B-BD09-DF8425E9675C}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">trg\smarc</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">rsseUser</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{4984E254-1636-4A24-962C-5D143600D885}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:LoggingOptions>
+<DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
+<DTS:Property DTS:Name="FilterKind">1</DTS:Property>
+<DTS:Property DTS:Name="EventFilter" DTS:DataType="8"></DTS:Property></DTS:LoggingOptions>
+<DTS:Executable DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" DTS:ThreadHint="0">
+<DTS:Property DTS:Name="ExecutionLocation">0</DTS:Property>
+<DTS:Property DTS:Name="ExecutionAddress"></DTS:Property>
+<DTS:Property DTS:Name="TaskContact"></DTS:Property>
+<DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
+<DTS:Property DTS:Name="ExecValue" DTS:DataType="3">0</DTS:Property>
+<DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
+<DTS:Property DTS:Name="Disabled">0</DTS:Property>
+<DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
+<DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
+<DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
+<DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
+<DTS:Property DTS:Name="LocaleID">-1</DTS:Property>
+<DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
+<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+<DTS:Variable>
+<DTS:Property DTS:Name="Expression"></DTS:Property>
+<DTS:Property DTS:Name="EvaluateAsExpression">0</DTS:Property>
+<DTS:Property DTS:Name="Namespace">User</DTS:Property>
+<DTS:Property DTS:Name="ReadOnly">0</DTS:Property>
+<DTS:Property DTS:Name="RaiseChangedEvent">0</DTS:Property>
+<DTS:Property DTS:Name="IncludeInDebugDump">2345</DTS:Property><DTS:VariableValue DTS:DataType="8">[ServiceDesk].dbo.[spUpdateApplicationUser]</DTS:VariableValue>
+<DTS:Property DTS:Name="ObjectName">updateAppUserSproc</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{075C71A7-7FD1-4974-BAE1-B88C1F99E6E0}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:Variable>
+<DTS:LoggingOptions>
+<DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
+<DTS:Property DTS:Name="FilterKind">1</DTS:Property>
+<DTS:Property DTS:Name="EventFilter" DTS:DataType="8"></DTS:Property></DTS:LoggingOptions>
+<DTS:Property DTS:Name="ObjectName">Import AD changes into the database</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{ACB50FEF-9A84-4448-8952-C48DD68E6799}</DTS:Property>
+<DTS:Property DTS:Name="Description">Script Task</DTS:Property>
+<DTS:Property DTS:Name="CreationName">Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</DTS:Property>
+<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><ScriptProject Name="ST_26cd6cd86ed949bcbc5c61e7eefd788b" VSTAMajorVersion="2" VSTAMinorVersion="1" Language="CSharp" EntryPoint="Main" ReadOnlyVariables="User::updateAppUserSproc,User::connectionString,User::environment,User::rsseApp,User::rsseScript,User::rsseUser" ReadWriteVariables=""><ProjectItem Name="\properties\assemblyinfo.cs">
+<![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj")]
+[assembly: AssemblyCopyright("Copyright @  2015")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem><ProjectItem Name="\web references\rssewebprod\reference.map">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://rssewebprod:7773/ScriptEngine.asmx?disco" filename="ScriptEngine.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://rssewebprod:7773/ScriptEngine.asmx?wsdl" filename="ScriptEngine.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>]]></ProjectItem><ProjectItem Name="\st_26cd6cd86ed949bcbc5c61e7eefd788b.csproj">
+<![CDATA[<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{A860303F-1F3F-4691-B57E-529FC101A107};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj</RootNamespace>
+    <AssemblyName>ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj</AssemblyName>
+    <ProjectGuid>{9B4D68EC-5C67-4EBE-94E5-C24F0EBA6DDD}</ProjectGuid>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.AddIn, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\rssewebdev\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\rssewebprod\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\rssewebtest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://rssewebdev:7773/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\rssewebdev\</RelPath>
+      <UpdateFromURL>http://rssewebdev:7773/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://rssewebprod:7773/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\rssewebprod\</RelPath>
+      <UpdateFromURL>http://rssewebprod:7773/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://rssewebtest:7773/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\rssewebtest\</RelPath>
+      <UpdateFromURL>http://rssewebtest:7773/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Web References\rssewebdev\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\rssewebdev\ScriptEngine.disco" />
+    <None Include="Web References\rssewebdev\ScriptEngine.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\rssewebtest\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\rssewebtest\ScriptEngine.disco" />
+    <None Include="Web References\rssewebtest\ScriptEngine.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\rssewebprod\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\rssewebprod\ScriptEngine.disco" />
+    <None Include="Web References\rssewebprod\ScriptEngine.wsdl" />
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A860303F-1F3F-4691-B57E-529FC101A107}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{C1B21C64-9E6F-4923-A89D-9F958503C1CE}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="#HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0\InstallDir#\devenv.exe" />
+        <Host Name="SSIS_ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ScriptTask</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem><ProjectItem Name="\web references\rssewebdev\scriptengine.disco">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://rssewebdev:7773/ScriptEngine.asmx?wsdl" docRef="http://rssewebdev:7773/ScriptEngine.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://rssewebdev:7773/ScriptEngine.asmx" xmlns:q1="http://www.trg.com/" binding="q1:clsScriptEngineSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://rssewebdev:7773/ScriptEngine.asmx" xmlns:q2="http://www.trg.com/" binding="q2:clsScriptEngineSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>]]></ProjectItem><ProjectItem Name="\web references\rssewebprod\scriptengine.wsdl">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.trg.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.trg.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.trg.com/">
+      <s:element name="ExecuteScript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptXmlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteScriptSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScript" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXml" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="clsScriptEngineSoap">
+    <wsdl:operation name="ExecuteScript">
+      <wsdl:input message="tns:ExecuteScriptSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <wsdl:input message="tns:ExecuteScriptXmlSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clsScriptEngineSoap" type="tns:clsScriptEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="clsScriptEngineSoap12" type="tns:clsScriptEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clsScriptEngine">
+    <wsdl:port name="clsScriptEngineSoap" binding="tns:clsScriptEngineSoap">
+      <soap:address location="http://rssewebprod:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="clsScriptEngineSoap12" binding="tns:clsScriptEngineSoap12">
+      <soap12:address location="http://rssewebprod:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></ProjectItem><ProjectItem Name="\web references\rssewebprod\reference.cs">
+<![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:2.0.50727.5485
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+// 
+// This source code was auto-generated by Microsoft.VSDesigner, Version 2.0.50727.5485.
+// 
+#pragma warning disable 1591
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebprod {
+    using System.Diagnostics;
+    using System.Web.Services;
+    using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System;
+    using System.Xml.Serialization;
+    using System.Data;
+    
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="clsScriptEngineSoap", Namespace="http://www.trg.com/")]
+    public partial class clsScriptEngine : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptXmlOperationCompleted;
+        
+        private bool useDefaultCredentialsSetExplicitly;
+        
+        /// <remarks/>
+        public clsScriptEngine() {
+            this.Url = global::ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings.Default.ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine;
+            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
+                this.UseDefaultCredentials = true;
+                this.useDefaultCredentialsSetExplicitly = false;
+            }
+            else {
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        public new string Url {
+            get {
+                return base.Url;
+            }
+            set {
+                if ((((this.IsLocalFileSystemWebService(base.Url) == true) 
+                            && (this.useDefaultCredentialsSetExplicitly == false)) 
+                            && (this.IsLocalFileSystemWebService(value) == false))) {
+                    base.UseDefaultCredentials = false;
+                }
+                base.Url = value;
+            }
+        }
+        
+        public new bool UseDefaultCredentials {
+            get {
+                return base.UseDefaultCredentials;
+            }
+            set {
+                base.UseDefaultCredentials = value;
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        /// <remarks/>
+        public event ExecuteScriptCompletedEventHandler ExecuteScriptCompleted;
+        
+        /// <remarks/>
+        public event ExecuteScriptXmlCompletedEventHandler ExecuteScriptXmlCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScript", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet ExecuteScript(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScript", new object[] {
+                        InputDSString});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString) {
+            this.ExecuteScriptAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptOperationCompleted == null)) {
+                this.ExecuteScriptOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScript", new object[] {
+                        InputDSString}, this.ExecuteScriptOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptOperationCompleted(object arg) {
+            if ((this.ExecuteScriptCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptCompleted(this, new ExecuteScriptCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScriptXml", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Xml.XmlNode ExecuteScriptXml(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScriptXml", new object[] {
+                        InputDSString});
+            return ((System.Xml.XmlNode)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString) {
+            this.ExecuteScriptXmlAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptXmlOperationCompleted == null)) {
+                this.ExecuteScriptXmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptXmlOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScriptXml", new object[] {
+                        InputDSString}, this.ExecuteScriptXmlOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptXmlOperationCompleted(object arg) {
+            if ((this.ExecuteScriptXmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptXmlCompleted(this, new ExecuteScriptXmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        public new void CancelAsync(object userState) {
+            base.CancelAsync(userState);
+        }
+        
+        private bool IsLocalFileSystemWebService(string url) {
+            if (((url == null) 
+                        || (url == string.Empty))) {
+                return false;
+            }
+            System.Uri wsUri = new System.Uri(url);
+            if (((wsUri.Port >= 1024) 
+                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0))) {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptCompletedEventHandler(object sender, ExecuteScriptCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptXmlCompletedEventHandler(object sender, ExecuteScriptXmlCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptXmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptXmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Xml.XmlNode Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Xml.XmlNode)(this.results[0]));
+            }
+        }
+    }
+}
+
+#pragma warning restore 1591]]></ProjectItem><ProjectItem Name="\properties\resources.resx">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem><ProjectItem Name="\web references\rssewebtest\reference.map">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://rssewebtest:7773/ScriptEngine.asmx?disco" filename="ScriptEngine.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://rssewebtest:7773/ScriptEngine.asmx?wsdl" filename="ScriptEngine.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>]]></ProjectItem><ProjectItem Name="\web references\rssewebprod\scriptengine.disco">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://rssewebprod:7773/ScriptEngine.asmx?wsdl" docRef="http://rssewebprod:7773/ScriptEngine.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://rssewebprod:7773/ScriptEngine.asmx" xmlns:q1="http://www.trg.com/" binding="q1:clsScriptEngineSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://rssewebprod:7773/ScriptEngine.asmx" xmlns:q2="http://www.trg.com/" binding="q2:clsScriptEngineSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>]]></ProjectItem><ProjectItem Name="\web references\rssewebtest\scriptengine.disco">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://rssewebtest:7773/ScriptEngine.asmx?wsdl" docRef="http://rssewebtest:7773/ScriptEngine.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://rssewebtest:7773/ScriptEngine.asmx" xmlns:q1="http://www.trg.com/" binding="q1:clsScriptEngineSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://rssewebtest:7773/ScriptEngine.asmx" xmlns:q2="http://www.trg.com/" binding="q2:clsScriptEngineSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>]]></ProjectItem><ProjectItem Name="\web references\rssewebdev\reference.cs">
+<![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:2.0.50727.5485
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+// 
+// This source code was auto-generated by Microsoft.VSDesigner, Version 2.0.50727.5485.
+// 
+#pragma warning disable 1591
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebdev {
+    using System.Diagnostics;
+    using System.Web.Services;
+    using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System;
+    using System.Xml.Serialization;
+    using System.Data;
+    
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="clsScriptEngineSoap", Namespace="http://www.trg.com/")]
+    public partial class clsScriptEngine : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptXmlOperationCompleted;
+        
+        private bool useDefaultCredentialsSetExplicitly;
+        
+        /// <remarks/>
+        public clsScriptEngine() {
+            this.Url = global::ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings.Default.ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine;
+            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
+                this.UseDefaultCredentials = true;
+                this.useDefaultCredentialsSetExplicitly = false;
+            }
+            else {
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        public new string Url {
+            get {
+                return base.Url;
+            }
+            set {
+                if ((((this.IsLocalFileSystemWebService(base.Url) == true) 
+                            && (this.useDefaultCredentialsSetExplicitly == false)) 
+                            && (this.IsLocalFileSystemWebService(value) == false))) {
+                    base.UseDefaultCredentials = false;
+                }
+                base.Url = value;
+            }
+        }
+        
+        public new bool UseDefaultCredentials {
+            get {
+                return base.UseDefaultCredentials;
+            }
+            set {
+                base.UseDefaultCredentials = value;
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        /// <remarks/>
+        public event ExecuteScriptCompletedEventHandler ExecuteScriptCompleted;
+        
+        /// <remarks/>
+        public event ExecuteScriptXmlCompletedEventHandler ExecuteScriptXmlCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScript", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet ExecuteScript(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScript", new object[] {
+                        InputDSString});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString) {
+            this.ExecuteScriptAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptOperationCompleted == null)) {
+                this.ExecuteScriptOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScript", new object[] {
+                        InputDSString}, this.ExecuteScriptOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptOperationCompleted(object arg) {
+            if ((this.ExecuteScriptCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptCompleted(this, new ExecuteScriptCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScriptXml", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Xml.XmlNode ExecuteScriptXml(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScriptXml", new object[] {
+                        InputDSString});
+            return ((System.Xml.XmlNode)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString) {
+            this.ExecuteScriptXmlAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptXmlOperationCompleted == null)) {
+                this.ExecuteScriptXmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptXmlOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScriptXml", new object[] {
+                        InputDSString}, this.ExecuteScriptXmlOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptXmlOperationCompleted(object arg) {
+            if ((this.ExecuteScriptXmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptXmlCompleted(this, new ExecuteScriptXmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        public new void CancelAsync(object userState) {
+            base.CancelAsync(userState);
+        }
+        
+        private bool IsLocalFileSystemWebService(string url) {
+            if (((url == null) 
+                        || (url == string.Empty))) {
+                return false;
+            }
+            System.Uri wsUri = new System.Uri(url);
+            if (((wsUri.Port >= 1024) 
+                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0))) {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptCompletedEventHandler(object sender, ExecuteScriptCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptXmlCompletedEventHandler(object sender, ExecuteScriptXmlCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptXmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptXmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Xml.XmlNode Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Xml.XmlNode)(this.results[0]));
+            }
+        }
+    }
+}
+
+#pragma warning restore 1591]]></ProjectItem><ProjectItem Name="\app.config">
+<![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <applicationSettings>
+        <ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings>
+            <setting name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine"
+                serializeAs="String">
+                <value>http://rssewebdev:7773/ScriptEngine.asmx</value>
+            </setting>
+            <setting name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine"
+                serializeAs="String">
+                <value>http://rssewebtest:7773/ScriptEngine.asmx</value>
+            </setting>
+            <setting name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine"
+                serializeAs="String">
+                <value>http://rssewebprod:7773/ScriptEngine.asmx</value>
+            </setting>
+        </ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings>
+    </applicationSettings>
+</configuration>]]></ProjectItem><ProjectItem Name="\properties\settings.designer.cs">
+<![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:2.0.50727.5485
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties {
+    
+    
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "9.0.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://rssewebdev:7773/ScriptEngine.asmx")]
+        public string ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine {
+            get {
+                return ((string)(this["ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://rssewebtest:7773/ScriptEngine.asmx")]
+        public string ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine {
+            get {
+                return ((string)(this["ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://rssewebprod:7773/ScriptEngine.asmx")]
+        public string ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine {
+            get {
+                return ((string)(this["ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine"]));
+            }
+        }
+    }
+}]]></ProjectItem><ProjectItem Name="\web references\rssewebtest\scriptengine.wsdl">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.trg.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.trg.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.trg.com/">
+      <s:element name="ExecuteScript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptXmlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteScriptSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScript" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXml" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="clsScriptEngineSoap">
+    <wsdl:operation name="ExecuteScript">
+      <wsdl:input message="tns:ExecuteScriptSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <wsdl:input message="tns:ExecuteScriptXmlSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clsScriptEngineSoap" type="tns:clsScriptEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="clsScriptEngineSoap12" type="tns:clsScriptEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clsScriptEngine">
+    <wsdl:port name="clsScriptEngineSoap" binding="tns:clsScriptEngineSoap">
+      <soap:address location="http://rssewebtest:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="clsScriptEngineSoap12" binding="tns:clsScriptEngineSoap12">
+      <soap12:address location="http://rssewebtest:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></ProjectItem><ProjectItem Name="\web references\rssewebtest\reference.cs">
+<![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:2.0.50727.5485
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+// 
+// This source code was auto-generated by Microsoft.VSDesigner, Version 2.0.50727.5485.
+// 
+#pragma warning disable 1591
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebtest {
+    using System.Diagnostics;
+    using System.Web.Services;
+    using System.ComponentModel;
+    using System.Web.Services.Protocols;
+    using System;
+    using System.Xml.Serialization;
+    using System.Data;
+    
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="clsScriptEngineSoap", Namespace="http://www.trg.com/")]
+    public partial class clsScriptEngine : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExecuteScriptXmlOperationCompleted;
+        
+        private bool useDefaultCredentialsSetExplicitly;
+        
+        /// <remarks/>
+        public clsScriptEngine() {
+            this.Url = global::ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Settings.Default.ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine;
+            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
+                this.UseDefaultCredentials = true;
+                this.useDefaultCredentialsSetExplicitly = false;
+            }
+            else {
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        public new string Url {
+            get {
+                return base.Url;
+            }
+            set {
+                if ((((this.IsLocalFileSystemWebService(base.Url) == true) 
+                            && (this.useDefaultCredentialsSetExplicitly == false)) 
+                            && (this.IsLocalFileSystemWebService(value) == false))) {
+                    base.UseDefaultCredentials = false;
+                }
+                base.Url = value;
+            }
+        }
+        
+        public new bool UseDefaultCredentials {
+            get {
+                return base.UseDefaultCredentials;
+            }
+            set {
+                base.UseDefaultCredentials = value;
+                this.useDefaultCredentialsSetExplicitly = true;
+            }
+        }
+        
+        /// <remarks/>
+        public event ExecuteScriptCompletedEventHandler ExecuteScriptCompleted;
+        
+        /// <remarks/>
+        public event ExecuteScriptXmlCompletedEventHandler ExecuteScriptXmlCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScript", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet ExecuteScript(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScript", new object[] {
+                        InputDSString});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString) {
+            this.ExecuteScriptAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptOperationCompleted == null)) {
+                this.ExecuteScriptOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScript", new object[] {
+                        InputDSString}, this.ExecuteScriptOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptOperationCompleted(object arg) {
+            if ((this.ExecuteScriptCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptCompleted(this, new ExecuteScriptCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.trg.com/ExecuteScriptXml", RequestNamespace="http://www.trg.com/", ResponseNamespace="http://www.trg.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Xml.XmlNode ExecuteScriptXml(string InputDSString) {
+            object[] results = this.Invoke("ExecuteScriptXml", new object[] {
+                        InputDSString});
+            return ((System.Xml.XmlNode)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString) {
+            this.ExecuteScriptXmlAsync(InputDSString, null);
+        }
+        
+        /// <remarks/>
+        public void ExecuteScriptXmlAsync(string InputDSString, object userState) {
+            if ((this.ExecuteScriptXmlOperationCompleted == null)) {
+                this.ExecuteScriptXmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExecuteScriptXmlOperationCompleted);
+            }
+            this.InvokeAsync("ExecuteScriptXml", new object[] {
+                        InputDSString}, this.ExecuteScriptXmlOperationCompleted, userState);
+        }
+        
+        private void OnExecuteScriptXmlOperationCompleted(object arg) {
+            if ((this.ExecuteScriptXmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExecuteScriptXmlCompleted(this, new ExecuteScriptXmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        public new void CancelAsync(object userState) {
+            base.CancelAsync(userState);
+        }
+        
+        private bool IsLocalFileSystemWebService(string url) {
+            if (((url == null) 
+                        || (url == string.Empty))) {
+                return false;
+            }
+            System.Uri wsUri = new System.Uri(url);
+            if (((wsUri.Port >= 1024) 
+                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0))) {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptCompletedEventHandler(object sender, ExecuteScriptCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    public delegate void ExecuteScriptXmlCompletedEventHandler(object sender, ExecuteScriptXmlCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5483")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExecuteScriptXmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExecuteScriptXmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Xml.XmlNode Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Xml.XmlNode)(this.results[0]));
+            }
+        }
+    }
+}
+
+#pragma warning restore 1591]]></ProjectItem><ProjectItem Name="\properties\resources.designer.cs">
+<![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope = "member", Target = "ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties
+{
+
+
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources
+    {
+
+        private static global::System.Resources.ResourceManager resourceMan;
+
+        private static global::System.Globalization.CultureInfo resourceCulture;
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources()
+        {
+        }
+
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if ((resourceMan == null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
+                return resourceCulture;
+            }
+            set
+            {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem><ProjectItem Name="\scriptmain.cs">
+<![CDATA[/*
+   Microsoft SQL Server Integration Services Script Task
+   Write scripts using Microsoft Visual C# 2008.
+   The ScriptMain is the entry point class of the script.
+*/
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
+
+namespace ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj
+{
+    [System.AddIn.AddIn("ScriptMain", Version = "1.0", Publisher = "", Description = "")]
+    public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+    {
+        static string connectionString, environment, rsseScript, rsseApp, rsseUser;
+        static string updateAppUserSproc;   // new 
+
+        #region VSTA generated code
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+        public void Main()
+        {
+            // STEP 1 - READ IN VALUES FOR CONNECTION STRING, ENVIRONMENT AND RSSE
+            connectionString = Dts.Variables["connectionString"].Value.ToString();
+            environment = Dts.Variables["environment"].Value.ToString();
+            rsseScript = Dts.Variables["rsseScript"].Value.ToString();
+            rsseApp = Dts.Variables["rsseApp"].Value.ToString();
+            rsseUser = Dts.Variables["rsseUser"].Value.ToString();
+            updateAppUserSproc = Dts.Variables["updateAppUserSproc"].Value.ToString(); // new
+
+
+            // STEP 2 - READ FROM AD
+            DataTable dtAllUserws = runScript(rsseScript, rsseApp, rsseUser); 
+
+            // STEP 3 - READ IN EXISTING ASSOCIATES
+            DataTable dtAllAssociates = loadAssociates();
+
+            // STEP 4 - WRITE OUT ANY NEW OR CHANGED ASSOCIATES
+            foreach (DataRow drAD in dtAllUserws.Rows)
+            {
+                string adDirectoryID = drAD["ActiveDirectoryID"].ToString();
+                string adDisplayName = drAD["DisplayName"].ToString();
+                string adSamAccountName = drAD["SamAccountName"].ToString();
+                string adEmailAddress = drAD["EmailAddress"].ToString();
+                string adDepartment = drAD["Department"].ToString();
+                string adDescription = drAD["Description"].ToString();
+                string adSupervisor = drAD["Supervisor"].ToString();
+                string adSupervisorID = drAD["SupervisorID"].ToString();
+                string adGUID = drAD["GUID"].ToString();
+
+
+                // See if we have a matching row in the database
+                bool doInsert = true;
+
+                foreach (DataRow drDB in dtAllAssociates.Rows)
+                {
+                    string dbID = drDB["AssociateID"].ToString();
+                    string dbDirectoryID = drDB["ActiveDirectoryID"].ToString();
+                    string dbDisplayName = drDB["DisplayName"].ToString();
+                    string dbAdjustedName = drDB["AdjustedName"].ToString();
+                    string dbSamAccountName = drDB["SamAccountName"].ToString();
+                    string dbEmailAddress = drDB["EmailAddress"].ToString();
+                    string dbDepartment = drDB["Department"].ToString();
+                    string dbDescription = drDB["Description"].ToString();
+                    string dbSupervisor = drDB["Supervisor"].ToString();
+                    string dbSupervisorID = drDB["SupervisorID"].ToString();
+                    string dbGUID = drDB["GUID"].ToString();
+
+                    if ((adDirectoryID == dbDirectoryID) && (drDB["EndDate"] == DBNull.Value))
+                    {
+                        // If we found it, we probably don't want to insert it
+                        doInsert = false;
+
+                        if ((adDisplayName != dbDisplayName) ||
+                            (adSamAccountName != dbSamAccountName) ||
+                            (adEmailAddress != dbEmailAddress) ||
+                            (adDepartment != dbDepartment) ||
+                            (adDescription != dbDescription) ||
+                            (adSupervisor != dbSupervisor) ||
+                            (adSupervisorID != dbSupervisorID))
+                        {
+                            // We do insert it, if the one we found is different and needs end-dating
+                            doInsert = true;
+
+                            // End date the existing one
+                            executeSQL("Update Associate set EndDate=GETDATE() where AssociateID=" + dbID);
+                            break;
+                        }
+                    }
+                }
+
+                // If AD user does not exist in database, we add them
+                if (doInsert == true)
+                {
+                    string AdjustedName = LastFirstToFirstLast(adDisplayName);
+
+                    string sql = "insert into Associate (ActiveDirectoryID, DisplayName, AdjustedName, SamAccountName, EmailAddress, Department, Description, Supervisor, SupervisorID, GUID, StartUser, StartDate) VALUES('";
+                    sql += adDirectoryID + "','";
+                    sql += adjustForSQL(adDisplayName) + "','";
+                    sql += adjustForSQL(AdjustedName) + "','";
+                    sql += adjustForSQL(adSamAccountName) + "','";
+                    sql += adjustForSQL(adEmailAddress) + "','";
+                    sql += adjustForSQL(adDepartment) + "','";
+                    sql += adjustForSQL(adDescription) + "','";
+                    sql += adjustForSQL(adSupervisor) + "','";
+                    sql += adjustForSQL(adSupervisorID) + "','";
+                    sql += adjustForSQL(adGUID) + "',";
+                    sql += "'Import AD ROC job',GETDATE())";
+                    executeSQL(sql);
+                }
+            }
+
+            // STEP 5 - REMOVE TERMINATIONS
+            if (dtAllUserws.Rows.Count > 50)
+            {
+                foreach (DataRow drDB in dtAllAssociates.Rows)
+                {
+                    string dbID = drDB["AssociateID"].ToString();
+                    string dbDirectoryID = drDB["ActiveDirectoryID"].ToString();
+                    string dbDisplayName = drDB["DisplayName"].ToString();
+
+                    if (drDB["EndDate"] == DBNull.Value)
+                    {
+                        bool found = false;
+                        foreach (DataRow drAD in dtAllUserws.Rows)
+                        {
+                            string adDirectoryID = drAD["ActiveDirectoryID"].ToString();
+                            if (adDirectoryID == dbDirectoryID)
+                                found = true;
+                        }
+
+                        if (found == false)
+                        {
+                            // End date the terminated user
+                            executeSQL("Update Associate set EndDate=GETDATE() where AssociateID=" + dbID);
+                        }
+                    }
+
+                }
+            }
+
+            // STEP 6 - CALL RICH'S SPROC TO UPDATE APPLICATION DATABASE
+            executeSQL(updateAppUserSproc); // new
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        // Convert Last, First to First Last if possible
+        private string LastFirstToFirstLast(string lf)
+        {
+            int comma = lf.IndexOf(", ");
+            if (comma <= 0)
+                return lf;
+
+            return lf.Substring(comma + 2) + " " + lf.Substring(0, comma);
+        }
+
+        // Replace ' with ''
+        private string adjustForSQL(string value)
+        {
+            return value.Replace("'", "''");
+        }
+
+        // Load Associates from database
+        private static DataTable loadAssociates()
+        {
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Associate", connectionString))
+            {
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+        }
+
+        // Execute a SQL command
+        public static void executeSQL(string sql)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand command = conn.CreateCommand())
+                    {
+                        command.CommandText = sql;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Execute of this sql failed: " + sql + Environment.NewLine + ex.ToString());
+                throw;
+            }
+        }
+
+        // Run an RSSE script
+        private static DataTable runScript(string script, string app, string user)
+        {
+            DataTable myParams = new DataTable("Params");
+            myParams.Columns.Add("name");
+            myParams.Columns.Add("value");
+            myParams.Rows.Add("@Script", script);
+            myParams.Rows.Add("@App", app);
+            myParams.Rows.Add("@UserName", user);
+            myParams.Rows.Add("@Environment", @"DEFAULT");
+
+            DataSet mySet = new DataSet("test");
+            mySet.Tables.Add(myParams);
+
+            StringWriter writer = new StringWriter();
+            mySet.WriteXml(writer, XmlWriteMode.WriteSchema);
+            string xml = writer.ToString();
+
+            DataSet result = new DataSet();
+            if (environment == "DEV")
+            {
+                rssewebdev.clsScriptEngine se = new ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebdev.clsScriptEngine();
+                result = se.ExecuteScript(xml);
+            }
+            if (environment == "TEST")
+            {
+                rssewebtest.clsScriptEngine se = new ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebtest.clsScriptEngine();
+                result = se.ExecuteScript(xml);
+            }
+            if (environment == "PROD")
+            {
+                rssewebprod.clsScriptEngine se = new ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.rssewebprod.clsScriptEngine();
+                result = se.ExecuteScript(xml);
+            }
+            return result.Tables["Result"];
+        }
+
+    }
+}]]></ProjectItem><ProjectItem Name="\web references\rssewebdev\scriptengine.wsdl">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.trg.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.trg.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.trg.com/">
+      <s:element name="ExecuteScript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InputDSString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScriptXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScriptXmlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteScriptSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScript" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXml" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScriptXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScriptXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="clsScriptEngineSoap">
+    <wsdl:operation name="ExecuteScript">
+      <wsdl:input message="tns:ExecuteScriptSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <wsdl:input message="tns:ExecuteScriptXmlSoapIn" />
+      <wsdl:output message="tns:ExecuteScriptXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clsScriptEngineSoap" type="tns:clsScriptEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="clsScriptEngineSoap12" type="tns:clsScriptEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteScript">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScriptXml">
+      <soap12:operation soapAction="http://www.trg.com/ExecuteScriptXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clsScriptEngine">
+    <wsdl:port name="clsScriptEngineSoap" binding="tns:clsScriptEngineSoap">
+      <soap:address location="http://rssewebdev:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="clsScriptEngineSoap12" binding="tns:clsScriptEngineSoap12">
+      <soap12:address location="http://rssewebdev:7773/ScriptEngine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></ProjectItem><ProjectItem Name="\web references\rssewebdev\reference.map">
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://rssewebdev:7773/ScriptEngine.asmx?disco" filename="ScriptEngine.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://rssewebdev:7773/ScriptEngine.asmx?wsdl" filename="ScriptEngine.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>]]></ProjectItem><ProjectItem Name="\properties\settings.settings">
+<![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ST_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebdev_clsScriptEngine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://rssewebdev:7773/ScriptEngine.asmx</Value>
+    </Setting>
+    <Setting Name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebtest_clsScriptEngine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://rssewebtest:7773/ScriptEngine.asmx</Value>
+    </Setting>
+    <Setting Name="ST_26cd6cd86ed949bcbc5c61e7eefd788b_csproj_rssewebprod_clsScriptEngine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://rssewebprod:7773/ScriptEngine.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>]]></ProjectItem><BinaryItem Name="\bin\release\st_26cd6cd86ed949bcbc5c61e7eefd788b.csproj.dll">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
+bzUAAAotyN4VESR1MQAAARMlESUsBxElbzYAAArcERwtEXIJAgBwERooNAAACigkAAAGESNvNQAA
+Cjol////3hURI3UxAAABEyYRJiwHESZvNgAACtx+DQAABCgkAAAGAigpAAAKFm85AAAKKgAAAEFk
+AAACAAAAwwEAAHMBAAA2AwAAFQAAAAAAAAACAAAAAAEAAFsDAABbBAAAFQAAAAAAAAACAAAA/QQA
+ADwAAAA5BQAAFQAAAAAAAAACAAAAjwQAAOIAAABxBQAAFQAAAAAAAAATMAUALgAAAAYAABEDckAE
+AHBvOgAACgoGFjACAyoDBhhYbzsAAApyRgQAcAMWBm88AAAKKDcAAAoqRgNySgQAcHJOBABwbz0A
+AAoqGzADADkAAAAHAAARclQEAHB+CAAABHM+AAAKCnM/AAAKCwYHb0AAAAomB29BAAAKFm9CAAAK
+DN4KBiwGBm82AAAK3AgqAAAAARAAAAIAEAAdLQAKAAAAABswBABfAAAACAAAEX4IAAAEc0MAAAoK
+Bm9EAAAKBm9FAAAKCwcCb0YAAAoHb0cAAAom3goHLAYHbzYAAArc3goGLAYGbzYAAArc3h4McoQE
+AHACKEgAAAoIby0AAAooSQAACihKAAAK/hoqAAEoAAACABgAECgACgAAAAACAAsAKTQACgAAAAAA
+AAAAQEAAHg0AAAETMAQAbAEAAAkAABFyvgQAcHNLAAAKCgZvTAAACnLMBABwb00AAAomBm9MAAAK
+ctYEAHBvTQAACiYGby4AAAoYjQcAAAETCBEIFnLiBABwohEIFwKiEQhvTgAACiYGby4AAAoYjQcA
+AAETCREJFnLyBABwohEJFwOiEQlvTgAACiYGby4AAAoYjQcAAAETChEKFnL8BABwohEKFwSiEQpv
+TgAACiYGby4AAAoYjQcAAAETCxELFnIQBQBwohELF3IqBQBwohELb04AAAomcjoFAHBzTwAACgsH
+b0EAAAoGb1AAAApzUQAACgwHCBZvUgAACghvLQAACg1zPwAAChMEfgkAAARyRAUAcCghAAAKLBFz
+JwAABhMFEQUJbzAAAAYTBH4JAAAEckwFAHAoIQAACiwRcwEAAAYTBhEGCW8KAAAGEwR+CQAABHJW
+BQBwKCEAAAosEXNQAAAGEwcRBwlvWQAABhMEEQRvQQAACnJgBQBwb1MAAAoqHgIoVAAACiruAigQ
+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
+LCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+a2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQC
+AAAAAAAAAAAAAABQQURQQURQtAAAAEJTSkIBAAEAAAAAAAwAAAB2Mi4wLjUwNzI3AAAAAAUAbAAA
+AMgTAAAjfgAANBQAABwRAAAjU3RyaW5ncwAAAABQJQAAnAcAACNVUwDsLAAAEAAAACNHVUlEAAAA
+/CwAAKwIAAAjQmxvYgAAAAAAAAACAAABVx22AQkDAAAA+gEzABYAAAEAAABLAAAAFAAAACEAAABu
+AAAAiwAAAGEAAAACAAAARQAAAAoAAAADAAAABgAAAAsAAAASAAAAJQAAAAEAAAAIAAAAAQAAAAEA
+AAAAAAoAAQAAAAAABgA4AhoCCgBfAlgCDgCHAnECEgDnAr4CCgADA1gCDgAdAwgDCgA1A1gCCgBN
+AzwDFgDFBLkEGgAbBRAFCgC4BVgCCgDFBVgCCgDxBVgCFgCABrkECgCvCJ4ICgDgCMsICgC6CagJ
+CgDRCagJCgDuCagJCgANCqgJCgAmCqgJCgA/CqgJCgBaCqgJCgB1CqgJCgCOCqgJCgDHCqcKCgDn
+CqcKDgAdCwULCgBHCzQLDgBkC3ECBgB+CwYCBgCZCxoCCgCrC1gCBgDDCxoCBgDrCxoCBgA2DBoC
+CgBMDFgCDgBlDFgCCgB7DFgCHgC7DK4MEgDKDL4CIgAjDQMNIgA7DQMNFgBgDbkEFgB7DbkECgCp
+DZYNFgDPDbkECgDXDVgCCgACDlgCFgBfDkkOFgCBDm4OFgCSDrkEFgCxDkkOFgC/Dm4OFgDRDkkO
+FgDqDm4OCgAUD1gCCgAsD1gCFgA+D7kEFgBfD7kECgB4D24PCgCFD24PFgCQD7kECgCmD6cKDgDB
+DwgDDgDiDwgDCgAEEDQLDgAhEAgDDgA5EAgDDgBIEAgDCgBlEFgCCgBqEFgCCgCOEKgJDgCkEHEC
+DgC9EHECAAAAAAEAAAAAAAEAAQABABAAOQBJAAUAAQABAAEBAACAAEkACQAGABQAAQAQAKMASQAN
+AAYAGAABAQAAwwBJAAkABwAaAAEAEADpAEkADQAHAB4AAQAQAAwBFwERAAgAIAADAQAAQgEAABUA
+DgAnAAEAEAA5AFABBQARACcAAQEAAIAAUAEJABYAOgABABAAowBQAQ0AFgA+AAEBAADDAFABCQAX
+AEAAAQAQAOkAUAENABcARAAAARAAhgGPARkAGABGAAAAEADFAY8BHQAZAEwAAQAQADkAzwEFABsA
+UAABAQAAgADPAQkAIABjAAEAEACjAM8BDQAgAGcAAQEAAMMAzwEJACEAaQABABAA6QDPAQ0AIQBt
+AAEAYAMcAAEAgAMcAAEAowMgAAEAEAQ5AAEAYARDAAEA6QWPAAEA6QWPABEADQbDABEAHgbDABEA
+KgbDABEANQbDABEAPQbDABEARgbDAAYGrgbdAFaAtgbgAFaAvgbgAAEAYAMcAAEAgAMcAAEAowMg
+AAEAEATuAAEAYAT4AAEA6QWPAAEA6QWPABEAxgYmAREAvwg0AREA7Ag4AQEAYAMcAAEAgAMcAAEA
+owMgAAEAEARWAQEAYARgAQEA6QWPAAEA6QWPAFAgAAAAAIYYxgMjAAEAjCAAAAAAhgjMAycAAQCU
+IAAAAACGCNQDKwABAMMgAAAAAIYI3AMwAAIAyyAAAAAAhgj2AzQAAgDbIAAAIACGCCcEPQADAPQg
+AAAgAIYIQgQ9AAQADSEAACAAhgh6BEcABQAmIQAAIACGCJgERwAGAEAhAAAAAIYAzQRNAAcAbSEA
+AAAAhgDbBCsACAB4IQAAAACGANsEUwAJAMAhAAAAAIEA7gRZAAsACCIAAAAAhgAjBV4ADAA1IgAA
+AACGADQFKwANAEAiAAAAAIYANAVTAA4AiCIAAAAAgQBKBVkAEADNIgAAAACGAG8FWQARANgiAAAA
+AIEAewVkABIAAAAAAAMAhhjGA3EAEwAAAAAAAwDGAbEFdwAVAAAAAAADAMYB0wV+ABcAAAAAAAMA
+xgHfBYkAGwAhIwAAAACDGMYDkwAcADQjAAAAAIYI+wWdACAAAAAAAAMAhhjGA3EAIAAAAAAAAwDG
+AbEFpwAiAAAAAAADAMYB0wWuACQAAAAAAAMAxgHfBYkAKABJIwAAAACDGMYDkwApAFwjAAAAAIYI
++wW5AC0AdCMAAAAAhgBZBiMALQCEKQAAAACBAF4GxgAtAL4pAAAAAIEAcwbGAC4A0CkAAAAAkQCK
+BssALwAoKgAAAACWAJkG0AAvALwqAAAAAJEApAbVADAANCwAAAAAhhjGAyMAMwA8LAAAAACGGMYD
+IwAzAHgsAAAAAIYIzAMnADMAgCwAAAAAhgjUAysAMwCvLAAAAACGCNwDMAA0ALcsAAAAAIYI9gM0
+ADQAxywAACAAhggnBPIANQDgLAAAIACGCEIE8gA2APksAAAgAIYIegT8ADcAEi0AACAAhgiYBPwA
+OAAsLQAAAACGAM0ETQA5AFktAAAAAIYA2wQrADoAZC0AAAAAhgDbBFMAOwCsLQAAAACBAO4EWQA9
+APQtAAAAAIYAIwVeAD4AIS4AAAAAhgA0BSsAPwAsLgAAAACGADQFUwBAAHQuAAAAAIEASgVZAEIA
+uS4AAAAAhgBvBVkAQwDELgAAAACBAHsFZABEAAAAAAADAIYYxgNxAEUAAAAAAAMAxgGxBQIBRwAA
+AAAAAwDGAdMFCQFJAAAAAAADAMYB3wWJAE0ADS8AAAAAgxjGA5MATgAgLwAAAACGCPsFnQBSAAAA
+AAADAIYYxgNxAFIAAAAAAAMAxgGxBRQBVAAAAAAAAwDGAdMFGwFWAAAAAAADAMYB3wWJAFoANS8A
+AAAAgxjGA5MAWwBILwAAAACGCPsFuQBfAF0vAAAAAJYI1gYqAV8AZC8AAAAAhgjiBicAXwB2LwAA
+AACGCCwHJwBfAIgvAAAAAIYIdwcnAF8AsC8AAAAAhhjGAyMAXwCaLwAAAACRGM4PYQdfALgvAAAA
+AIMYxgMjAF8AwC8AAAAAkwj8CDwBXwD5LwAAAACTCBAJQQFfAAAwAAAAAJMIHAlGAV8ACDAAAAAA
+hhjGAyMAYABEMAAAAACGCMwDJwBgAEwwAAAAAIYI1AMrAGAAezAAAAAAhgjcAzAAYQCDMAAAAACG
+CPYDNABhAJMwAAAgAIYIJwRaAWIArDAAACAAhghCBFoBYwDFMAAAIACGCHoEZAFkAN4wAAAgAIYI
+mARkAWUA+DAAAAAAhgDNBE0AZgAlMQAAAACGANsEKwBnADAxAAAAAIYA2wRTAGgAeDEAAAAAgQDu
+BFkAagDAMQAAAACGACMFXgBrAO0xAAAAAIYANAUrAGwA+DEAAAAAhgA0BVMAbQBAMgAAAACBAEoF
+WQBvAIUyAAAAAIYAbwVZAHAAkDIAAAAAgQB7BWQAcQAAAAAAAwCGGMYDcQByAAAAAAADAMYBsQVq
+AXQAAAAAAAMAxgHTBXEBdgAAAAAAAwDGAd8FiQB6ANkyAAAAAIMYxgOTAHsA7DIAAAAAhgj7BZ0A
+fwAAAAAAAwCGGMYDcQB/AAAAAAADAMYBsQV8AYEAAAAAAAMAxgHTBYMBgwAAAAAAAwDGAd8FiQCH
+AAEzAAAAAIMYxgOTAIgAFDMAAAAAhgj7BbkAjAAAAAEAMAkAAAEAMAkAAAEAMAkAAAEAMAkAAAEA
+MAkAAAEAMAkAAAEANgkAAAEANgkAAAEANgkAAAIARAkAAAEATgkAAAEANgkAAAEANgkAAAEANgkA
+AAIARAkAAAEATgkAAAEARAkAAAEAUgkAAAEAVgkAAAIAXQkAAAEAZAkAAAIAawkAAAEAZAkAAAIA
+awkAAAMAbQkAAAQAVgkAAAEAdgkAAAEA6QUAAAIAfQkAAAMAhwkAAAQARAkAAAEAVgkAAAIAXQkA
+AAEAZAkAAAIAawkAAAEAZAkAAAIAawkAAAMAbQkAAAQAVgkAAAEAdgkAAAEA6QUAAAIAfQkAAAMA
+hwkAAAQARAkAAAEAkQkAAAEAMAkAAAEAlAkAAAEAmAkAAAIAnwkAAAMAowkAAAEAMAkAAAEAMAkA
+AAEAMAkAAAEAMAkAAAEAMAkAAAEAMAkAAAEANgkAAAEANgkAAAEANgkAAAIARAkAAAEATgkAAAEA
+NgkAAAEANgkAAAEANgkAAAIARAkAAAEATgkAAAEARAkAAAEAUgkAAAEAVgkAAAIAXQkAAAEAZAkA
+AAIAawkAAAEAZAkAAAIAawkAAAMAbQkAAAQAVgkAAAEAdgkAAAEA6QUAAAIAfQkAAAMAhwkAAAQA
+RAkAAAEAVgkAAAIAXQkAAAEAZAkAAAIAawkAAAEAZAkAAAIAawkAAAMAbQkAAAQAVgkAAAEAdgkA
+AAEA6QUAAAIAfQkAAAMAhwkAAAQARAkAAAEAMAkAAAEAMAkAAAEAMAkAAAEAMAkAAAEAMAkAAAEA
+MAkAAAEAMAkAAAEANgkAAAEANgkAAAEANgkAAAIARAkAAAEATgkAAAEANgkAAAEANgkAAAEANgkA
+AAIARAkAAAEATgkAAAEARAkAAAEAUgkAAAEAVgkAAAIAXQkAAAEAZAkAAAIAawkAAAEAZAkAAAIA
+awkAAAMAbQkAAAQAVgkAAAEAdgkAAAEA6QUAAAIAfQkAAAMAhwkAAAQARAkAAAEAVgkAAAIAXQkA
+AAEAZAkAAAIAawkAAAEAZAkAAAIAawkAAAMAbQkAAAQAVgkAAAEAdgkAAAEA6QUAAAIAfQkAAAMA
+hwkAAAQARAmJAMYDKwCRAMYDKwCZAMYDKwChAMYDKwCpAMYDKwCxAMYDKwC5AMYDKwDBAMYDKwDJ
+AMYDKwDRAMYDjgHZAMYDIwDhAMYDkwHpAMYDIwDxAMYDKwD5AMYDIwAJAMYDIwABAcwDJwABAfYD
+NAABAdQDKwABAdwDMAAJAbQLCwIJAbwLCwIRAcYDKwAJALEFvgNBAMYDcQAJAN8LzQMZAQQM3AMZ
+ABAM4QMZABoMMAAZACgM5gMhAW8FWQApAVMMwwApAVkMmgUxAcYDKwAxAWkMoAUxAXIMJwApAYwM
+pAUZAMYDswUZAJQMIwBBAcYDKwAhANwM9QVJAS0N+wVRAUQNAQZZAU0N5gM5AFcNJwBxAHINCAZp
+AbUNDgZxAcMN5gN5AUQNFAaBAd4NGQYpAeQNmgUpAfINHgZxAfkNMACJAQ4OIwApAfINJAZpARYO
+oAVJASAOjgEpAS8ObwYpATcOdAYpATcOeQYpAUEOgwaRAcYDkwFJAMYDIwCZAY0OiQZJAKYOjwah
+AUQNlQapAcYDKwCxAcwOIwCpAdwOpQbBAfQOKwDBAQQPoAXJASAPqwYpAfINrwbRATQP0ABxAMYD
+KwBxAFMPwgbZAWoPyAZhAWoPzwZJAMYDKwChAWoP1wbpAcYDIwBJAJ0P3QahAUQN5wYhAMYDIwAB
+AsYDIwAJAkQNFAYJAtUPZQcxAMYDIwARAsYDIwAZAsYDIwAhAsYDbgcxAsYDKwA5AMYDIwA5AnwQ
+Cgg5ApcQEwh5AMYDGQhRAsYDJggIADwA5AAIAEAA6QAuADMAbAguADsAZgguAFMAgwguACsANggu
+AFsAjAguAAsANgguABMAZgguABsAZgguACMAZghDAHsAywFDAHMAwQFDAGsA6QBDAGMAmQFjAGMA
+mQGDAGsA6QCDAGMAmQGDAHMAwQGjAGMAmQHDAGsA6QDDAHMAwQHDAGMAmQHjAEMBuwUjAWsA6QAj
+AXsAywEjAWMAmQEjAXMAwQFAAbsAFwJDAWMAmQFJAeMCfgdJAdMC6QBJAcsC6QBJAdsCdQdjAXMA
+wQFjAWMAmQFjAWsA6QBpAdMC6QBpAeMCrAdpAdsCdQdpAcsC6QCDAWMAmQGJAdsCdQeJAcsC6QCJ
+AdMC6QCJAeMC2wejAWsA6QCjAXMAwQGjAWMAmQGpAQsDLQjAAbsA8APDAasC6QDDAWMACAfJAQsD
+LQjjAdMC6QADAnMAwQEDAmMAmQEDAmsA6QADAnsAywEjAmMAmQFDAnMAwQFDAmMAmQFDAmsA6QBj
+AmMAmQGDAnMAwQGDAmMAmQGDAmsA6QAABrsAFwKABrsA8AMgC7sAFwKgC7sA8APGA9cD6gOtBSsG
+fwabBrcG7QYhCAIAAQAJAAMAEAAFAAAAEAQMAAAAYAQUAAAAEAQoAAAAYAQwAAAAEAREAAAAYARM
+AAIAAQAEAAMABgAEAAkABQALAAcADQAIAA4ACQAPAA0AEAAPABIAEQAUABIAAACXBWkAAACbBW0A
+AAAGBqIAAAAGBr4AAACXBWkAAACbBW0AAAAGBqIAAAAGBr4AAADCBy8BAADKB2kAAAAQCGkAAABX
+CGkAAACvCEwBAAAoCVEBAACXBWkAAACbBW0AAAAGBqIAAAAGBr4AEAAHAAIACAAGAAIAAgACAAMA
+AQADAAMAEAAJAAQACAAIAAQAAgAEAAUAAQAFAAUACAAsAAYAEAAtAAYAAgAZAAcACAAuAAgAEAAv
+AAgAAgAfAAkAEABWAAoACABVAAoAAgAoAAsAAQApAAsACABXAAwAEABYAAwAAQArAA0AAgAqAA0A
+AgA/AA8AAgBFABEAAgBGABMAAgBHABUAAgBIABcAAgBJABkAAgBNABsAAQBPAB0AAgBOAB0AAgBR
+AB8AAQBSAB8AAgBTACEAAQBUACEAAgBoACMAAgBuACUABIAAAAEAAABDGO5fAAAAAAAAFwEAAAIA
+AAAAAAAAAAAAAAEABgIAAAAAAgAAAAAAAAAAAAAACgBPAgAAAAACAAAAAAAAAAAAAAAKAFgCAAAA
+AAoAAAAAAAAAAAAAABMAnwIAAAAAAgAAAAAAAAAAAAAACgC5BAAAAAACAAAAAAAAAAAAAAAKABAF
+AAAAAAMABQAAAAAAAAAAAAoArgwAAAAACgAAAAAAAAAAAAAAEwDkDAAAAAAAAAAAAQAAANIQAAAI
+AAcAAAAAAAA8TW9kdWxlPgBTVF8yNmNkNmNkODZlZDk0OWJjYmM1YzYxZTdlZWZkNzg4Yi5jc3By
+b2ouZGxsAGNsc1NjcmlwdEVuZ2luZQBTVF8yNmNkNmNkODZlZDk0OWJjYmM1YzYxZTdlZWZkNzg4
+Yi5jc3Byb2oucnNzZXdlYnRlc3QARXhlY3V0ZVNjcmlwdENvbXBsZXRlZEV2ZW50SGFuZGxlcgBF
+eGVjdXRlU2NyaXB0Q29tcGxldGVkRXZlbnRBcmdzAEV4ZWN1dGVTY3JpcHRYbWxDb21wbGV0ZWRF
+dmVudEhhbmRsZXIARXhlY3V0ZVNjcmlwdFhtbENvbXBsZXRlZEV2ZW50QXJncwBTY3JpcHRNYWlu
+AFNUXzI2Y2Q2Y2Q4NmVkOTQ5YmNiYzVjNjFlN2VlZmQ3ODhiLmNzcHJvagBTY3JpcHRSZXN1bHRz
+AFNUXzI2Y2Q2Y2Q4NmVkOTQ5YmNiYzVjNjFlN2VlZmQ3ODhiLmNzcHJvai5yc3Nld2ViZGV2AFNl
+dHRpbmdzAFNUXzI2Y2Q2Y2Q4NmVkOTQ5YmNiYzVjNjFlN2VlZmQ3ODhiLmNzcHJvai5Qcm9wZXJ0
+aWVzAFJlc291cmNlcwBTVF8yNmNkNmNkODZlZDk0OWJjYmM1YzYxZTdlZWZkNzg4Yi5jc3Byb2ou
+cnNzZXdlYnByb2QAU3lzdGVtLldlYi5TZXJ2aWNlcwBTeXN0ZW0uV2ViLlNlcnZpY2VzLlByb3Rv
+Y29scwBTb2FwSHR0cENsaWVudFByb3RvY29sAG1zY29ybGliAFN5c3RlbQBNdWx0aWNhc3REZWxl
+Z2F0ZQBTeXN0ZW0uQ29tcG9uZW50TW9kZWwAQXN5bmNDb21wbGV0ZWRFdmVudEFyZ3MATWljcm9z
+b2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNj
+cmlwdFRhc2sAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEVudW0AU3lzdGVtLkNvbmZpZ3Vy
+YXRpb24AQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAT2JqZWN0AFN5c3RlbS5UaHJlYWRpbmcAU2Vu
+ZE9yUG9zdENhbGxiYWNrAEV4ZWN1dGVTY3JpcHRPcGVyYXRpb25Db21wbGV0ZWQARXhlY3V0ZVNj
+cmlwdFhtbE9wZXJhdGlvbkNvbXBsZXRlZAB1c2VEZWZhdWx0Q3JlZGVudGlhbHNTZXRFeHBsaWNp
+dGx5AC5jdG9yAGdldF9VcmwAc2V0X1VybABnZXRfVXNlRGVmYXVsdENyZWRlbnRpYWxzAHNldF9V
+c2VEZWZhdWx0Q3JlZGVudGlhbHMARXhlY3V0ZVNjcmlwdENvbXBsZXRlZABhZGRfRXhlY3V0ZVNj
+cmlwdENvbXBsZXRlZAByZW1vdmVfRXhlY3V0ZVNjcmlwdENvbXBsZXRlZABFeGVjdXRlU2NyaXB0
+WG1sQ29tcGxldGVkAGFkZF9FeGVjdXRlU2NyaXB0WG1sQ29tcGxldGVkAHJlbW92ZV9FeGVjdXRl
+U2NyaXB0WG1sQ29tcGxldGVkAFN5c3RlbS5EYXRhAERhdGFTZXQARXhlY3V0ZVNjcmlwdABFeGVj
+dXRlU2NyaXB0QXN5bmMAT25FeGVjdXRlU2NyaXB0T3BlcmF0aW9uQ29tcGxldGVkAFN5c3RlbS5Y
+bWwAWG1sTm9kZQBFeGVjdXRlU2NyaXB0WG1sAEV4ZWN1dGVTY3JpcHRYbWxBc3luYwBPbkV4ZWN1
+dGVTY3JpcHRYbWxPcGVyYXRpb25Db21wbGV0ZWQAQ2FuY2VsQXN5bmMASXNMb2NhbEZpbGVTeXN0
+ZW1XZWJTZXJ2aWNlAFVybABVc2VEZWZhdWx0Q3JlZGVudGlhbHMASW52b2tlAElBc3luY1Jlc3Vs
+dABBc3luY0NhbGxiYWNrAEJlZ2luSW52b2tlAEVuZEludm9rZQByZXN1bHRzAEV4Y2VwdGlvbgBn
+ZXRfUmVzdWx0AFJlc3VsdABjb25uZWN0aW9uU3RyaW5nAGVudmlyb25tZW50AHJzc2VTY3JpcHQA
+cnNzZUFwcAByc3NlVXNlcgB1cGRhdGVBcHBVc2VyU3Byb2MATWFpbgBMYXN0Rmlyc3RUb0ZpcnN0
+TGFzdABhZGp1c3RGb3JTUUwARGF0YVRhYmxlAGxvYWRBc3NvY2lhdGVzAGV4ZWN1dGVTUUwAcnVu
+U2NyaXB0AHZhbHVlX18AU3VjY2VzcwBGYWlsdXJlAGRlZmF1bHRJbnN0YW5jZQBnZXRfRGVmYXVs
+dABnZXRfU1RfMjZjZDZjZDg2ZWQ5NDliY2JjNWM2MWU3ZWVmZDc4OGJfY3Nwcm9qX3Jzc2V3ZWJk
+ZXZfY2xzU2NyaXB0RW5naW5lAGdldF9TVF8yNmNkNmNkODZlZDk0OWJjYmM1YzYxZTdlZWZkNzg4
+Yl9jc3Byb2pfcnNzZXdlYnRlc3RfY2xzU2NyaXB0RW5naW5lAGdldF9TVF8yNmNkNmNkODZlZDk0
+OWJjYmM1YzYxZTdlZWZkNzg4Yl9jc3Byb2pfcnNzZXdlYnByb2RfY2xzU2NyaXB0RW5naW5lAERl
+ZmF1bHQAU1RfMjZjZDZjZDg2ZWQ5NDliY2JjNWM2MWU3ZWVmZDc4OGJfY3Nwcm9qX3Jzc2V3ZWJk
+ZXZfY2xzU2NyaXB0RW5naW5lAFNUXzI2Y2Q2Y2Q4NmVkOTQ5YmNiYzVjNjFlN2VlZmQ3ODhiX2Nz
+cHJval9yc3Nld2VidGVzdF9jbHNTY3JpcHRFbmdpbmUAU1RfMjZjZDZjZDg2ZWQ5NDliY2JjNWM2
+MWU3ZWVmZDc4OGJfY3Nwcm9qX3Jzc2V3ZWJwcm9kX2Nsc1NjcmlwdEVuZ2luZQBTeXN0ZW0uUmVz
+b3VyY2VzAFJlc291cmNlTWFuYWdlcgByZXNvdXJjZU1hbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBD
+dWx0dXJlSW5mbwByZXNvdXJjZUN1bHR1cmUAZ2V0X1Jlc291cmNlTWFuYWdlcgBnZXRfQ3VsdHVy
+ZQBzZXRfQ3VsdHVyZQBDdWx0dXJlAHZhbHVlAElucHV0RFNTdHJpbmcAdXNlclN0YXRlAGFyZwB1
+cmwAb2JqZWN0AG1ldGhvZABzZW5kZXIAZQBjYWxsYmFjawByZXN1bHQAZXhjZXB0aW9uAGNhbmNl
+bGxlZABsZgBzcWwAc2NyaXB0AGFwcAB1c2VyAFN5c3RlbS5SZWZsZWN0aW9uAEFzc2VtYmx5VGl0
+bGVBdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3Vy
+YXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0
+dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJp
+YnV0ZQBBc3NlbWJseUN1bHR1cmVBdHRyaWJ1dGUAQXNzZW1ibHlWZXJzaW9uQXR0cmlidXRlAFN5
+c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJp
+YnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTeXN0ZW0uQ29kZURvbS5Db21waWxl
+cgBHZW5lcmF0ZWRDb2RlQXR0cmlidXRlAFN5c3RlbS5EaWFnbm9zdGljcwBEZWJ1Z2dlclN0ZXBU
+aHJvdWdoQXR0cmlidXRlAERlc2lnbmVyQ2F0ZWdvcnlBdHRyaWJ1dGUAV2ViU2VydmljZUJpbmRp
+bmdBdHRyaWJ1dGUAV2ViQ2xpZW50UHJvdG9jb2wARGVsZWdhdGUAQ29tYmluZQBSZW1vdmUAU29h
+cERvY3VtZW50TWV0aG9kQXR0cmlidXRlAEludm9rZUFzeW5jAEludm9rZUNvbXBsZXRlZEV2ZW50
+QXJncwBnZXRfUmVzdWx0cwBnZXRfRXJyb3IAZ2V0X0NhbmNlbGxlZABnZXRfVXNlclN0YXRlAEh0
+dHBXZWJDbGllbnRQcm90b2NvbABTdHJpbmcARW1wdHkAb3BfRXF1YWxpdHkAVXJpAGdldF9Qb3J0
+AGdldF9Ib3N0AFN0cmluZ0NvbXBhcmlzb24AQ29tcGFyZQBSYWlzZUV4Y2VwdGlvbklmTmVjZXNz
+YXJ5AFN5c3RlbS5BZGRJbgBBZGRJbkF0dHJpYnV0ZQBTY3JpcHRPYmplY3RNb2RlbABnZXRfRHRz
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuTWFuYWdlZERUUwBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5S
+dW50aW1lAFZhcmlhYmxlcwBnZXRfVmFyaWFibGVzAFZhcmlhYmxlAGdldF9JdGVtAGdldF9WYWx1
+ZQBUb1N0cmluZwBEYXRhUm93Q29sbGVjdGlvbgBnZXRfUm93cwBJbnRlcm5hbERhdGFDb2xsZWN0
+aW9uQmFzZQBTeXN0ZW0uQ29sbGVjdGlvbnMASUVudW1lcmF0b3IAR2V0RW51bWVyYXRvcgBnZXRf
+Q3VycmVudABEYXRhUm93AERCTnVsbABWYWx1ZQBvcF9JbmVxdWFsaXR5AENvbmNhdABNb3ZlTmV4
+dABJRGlzcG9zYWJsZQBEaXNwb3NlAGdldF9Db3VudABzZXRfVGFza1Jlc3VsdABJbmRleE9mAFN1
+YnN0cmluZwBSZXBsYWNlAFN5c3RlbS5EYXRhLlNxbENsaWVudABTcWxEYXRhQWRhcHRlcgBTeXN0
+ZW0uRGF0YS5Db21tb24ARGF0YUFkYXB0ZXIARmlsbABEYXRhVGFibGVDb2xsZWN0aW9uAGdldF9U
+YWJsZXMAU3FsQ29ubmVjdGlvbgBEYkNvbm5lY3Rpb24AT3BlbgBTcWxDb21tYW5kAENyZWF0ZUNv
+bW1hbmQARGJDb21tYW5kAHNldF9Db21tYW5kVGV4dABFeGVjdXRlTm9uUXVlcnkARW52aXJvbm1l
+bnQAZ2V0X05ld0xpbmUAQ29uc29sZQBXcml0ZUxpbmUARGF0YUNvbHVtbkNvbGxlY3Rpb24AZ2V0
+X0NvbHVtbnMARGF0YUNvbHVtbgBBZGQAU3lzdGVtLklPAFN0cmluZ1dyaXRlcgBUZXh0V3JpdGVy
+AFhtbFdyaXRlTW9kZQBXcml0ZVhtbABDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBTZXR0aW5n
+c0Jhc2UALmNjdG9yAFN5bmNocm9uaXplZABBcHBsaWNhdGlvblNjb3BlZFNldHRpbmdBdHRyaWJ1
+dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBTcGVjaWFsU2V0dGluZ0F0dHJpYnV0ZQBT
+cGVjaWFsU2V0dGluZwBEZWZhdWx0U2V0dGluZ1ZhbHVlQXR0cmlidXRlAFR5cGUAUnVudGltZVR5
+cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAQXNzZW1ibHkAZ2V0X0Fzc2VtYmx5AEVkaXRvckJy
+b3dzYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBTVF8yNmNkNmNkODZlZDk0OWJj
+YmM1YzYxZTdlZWZkNzg4Yi5jc3Byb2ouUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAAAb
+RQB4AGUAYwB1AHQAZQBTAGMAcgBpAHAAdAAAIUUAeABlAGMAdQB0AGUAUwBjAHIAaQBwAHQAWABt
+AGwAABNsAG8AYwBhAGwASABvAHMAdAAAIWMAbwBuAG4AZQBjAHQAaQBvAG4AUwB0AHIAaQBuAGcA
+ABdlAG4AdgBpAHIAbwBuAG0AZQBuAHQAABVyAHMAcwBlAFMAYwByAGkAcAB0AAAPcgBzAHMAZQBB
+AHAAcAAAEXIAcwBzAGUAVQBzAGUAcgAAJXUAcABkAGEAdABlAEEAcABwAFUAcwBlAHIAUwBwAHIA
+bwBjAAAjQQBjAHQAaQB2AGUARABpAHIAZQBjAHQAbwByAHkASQBEAAAXRABpAHMAcABsAGEAeQBO
+AGEAbQBlAAAdUwBhAG0AQQBjAGMAbwB1AG4AdABOAGEAbQBlAAAZRQBtAGEAaQBsAEEAZABkAHIA
+ZQBzAHMAABVEAGUAcABhAHIAdABtAGUAbgB0AAAXRABlAHMAYwByAGkAcAB0AGkAbwBuAAAVUwB1
+AHAAZQByAHYAaQBzAG8AcgAAGVMAdQBwAGUAcgB2AGkAcwBvAHIASQBEAAAJRwBVAEkARAAAF0EA
+cwBzAG8AYwBpAGEAdABlAEkARAAAGUEAZABqAHUAcwB0AGUAZABOAGEAbQBlAAAPRQBuAGQARABh
+AHQAZQAAc1UAcABkAGEAdABlACAAQQBzAHMAbwBjAGkAYQB0AGUAIABzAGUAdAAgAEUAbgBkAEQA
+YQB0AGUAPQBHAEUAVABEAEEAVABFACgAKQAgAHcAaABlAHIAZQAgAEEAcwBzAG8AYwBpAGEAdABl
+AEkARAA9AACBdWkAbgBzAGUAcgB0ACAAaQBuAHQAbwAgAEEAcwBzAG8AYwBpAGEAdABlACAAKABB
+AGMAdABpAHYAZQBEAGkAcgBlAGMAdABvAHIAeQBJAEQALAAgAEQAaQBzAHAAbABhAHkATgBhAG0A
+ZQAsACAAQQBkAGoAdQBzAHQAZQBkAE4AYQBtAGUALAAgAFMAYQBtAEEAYwBjAG8AdQBuAHQATgBh
+AG0AZQAsACAARQBtAGEAaQBsAEEAZABkAHIAZQBzAHMALAAgAEQAZQBwAGEAcgB0AG0AZQBuAHQA
+LAAgAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAsACAAUwB1AHAAZQByAHYAaQBzAG8AcgAsACAAUwB1
+AHAAZQByAHYAaQBzAG8AcgBJAEQALAAgAEcAVQBJAEQALAAgAFMAdABhAHIAdABVAHMAZQByACwA
+IABTAHQAYQByAHQARABhAHQAZQApACAAVgBBAEwAVQBFAFMAKAAnAAEHJwAsACcAAQUnACwAAT0n
+AEkAbQBwAG8AcgB0ACAAQQBEACAAUgBPAEMAIABqAG8AYgAnACwARwBFAFQARABBAFQARQAoACkA
+KQABBSwAIAAAAyAAAAMnAAEFJwAnAAEvcwBlAGwAZQBjAHQAIAAqACAAZgByAG8AbQAgAEEAcwBz
+AG8AYwBpAGEAdABlAAA5RQB4AGUAYwB1AHQAZQAgAG8AZgAgAHQAaABpAHMAIABzAHEAbAAgAGYA
+YQBpAGwAZQBkADoAIAAADVAAYQByAGEAbQBzAAAJbgBhAG0AZQAAC3YAYQBsAHUAZQAAD0AAUwBj
+AHIAaQBwAHQAAAlAAEEAcABwAAATQABVAHMAZQByAE4AYQBtAGUAABlAAEUAbgB2AGkAcgBvAG4A
+bQBlAG4AdAAAD0QARQBGAEEAVQBMAFQAAAl0AGUAcwB0AAAHRABFAFYAAAlUAEUAUwBUAAAJUABS
+AE8ARAAADVIAZQBzAHUAbAB0AACAi1MAVABfADIANgBjAGQANgBjAGQAOAA2AGUAZAA5ADQAOQBi
+AGMAYgBjADUAYwA2ADEAZQA3AGUAZQBmAGQANwA4ADgAYgBfAGMAcwBwAHIAbwBqAF8AcgBzAHMA
+ZQB3AGUAYgBkAGUAdgBfAGMAbABzAFMAYwByAGkAcAB0AEUAbgBnAGkAbgBlAACAjVMAVABfADIA
+NgBjAGQANgBjAGQAOAA2AGUAZAA5ADQAOQBiAGMAYgBjADUAYwA2ADEAZQA3AGUAZQBmAGQANwA4
+ADgAYgBfAGMAcwBwAHIAbwBqAF8AcgBzAHMAZQB3AGUAYgB0AGUAcwB0AF8AYwBsAHMAUwBjAHIA
+aQBwAHQARQBuAGcAaQBuAGUAAICNUwBUAF8AMgA2AGMAZAA2AGMAZAA4ADYAZQBkADkANAA5AGIA
+YwBiAGMANQBjADYAMQBlADcAZQBlAGYAZAA3ADgAOABiAF8AYwBzAHAAcgBvAGoAXwByAHMAcwBl
+AHcAZQBiAHAAcgBvAGQAXwBjAGwAcwBTAGMAcgBpAHAAdABFAG4AZwBpAG4AZQAAf1MAVABfADIA
+NgBjAGQANgBjAGQAOAA2AGUAZAA5ADQAOQBiAGMAYgBjADUAYwA2ADEAZQA3AGUAZQBmAGQANwA4
+ADgAYgAuAGMAcwBwAHIAbwBqAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMA
+ZQBzAAAAAADaNR/O/bvWR6ZLsMJBXFr0AAiwP19/EdUKOgi3elxWGTTgiQiJhF3NgIDMkQMGEiEC
+BgIDIAABAyAADgQgAQEOAyAAAgQgAQECAwYSDAUgAQESDAMGEhQFIAEBEhQFIAESJQ4FIAIBDhwE
+IAEBHAUgARIpDgQgAQIOAygADgMoAAIFIAIBHBgGIAIBHBIQCiAEEi0cEhASMRwFIAEBEi0DBh0c
+CSAEAR0cEjUCHAQgABIlBCgAEiUGIAIBHBIYCiAEEi0cEhgSMRwEIAASKQQoABIpAgYOBCABDg4E
+AAASOQQAAQEOBwADEjkODg4CBggDBhEgBAAAAAAEAQAAAAMGEigFIAEBEigDBhIwBSABARIwBiAC
+ARwSLAogBBItHBIsEjEcBiACARwSNAogBBItHBI0EjEcAwYSOAQAABI4BAgAEjgDBhI9AwYSQQQA
+ABI9BAAAEkEFAAEBEkEECAASPQQIABJBAwYSRAUgAQESRAMGEkwFIAEBEkwGIAIBHBJICiAEEi0c
+EkgSMRwGIAIBHBJQCiAEEi0cElASMRwEIAEBCAUgAgEODicBABNTeXN0ZW0uV2ViLlNlcnZpY2Vz
+DjIuMC41MDcyNy41NDgzAAAJAQAEY29kZQAAPwEAAgBUDgROYW1lE2Nsc1NjcmlwdEVuZ2luZVNv
+YXBUDglOYW1lc3BhY2UTaHR0cDovL3d3dy50cmcuY29tLwsAAhKAhRKAhRKAhYGlAQAgaHR0cDov
+L3d3dy50cmcuY29tL0V4ZWN1dGVTY3JpcHQEAFQOEFJlcXVlc3ROYW1lc3BhY2UTaHR0cDovL3d3
+dy50cmcuY29tL1QOEVJlc3BvbnNlTmFtZXNwYWNlE2h0dHA6Ly93d3cudHJnLmNvbS9UVYCGU3lz
+dGVtLldlYi5TZXJ2aWNlcy5EZXNjcmlwdGlvbi5Tb2FwQmluZGluZ1VzZSwgU3lzdGVtLldlYi5T
+ZXJ2aWNlcywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+PWIwM2Y1ZjdmMTFkNTBhM2EDVXNlAgAAAFRVgIhTeXN0ZW0uV2ViLlNlcnZpY2VzLlByb3RvY29s
+cy5Tb2FwUGFyYW1ldGVyU3R5bGUsIFN5c3RlbS5XZWIuU2VydmljZXMsIFZlcnNpb249Mi4wLjAu
+MCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iMDNmNWY3ZjExZDUwYTNhDlBhcmFt
+ZXRlclN0eWxlAgAAAAcgAh0cDh0cBgcCHRwdHAkgBAEOHRwSIRwEBwEdHAQgAB0cBCAAEjUDIAAc
+BQcBEoCNgagBACNodHRwOi8vd3d3LnRyZy5jb20vRXhlY3V0ZVNjcmlwdFhtbAQAVA4QUmVxdWVz
+dE5hbWVzcGFjZRNodHRwOi8vd3d3LnRyZy5jb20vVA4RUmVzcG9uc2VOYW1lc3BhY2UTaHR0cDov
+L3d3dy50cmcuY29tL1RVgIZTeXN0ZW0uV2ViLlNlcnZpY2VzLkRlc2NyaXB0aW9uLlNvYXBCaW5k
+aW5nVXNlLCBTeXN0ZW0uV2ViLlNlcnZpY2VzLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1
+dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQNVc2UCAAAAVFWAiFN5c3RlbS5X
+ZWIuU2VydmljZXMuUHJvdG9jb2xzLlNvYXBQYXJhbWV0ZXJTdHlsZSwgU3lzdGVtLldlYi5TZXJ2
+aWNlcywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIw
+M2Y1ZjdmMTFkNTBhM2EOUGFyYW1ldGVyU3R5bGUCAAAABQACAg4OAyAACAgAAwgODhGAnQUHARKA
+mQcgAwESNQIcOQEAClNjcmlwdE1haW4DAFQOB1ZlcnNpb24DMS4wVA4JUHVibGlzaGVyAFQOC0Rl
+c2NyaXB0aW9uAAUgABKApQUgABKAqQYgARKArRwFIAASgLEFIAASgLkEIAEcDgQGEoDBBQACDg4O
+BgADDg4ODkMHJxI5EjkSgL0ODg4ODg4ODg4CEoC9Dg4ODg4ODg4ODg4SgL0ODgISgL0OEoC5EoC5
+EoDFEoDFEoC5EoC5EoDFEoDFBCABCA4EIAEOCAUgAg4ICAMHAQgFIAIODg4FIAEIEiUFIAASgNEF
+IAESOQgJBwMSgMkSJRI5BSAAEoDdAwAADgcABA4ODg4OCgcDEoDVEoDdEjUFIAASgO0GIAESgPEO
+ByABEoC9HRwFIAEBEjkJIAIBEoD5EYD9BSABEjkOGgcMEjkSJRKA9Q4SJRIkEggSQB0cHRwdHB0c
+WAEAS01pY3Jvc29mdC5WaXN1YWxTdHVkaW8uRWRpdG9ycy5TZXR0aW5nc0Rlc2lnbmVyLlNldHRp
+bmdzU2luZ2xlRmlsZUdlbmVyYXRvcgc5LjAuMC4wAAADAAABCAABEoEFEoEFBiABARGBFQgBAAEA
+AAAAAC0BAChodHRwOi8vcnNzZXdlYmRldjo3NzczL1NjcmlwdEVuZ2luZS5hc214AAAuAQApaHR0
+cDovL3Jzc2V3ZWJ0ZXN0Ojc3NzMvU2NyaXB0RW5naW5lLmFzbXgAAC4BAClodHRwOi8vcnNzZXdl
+YnByb2Q6Nzc3My9TY3JpcHRFbmdpbmUuYXNteAAACAABEoEdEYEhBSAAEoElByACAQ4SgSUEBwES
+PQYgAQERgS0IAQACAAAAAAAvAQAqU1RfMjZjZDZjZDg2ZWQ5NDliY2JjNWM2MWU3ZWVmZDc4OGIu
+Y3Nwcm9qAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMTUAAAgBAAgAAAAAAB4BAAEAVAIWV3Jh
+cE5vbkV4Y2VwdGlvblRocm93cwEAuGkAAAAAAAAAAAAAzmkAAAAgAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAMBpAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIEAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAA
+AQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFiAAADwAwAAAAAAAAAAAADwAzQAAABW
+AFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv/gAAAQAAAAEA7l9DGAAAAQDuX0MY
+PwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAA
+AAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAAALAEUAMAAAEAUwB0AHIAaQBuAGcA
+RgBpAGwAZQBJAG4AZgBvAAAALAMAAAEAMAAwADAAMAAwADQAYgAwAAAAgAArAAEARgBpAGwAZQBE
+AGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAVABfADIANgBjAGQANgBjAGQAOAA2AGUAZAA5ADQA
+OQBiAGMAYgBjADUAYwA2ADEAZQA3AGUAZQBmAGQANwA4ADgAYgAuAGMAcwBwAHIAbwBqAAAAAABA
+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANgAyADEAMQAuADIANAA1ADUA
+OAAAAAAAgAAvAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAFQAXwAyADYAYwBkADYAYwBk
+ADgANgBlAGQAOQA0ADkAYgBjAGIAYwA1AGMANgAxAGUANwBlAGUAZgBkADcAOAA4AGIALgBjAHMA
+cAByAG8AagAuAGQAbABsAAAAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABD
+AG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAxADUAAACIAC8AAQBPAHIAaQBnAGkAbgBhAGwA
+RgBpAGwAZQBuAGEAbQBlAAAAUwBUAF8AMgA2AGMAZAA2AGMAZAA4ADYAZQBkADkANAA5AGIAYwBi
+AGMANQBjADYAMQBlADcAZQBlAGYAZAA3ADgAOABiAC4AYwBzAHAAcgBvAGoALgBkAGwAbAAAAAAA
+eAArAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAFQAXwAyADYAYwBkADYAYwBkADgANgBl
+AGQAOQA0ADkAYgBjAGIAYwA1AGMANgAxAGUANwBlAGUAZgBkADcAOAA4AGIALgBjAHMAcAByAG8A
+agAAAAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA2ADIAMQAx
+AC4AMgA0ADUANQA4AAAAAABIAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA2ADIAMQAxAC4AMgA0ADUANQA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAABgAAAMAAAA4DkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAA</BinaryItem></ScriptProject></DTS:ObjectData></DTS:Executable>
+<DTS:Property DTS:Name="ObjectName">ImportAssociatesFromAD</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{EB898B3E-6682-4AEC-8055-9A9135F947C5}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName">SSIS.Package.2</DTS:Property>
+<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property>
+<DTS:PackageVariable>
+<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;1950&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-2170&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;
+  &lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout100" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout100" version="7" nextobject="6" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="950" scrolltop="-4500" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="14182" y="15954" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;
+    &lt;font&gt;
+      &lt;ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" /&gt;
+    &lt;/font&gt;
+    &lt;mouseicon&gt;
+      &lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;
+    &lt;/mouseicon&gt;
+  &lt;/diagram&gt;
+  &lt;layoutmanager&gt;
+    &lt;ddsxmlobj /&gt;
+  &lt;/layoutmanager&gt;
+  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Script Task" left="3910" top="735" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6853" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
+    &lt;control&gt;
+      &lt;ddsxmlobjectstreaminitwrapper binary="00080000c51a00008c040000" /&gt;
+    &lt;/control&gt;
+    &lt;layoutobject&gt;
+      &lt;ddsxmlobj&gt;
+        &lt;property name="LogicalObject" value="{ACB50FEF-9A84-4448-8952-C48DD68E6799}" vartype="8" /&gt;
+        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
+      &lt;/ddsxmlobj&gt;
+    &lt;/layoutobject&gt;
+    &lt;shape groupshapeid="0" groupnode="0" /&gt;
+  &lt;/ddscontrol&gt;
+  &lt;ddscontrol controlprogid="MSDDS.Text" left="2644" top="-2170" logicalid="5" controlid="4" masterid="0" hint1="0" hint2="0" width="11212" height="2294" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="1" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
+    &lt;control&gt;
+      &lt;ddsxmlobjectstreaminitwrapper binary="00020000cc2b0000f60800000300640000000500008008000080000000002a0001000000900144420100065461686f6d61040153005400450050002000310020002d0020005200450041004400200049004e002000560041004c00550045005300200046004f005200200043004f004e004e0045004300540049004f004e00200053005400520049004e0047002c00200045004e005600490052004f004e004d0045004e005400200041004e004400200052005300530045000d000a0053005400450050002000320020002d00200052004500410044002000460052004f004d002000410044000d000a0053005400450050002000330020002d0020005200450041004400200049004e0020004500580049005300540049004e00470020004100530053004f004300490041005400450053000d000a0053005400450050002000340020002d0020005700520049005400450020004f0055005400200041004e00590020004e004500570020004f00520020004300480041004e0047004500440020004100530053004f004300490041005400450053000d000a0053005400450050002000350020002d002000520045004d004f005600450020005400450052004d0049004e004100540049004f004e0053000d000a0053005400450050002000360020002d002000430041004c004c0020005300500052004f004300200054004f00200055005000440041005400450020004100500050004c00490043004100540049004f004e0020004400410054004100420041005300450000000000" /&gt;
+    &lt;/control&gt;
+    &lt;layoutobject&gt;
+      &lt;ddsxmlobj /&gt;
+    &lt;/layoutobject&gt;
+    &lt;shape groupshapeid="0" groupnode="0" /&gt;
+  &lt;/ddscontrol&gt;
+&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;950&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-4500&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
+<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
+<DTS:Property DTS:Name="ObjectName">{EB898B3E-6682-4AEC-8055-9A9135F947C5}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{58B2E771-85E2-422D-B5A8-1D1065DF60F4}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
+<DTS:PackageVariable>
+<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;1950&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-2170&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;
+  &lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout100" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout100" version="7" nextobject="6" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="950" scrolltop="-4500" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="14182" y="15954" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;
+    &lt;font&gt;
+      &lt;ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" /&gt;
+    &lt;/font&gt;
+    &lt;mouseicon&gt;
+      &lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;
+    &lt;/mouseicon&gt;
+  &lt;/diagram&gt;
+  &lt;layoutmanager&gt;
+    &lt;ddsxmlobj /&gt;
+  &lt;/layoutmanager&gt;
+  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Script Task" left="3910" top="735" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="6853" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
+    &lt;control&gt;
+      &lt;ddsxmlobjectstreaminitwrapper binary="00080000c51a00008c040000" /&gt;
+    &lt;/control&gt;
+    &lt;layoutobject&gt;
+      &lt;ddsxmlobj&gt;
+        &lt;property name="LogicalObject" value="{ACB50FEF-9A84-4448-8952-C48DD68E6799}" vartype="8" /&gt;
+        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
+      &lt;/ddsxmlobj&gt;
+    &lt;/layoutobject&gt;
+    &lt;shape groupshapeid="0" groupnode="0" /&gt;
+  &lt;/ddscontrol&gt;
+  &lt;ddscontrol controlprogid="MSDDS.Text" left="2644" top="-2170" logicalid="5" controlid="4" masterid="0" hint1="0" hint2="0" width="11212" height="2294" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="1" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
+    &lt;control&gt;
+      &lt;ddsxmlobjectstreaminitwrapper binary="00020000cc2b0000f60800000300640000000500008008000080000000002a0001000000900144420100065461686f6d61040153005400450050002000310020002d0020005200450041004400200049004e002000560041004c00550045005300200046004f005200200043004f004e004e0045004300540049004f004e00200053005400520049004e0047002c00200045004e005600490052004f004e004d0045004e005400200041004e004400200052005300530045000d000a0053005400450050002000320020002d00200052004500410044002000460052004f004d002000410044000d000a0053005400450050002000330020002d0020005200450041004400200049004e0020004500580049005300540049004e00470020004100530053004f004300490041005400450053000d000a0053005400450050002000340020002d0020005700520049005400450020004f0055005400200041004e00590020004e004500570020004f00520020004300480041004e0047004500440020004100530053004f004300490041005400450053000d000a0053005400450050002000350020002d002000520045004d004f005600450020005400450052004d0049004e004100540049004f004e0053000d000a0053005400450050002000360020002d002000430041004c004c0020005300500052004f004300200054004f00200055005000440041005400450020004100500050004c00490043004100540049004f004e0020004400410054004100420041005300450000000000" /&gt;
+    &lt;/control&gt;
+    &lt;layoutobject&gt;
+      &lt;ddsxmlobj /&gt;
+    &lt;/layoutobject&gt;
+    &lt;shape groupshapeid="0" groupnode="0" /&gt;
+  &lt;/ddscontrol&gt;
+&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;950&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-4500&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
+<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
+<DTS:Property DTS:Name="ObjectName">package-diagram</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{6790308A-8F17-40EA-A457-1A5037FCB792}</DTS:Property>
+<DTS:Property DTS:Name="Description"></DTS:Property>
+<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable></DTS:Executable>

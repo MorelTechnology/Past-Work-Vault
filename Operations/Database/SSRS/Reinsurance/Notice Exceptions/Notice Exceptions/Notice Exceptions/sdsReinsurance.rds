@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="sdsReinsurance">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=PRODSQL4;Initial Catalog=RiverNet_Reinsurance</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>c7a9d8ac-0e16-4061-9c84-581307e5f317</DataSourceID>
+</RptDataSource>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a2d833ad-3493-4732-9fd9-56881f1618e7}"
+       Name="CounterpartyName"
+       DisplayName="Counterparty Name"
+       Type="Text"
+       Required="TRUE"
+       EnforceUniqueValues="TRUE"
+       Indexed="TRUE"
+       Group="Custom Site Columns" >
+  </Field>
+</Elements>

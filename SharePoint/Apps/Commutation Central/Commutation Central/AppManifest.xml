@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="CommutationCentral"
+     ProductID="{08523c82-9203-47e1-a086-6ee852b9c9bf}"
+     Version="1.0.1.4"
+     SharePointMinVersion="15.0.0.0"
+>
+  <Properties>
+    <Title>Commutation Central</Title>
+    <StartPage>~appWebUrl/Pages/Default.aspx?{StandardTokens}&amp;SPHostLogo={HostLogoUrl}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <Internal />
+  </AppPrincipal>
+
+
+</App>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Contacts In Scope" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Contacts In Scope" Description="Junction list to join contacts to projects"></ListInstance>
+</Elements>

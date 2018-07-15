@@ -1,0 +1,190 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OpsConsole" x:Class="OpsConsole.ServiceCatalog" 
+             mc:Ignorable="d" 
+             d:DesignHeight="1040" d:DesignWidth="1200">
+    <Grid Background="#FF89A3B2">
+        <TextBlock x:Name="lblOccurances" HorizontalAlignment="Left" Margin="10,0,0,17" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="294" Foreground="White" FontSize="18"/>
+        <Grid Height="343" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF687A93">
+            <Grid Height="36" VerticalAlignment="Top"   Margin="0,0,0,0"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle1" HorizontalAlignment="Left" Margin="8,0,0,-28" TextWrapping="Wrap" VerticalAlignment="Top" Width="726" Foreground="White" FontSize="24"><Run Text="Catalog"/><LineBreak/><Run/></TextBlock>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" Margin="12,43,0,0" TextWrapping="Wrap" Text="Current Catalog" VerticalAlignment="Top" Width="370" Foreground="White" />
+            <DataGrid x:Name="dgGroups" Margin="8,63,10,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="237" Background="White" VerticalAlignment="Top" SelectionChanged="dgGroups_SelectionChanged" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Catalog section" Width="180" Binding="{Binding Name}"/>
+                    <DataGridTemplateColumn Width="64" Header="Icon">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageFullPath}" Width="50" Height="50" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Button Title" Width="180" Binding="{Binding ButtonTitle}"/>
+                    <DataGridTextColumn Header="Button Text" Width="550" Binding="{Binding ButtonText}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnEditGroup" Content="Edit" HorizontalAlignment="Left" Margin="8,0,0,7" VerticalAlignment="Bottom" Width="56" Height="31" FontWeight="Bold" Click="btnEditGroup_Click"/>
+            <Button x:Name="btnAddCategory" Content="Add" HorizontalAlignment="Left" Margin="69,0,0,7" VerticalAlignment="Bottom" Width="56" Height="31" FontWeight="Bold" Click="btnAddCategory_Click"/>
+            <Button x:Name="btnRemoveCategory" Content="Remove" HorizontalAlignment="Left" Margin="130,0,0,7" VerticalAlignment="Bottom" Width="56" Height="31" FontWeight="Bold" Click="btnRemoveCategory_Click"/>
+        </Grid>
+        <Grid  Margin="10,362,0,50" Background="#FF687A93" HorizontalAlignment="Left" Width="499">
+            <Grid Height="36" VerticalAlignment="Top"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle2" HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Services" VerticalAlignment="Top" Width="207" Foreground="White" FontSize="24"/>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" Margin="11,44,0,0" TextWrapping="Wrap" Text="Services in selected catalog" VerticalAlignment="Top" Width="197" Foreground="White" />
+            <DataGrid x:Name="dgItems" Margin="8,65,0,43" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" SelectionChanged="dgItems_SelectionChanged" VerticalContentAlignment="Stretch" Width="199" HorizontalAlignment="Left" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Service" Width="176" Binding="{Binding Name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnEditItem" HorizontalAlignment="Left" Margin="9,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnEditItem_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Edit" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Service" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAddItem" HorizontalAlignment="Left" Margin="76,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnAddItem_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Add" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Service" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAddItemToGroup" HorizontalAlignment="Left" Margin="213,202,0,0" VerticalAlignment="Top" Width="73" Height="66" FontWeight="Bold" Click="btnAddItemToGroup_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-5,0,0,0" FontFamily="Wingdings" FontWeight="Bold" Height="66" FontSize="16" />
+                    <StackPanel Orientation="Vertical" Width="48" >
+                        <Label Content="Add" HorizontalContentAlignment="Right" Margin="-14,-7,0,0" />
+                        <Label Content="Service" HorizontalContentAlignment="Right" Margin="-14,-12,0,0" />
+                        <Label Content="to" HorizontalContentAlignment="Right" Margin="-14,-12,0,0" />
+                        <Label Content="Catalog" HorizontalContentAlignment="Right" Margin="-14,-12,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <DataGrid x:Name="dgItemsNotInGroup" Margin="294,65,0,43" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" VerticalContentAlignment="Stretch" Width="199" HorizontalAlignment="Left" SelectionChanged="dgItemsNotInGroup_SelectionChanged" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Service" Width="176" Binding="{Binding Name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock HorizontalAlignment="Left" Margin="296,44,0,0" TextWrapping="Wrap" Text="Services not in this catalog" VerticalAlignment="Top" Width="197" Foreground="White" />
+            <Button x:Name="btnRemoveService" HorizontalAlignment="Left" Margin="144,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnRemoveService_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Remove" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Service" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveItemFromGroup" HorizontalAlignment="Left" Margin="213,127,0,0" VerticalAlignment="Top" Width="73" Height="66" FontWeight="Bold" Click="btnRemoveItemFromGroup_Click">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Width="56" >
+                        <Label Content="Remove" HorizontalContentAlignment="Left" Margin="0,-7,0,0" />
+                        <Label Content="Service" HorizontalContentAlignment="Left" Margin="0,-12,0,0" />
+                        <Label Content="from" HorizontalContentAlignment="Left" Margin="0,-12,0,0" />
+                        <Label Content="Catalog" HorizontalContentAlignment="Left" Margin="0,-12,0,0" />
+                    </StackPanel>
+                    <Label Content="&#xF0E0;" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-10,0,0,0" FontFamily="Wingdings" FontWeight="Bold" Height="66" FontSize="16" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid Height="37" Margin="10,0,10,6" VerticalAlignment="Bottom" Background="#FF687A93">
+            <TextBlock HorizontalAlignment="Left" Margin="3,0,0,3" TextWrapping="Wrap" Text="Miscellaneous Actions" VerticalAlignment="Bottom" Width="74" Foreground="White" Height="30" FontSize="10" FontWeight="Bold" Background="#FF687A93" TextAlignment="Center"/>
+            <Button x:Name="btnOpenAdjustments" HorizontalAlignment="Left" Margin="91,4,0,0" VerticalAlignment="Top" Width="203" Height="30" Click="btnImportFromSpreadsheet">
+                <StackPanel>
+                    <TextBlock Text="Reload Data from Spreadsheet" FontWeight="Bold" Margin="0,-2,0,0" />
+                    <TextBlock Text="Existing data will be lost" Foreground="#FFBD1111" TextAlignment="Center" FontSize="10" Margin="0,-2,0,0" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnLaunchAsOPS"  HorizontalAlignment="Left" Margin="298,0,0,3" VerticalAlignment="Bottom" Width="156" Height="30" FontWeight="Bold" Click="btnLaunchAsOPS_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Launch Website as " FontWeight="Bold" Margin="0,-2,0,0" />
+                    <TextBlock Text="OPS" Foreground="#FF1111BD" FontWeight="Bold" Margin="0,-2,0,0" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnLaunchAsIT"  HorizontalAlignment="Left" Margin="458,0,0,3" VerticalAlignment="Bottom" Width="156" Height="30" FontWeight="Bold" Click="btnLaunchAsIT_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Launch Website as " FontWeight="Bold" Margin="0,-2,0,0" />
+                    <TextBlock Text="IT" Foreground="#FF1111BD" FontWeight="Bold" Margin="0,-2,0,0" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnLaunchAsBIZ"  HorizontalAlignment="Left" Margin="619,0,0,3" VerticalAlignment="Bottom" Width="156" Height="30" FontWeight="Bold" Click="btnLaunchAsBIZ_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Launch Website as " FontWeight="Bold" Margin="0,-2,0,0" />
+                    <TextBlock Text="BIZ" Foreground="#FF1111BD" FontWeight="Bold" Margin="0,-2,0,0" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Grid  Margin="517,362,10,50" Background="#FF687A93">
+            <Grid Height="36" VerticalAlignment="Top"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle3" HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Tasks" VerticalAlignment="Top" Width="143" Foreground="White" FontSize="24"/>
+            </Grid>
+            <DataGrid x:Name="dgTasks" Margin="10,65,10,44" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Task" Width="180" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Biz" Width="34" Binding="{Binding ForBusinessAssoc}"/>
+                    <DataGridTextColumn Header="Ops" Width="34" Binding="{Binding ForOperationsAssoc}"/>
+                    <DataGridTextColumn Header="IT" Width="34" Binding="{Binding ForITAssoc}"/>
+                    <DataGridTextColumn Header="SD Category" Width="180" Binding="{Binding ServiceDeskCategory}"/>
+                    <DataGridTextColumn Header="SD Sub Category" Width="160" Binding="{Binding ServiceDeskSubCategory}"/>
+                    <DataGridTextColumn Header="SD Item" Width="160" Binding="{Binding ServiceDeskItem}"/>
+                    <DataGridTextColumn Header="Description" Width="500" Binding="{Binding Description}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Comment" Width="300" Binding="{Binding Comment}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnEditTask" HorizontalAlignment="Left" Margin="9,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnEditTask_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Edit" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Task" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnAddTask" HorizontalAlignment="Left" Margin="76,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnAddTask_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Add" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Task" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveTask"  HorizontalAlignment="Left" Margin="143,0,0,7" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnRemoveTask_Click">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Remove" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                    <Label Content="Task" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <local:ServiceCatalogGroupEdit x:Name="screenEditGroup" Margin="0,0,0,0" Visibility="Hidden"/>
+        <local:ServiceCatalogItemEdit x:Name="screenEditItem" Margin="0,0,0,0" Visibility="Hidden"/>
+        <local:ServiceCatalogTaskEdit x:Name="screenEditTask" Margin="0,0,0,0" Visibility="Hidden"/>
+
+    </Grid>
+</UserControl>

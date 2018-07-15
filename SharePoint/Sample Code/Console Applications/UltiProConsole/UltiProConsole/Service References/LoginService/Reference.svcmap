@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b753dac8-c651-4316-bdbb-ee3223252ea5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://service4.ultipro.com/services/LoginService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="c730a80f-302e-40a7-a564-c3ec874bf83d" SourceId="1" SourceUrl="https://service4.ultipro.com/services/LoginService" />
+    <MetadataFile FileName="LoginService1.wsdl" MetadataType="Wsdl" ID="ebc1a648-6fb4-4cd2-ada0-e70e7b8af596" SourceId="1" SourceUrl="https://service4.ultipro.com/services/LoginService?wsdl=wsdl0" />
+    <MetadataFile FileName="LoginService.xsd" MetadataType="Schema" ID="0a048d5b-1970-436a-ac97-9fa6cb33decc" SourceId="1" SourceUrl="https://service4.ultipro.com/services/LoginService?xsd=xsd2" />
+    <MetadataFile FileName="LoginService1.xsd" MetadataType="Schema" ID="b27866b2-d1ae-4747-80e9-37a0c07809f5" SourceId="1" SourceUrl="https://service4.ultipro.com/services/LoginService?xsd=xsd0" />
+    <MetadataFile FileName="LoginService2.xsd" MetadataType="Schema" ID="90ba41d9-6eb6-43d8-89f7-705de5d90bea" SourceId="1" SourceUrl="https://service4.ultipro.com/services/LoginService?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

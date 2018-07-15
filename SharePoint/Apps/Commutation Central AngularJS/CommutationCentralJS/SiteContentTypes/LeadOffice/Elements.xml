@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100E19C7B8544074240BD8EE067DF5B21BE" Name="Lead Office" Group="Custom Content Types" Description="Lead Office content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{8820b3f7-d588-4c48-96c9-cf1f66678c3a}" DisplayName="Lead Office Name" Required="True" Name="LeadOfficeName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

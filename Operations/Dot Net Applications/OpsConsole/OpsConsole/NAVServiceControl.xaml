@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="OpsConsole.NAVServiceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="980">
+    <Grid x:Name="screenDemo" Background="#FF89A3B2" >
+        <TextBlock HorizontalAlignment="Left" Height="47" Margin="67,16,0,0" TextWrapping="Wrap" Text="Navision Service Control" VerticalAlignment="Top" Width="360" Foreground="#FFEEDE79" FontSize="30" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="44" Margin="70,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" FontSize="22" Foreground="White"><Run FontSize="14.6666666666667" FontFamily="Calibri" Text="NAVWEBPROD-SQLNAVWEBPROD-SQL"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="44" Margin="70,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" FontSize="14" Foreground="White"><Span Language="en-us"><Run Text="MicrosoftDynamicsNavWS"/></Span><LineBreak/><Run Text=""/></TextBlock>
+        <Button x:Name="btnProcessNav" Content="Refresh" HorizontalAlignment="Left" Height="32" Margin="310,214,0,0" VerticalAlignment="Top" Width="78" FontSize="18" Click="btnProcessNav_Click"/>
+        <Ellipse x:Name="ledNavWebProd" Fill="#FF2E7A11" HorizontalAlignment="Left" Height="13" Margin="344,121,0,0" VerticalAlignment="Top" Width="14"/>
+        <Ellipse x:Name="ledMicrsoftynamicsNavWS" Fill="#FF2E7A11" HorizontalAlignment="Left" Height="24" Margin="333,165,0,0" VerticalAlignment="Top" Width="25"/>
+        <Button x:Name="btnStopNaveWeb" Content="Stop" HorizontalAlignment="Left" Height="32" Margin="409,112,0,0" VerticalAlignment="Top" Width="78" FontSize="18" Click="btnStopNaveWeb_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Height="32" Margin="310,214,0,0" VerticalAlignment="Top" Width="78" FontSize="18" Click="btnRefresh_Click"/>
+        <Button x:Name="btnStartNavWeb" Content="Start" HorizontalAlignment="Left" Height="32" Margin="492,113,0,0" VerticalAlignment="Top" Width="78" FontSize="18" Click="btnStartNavWeb_Click"/>
+        <Button x:Name="btnStopMDNWS" Content="Stop" HorizontalAlignment="Left" Height="32" Margin="409,165,0,0" VerticalAlignment="Top" Width="78" FontSize="18" RenderTransformOrigin="0.474,2.219" Click="btnStopMDNWS_Click"/>
+        <Button x:Name="btnStartMDNWS" Content="Start" HorizontalAlignment="Left" Height="32" Margin="492,165,0,0" VerticalAlignment="Top" Width="78" FontSize="18" Click="btnStartMDNWS_Click"/>
+        <Ellipse x:Name="ledNavWebProd_Copy" HorizontalAlignment="Left" Height="13" Margin="729,398,0,0" VerticalAlignment="Top" Width="14">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF075F1B" Offset="1"/>
+                    <GradientStop Color="#FF68A058"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse x:Name="ledNavWebProd_Copy1" HorizontalAlignment="Left" Height="13" Margin="786,334,0,0" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-20"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF075F1B" Offset="1"/>
+                    <GradientStop Color="#FF68A058"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Grid>
+</UserControl>

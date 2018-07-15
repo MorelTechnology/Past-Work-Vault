@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="License">
+    <File Path="License\Aspose.Total.lic" Url="License/Aspose.Total.lic" />
+  </Module>
+</Elements>

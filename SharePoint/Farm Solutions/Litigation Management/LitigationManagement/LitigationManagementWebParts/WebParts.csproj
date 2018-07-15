@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79274D93-6B80-422A-B8A9-94098740A790}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LitigationManagementWebParts</RootNamespace>
+    <AssemblyName>LitigationManagementWebParts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LitigationMatterSummary\LitigationMatterSummary.ascx.cs">
+      <DependentUpon>LitigationMatterSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LitigationMatterSummary\LitigationMatterSummary.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LitigationMatterSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LitigationMatterTasks\LitigationMatterTasks.ascx.cs">
+      <DependentUpon>LitigationMatterTasks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LitigationMatterTasks\LitigationMatterTasks.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LitigationMatterTasks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MyLitigationMatters\MyLitigationMatters.ascx.cs">
+      <DependentUpon>MyLitigationMatters.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MyLitigationMatters\MyLitigationMatters.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyLitigationMatters.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\WebParts Feature\WebParts Feature.feature">
+      <FeatureId>{33900e6f-770c-4fe7-af30-759298c908ca}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c6edab7f-d29e-45e6-906d-78d187a8d8ee}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d291b4d2-52cf-4030-91b4-6ec174cd2cad}</SharePointProjectItemId>
+    </None>
+    <None Include="LitigationMatterSummary\LitigationMatterSummary.webpart" />
+    <None Include="LitigationMatterSummary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d620d44e-6bb9-430f-8bae-bd0f157fa6e8}</SharePointProjectItemId>
+    </None>
+    <None Include="LitigationMatterTasks\LitigationMatterTasks.webpart" />
+    <None Include="LitigationMatterTasks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5fcb0e4c-970f-4169-bccc-7a720fa18525}</SharePointProjectItemId>
+    </None>
+    <None Include="MyLitigationMatters\MyLitigationMatters.webpart" />
+    <None Include="MyLitigationMatters\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{971484ff-9857-4d3b-99bf-482dbb233a2b}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{4eae2f14-3b1c-4007-b473-0e87ac6ffa09}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\WebParts Feature\WebParts Feature.Template.xml">
+      <DependentUpon>WebParts Feature.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\LitigationManagementWebParts\A2OLogo.png" />
+    <Content Include="Images\LitigationManagementWebParts\A2O_feature_Icon.png" />
+    <Content Include="Images\LitigationManagementWebParts\loading.gif" />
+    <Content Include="Images\LitigationManagementWebParts\view_refresh.png" />
+    <Content Include="Layouts\LitigationManagementWebParts\js\propertiesEditor.js" />
+    <Content Include="LitigationMatterSummary\Elements.xml" />
+    <Content Include="LitigationMatterSummary\LitigationMatterSummary.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LitigationMatterSummary.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="LitigationMatterTasks\Elements.xml" />
+    <Content Include="LitigationMatterTasks\LitigationMatterTasks.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LitigationMatterTasks.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyLitigationMatters\Elements.xml" />
+    <Content Include="MyLitigationMatters\MyLitigationMatters.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>MyLitigationMatters.ascx.g.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

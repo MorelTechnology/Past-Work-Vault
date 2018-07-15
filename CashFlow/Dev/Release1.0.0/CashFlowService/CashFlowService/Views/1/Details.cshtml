@@ -1,0 +1,104 @@
+﻿@page
+@model CashFlowService.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "WorkMattersView1";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkMatters</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.SpecialTrackingGroup)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.SpecialTrackingGroup)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.WorkMatterDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.WorkMatterDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.InsuredName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.InsuredName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.AssignedAdjuster)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.AssignedAdjuster)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.AssignedManager)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.AssignedManager)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.StartUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.StartUser)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.Department)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.Portfolio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.Portfolio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.HasAssociations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.HasAssociations)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.EndUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.EndUser)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.EndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.EndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.Wmclosed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.Wmclosed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkMatters.WmclosedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkMatters.WmclosedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.WorkMatters.WorkMatter">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

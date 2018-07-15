@@ -1,0 +1,114 @@
+<p class="h2 text-center">
+  Please enter or select the following information:
+</p>
+<div [formGroup]="detailFormGroup" class="pt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <label class="col-12">Description:
+          <span class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.goal.invalid, 'text-success': detailFormGroup.controls.goal.valid}">Required</span>
+        </label>
+        <div class="col-12">
+          <textarea id="goal" formControlName="goal" class="form-control" pInputTextArea [rows]="5" autoResize="autoResize" [ngbTooltip]="test"
+            triggers="manual" #t="ngbTooltip" (focus)="showTooltip(t)" (blur)="dismissTooltip(t)" container="body"></textarea>
+          <ng-template #test>Enter the User Story, or Stories, of the work being requested. Include as much detail as possible. For example,
+            what is the value proposition at a high level, the "so that" of the User Story.
+            <br/>
+            <button type="button" class="btn btn-secondary" (click)="showDetailHelp=!showDetailHelp">
+              Show More...
+            </button>
+          </ng-template>
+          <p-dialog [(visible)]="showDetailHelp" modal="true" header="Work Description Tips" dismissableMask="true" responsive="true"
+            width="450">
+            <ul>
+              <li>A good, detailed, high-level description of the request including a direct statement of the factual problem
+                or opportunity the work being requested will address. Again, as much detail as possible, including any waste
+                identified in the process that may be addressed.</li>
+              <li>Detailed information on the value calculation/value proposition for the work being requested should be included 
+                here, if needed. Include as much information on the impact of the work as possible. Include the calculation in hours 
+                resulting in dollars saved.</li>
+              <li>The overarching impact to the organization, include the impact to all stakeholders and the organization as
+                a whole.</li>
+            </ul>
+          </p-dialog>
+          <small *ngIf="!detailFormGroup.controls.goal.valid && !detailFormGroup.controls.goal.pristine" class="text-danger">
+            Description/goal is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-12">Describe the impact of not implementing this request. What risk does this present to the company?:
+          <span class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.NonImplementImpact.invalid, 'text-success': detailFormGroup.controls.NonImplementImpact.valid}">Required</span>
+        </label>
+        <div class="col-12">
+          <textarea id="NonImplementImpact" formControlName="NonImplementImpact" class="form-control" pInputTextAre [rows]="5" autoResize="autoResize"
+            pTooltip="Enter the potential impact(s) to RiverStone if this work is not completed. This could include regulatory fines, inability to conduct business in a particular state, security risks of data and infrastructure, contract term violations, etc."
+            tooltipEvent="focus"></textarea>
+          <small *ngIf="!detailFormGroup.controls.NonImplementImpact.valid && !detailFormGroup.controls.NonImplementImpact.pristine"
+            class="text-danger">This field is required</small>
+        </div>
+      </div>
+
+      <div class="form-group" pTooltip="Select a likelihood value: Very High indicates the impact(s) will definitely be realized. High indicates the impact(s) will likely be realized. Low indicates the impact(s) may be realized. Very Low indicates the impact(s) most likely will not be realized.">
+        <div class="row">
+          <label class="col-12">What is the likelihood that RiverStone will realize the potential impact of non-implementation?:
+            <span class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.RealizationOfImpact.invalid, 'text-success': detailFormGroup.controls.RealizationOfImpact.valid}">Required</span>
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p-dropdown [options]="impactValues" formControlName="RealizationOfImpact" placeholder="Please select one" [style]="{'margin-bottom': '.5rem', 'width':'12em' }"></p-dropdown>
+          </div>
+        </div>
+        <small *ngIf="!detailFormGroup.controls.RealizationOfImpact.valid && !detailFormGroup.controls.RealizationOfImpact.pristine"
+          class="text-danger">This field is required</small>
+      </div>
+
+
+      <div class="form-group" pTooltip="Enter the defined business value in dollars on an annual basis if the requested work were to be implemented.">
+        <div class="row">
+          <label class="col-12">What is the projected savings of implementing this work?:
+            <span class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.businessValueUnit.invalid || detailFormGroup.controls.businessValueAmount.invalid, 'text-success': detailFormGroup.controls.businessValueUnit.valid && detailFormGroup.controls.businessValueAmount.valid}">Required</span>
+          </label>
+        </div>
+        <div class="row" *ngIf="detailFormGroup.controls.businessValueUnit.valid">
+          <div class="col col-md-6 col-xl-4">
+              <input id="businessValueUnit" type="text" formControlName="businessValueAmount" class="form-control d-inline w-50" pInputText> Dollars per year
+          </div>
+        </div>
+        <div class="row" *ngIf="(detailFormGroup.controls.businessValueUnit.dirty || detailFormGroup.controls.businessValueAmount.dirty) && !detailFormGroup.controls.businessValueAmount.valid">
+          <div class="col">
+            <small *ngIf="detailFormGroup.controls.businessValueAmount.invalid && detailFormGroup.controls.businessValueAmount.dirty && detailFormGroup.controls.businessValueUnit.value === 1"
+              class="text-danger">Please provide a whole dollar amount</small>
+            <small *ngIf="detailFormGroup.controls.businessValueAmount.invalid && detailFormGroup.controls.businessValueAmount.dirty && detailFormGroup.controls.businessValueUnit.value === 2"
+              class="text-danger">Please enter hours, up to 2 decimal places. (For
+              <1 hour, use a leading 0. i.e. 0.12)</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Is the work being requested time sensitive? If yes, please provide the date the request needs to be completed by:
+          <span *ngIf="detailFormGroup.controls.RealizationOfImpact.value === 1" class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.requestedCompletionDate.invalid, 'text-success': detailFormGroup.controls.requestedCompletionDate.valid}">Required</span>
+          <span *ngIf="detailFormGroup.controls.RealizationOfImpact.value !== 1" class="font-weight-bold">Optional</span>
+        </label>
+        <div class="col-12">
+          <p-calendar formControlName="requestedCompletionDate" [showIcon]="true" pTooltip="If the work being requested is time sensitive, select the date of when the work must be completed by. For example, if there is a regulatory deadline that should be met, enter the date of the regulatory deadline. This date is used to determine how time sensitive the work being requested is. This is NOT a commitment to complete the work being requested by the date entered. The work being requested still needs to be prioritized with existing requests"
+            tooltipPosition="left"></p-calendar>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Conditions of Satisfaction:
+          <span class="font-weight-bold" [ngClass]="{'text-danger': detailFormGroup.controls.conditionsOfSatisfaction.invalid, 'text-success': detailFormGroup.controls.conditionsOfSatisfaction.valid}">Required</span>
+        </label>
+        <div class="col-12">
+          <textarea id="conditionsOfSatisfaction" formControlName="conditionsOfSatisfaction" class="form-control" pInputTextAre [rows]="5"
+            autoResize="autoResize" pTooltip="Enter the Conditions of Satisfaction (what success looks like) for the work being requested. For example, &quot;Given that a Claims Handler has added a BI Exposure, when s/he wants to record a Medicare Payment Type, then s/he will have the ability to indicate that on the third screen of the Payment Wizard in ClaimCenter.&quot; Or &quot;Given that quarter close figures are complete, when the figures are sent to the ODS, then Navision will automatically receive the new quarter close figures and display them under the correct Accounts within Navision.&quot;"
+            tooltipEvent="focus"></textarea>
+          <small *ngIf="!detailFormGroup.controls.conditionsOfSatisfaction.valid && !detailFormGroup.controls.conditionsOfSatisfaction.pristine"
+            class="text-danger">This field is required</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

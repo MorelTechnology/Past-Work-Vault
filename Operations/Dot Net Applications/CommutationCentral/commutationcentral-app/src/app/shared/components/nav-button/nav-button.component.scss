@@ -1,0 +1,30 @@
+.nav-btn {
+    height: calc(100% - 1.5rem);
+}
+
+.fa-responsive {
+    font-size: 15vw;
+    padding-top: 1vw;
+}
+
+@media(min-width: 576px) {
+    .fa-responsive {
+        font-size: 10vw;
+    }
+}
+
+@media(min-width: 768px) {
+    .fa-responsive {
+        font-size: 6vw;
+    }
+}
+
+@media(min-width: 992px) {
+    .fa-responsive {
+        font-size: 4vw;
+    }
+}
+
+.btn {
+    white-space: normal;
+}

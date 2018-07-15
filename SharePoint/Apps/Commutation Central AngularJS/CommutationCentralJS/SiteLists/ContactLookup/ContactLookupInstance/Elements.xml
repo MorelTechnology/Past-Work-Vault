@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Contact Lookup" OnQuickLaunch="TRUE" TemplateType="105" Url="Lists/Contact Lookup" Description="Listing of available contacts"></ListInstance>
+</Elements>

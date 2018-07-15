@@ -1,0 +1,277 @@
+<!-- Dialog to confirm when the director of product management wants to return a request to the initiator -->
+<p-dialog header="Are you sure?" [(visible)]="showReturnDialog" modal="true">
+  <p>
+    <i class="fa fa-question-circle"></i> Are you sure you want to return this request to the requestor?</p>
+  <label class="col-12">Please enter the reason for returning this request:</label>
+  <div class="col-12">
+    <textarea class="form-control" [(ngModel)]="returnReason" maxlength="350"></textarea>
+  </div>
+  <small>{{returnReason ? returnReason.length : 0}} / 350</small>
+  <p-footer>
+    <button type="button" class="btn btn-secondary" (click)="showReturnDialog = false">
+      <i class="fa fa-times"></i> Cancel
+    </button>
+    <button type="button" class="btn btn-success" (click)="returnRequest()" [disabled]="operationInProgress || !returnReason">
+      <i class="fa" [ngClass]="{'fa-check': !operationInProgress, 'fa-spin fa-circle-o-notch': operationInProgress}"></i> Confirm
+    </button>
+  </p-footer>
+</p-dialog>
+<!-- Dialog to confirm when the product owner or DoPM wants to deny a request -->
+<p-dialog header="Are you sure?" [(visible)]="showDenyDialog" modal="true">
+  <p>
+    <i class="fa fa-question-circle"></i> Are you sure you want to deny this request? After doing so, this request will be permanently closed for editing.
+  </p>
+  <label class="col-12">Please enter the reason for denying this request:</label>
+  <div class="col-12">
+    <textarea class="form-control" [(ngModel)]="denyReason"></textarea>
+  </div>
+  <p-footer>
+    <button type="button" class="btn btn-secondary" (click)="showDenyDialog = false">
+      <i class="fa fa-times"></i> Cancel
+    </button>
+    <button type="button" class="btn btn-success" (click)="denyRequest()" [disabled]="operationInProgress || !denyReason">
+      <i class="fa" [ngClass]="{'fa-check': !operationInProgress, 'fa-spin fa-circle-o-notch': operationInProgress}"></i> Confirm
+    </button>
+  </p-footer>
+</p-dialog>
+<!-- Dialog to confirm that the user wants to approve/send the request forward -->
+<p-confirmDialog></p-confirmDialog>
+<!-- Are to show a spinner when the work request hasn't loaded yet -->
+<section *ngIf="!workRequest && !pageError">
+  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i>
+</section>
+<form *ngIf="workRequestForm" [formGroup]="workRequestForm">
+  <section *ngIf="workRequest">
+    <p-panel [toggleable]="true">
+      <p-header>
+        <i class="fa fa-info-circle"></i> Summary
+      </p-header>
+      <div class="row">
+        <label class="col-5 col-sm-4 col-md-3">Request ID:</label>
+        <div class="col">{{workRequest.RequestID}}</div>
+      </div>
+      <div class="row">
+        <label class="col-5 col-sm-4 col-md-3">Status:</label>
+        <div class="col">{{workRequest.Status}}</div>
+      </div>
+      <div class="row">
+        <label class="col-5 col-sm-4 col-md-3">Requestor:</label>
+        <div class="col">{{workRequest.RequestorDisplayName}}</div>
+      </div>
+      <div class="form-group row">
+        <label class="col-5 col-sm-4 col-md-3">Product Owner:</label>
+        <div class="col">
+          <p-autoComplete formControlName="Manager" [suggestions]="productManagerSearchResults" (completeMethod)="searchProductManagers($event.query)"
+            field="displayName" forceSelection="true" [style]="{'width':'260px'}" emptyMessage="No results found" [autoHighlight]="true"
+            [dropdown]="true" (onSelect)="onDropdownSelect()" placeholder="Choose a Product Owner" appendTo="body">
+          </p-autoComplete>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-5 col-sm-4 col-md-3">Request Title:</label>
+        <!--<div class="col">{{workRequest.Title}}</div>-->
+        <div class="col">
+          <input id="title" type="text" formControlName="Title" class="form-control" pInputText placeholder="Request Title">
+        </div>
+      </div>
+    </p-panel>
+  </section>
+  <section *ngIf="workRequest" class="pt-3">
+    <p-panel [toggleable]="true">
+      <p-header>
+        <i class="fa fa-bar-chart"></i> Corporate Goal Alignment
+      </p-header>
+      <div class="form-group row">
+        <label class="col-12">Please select the RiverStone corporate goal or corporate objective this project supports: (check all that apply)
+          <a href="https://rivernet2n.trg.com/sites/Operations/Documents/CorporateGoals.pdf?Web=1" target="_blank" title="Click here to see a definition of the Corporate Goals">
+            <i class="fa fa-info-circle"></i>
+          </a>
+        </label>
+        <div *ngIf="!editMode">
+          <div class="col-12" *ngFor="let option of workRequestForm.controls['CorporateGoals'].value">
+            <p-checkbox [formControl]="workRequestForm.get('CorporateGoals')" [value]="option" [label]="option"></p-checkbox>
+          </div>
+        </div>
+        <div *ngIf="editMode">
+          <div class="col-12" *ngFor="let option of corporateGoalOptions">
+            <p-checkbox [formControl]="workRequestForm.get('CorporateGoals')" [value]="option" [label]="option"></p-checkbox>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Describe how this work will support meeting the corporate goal(s) or objective(s) you selected above:</label>
+        <div class="col-12">
+          <textarea formControlName="GoalSupport" class="form-control" pInputTextArea rows="5" autoResize="autoResize"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Does this project also support a department goal and/or objective?</label>
+        <div class="col-12">
+          <p-radioButton class="pr-3" name="SupportsDept" [value]="true" label="Yes" formControlName="SupportsDept"></p-radioButton>
+          <p-radioButton name="SupportsDept" [value]="false" label="No" formControlName="SupportsDept"></p-radioButton>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">If yes, please list the department and the specific goal and/or objective:</label>
+        <div class="col-12">
+          <textarea formControlName="DeptGoalSupport" class="form-control" pInputTextArea rows="5" autoResize="autoResize"></textarea>
+        </div>
+      </div>
+    </p-panel>
+  </section>
+  <section *ngIf="workRequest" class="pt-3">
+    <p-panel [toggleable]="true">
+      <p-header>
+        <i class="fa fa-th-list"></i> Details
+      </p-header>
+      <div class="form-group row">
+        <label class="col-12">Description:</label>
+        <div class="col-12">
+          <textarea formControlName="Goal" class="form-control" pInputTextArea rows="5" autoResize="autoResize"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-12">Describe the impact of not implementing this request. What risk does this present to the company?:</label>
+        <div class="col-12">
+          <textarea formControlName="NonImplementImpact" class="form-control" pInputTextArea rows="5" autoResize="autoResize"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-12">What is the likelihood that RiverStone will realize the potential impact of non-implementation?:</label>
+        <div class="col-12">
+          <p-dropdown [options]="impactValues" formControlName="RealizationOfImpact" [style]="{'margin-bottom': '.5rem', 'width':'12rem'}"></p-dropdown>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-12">What is the projected savings of implementing this work?:</label>
+        </div>
+        <div class="row" *ngIf="!editMode">
+          <div class="col-12">
+            <input type="text" class="form-control" readonly [value]="businessValueAmount">
+          </div>
+        </div>
+        <div *ngIf="editMode">
+          <div class="row" *ngIf="workRequestForm.controls['BusinessValueUnit'].valid">
+            <div class="col col-md-6 col-xl-4">
+              <input id="businessValueUnit" type="text" formControlName="BusinessValueAmount" class="form-control d-inline w-50" pInputText> Dollars per year
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Requested Completion Date:</label>
+        <div class="col-12">
+          <p-calendar formControlName="RequestedCompletionDate" [showIcon]="true"></p-calendar>
+        </div>
+        <!--<label class="col-12">{{workRequest.RequestedCompletionDate | date}}</label>-->
+      </div>
+      <div class="form-group row">
+        <label class="col-12">Conditions of Satisfaction:</label>
+        <div class="col-12">
+          <textarea formControlName="ConditionsOfSatisfaction" class="form-control" pInputTextArea rows="5" autoResize="autoResize"></textarea>
+        </div>
+      </div>
+    </p-panel>
+  </section>
+  <!-- Secton to render the back/send back/approve buttons -->
+  <section *ngIf="workRequest" class="pt-3">
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      <i class="fa fa-backward"></i> Go Back</button>
+    <!-- Show the Submit to Portfolio Manager button if the current user is the assigned product owner, and if the work request status is 1 -->
+    <span *ngIf="(currentUser.objectSid === workRequest.Manager || (!isProd && impersonateRole === 'Product Owner')) && currentWorkRequestStatus === 1">
+      <span *ngIf="!editMode">
+        <button type="button" class="btn btn-primary" (click)="toggleEdit(true)">
+          <i class="fa fa-pencil"></i> Edit
+        </button>
+        <button type="button" class="btn btn-danger" (click)="showDenyDialog = true">
+          <i class="fa fa-ban"></i> Deny
+        </button>
+        <button type="button" class="btn btn-danger" (click)="showReturnDialog = true">
+          <i class="fa fa-undo"></i> Return to Associate
+        </button>
+        <button type="button" class="btn btn-success" (click)="sendForward()">
+          <i class="fa fa-paper-plane"></i> Submit to Portfolio Manager</button>
+      </span>
+      <span *ngIf="editMode">
+        <button type="button" class="btn btn-secondary" (click)="toggleEdit(false)">
+          <i class="fa fa-times"></i> Cancel Edit
+        </button>
+        <button type="button" class="btn btn-success" (click)="submitEdit()" [disabled]="workRequestForm.invalid || operationInProgress">
+          <i class="fa" [ngClass]="{'fa-check': !operationInProgress, 'fa-circle-o-notch fa-spin': operationInProgress}"></i> Submit
+        </button>
+      </span>
+    </span>
+    <!-- Show the Approve button if the current user is the portfolio manager, and if the work request status is 2 -->
+    <span *ngIf="(currentUser.sAMAccountName === portfolioManager || (!isProd && impersonateRole === 'Portfolio Manager'))">
+      <span *ngIf="!editMode">
+        <span *ngIf="currentWorkRequestStatus === 2">
+          <button type="button" class="btn btn-primary" (click)="toggleEdit(true)">
+            <i class="fa fa-pencil"></i> Edit
+          </button>
+          <button type="button" class="btn btn-danger" (click)="showDenyDialog = true">
+            <i class="fa fa-ban"></i> Deny
+          </button>
+          <button type="button" class="btn btn-danger" (click)="showReturnDialog = true">
+            <i class="fa fa-undo"></i> Return to Associate
+          </button>
+          <button type="button" class="btn btn-success" (click)="sendForward()">
+            <i class="fa fa-thumbs-up"></i> Ready for Prioritization
+          </button>
+        </span>
+        <span *ngIf="currentWorkRequestStatus === 4">
+          <button type="button" class="btn btn-success" (click)="sendToDigitalStrategy()">
+            <i class="fa fa-laptop"></i> Submit to Digital Strategy
+          </button>
+        </span>
+        <span *ngIf="currentWorkRequestStatus === 8">
+          <button type="button" class="btn btn-danger" (click)="showDenyDialog = true">
+            <i class="fa fa-ban"></i> Deny
+          </button>
+          <button type="button" class="btn btn-success" (click)="readyForScheduling()">
+            <i class="fa fa-calendar"></i> Ready for Scheduling
+          </button>
+        </span>
+      </span>
+      <span *ngIf="editMode">
+        <button type="button" class="btn btn-secondary" (click)="toggleEdit(false)">
+          <i class="fa fa-times"></i> Cancel Edit
+        </button>
+        <button type="button" class="btn btn-success" (click)="submitEdit()" [disabled]="workRequestForm.invalid || operationInProgress">
+          <i class="fa" [ngClass]="{'fa-check': !operationInProgress, 'fa-circle-o-notch fa-spin': operationInProgress}"></i> Submit
+        </button>
+      </span>
+    </span>
+    <!-- Show the Edit button if the current user is the original requestor, and if the work request status is 3 -->
+    <span *ngIf="(currentUser.objectSid === workRequest.Requestor) && currentWorkRequestStatus === 3">
+      <span *ngIf="!editMode">
+        <button type="button" class="btn btn-primary" (click)="toggleEdit(true)">
+          <i class="fa fa-pencil"></i> Edit
+        </button>
+      </span>
+      <span *ngIf="editMode">
+        <button type="button" class="btn btn-secondary" (click)="toggleEdit(false)">
+          <i class="fa fa-times"></i> Cancel Edit
+        </button>
+        <button type="button" class="btn btn-success" (click)="submitEdit(true)" [disabled]="workRequestForm.invalid || operationInProgress">
+          <i class="fa" [ngClass]="{'fa-check': !operationInProgress, 'fa-circle-o-notch fa-spin': operationInProgress}"></i> Submit
+        </button>
+      </span>
+    </span>
+  </section>
+</form>
+<div class="row pt-3" *ngIf="!isProd">
+  <span class="col-12">
+    <label>Impersonate a role:</label>
+    <label class="bg-danger">&nbsp;This option is only available in non-prod environments</label>
+  </span>
+  <div class="col-6">
+    <select [(ngModel)]="impersonateRole" class="form-control">
+      <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+    </select>
+  </div>
+</div>

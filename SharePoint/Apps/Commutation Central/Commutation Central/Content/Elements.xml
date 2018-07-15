@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Content">
+    <File Path="Content\App.css" Url="Content/App.css" ReplaceContent="TRUE" />
+    <File Path="Content\img\jquery-te.png" Url="Content/img/jquery-te.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryTE\jquery-te.css" Url="Content/jQueryTE/jquery-te.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_flat_0_aaaaaa_40x100.png" Url="Content/jQueryUI/Images/ui-bg_flat_0_aaaaaa_40x100.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_flat_55_023d86_40x100.png" Url="Content/jQueryUI/Images/ui-bg_flat_55_023d86_40x100.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_flat_55_fbec88_40x100.png" Url="Content/jQueryUI/Images/ui-bg_flat_55_fbec88_40x100.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_flat_100_000000_40x100.png" Url="Content/jQueryUI/Images/ui-bg_flat_100_000000_40x100.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_glass_75_d0e5f5_1x400.png" Url="Content/jQueryUI/Images/ui-bg_glass_75_d0e5f5_1x400.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_glass_85_dfeffc_1x400.png" Url="Content/jQueryUI/Images/ui-bg_glass_85_dfeffc_1x400.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_glass_95_fef1ec_1x400.png" Url="Content/jQueryUI/Images/ui-bg_glass_95_fef1ec_1x400.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-bg_inset-hard_100_fcfdfd_1x100.png" Url="Content/jQueryUI/Images/ui-bg_inset-hard_100_fcfdfd_1x100.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_2e83ff_256x240.png" Url="Content/jQueryUI/Images/ui-icons_2e83ff_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_6da8d5_256x240.png" Url="Content/jQueryUI/Images/ui-icons_6da8d5_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_217bc0_256x240.png" Url="Content/jQueryUI/Images/ui-icons_217bc0_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_469bdd_256x240.png" Url="Content/jQueryUI/Images/ui-icons_469bdd_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_cd0a0a_256x240.png" Url="Content/jQueryUI/Images/ui-icons_cd0a0a_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_d8e7f3_256x240.png" Url="Content/jQueryUI/Images/ui-icons_d8e7f3_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\Images\ui-icons_ffffff_256x240.png" Url="Content/jQueryUI/Images/ui-icons_ffffff_256x240.png" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.min.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.min.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.structure.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.structure.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.structure.min.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.structure.min.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.theme.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.theme.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui.theme.min.css" Url="Content/jQueryUI/StyleSheets/jquery-ui.theme.min.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryUI\StyleSheets\jquery-ui-listpages.css" Url="Content/jQueryUI/StyleSheets/jquery-ui-listpages.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryValidation\cmxform.css" Url="Content/jQueryValidation/cmxform.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryValidation\cmxformTemplate.css" Url="Content/jQueryValidation/cmxformTemplate.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryValidation\core.css" Url="Content/jQueryValidation/core.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryValidation\reset.css" Url="Content/jQueryValidation/reset.css" ReplaceContent="TRUE" />
+    <File Path="Content\jQueryValidation\screen.css" Url="Content/jQueryValidation/screen.css" ReplaceContent="TRUE" />
+    <File Path="Content\ItemForm.css" Url="Content/ItemForm.css" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

@@ -1,0 +1,965 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/6/2017 2:34:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RKASU-LAP"
+  DTS:CreatorName="TRG\rkasu"
+  DTS:DTSID="{F6829A4D-A98C-4FE7-9068-E15E6D3E8DA8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PINSPolicyFTPGet"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{7F105AB8-BD61-4509-B8E4-55489699BD8E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5EC1ACB-1123-4292-BE65-972B5FE55A3F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPLocalArchiveFolder]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ManSan02\BatchDEV$\ETL\PINS\Policy\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34FBB090-DFB2-4791-92C4-4A0A79184359}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPLocalArchiveFolder] + Replace(Replace(Replace(Replace( @[User::FileName],&quot;.&quot;,&quot;_&quot;+Substring((DT_WSTR,50) GETDATE(),1,19)+&quot;.&quot;),&quot;-&quot;,&quot;&quot;),&quot;:&quot;,&quot;&quot;),&quot; &quot;,&quot;_&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ManSan02\BatchDEV$\ETL\PINS\Policy\Archive\EmptyName</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0866CE9A-4C3F-46AF-A20E-D3259FCF04E6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPLocalFolder] + @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveSource">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ManSan02\BatchDEV$\ETL\PINS\Policy\EmptyName</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74943286-0CC2-40B8-9E7F-C71578A5A8A9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">EmptyName</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09BC552D-0164-41F7-A1D2-E739B7432D58}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePattern">
+      <DTS:VariableValue
+        DTS:DataType="8">ODS_CEDENT_*.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{061FEBAC-85FD-4975-9815-60265773DFD5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPRemoteFolder]+ @[$Project::FTPFileMask]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPRemoteFullPath1">
+      <DTS:VariableValue
+        DTS:DataType="8">/US_Data_Transfer/DEV/ODS/ODS_POLICY_*</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2579013-AE36-46A8-830F-06034947089E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPRemoteFolder]  +  @[$Project::FTPFileMask_Cedent]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPRemoteFullPath2">
+      <DTS:VariableValue
+        DTS:DataType="8">/US_Data_Transfer/DEV/ODS/ODS_CEDENT_*</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12624F27-CECF-4370-9864-60865773E54A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPRemoteFolder]   +  @[$Project::FTPFileMask_Insured]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPRemoteFullPath3">
+      <DTS:VariableValue
+        DTS:DataType="8">/US_Data_Transfer/DEV/ODS/ODS_INSURED_*</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9991DB2-7987-4FAA-A049-2567640AFB2F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPServer]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPServerName">
+      <DTS:VariableValue
+        DTS:DataType="8">rsml.sharefileftp.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{970F323A-FE15-4CB2-AACA-15571DAE8C86}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPPassword]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPServerPassword">
+      <DTS:VariableValue
+        DTS:DataType="8">ShareWithUs1!</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20823B1B-78B7-40B1-9FF4-F6B237E18A95}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::FTPUserID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FTPServerUserName">
+      <DTS:VariableValue
+        DTS:DataType="8">ud463dfcd5</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Archive  Files"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5A6A3F16-31EB-40FD-985F-14B824583D2C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Archive  Files">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Archive  Files\Archive CEDENT Files"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{01cd42c0-34ad-4868-b5be-558a32168828}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive CEDENT Files">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{e41ad489-0b02-4488-87a8-9649531a3468}"
+            DTS:ObjectName="{3DCFC08F-C3DE-43C4-8F48-141610DBE23B}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Project::FTPLocalFolder]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Project::FTPFileMask_Cedent]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="\\ManSan02\BatchDEV$\ETL\PINS\Policy\" />
+                <FEFEProperty
+                  FileSpec="ODS_CEDENT_*" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Archive  Files\Archive CEDENT Files\Archive Cedent Files"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{433f645c-f976-4c09-8b6c-b0df0f6fca8c}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Archive Cedent Files"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::ArchiveSource"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchiveFullPath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{6FC99ACF-CB2F-4211-AD8B-591518643338}"
+              DTS:ObjectName="{6FC99ACF-CB2F-4211-AD8B-591518643338}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Archive  Files\Archive Insured Files"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{5132baed-df4d-4bad-8edb-12f8edf62a39}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive Insured Files">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{fa6cf3b4-1a5b-4286-be00-20311fc11bdf}"
+            DTS:ObjectName="{3DCFC08F-C3DE-43C4-8F48-141610DBE23B}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Project::FTPLocalFolder]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Project::FTPFileMask_Insured]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="\\ManSan02\BatchDEV$\ETL\PINS\Policy\" />
+                <FEFEProperty
+                  FileSpec="ODS_INSURED_*" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Archive  Files\Archive Insured Files\Archive Insured Files"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{47df7922-7c51-468c-81ab-f52ccd00ef68}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Archive Insured Files"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::ArchiveSource"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchiveFullPath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5B37DAC1-625D-4424-831E-D77EA0B2C6BF}"
+              DTS:ObjectName="{5B37DAC1-625D-4424-831E-D77EA0B2C6BF}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Archive  Files\Archive Policy Files"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{E6630CDC-3159-46B4-8C6A-4D29FF052B1B}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive Policy Files">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{3DCFC08F-C3DE-43C4-8F48-141610DBE23B}"
+            DTS:ObjectName="{3DCFC08F-C3DE-43C4-8F48-141610DBE23B}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Project::FTPLocalFolder]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Project::FTPFileMask]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="\\ManSan02\BatchDEV$\ETL\PINS\Policy\" />
+                <FEFEProperty
+                  FileSpec="ODS_POLICY_*" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Archive  Files\Archive Policy Files\Archive Policy Files"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{59073BC2-26A0-4936-86F1-019726D6257E}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Archive Policy Files"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::ArchiveSource"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchiveFullPath"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{7EA7EA31-C9DD-4EE5-9CB5-56B2B0B5020F}"
+              DTS:ObjectName="{7EA7EA31-C9DD-4EE5-9CB5-56B2B0B5020F}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Archive  Files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6895B37B-8834-44AE-86D1-80B4431DC7FC}"
+          DTS:From="Package\SEQ - Archive  Files\Archive Policy Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ - Archive  Files\Archive CEDENT Files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Archive  Files.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0EAA5827-1EBD-4790-BD22-39FF5E5E8496}"
+          DTS:From="Package\SEQ - Archive  Files\Archive CEDENT Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ - Archive  Files\Archive Insured Files" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ FTP Get Files"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9BFFDD1A-73C2-4899-82F8-AED36A0906F0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:ForceExecutionResult="0"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQ FTP Get Files">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ FTP Get Files\FTP Get Cedent Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Task"
+          DTS:DTSID="{72FD9918-E58E-4DCA-9359-4E9E4AAFFAFF}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="FTP Get Cedent Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="Receive"
+              TaskIsLocalPathVar="True"
+              TaskLocalPath="$Project::FTPLocalFolder"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath2" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ FTP Get Files\FTP Get Insured Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Task"
+          DTS:DTSID="{DF6C3116-429D-43B7-AD8D-0F967F9ADC21}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="FTP Get Insured Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="Receive"
+              TaskIsLocalPathVar="True"
+              TaskLocalPath="$Project::FTPLocalFolder"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath3" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ FTP Get Files\FTP Get Policy Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Task"
+          DTS:DTSID="{345CC2B0-3AC6-4409-8A1C-9BB419FD8959}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="FTP Get Policy Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEQ FTP Get Files\FTP Get Policy Files.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{6A090EAF-C68C-453A-97FE-4B1AF55EABFA}"
+              DTS:EventID="288394316"
+              DTS:EventName="OnError"
+              DTS:ForceExecutionResult="0"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{6D22B228-CFBE-4ED3-BE9D-2BC9E0981C0D}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="Receive"
+              TaskIsLocalPathVar="True"
+              TaskLocalPath="$Project::FTPLocalFolder"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ FTP Get Files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B0EDBB5A-E4CA-4283-B283-9AF95B3B953A}"
+          DTS:From="Package\SEQ FTP Get Files\FTP Get Policy Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ FTP Get Files\FTP Get Cedent Files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ FTP Get Files.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{320FFBD0-DCB3-4D95-943C-7D0124A9F1DE}"
+          DTS:From="Package\SEQ FTP Get Files\FTP Get Cedent Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ FTP Get Files\FTP Get Insured Files" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{1EC5C4F5-663F-49F2-B45D-4D223724E208}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\FTP Delete Remote  Policy Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Delete Remote Files"
+          DTS:DTSID="{C6BEFCCC-4C1E-445E-87C1-44668AF498D1}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP Delete Remote  Policy Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="DeleteRemote"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\FTP Delete Remote Cedent Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Delete Remote Files"
+          DTS:DTSID="{43919cbf-e8b8-4b00-abbc-d98cde5e8091}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP Delete Remote Cedent Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="DeleteRemote"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath2" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\FTP Delete Remote Insured Files"
+          DTS:CreationName="Microsoft.FtpTask"
+          DTS:Description="FTP Delete Remote Files"
+          DTS:DTSID="{8e4e9130-66ad-45bc-8daa-bafbfe141604}"
+          DTS:ExecutableType="Microsoft.FtpTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FTP Delete Remote Insured Files"
+          DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2014; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FtpData
+              ConnectionName="{F63D927B-C57D-4E28-97AC-5186D7BAD3A7}"
+              TaskOperationType="DeleteRemote"
+              TaskIsRemotePathVar="True"
+              TaskRemotePath="User::FTPRemoteFullPath3" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{80EBF865-ACB5-4A31-B106-02DB7E1C401D}"
+          DTS:From="Package\Sequence Container\FTP Delete Remote  Policy Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\FTP Delete Remote Cedent Files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{050E5D58-5E48-4AAA-8B2B-49D27EBF3A82}"
+          DTS:From="Package\Sequence Container\FTP Delete Remote Cedent Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\FTP Delete Remote Insured Files" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0DB4D48-0C0B-4DA2-8BD2-75DCF72FB39E}"
+      DTS:From="Package\SEQ FTP Get Files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ - Archive  Files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B10BAF4D-0558-493E-9A13-DC6F59ACE4B0}"
+      DTS:From="Package\SEQ - Archive  Files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{55BFF025-B839-44D1-BF4A-00FFFFB6040F}"
+      DTS:EventID="688428044"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{6DA5B96B-43C1-4B44-B5F0-8E021AB0BCA9}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\PINS Policy FTP  Failure Email"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7b6458e1-3e39-47ac-9117-5a13d38359b2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PINS Policy FTP  Failure Email"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC msdb.dbo.sp_send_dbmail @recipients = '"  + @[$Project::PolicyEmailRecipients]  +"',  
+   @body = 'PINS Policy FTP  Process was failed . This is an auto generated email. Please do not respond to this.' , 
+   @from_address = 'ITProductionSupport@trg.com', 
+   @subject = 'PINS Policy FTP  Process Failure Notification'"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5040733C-2F2D-4E1C-B2C1-26355F1E68C9}"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail @recipients = 'roja_kasula@trg.com',  &#xA;   @body = 'PINS Policy FTP  Process was failed . This is an auto generated email. Please do not respond to this.' , &#xA;   @from_address = 'ITProductionSupport@trg.com', &#xA;   @subject = 'PINS Policy FTP  Process Failure Notification'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{BAC7BAA8-D6A5-44FC-B8DC-10FD45160F84}"
+      DTS:EventID="288394316"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{9FA6EDF2-BA4F-4813-9A31-7425D0D5E1AB}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\PINS Policy FTP  Success  Email"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{54e43363-9614-404a-bdd1-28fb1477b523}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PINS Policy FTP  Success  Email"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC msdb.dbo.sp_send_dbmail @recipients = '"  + @[$Project::PolicyEmailRecipients]  +"',  
+   @body = 'PINS Policy FTP  Process was Successful .  This is an auto generated email. Please do not respond to this' , 
+   @from_address = 'ITProductionSupport@trg.com', 
+   @subject = 'PINS Policy FTP  Process Success Notification'"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5040733C-2F2D-4E1C-B2C1-26355F1E68C9}"
+              SQLTask:SqlStatementSource="EXEC msdb.dbo.sp_send_dbmail @recipients = 'roja_kasula@trg.com',  &#xA;   @body = 'PINS Policy FTP  Process was Successful .  This is an auto generated email. Please do not respond to this' , &#xA;   @from_address = 'ITProductionSupport@trg.com', &#xA;   @subject = 'PINS Policy FTP  Process Success Notification'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SEQ - Archive  Files\Archive CEDENT Files\Archive Cedent Files"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="187,103"
+          Size="187,146"
+          Id="Package\SEQ - Archive  Files\Archive CEDENT Files"
+          TopLeft="7.00000000000004,211.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SEQ - Archive  Files\Archive Insured Files\Archive Insured Files"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="190,103"
+          Size="190,146"
+          Id="Package\SEQ - Archive  Files\Archive Insured Files"
+          TopLeft="5.50000000000007,417.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SEQ - Archive  Files\Archive Policy Files\Archive Policy Files"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="181,103"
+          Size="181,146"
+          Id="Package\SEQ - Archive  Files\Archive Policy Files"
+          TopLeft="10,5.5" />
+        <EdgeLayout
+          Id="Package\SEQ - Archive  Files.PrecedenceConstraints[Constraint]"
+          TopLeft="100.5,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Archive  Files.PrecedenceConstraints[Constraint 1]"
+          TopLeft="100.5,357.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="201,619"
+          Size="201,662"
+          Id="Package\SEQ - Archive  Files"
+          TopLeft="54.0000000000001,415.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SEQ FTP Get Files\FTP Get Cedent Files"
+          TopLeft="7.00000000000003,107.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\SEQ FTP Get Files\FTP Get Insured Files"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SEQ FTP Get Files\FTP Get Policy Files"
+          TopLeft="10,5.5" />
+        <EdgeLayout
+          Id="Package\SEQ FTP Get Files.PrecedenceConstraints[Constraint]"
+          TopLeft="96.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ FTP Get Files.PrecedenceConstraints[Constraint 1]"
+          TopLeft="96.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="193,307"
+          Size="193,350"
+          Id="Package\SEQ FTP Get Files"
+          TopLeft="58.0000000000001,5.5" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Sequence Container\FTP Delete Remote  Policy Files"
+          TopLeft="8.50000000000001,5.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Sequence Container\FTP Delete Remote Cedent Files"
+          TopLeft="7.00000000000003,107.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Sequence Container\FTP Delete Remote Insured Files"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="123,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="123,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="246,307"
+          Size="246,350"
+          Id="Package\Sequence Container"
+          TopLeft="31.5000000000002,1137.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="154.5,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="154.5,1077.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="222,42"
+          Id="Package.EventHandlers[OnError]\PINS Policy FTP  Failure Email"
+          TopLeft="338,203" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="231,42"
+          Id="Package.EventHandlers[OnPostExecute]\PINS Policy FTP  Success  Email"
+          TopLeft="321,166" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

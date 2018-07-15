@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Claim Center Authorization Limit Reports", "Claim Center Authorization Limit Reports.rptproj", "{9B4C4E30-296A-4346-8118-6F69DD8A0187}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Claim\u0020Center\u0020Authorization\u0020Limit\u0020Reports.rptproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Debug|Default.ActiveCfg = Debug
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Debug|Default.Build.0 = Debug
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Debug|Default.Deploy.0 = Debug
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.DebugLocal|Default.Build.0 = DebugLocal
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Release|Default.ActiveCfg = Release
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Release|Default.Build.0 = Release
+		{9B4C4E30-296A-4346-8118-6F69DD8A0187}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="MasterPage" Url="_catalogs/masterpage">
+    <File Path="MasterPage\RivernetTeamSite.master" Url="RivernetTeamSite.master" Type="GhostableInLibrary" IgnoreIfAlreadyExists="True">
+      <Property Name="UIVersion" Value="15"/>
+      <Property Name="ContentTypeId" Value="0x010105"/>
+    </File>
+    <File Path="MasterPage\RivernetTeamSite.preview" Url="RivernetTeamSite.preview" Type="GhostableInLibrary" IgnoreIfAlreadyExists="true">
+      <Property Name="UIVersion" Value="15"/>
+      <Property Name="ContentTypeId" Value="0x010105"/>
+    </File>
+  </Module>
+</Elements>

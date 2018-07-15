@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Deal Priority Lookup" OnQuickLaunch="TRUE" TemplateType="10005" Url="Lists/Deal Priority Lookup" Description="Deal Priority Lookup">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Title">Low</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Title">Medium</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Title">High</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

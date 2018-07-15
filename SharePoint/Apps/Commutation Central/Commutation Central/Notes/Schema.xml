@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Notes" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Notes" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100e3d9c53295fe43239b3312741f905665" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" Name="Project" /><FieldRef ID="{b620dde8-0221-4c98-99dd-7e81aaa541ba}" Name="EntryType" /><FieldRef ID="{8ac83724-8c69-4d5b-a452-8495755faa3f}" Name="Content1" /><FieldRef ID="{c2265eae-d6fe-42fd-a5e6-ab69ef64c36c}" Name="EntryDate" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" Name="Project" DisplayName="Project" Type="Lookup" Required="TRUE" Group="Custom Site Columns" List="Lists/Projects" ShowField="Title" RelationshipDeleteBehavior="Cascade" Indexed="TRUE"></Field><Field Name="EntryType" ID="{b620dde8-0221-4c98-99dd-7e81aaa541ba}" DisplayName="Entry Type" Type="Lookup" Required="TRUE" List="Lists/Note Entry Type Lookup" ShowField="Title" RelationshipDeleteBehavior="Restrict" Indexed="TRUE" /><Field Name="Content1" ID="{8ac83724-8c69-4d5b-a452-8495755faa3f}" DisplayName="Content" Type="Note" Required="TRUE" NumLines="6" RichText="TRUE" RichTextMode="FullHtml" /><Field Name="EntryDate" ID="{c2265eae-d6fe-42fd-a5e6-ab69ef64c36c}" DisplayName="Entry Date" Type="DateTime" Required="TRUE" Format="DateOnly" /></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="Project" /><FieldRef Name="EntryType" /><FieldRef Name="Content1" /><FieldRef Name="EntryDate" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <!--<Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="DisplayForm" Url="DispForm.aspx" Path="EditItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+      <!--<Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="EditForm" Url="EditForm.aspx" Path="EditItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+      <!--<Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="NewForm" Url="NewForm.aspx" Path="NewItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+    </Forms>
+  </MetaData>
+</List>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Sapiens Cash Receipt Import", "Sapiens Cash Receipt Import\Sapiens Cash Receipt Import.dtproj", "{C8DF5D1A-5CAC-4FF9-8E80-E71CABE3D50D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sapiens\u0020Cash\u0020Receipt\u0020Import\\Sapiens\u0020Cash\u0020Receipt\u0020Import.dtproj
+		SccProjectName1 = Sapiens\u0020Cash\u0020Receipt\u0020Import
+		SccLocalPath1 = Sapiens\u0020Cash\u0020Receipt\u0020Import
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8DF5D1A-5CAC-4FF9-8E80-E71CABE3D50D}.Development|Default.ActiveCfg = Development
+		{C8DF5D1A-5CAC-4FF9-8E80-E71CABE3D50D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

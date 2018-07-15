@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6dff2be2-efab-47d8-88a4-8046265ab7b4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://qanetsp01/GWBCS/Guidewire.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Guidewire.xsd" MetadataType="Schema" ID="5da907a6-6865-4a8f-b6d2-5c73499688b0" SourceId="1" SourceUrl="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd2" />
+    <MetadataFile FileName="Guidewire1.xsd" MetadataType="Schema" ID="10c9d2f1-a4e1-4769-907f-a6b940f0254d" SourceId="1" SourceUrl="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd1" />
+    <MetadataFile FileName="Guidewire2.xsd" MetadataType="Schema" ID="e71b620f-cc44-4096-b3cc-cee01a4e68c2" SourceId="1" SourceUrl="http://qanetsp01/GWBCS/Guidewire.svc?xsd=xsd0" />
+    <MetadataFile FileName="GuidewireService.wsdl" MetadataType="Wsdl" ID="cf6dc049-9900-4d7f-92d2-7a505f5d528f" SourceId="1" SourceUrl="http://qanetsp01/GWBCS/Guidewire.svc?wsdl" />
+    <MetadataFile FileName="Guidewire.disco" MetadataType="Disco" ID="6b6d47a1-2990-4781-b4a7-6e92de2b2aa0" SourceId="1" SourceUrl="http://qanetsp01/GWBCS/Guidewire.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="LitigationManagementWebParts.LitigationMatterSummary.LitigationMatterSummary, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Litigation Matter Summary</property>
+        <property name="Description" type="string">This Webpart will display the a summary of the current matter site, from properties set during the provisioning process.  Sites linked to ClaimCenter will show a read-only display, while non-linked sites will offer a property editor.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Commutation Status Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Commutation Status Lookup" Description="Provides a list of available commutation statuses">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="CommutationStatusName">New</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="CommutationStatusName">Reconciling</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="CommutationStatusName">Negotiating</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="CommutationStatusName">Closing</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="CommutationStatusName">Completed</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="CommutationStatusName">Dropped</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="CommutationStatusName">Offer Received</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="CommutationStatusName">Investigating</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

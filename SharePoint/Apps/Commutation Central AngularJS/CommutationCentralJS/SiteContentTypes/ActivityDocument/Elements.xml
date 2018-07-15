@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x010008DD58691A864D73907EE222820B20DF" Name="Activity Document" Group="Custom Content Types" Description="Activity Document content type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{3d440f81-9b8e-4444-aaa1-bc370c449dd6}" DisplayName="Activity" Required="True" Name="Activity" />
+      <FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

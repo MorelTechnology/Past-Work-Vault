@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1153bbc5-f35c-40ce-bd1e-30fe235ae3fd}"
+       Name="FairfaxEntity"
+       DisplayName="Fairfax Entity"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" List="Lists/Fairfax Entities in Scope Lookup" ShowField="Title">
+  </Field>
+</Elements>

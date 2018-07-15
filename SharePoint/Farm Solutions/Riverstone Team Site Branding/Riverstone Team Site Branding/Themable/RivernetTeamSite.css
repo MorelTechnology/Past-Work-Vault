@@ -1,0 +1,226 @@
+﻿#s4-titlerow{
+	height: auto;
+}
+.RivernetTopNav {
+	background-color:#023D86;
+	width:100%;
+	padding: 0px 0px 0px 0px;
+	border-bottom: medium black solid;
+}
+.SubTopNav{
+	padding: 0px 0px 0px 0px;
+	width: 100%;
+	text-align: center;
+	border-bottom: medium black solid;
+    border-top: medium black solid;
+	background-color: #CCC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#CCC));
+	background: -moz-linear-gradient(top, #ffffff, #CCC);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=gainsboro);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=gainsboro)";
+    margin-top: 10px;
+}
+.RivernetTopNav ul.static{
+	white-space:nowrap;
+}
+.SubTopNav ul.static{
+	white-space:nowrap;
+}
+.RivernetTopNav li.static > .menu-item{
+	/* [ReplaceColor(themeColor:"Dark2")] */ font-size: medium;
+	color: #FFFFFF !important;
+	white-space: nowrap;
+	padding: 4px 10px;
+	display: inline-block;
+	height: 15px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #023D86;
+	border-right: 2px black solid;
+	font-weight: bold;
+	margin-right: 0px;
+}
+.SubTopNav li.static > .menu-item{
+	/* [ReplaceColor(themeColor:"Dark2")] */ font-size: medium;
+	color: #000;
+	white-space: nowrap;
+	padding: 4px 10px;
+	display: inline-block;
+	height: 15px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	border-right: 2px black solid;
+	margin-right: 0px;
+}
+.RivernetTopNav li.static:first-child > .menu-item{
+	border-left: 2px black solid;
+}
+.SubTopNav li.static:first-child > .menu-item{
+	border-left: 2px black solid;
+}
+.RivernetTopNav li.static > .menu-item:hover{
+	background-color: black;
+}
+.SubTopNav li.static > .menu-item:hover{
+	background-color: black;
+	color: white;
+}
+.RivernetTopNav li.static.selected > .menu-item:hover{
+	background-color: black;
+}
+.RivernetTopNav li.static.selected > .menu-item{
+	background-color:black;
+}
+.SubTopNav li.static.selected > .menu-item{
+	background-color: black;
+	color: white;
+}
+.RivernetTopNav li.static.selected > a{
+	color:white;
+}
+.RivernetTopNav ul.dynamic{
+	background-image:none;
+	border-top: 0px #ccc solid; border-right: 1px transparent solid;
+	border-bottom: 1px #ccc solid; border-left: 1px #ccc solid;
+	margin: 0px; padding: 0px;
+	width: auto !important;
+}
+.SubTopNav ul.dynamic{
+	/* [ReplaceColor(themeColor:"Light2")] */ /*background-color:white;*/
+	/* [ReplaceColor(themeColor:"Dark2-Lighter")] */ /*border:1px solid #D9D9D9;*/
+	background-image:none;
+	border-top: 0px #ccc solid; border-right: 1px transparent solid;
+	border-bottom: 1px #ccc solid; border-left: 1px #ccc solid;
+	margin: 0px; padding: 0px;
+	width: auto !important;
+}
+.RivernetTopNav li.dynamic{
+	background-image: none;
+	border-top: 1px #ccc solid; border-right: 1px #ccc solid;
+	border-bottom: 1px #fff solid; border-left: 1px #fff solid;
+	display: block;
+	white-space: nowrap;
+}
+.SubTopNav li.dynamic{
+	background-image: none;
+	border-top: 1px #ccc solid; border-right: 1px #ccc solid;
+	border-bottom: 1px #fff solid; border-left: 1px #fff solid;
+	display: block;
+	white-space: nowrap;
+}
+.RivernetTopNav li.dynamic > .menu-item{
+	padding: 7px 10px;
+	color: #333;
+	font-size: 1.1em;
+	background-color: #f7f7f7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7));
+	background: -moz-linear-gradient(top, #ffffff, #f7f7f7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7)";
+	text-align: left;
+}
+.SubTopNav li.dynamic > .menu-item{
+	padding: 7px 10px;
+	color: #333;
+	font-size: 1.1em;
+	background-color: #f7f7f7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7));
+	background: -moz-linear-gradient(top, #ffffff, #f7f7f7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7)";
+	text-align: left;
+}
+.RivernetTopNav li.dynamic > a:hover{
+	color: white;
+	background-color: #023D86;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#023D86)); 
+	background: -moz-linear-gradient(top, #ffffff, #023D86); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86); 
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86)"
+}
+.SubTopNav li.dynamic > a:hover{
+	color: white;
+	background-color: #023D86;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#023D86)); 
+	background: -moz-linear-gradient(top, #ffffff, #023D86); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86); 
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86)"
+}
+.RivernetTopNav li.static > a:hover
+{
+	text-decoration: underline;
+	background-color: black;
+	color: white;
+}
+.SubTopNav li.static > a:hover
+{
+	text-decoration: underline;
+	background-color: black;
+	color: white;
+}
+.RivernetTopNav a.selected{
+	/* [ReplaceColor(themeColor:"Accent1-Medium")] */ border-color:#91cdf2;
+	/* [ReplaceColor(themeColor:"Accent1-Lighter")] */ border-bottom-color:#addbf7;
+	/* [ReplaceColor(themeColor:"Accent1-Lightest")] */ border-top-color:#c6e5f8;
+	/* [RecolorImage(themeColor:"Light1")] */ background:url("/_layouts/images/selbg.png") repeat-x left top;
+	/* [ReplaceColor(themeColor:"Accent1",themeTint:"0.35")] */ background-color:#ccebff;
+	/* [ReplaceColor(themeColor:"Accent1",themeShade:"0.20")] */ color:#003759;
+	padding:4px 5px;
+	margin:0px 0px;
+    margin-left: 0px;
+}
+.RivernetTopNav a.selected:hover{
+	/* [ReplaceColor(themeColor:"Dark2")] */ color:#003759;
+}
+.RivernetQuickLaunch ul.root > li > .menu-item{
+	background: #023D86;
+	color: #FFFFFF;
+	border-top: thin #CCC solid;
+}
+/*.RivernetQuickLaunch ul.root ul > li.dynamic > a{
+	padding: 7px 10px;
+	color: #333;
+	font-size: 1.1em;
+	background-color: #f7f7f7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7));
+	background: -moz-linear-gradient(top, #ffffff, #f7f7f7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f7f7f7)";
+	border-top: 1px #ccc solid; border-right: 1px #ccc solid;
+	border-bottom: 1px #ccc solid; border-left: 1px #ccc solid;
+}
+.RivernetQuickLaunch ul.root ul > li.dynamic > a:hover{
+	color: black;
+	background-color: #023D86;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#023D86)); 
+	background: -moz-linear-gradient(top, #ffffff, #023D86); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86); 
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#023D86)"
+}*/
+.RivernetQuickLaunch ul.root > li.static > .menu-item.selected{
+	background-color: black;
+	border-color: #91cdf2 !important;
+	border-top-color: #c6e5f8 !important;
+	border-width: 1px !important;
+	color: white !important;
+}
+.RivernetQuickLaunch ul.root ul > li.static > .menu-item.selected{
+	background-color: black;
+	border-color: #91cdf2 !important;
+	border-top-color: #c6e5f8 !important;
+	border-width: 1px !important;
+	color: white !important;
+}
+.ms-navresizeractive-sideNavBox{
+	overflow-x: visible !important;
+}
+/*.ms-webpart-titleText{
+	color: #FFFFFF;
+	background-color: #023D86;
+	font-weight: bold;
+}
+.ms-webpart-titleText a, .ms-webpart-titleText.ms-webpart-titleText{
+	color:white;
+	font-weight:bold
+}*/

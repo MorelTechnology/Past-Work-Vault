@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Activities" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Activities" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+
+
+      <ContentType ID="0x0100f6c34b4c09ea453eb15251f857d87da9" Name="ListFieldsContentType">
+        <FieldRefs>
+          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
+          <FieldRef ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" Name="Project" />
+          <FieldRef ID="{223a23ed-36bf-411e-a0e9-ce0721245ebd}" Name="ActivityCategory" />
+          <FieldRef ID="{205488e6-dd0b-4ce7-85e0-1544c74a95ed}" Name="EntryDate" />
+          <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo" />
+          <FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" />
+          <FieldRef ID="{f1ae2718-be63-4b09-8ec8-456538c06d21}" Name="ActivityStatus" />
+          <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="TaskDueDate" />
+          <FieldRef ID="{70dee07e-52b5-42b6-8445-3b25bbfb5fd2}" Name="ActivityStatusChangeDate" />
+          <FieldRef ID="{74439927-d6e1-4529-8433-b9dbcd4b7afc}" Name="ActivityDroppedReason" />
+          <FieldRef ID="{f223562e-71d0-45fe-9be3-4d1597c1907a}" Name="InitialDueDate" />
+        </FieldRefs>
+      </ContentType>
+      <ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef>
+      <ContentTypeRef ID="0x0120" />
+    </ContentTypes>
+    <Fields>
+
+      <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Description" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
+      <Field ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" Name="Project" DisplayName="Project" Type="Lookup" Required="TRUE" Group="Custom Site Columns" List="Lists/Projects" ShowField="Title" RelationshipDeleteBehavior="Cascade" Indexed="TRUE"></Field>
+      <Field Name="ActivityCategory" ID="{223a23ed-36bf-411e-a0e9-ce0721245ebd}" DisplayName="Activity Category" Type="Lookup" Required="TRUE" List="Lists/Activity Category Lookup" ShowField="Title" RelationshipDeleteBehavior="Restrict" Indexed="TRUE" />
+      <Field Name="EntryDate" ID="{205488e6-dd0b-4ce7-85e0-1544c74a95ed}" DisplayName="Entry Date" Type="DateTime" Required="TRUE" Format="DateOnly" />
+      <Field ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="AssignedTo" Group="$Resources:core,Issue_Task_Columns;" Type="User" List="UserInfo" DisplayName="$Resources:core,Assigned_To;" Required="TRUE" />
+      <Field ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Priority" Group="$Resources:core,Issue_Task_Columns;" Type="Choice" DisplayName="$Resources:core,Priority;">
+        <CHOICES>
+          <CHOICE>Low</CHOICE>
+          <CHOICE>Medium</CHOICE>
+          <CHOICE>High</CHOICE>
+        </CHOICES>
+        <Default>Low</Default>
+      </Field>
+      <Field Name="ActivityStatus" ID="{f1ae2718-be63-4b09-8ec8-456538c06d21}" DisplayName="Activity Status" Type="Choice">
+        <CHOICES>
+          <CHOICE>Active</CHOICE>
+          <CHOICE>Dropped</CHOICE>
+          <CHOICE>Completed</CHOICE>
+        </CHOICES>
+        <Default>Active</Default>
+      </Field>
+      <Field ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="TaskDueDate" Group="$Resources:core,Issue_Task_Columns;" Type="DateTime" DisplayName="$Resources:core,Due_Date;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="TaskDueDate" Format="DateOnly" />
+      <Field Name="ActivityStatusChangeDate" ID="{70dee07e-52b5-42b6-8445-3b25bbfb5fd2}" DisplayName="Activity Status Change Date" Type="DateTime" Format="DateOnly" />
+      <Field Name="ActivityDroppedReason" ID="{74439927-d6e1-4529-8433-b9dbcd4b7afc}" DisplayName="Activity Dropped Reason" Type="Lookup" List="Lists/Activity Dropped Reason Lookup" ShowField="Title" RelationshipDeleteBehavior="Restrict" Indexed="TRUE" />
+      <Field Name="InitialDueDate" ID="{f223562e-71d0-45fe-9be3-4d1597c1907a}" DisplayName="Initial Due Date" Type="DateTime" Format="DateOnly" />
+    </Fields>
+    <Views>
+
+
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+
+          <FieldRef Name="LinkTitleNoMenu"></FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+
+            <FieldRef Name="Modified" Ascending="FALSE"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+
+          <FieldRef Name="LinkTitle"></FieldRef>
+          <FieldRef Name="Project" />
+          <FieldRef Name="ActivityCategory" />
+          <FieldRef Name="EntryDate" />
+          <FieldRef Name="AssignedTo" />
+          <FieldRef Name="Priority" />
+          <FieldRef Name="ActivityStatus" />
+          <FieldRef Name="TaskDueDate" />
+          <FieldRef Name="ActivityStatusChangeDate" />
+          <FieldRef Name="ActivityDroppedReason" />
+          <FieldRef Name="InitialDueDate" />
+        </ViewFields>
+        <Query>
+          <OrderBy>
+
+            <FieldRef Name="ID"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <!--<Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="DisplayForm" Url="DispForm.aspx" Path="EditItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+      <!--<Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="EditForm" Url="EditForm.aspx" Path="EditItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+      <!--<Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />-->
+      <Form Type="NewForm" Url="NewForm.aspx" Path="NewItem.aspx" WebPartZoneID="Main" UseLegacyForm="TRUE"/>
+    </Forms>
+  </MetaData>
+</List>

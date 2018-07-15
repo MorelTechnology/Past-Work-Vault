@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{b3c96db9-1dab-43f9-a405-7a4f9a78f527}"
+       Name="Submit"
+       DisplayName="Submit"
+       Type="OutcomeChoice"
+       Required="FALSE"
+       Group="Riverstone Columns">
+    <CHOICES>
+      <CHOICE>Submit</CHOICE>
+    </CHOICES>
+    <Default>Submit</Default>
+  </Field>
+</Elements>

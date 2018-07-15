@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F561753-A3AC-49A3-A231-1DE677D754E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpsConsole</RootNamespace>
+    <AssemblyName>OpsConsoleTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\MANSAN02\SHARE%24\Information Technology\Production Support\ClickOnce\OpsConsoleTest\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\MANSAN02\SHARE%24\Information Technology\Production Support\ClickOnce\OpsConsoleTest\</InstallUrl>
+    <ProductName>OPS Console Prod</ProductName>
+    <PublisherName>Riverstone Resources, LLC</PublisherName>
+    <ApplicationRevision>128</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon5 - Copy.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>412D8681C2A919E4B118483B77696C2CD741D65D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>OpsConsole_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugProd|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugProd\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PROD</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugDev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugDev\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEV</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>libraries\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="RSSEDLL">
+      <HintPath>\\mansan02\dcode\fdrive\RSSE\RSSEDLL\RSSEDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin2.xaml.cs">
+      <DependentUpon>Admin2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin2ResourceAndOrTicket.xaml.cs">
+      <DependentUpon>Admin2ResourceAndOrTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AGAssociates.xaml.cs">
+      <DependentUpon>AGAssociates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="APHold.xaml.cs">
+      <DependentUpon>APHold.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="APVendorMap.xaml.cs">
+      <DependentUpon>APVendorMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorityGuidelines.xaml.cs">
+      <DependentUpon>AuthorityGuidelines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutomatedReminderEdit.xaml.cs">
+      <DependentUpon>AutomatedReminderEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutomatedReminders.xaml.cs">
+      <DependentUpon>AutomatedReminders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutomatedSDTicket.xaml.cs">
+      <DependentUpon>AutomatedSDTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonUI.cs" />
+    <Compile Include="GenericTableEdit.xaml.cs">
+      <DependentUpon>GenericTableEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="graph.xaml.cs">
+      <DependentUpon>graph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NavisionDemo.xaml.cs">
+      <DependentUpon>NavisionDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NAVServiceControl.xaml.cs">
+      <DependentUpon>NAVServiceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentSearchFilter.xaml.cs">
+      <DependentUpon>PaymentSearchFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcePlanning.xaml.cs">
+      <DependentUpon>ResourcePlanning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcePlanningProject.xaml.cs">
+      <DependentUpon>ResourcePlanningProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcePlanningProjectResource.xaml.cs">
+      <DependentUpon>ResourcePlanningProjectResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcePlanningResource.xaml.cs">
+      <DependentUpon>ResourcePlanningResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RSSEMigrate.xaml.cs">
+      <DependentUpon>RSSEMigrate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RSSEServerView.xaml.cs">
+      <DependentUpon>RSSEServerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionMail.xaml.cs">
+      <DependentUpon>schedActionMail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionReport.xaml.cs">
+      <DependentUpon>schedActionReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionRSSE.xaml.cs">
+      <DependentUpon>schedActionRSSE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionSelector.xaml.cs">
+      <DependentUpon>schedActionSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionSSIS.xaml.cs">
+      <DependentUpon>schedActionSSIS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedActionTicket.xaml.cs">
+      <DependentUpon>schedActionTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedFilterDate.xaml.cs">
+      <DependentUpon>schedFilterDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedFilterDayOfMonth.xaml.cs">
+      <DependentUpon>schedFilterDayOfMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedFilterDOW.xaml.cs">
+      <DependentUpon>schedFilterDOW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedFilterMonth.xaml.cs">
+      <DependentUpon>schedFilterMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedFilterTime.xaml.cs">
+      <DependentUpon>schedFilterTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="schedSelectFrequency.xaml.cs">
+      <DependentUpon>schedSelectFrequency.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptEngine.cs" />
+    <Compile Include="SDTicket.cs" />
+    <Compile Include="ServiceCatalog.xaml.cs">
+      <DependentUpon>ServiceCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceCatalogGroupEdit.xaml.cs">
+      <DependentUpon>ServiceCatalogGroupEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceCatalogItemEdit.xaml.cs">
+      <DependentUpon>ServiceCatalogItemEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceCatalogTaskEdit.xaml.cs">
+      <DependentUpon>ServiceCatalogTaskEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SSISsearch.xaml.cs">
+      <DependentUpon>SSISsearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="STARS.xaml.cs">
+      <DependentUpon>STARS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SwitchUser.xaml.cs">
+      <DependentUpon>SwitchUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTracker.xaml.cs">
+      <DependentUpon>TimeTracker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WOCO.xaml.cs">
+      <DependentUpon>WOCO.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin2ResourceAndOrTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AGAssociates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="APHold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="APVendorMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthorityGuidelines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutomatedReminderEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutomatedReminders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AutomatedSDTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FunctionGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GenericTableEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="graph.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditData.xaml.cs">
+      <DependentUpon>EditData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionGroup.xaml.cs">
+      <DependentUpon>FunctionGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NavisionDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NAVServiceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaymentSearchFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourcePlanning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourcePlanningProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourcePlanningProjectResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourcePlanningResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RSSEMigrate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RSSEServerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionMail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionRSSE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionSSIS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedActionTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedFilterDate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedFilterDayOfMonth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedFilterDOW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedFilterMonth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedFilterTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schedSelectFrequency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceCatalogGroupEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceCatalogItemEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceCatalogTaskEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SSISsearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="STARS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SwitchUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeTracker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WOCO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OpsConsole_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\DataHaven2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\AuthorityGuidelines.png" />
+    <Resource Include="images\DataHaven.png" />
+    <Resource Include="images\IT1.png" />
+    <Resource Include="images\Navision.png" />
+    <Resource Include="images\RiverstoneLogoTransparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\AuthorityGuidelines2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\dba1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Icon2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Icon5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon5 - Copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\RSSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libraries\RSSEDLL.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\SampleSpreadsheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\please wait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Executables\WinDiff.Exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="images\RiverStone-Logo-AllBlack-White-small.png" />
+    <Resource Include="images\search1.png" />
+    <Resource Include="images\OperationsLogo4.png" />
+    <Resource Include="images\OperationsLogo7.png" />
+    <Resource Include="images\error-big.png" />
+    <Resource Include="images\error.png" />
+    <Resource Include="images\expand2.png" />
+    <Resource Include="images\collapse2.png" />
+    <Resource Include="images\expand.png" />
+    <Resource Include="images\collapse.png" />
+    <Resource Include="images\excel.png" />
+    <Resource Include="images\RiverstoneLogoTransparent2.png" />
+    <Resource Include="images\header_bg.gif" />
+    <Resource Include="images\Pay-button-on-keyboard.jpg" />
+    <Resource Include="images\BIU.png" />
+    <Resource Include="images\beaker.png" />
+    <Resource Include="images\blocks.png" />
+    <Resource Include="images\building.png" />
+    <Resource Include="images\cloud.png" />
+    <Resource Include="images\disk.png" />
+    <Resource Include="images\document.png" />
+    <Resource Include="images\earth.png" />
+    <Resource Include="images\envelope.png" />
+    <Resource Include="images\gavel.png" />
+    <Resource Include="images\graph.png" />
+    <Resource Include="images\key.png" />
+    <Resource Include="images\migrate.png" />
+    <Resource Include="images\modem.png" />
+    <Resource Include="images\pencil.png" />
+    <Resource Include="images\people.png" />
+    <Resource Include="images\phone.png" />
+    <Resource Include="images\question.png" />
+    <Resource Include="images\sharepoint.png" />
+    <Resource Include="images\shield.png" />
+    <Resource Include="images\wifi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

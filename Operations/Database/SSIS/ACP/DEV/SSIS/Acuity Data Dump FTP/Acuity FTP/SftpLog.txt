@@ -1,0 +1,678 @@
+. 2017-01-23 14:35:02.062 --------------------------------------------------------------------------
+. 2017-01-23 14:35:02.064 WinSCP Version 5.9.2 (Build 6958) (OS 6.1.7601 Service Pack 1 - Windows 7 Professional)
+. 2017-01-23 14:35:02.070 Configuration: \\appprod1\batch$\Executables\WinSCP576\WinSCP.ini
+. 2017-01-23 14:35:02.071 Log level: Normal
+. 2017-01-23 14:35:02.072 Local account: TRG\bbelt
+. 2017-01-23 14:35:02.074 Working directory: C:\Windows\system32
+. 2017-01-23 14:35:02.075 Process ID: 6624
+. 2017-01-23 14:35:02.076 Command-line: "\\appprod1\batch$\Executables\WinSCP576\WinSCP.exe" /console=592 /consoleinstance=_13884_562 "-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters.txt" "/parameter" "qa_riverstone" "Gat1aihoop" "sftp.trialnet.com" "\\mansan02\batchdev$\Acuity\DataDumpIn\" "/log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" 
+. 2017-01-23 14:35:02.077 Time zone: Current: GMT-5, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 03/12/2017, DST End: 11/05/2017
+. 2017-01-23 14:35:02.078 Login time: January 23, 2017 2:35:02 PM
+. 2017-01-23 14:35:02.079 --------------------------------------------------------------------------
+. 2017-01-23 14:35:02.082 Script: Retrospectively logging previous script records:
+> 2017-01-23 14:35:02.082 Script: option batch off 
+< 2017-01-23 14:35:02.083 Script: batch           off       
+> 2017-01-23 14:35:02.085 Script: option confirm off 
+< 2017-01-23 14:35:02.086 Script: confirm         off       
+> 2017-01-23 14:35:02.087 Script: open sftp://qa_riverstone:***@sftp.trialnet.com -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+. 2017-01-23 14:35:02.088 --------------------------------------------------------------------------
+. 2017-01-23 14:35:02.089 Session name: qa_riverstone@sftp.trialnet.com (Ad-Hoc site)
+. 2017-01-23 14:35:02.090 Host name: sftp.trialnet.com (Port: 22)
+. 2017-01-23 14:35:02.092 User name: qa_riverstone (Password: Yes, Key file: No)
+. 2017-01-23 14:35:02.093 Tunnel: No
+. 2017-01-23 14:35:02.093 Transfer Protocol: SFTP
+. 2017-01-23 14:35:02.094 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2017-01-23 14:35:02.095 Disable Nagle: No
+. 2017-01-23 14:35:02.096 Proxy: None
+. 2017-01-23 14:35:02.097 Send buffer: 262144
+. 2017-01-23 14:35:02.098 SSH protocol version: 2; Compression: No
+. 2017-01-23 14:35:02.099 Bypass authentication: No
+. 2017-01-23 14:35:02.100 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2017-01-23 14:35:02.101 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2017-01-23 14:35:02.102 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2017-01-23 14:35:02.103 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2017-01-23 14:35:02.104 Simple channel: Yes
+. 2017-01-23 14:35:02.105 Return code variable: Autodetect; Lookup user groups: Auto
+. 2017-01-23 14:35:02.106 Shell: default
+. 2017-01-23 14:35:02.108 EOL: LF, UTF: Auto
+. 2017-01-23 14:35:02.109 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2017-01-23 14:35:02.110 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2017-01-23 14:35:02.111 SFTP Bugs: Auto,Auto
+. 2017-01-23 14:35:02.112 SFTP Server: default
+. 2017-01-23 14:35:02.113 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2017-01-23 14:35:02.114 Cache directory changes: Yes, Permanent: Yes
+. 2017-01-23 14:35:02.115 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2017-01-23 14:35:02.117 DST mode: Unix
+. 2017-01-23 14:35:02.118 --------------------------------------------------------------------------
+. 2017-01-23 14:35:02.120 Looking up host "sftp.trialnet.com" for SSH connection
+. 2017-01-23 14:35:02.127 Connecting to 209.10.76.49 port 22
+. 2017-01-23 14:35:02.145 We claim version: SSH-2.0-WinSCP_release_5.9.2
+. 2017-01-23 14:35:02.166 Server version: SSH-2.0-OpenSSH_5.3
+. 2017-01-23 14:35:02.167 We believe remote version has SSH-2 channel request bug
+. 2017-01-23 14:35:02.169 Using SSH protocol version 2
+. 2017-01-23 14:35:02.187 Have a known host key of type rsa2
+. 2017-01-23 14:35:02.216 Doing Diffie-Hellman group exchange
+. 2017-01-23 14:35:02.236 Doing Diffie-Hellman key exchange with hash SHA-256
+. 2017-01-23 14:35:02.798 Server also has ssh-dss host key, but we don't know it
+. 2017-01-23 14:35:02.799 Host key fingerprint is:
+. 2017-01-23 14:35:02.800 ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-23 14:35:02.802 Verifying host key rsa2 0x23,0xdc2075f00b51f5fe 4737c2f63664fca4 fdf368c1417d8864 84db8e8cfabd2994 49a85fabde8fbe0d b6a47710afc67e4e 730c634947a9e193 40493a6c5bfcb8b2 ce17988e08150d01 00b516e7b0d0daa2 a3fc0cebd4fbadd5 25777443c0b6cad1 77634afcf9d61657 71a6d65387f0a9ce 31d39de582950eee 66b4a26319f24805  with fingerprint ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-23 14:35:02.808 Host key matches configured key
+. 2017-01-23 14:35:02.817 Initialised AES-256 SDCTR client->server encryption
+. 2017-01-23 14:35:02.818 Initialised HMAC-SHA-256 client->server MAC algorithm
+. 2017-01-23 14:35:02.819 Initialised AES-256 SDCTR server->client encryption
+. 2017-01-23 14:35:02.820 Initialised HMAC-SHA-256 server->client MAC algorithm
+! 2017-01-23 14:35:02.894 Using username "qa_riverstone".
+. 2017-01-23 14:35:02.914 Server offered these authentication methods: publickey,password
+. 2017-01-23 14:35:02.915 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2017-01-23 14:35:02.916 Using stored password.
+. 2017-01-23 14:35:02.918 Sent password
+. 2017-01-23 14:35:02.936 Access granted
+. 2017-01-23 14:35:02.937 Opening session as main channel
+. 2017-01-23 14:35:02.955 Opened main channel
+. 2017-01-23 14:35:03.031 Started a shell/command
+. 2017-01-23 14:35:03.032 --------------------------------------------------------------------------
+. 2017-01-23 14:35:03.034 Using SFTP protocol.
+. 2017-01-23 14:35:03.042 Doing startup conversation with host.
+> 2017-01-23 14:35:03.043 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2017-01-23 14:35:03.061 Type: SSH_FXP_VERSION, Size: 95, Number: -1
+. 2017-01-23 14:35:03.062 SFTP version 3 negotiated.
+. 2017-01-23 14:35:03.064 Unknown server extension posix-rename@openssh.com="1"
+. 2017-01-23 14:35:03.065 Supports statvfs@openssh.com extension version "2"
+. 2017-01-23 14:35:03.066 Unknown server extension fstatvfs@openssh.com="2"
+. 2017-01-23 14:35:03.067 We believe the server has signed timestamps bug
+. 2017-01-23 14:35:03.068 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2017-01-23 14:35:03.069 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2017-01-23 14:35:03.070 Getting current directory name.
+. 2017-01-23 14:35:03.072 Getting real path for '.'
+> 2017-01-23 14:35:03.073 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2017-01-23 14:35:03.091 Type: SSH_FXP_NAME, Size: 55, Number: 16
+. 2017-01-23 14:35:03.092 Real path is '/qa/qa_riverstone'
+. 2017-01-23 14:35:03.093 Startup conversation with host finished.
+< 2017-01-23 14:35:03.095 Script: Active session: [1] qa_riverstone@sftp.trialnet.com
+> 2017-01-23 14:35:03.096 Script: option transfer binary
+< 2017-01-23 14:35:03.097 Script: transfer        binary    
+> 2017-01-23 14:35:03.098 Script: get -latest *.zip \\mansan02\batchdev$\Acuity\DataDumpIn\
+. 2017-01-23 14:35:03.100 Listing directory "/qa/qa_riverstone".
+> 2017-01-23 14:35:03.101 Type: SSH_FXP_OPENDIR, Size: 26, Number: 267
+< 2017-01-23 14:35:03.119 Type: SSH_FXP_HANDLE, Size: 13, Number: 267
+> 2017-01-23 14:35:03.121 Type: SSH_FXP_READDIR, Size: 13, Number: 524
+< 2017-01-23 14:35:03.140 Type: SSH_FXP_NAME, Size: 1875, Number: 524
+> 2017-01-23 14:35:03.141 Type: SSH_FXP_READDIR, Size: 13, Number: 780
+< 2017-01-23 14:35:03.160 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2017-01-23 14:35:03.161 Status code: 1
+> 2017-01-23 14:35:03.162 Type: SSH_FXP_CLOSE, Size: 13, Number: 1028
+. 2017-01-23 14:35:03.164 Acuity_SSIS.zip;-;18747;2017-01-23T15:35:19.000Z;3;"5034" [5034];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.165 LMS_20150519.txt;-;336;2015-05-21T19:06:16.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.166 AcuityOut;d;0;2015-05-21T19:09:35.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-23 14:35:03.167 ..;d;0;2016-11-29T13:40:21.000Z;3;"0" [0];"5001" [5001];rwxrwsr-x;0
+. 2017-01-23 14:35:03.168 Visibillity_Extracts;d;0;2012-07-10T20:58:29.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-23 14:35:03.169 data_dump_01092017125243.zip;-;246913765;2017-01-09T17:58:00.000Z;3;"5034" [5034];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.170 .;d;0;2017-01-23T19:30:16.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-23 14:35:03.171 data_dump_01042017160220.zip;-;246907901;2017-01-04T21:07:30.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.172 LMS_20160526_050000382.txt;-;508;2016-06-09T18:31:39.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.175 masstort_invoice_details.out.zip;-;37538160;2015-05-22T19:40:08.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.179 claims_invoice_details.out.zip;-;10982877;2015-05-22T19:39:56.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:03.184 RiverStone_Extracts;d;0;2012-04-24T14:14:08.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-23 14:35:03.185 AcuityIn;d;0;2016-12-27T19:57:00.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-23 14:35:03.186 LMS_20140916_115958311.txt;-;72738;2014-09-17T11:37:11.000Z;3;"5034" [5034];"5001" [5001];rwxrwxr--;0
+. 2017-01-23 14:35:03.188 Copying 1 files/directories to local directory "\\mansan02\batchdev$\Acuity\DataDumpIn\"
+. 2017-01-23 14:35:03.188   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2017-01-23 14:35:03.189   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2017-01-23 14:35:03.190   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2017-01-23 14:35:03.192 File: '/qa/qa_riverstone/Acuity_SSIS.zip' [2017-01-23T15:35:19.000Z] [18747]
+. 2017-01-23 14:35:03.193 Copying "/qa/qa_riverstone/Acuity_SSIS.zip" to local directory started.
+. 2017-01-23 14:35:03.194 Binary transfer mode selected.
+. 2017-01-23 14:35:03.196 Opening remote file.
+> 2017-01-23 14:35:03.197 Type: SSH_FXP_OPEN, Size: 50, Number: 1283
+< 2017-01-23 14:35:03.198 Type: SSH_FXP_STATUS, Size: 24, Number: 1028
+. 2017-01-23 14:35:03.199 Discarding reserved response
+< 2017-01-23 14:35:03.215 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2017-01-23 14:35:03.216 Type: SSH_FXP_FSTAT, Size: 13, Number: 1544
+< 2017-01-23 14:35:03.236 Type: SSH_FXP_ATTRS, Size: 37, Number: 1544
+> 2017-01-23 14:35:03.239 Type: SSH_FXP_READ, Size: 25, Number: 1797
+< 2017-01-23 14:35:03.295 Status code: 1
+. 2017-01-23 14:35:03.296 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2017-01-23 14:35:03.298 Type: SSH_FXP_CLOSE, Size: 13, Number: 2308
+. 2017-01-23 14:35:03.299 Preserving timestamp [2017-01-23T15:35:19.000Z]
+. 2017-01-23 14:35:03.301 Transfer done: '/qa/qa_riverstone/Acuity_SSIS.zip' [18747]
+> 2017-01-23 14:35:03.303 Script: exit
+. 2017-01-23 14:35:03.304 Script: Exit code: 0
+. 2017-01-23 14:35:03.305 Closing connection.
+. 2017-01-23 14:35:03.306 Sending special code: 12
+. 2017-01-23 14:35:03.307 Sent EOF message
+. 2017-01-23 14:35:04.650 --------------------------------------------------------------------------
+. 2017-01-23 14:35:04.653 WinSCP Version 5.9.2 (Build 6958) (OS 6.1.7601 Service Pack 1 - Windows 7 Professional)
+. 2017-01-23 14:35:04.664 Configuration: \\appprod1\batch$\Executables\WinSCP576\WinSCP.ini
+. 2017-01-23 14:35:04.668 Log level: Normal
+. 2017-01-23 14:35:04.669 Local account: TRG\bbelt
+. 2017-01-23 14:35:04.670 Working directory: C:\Windows\system32
+. 2017-01-23 14:35:04.671 Process ID: 628
+. 2017-01-23 14:35:04.673 Command-line: "\\appprod1\batch$\Executables\WinSCP576\WinSCP.exe" /console=592 /consoleinstance=_13888_344 "-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters_Delete.txt" "/parameter" "qa_riverstone" "Gat1aihoop" "sftp.trialnet.com" "Acuity_SSIS.zip" "/log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" 
+. 2017-01-23 14:35:04.674 Time zone: Current: GMT-5, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 03/12/2017, DST End: 11/05/2017
+. 2017-01-23 14:35:04.676 Login time: January 23, 2017 2:35:04 PM
+. 2017-01-23 14:35:04.677 --------------------------------------------------------------------------
+. 2017-01-23 14:35:04.678 Script: Retrospectively logging previous script records:
+> 2017-01-23 14:35:04.680 Script: option batch off 
+< 2017-01-23 14:35:04.682 Script: batch           off       
+> 2017-01-23 14:35:04.683 Script: option confirm off 
+< 2017-01-23 14:35:04.684 Script: confirm         off       
+> 2017-01-23 14:35:04.686 Script: open sftp://qa_riverstone:***@sftp.trialnet.com -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+. 2017-01-23 14:35:04.687 --------------------------------------------------------------------------
+. 2017-01-23 14:35:04.689 Session name: qa_riverstone@sftp.trialnet.com (Ad-Hoc site)
+. 2017-01-23 14:35:04.692 Host name: sftp.trialnet.com (Port: 22)
+. 2017-01-23 14:35:04.695 User name: qa_riverstone (Password: Yes, Key file: No)
+. 2017-01-23 14:35:04.696 Tunnel: No
+. 2017-01-23 14:35:04.697 Transfer Protocol: SFTP
+. 2017-01-23 14:35:04.698 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2017-01-23 14:35:04.699 Disable Nagle: No
+. 2017-01-23 14:35:04.700 Proxy: None
+. 2017-01-23 14:35:04.701 Send buffer: 262144
+. 2017-01-23 14:35:04.702 SSH protocol version: 2; Compression: No
+. 2017-01-23 14:35:04.703 Bypass authentication: No
+. 2017-01-23 14:35:04.705 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2017-01-23 14:35:04.706 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2017-01-23 14:35:04.707 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2017-01-23 14:35:04.708 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2017-01-23 14:35:04.709 Simple channel: Yes
+. 2017-01-23 14:35:04.710 Return code variable: Autodetect; Lookup user groups: Auto
+. 2017-01-23 14:35:04.711 Shell: default
+. 2017-01-23 14:35:04.712 EOL: LF, UTF: Auto
+. 2017-01-23 14:35:04.714 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2017-01-23 14:35:04.715 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2017-01-23 14:35:04.716 SFTP Bugs: Auto,Auto
+. 2017-01-23 14:35:04.717 SFTP Server: default
+. 2017-01-23 14:35:04.719 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2017-01-23 14:35:04.720 Cache directory changes: Yes, Permanent: Yes
+. 2017-01-23 14:35:04.721 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2017-01-23 14:35:04.722 DST mode: Unix
+. 2017-01-23 14:35:04.723 --------------------------------------------------------------------------
+. 2017-01-23 14:35:04.725 Looking up host "sftp.trialnet.com" for SSH connection
+. 2017-01-23 14:35:04.735 Connecting to 209.10.76.49 port 22
+. 2017-01-23 14:35:04.754 We claim version: SSH-2.0-WinSCP_release_5.9.2
+. 2017-01-23 14:35:04.776 Server version: SSH-2.0-OpenSSH_5.3
+. 2017-01-23 14:35:04.777 We believe remote version has SSH-2 channel request bug
+. 2017-01-23 14:35:04.778 Using SSH protocol version 2
+. 2017-01-23 14:35:04.830 Have a known host key of type rsa2
+. 2017-01-23 14:35:04.866 Doing Diffie-Hellman group exchange
+. 2017-01-23 14:35:04.887 Doing Diffie-Hellman key exchange with hash SHA-256
+. 2017-01-23 14:35:05.490 Server also has ssh-dss host key, but we don't know it
+. 2017-01-23 14:35:05.491 Host key fingerprint is:
+. 2017-01-23 14:35:05.492 ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-23 14:35:05.493 Verifying host key rsa2 0x23,0xdc2075f00b51f5fe 4737c2f63664fca4 fdf368c1417d8864 84db8e8cfabd2994 49a85fabde8fbe0d b6a47710afc67e4e 730c634947a9e193 40493a6c5bfcb8b2 ce17988e08150d01 00b516e7b0d0daa2 a3fc0cebd4fbadd5 25777443c0b6cad1 77634afcf9d61657 71a6d65387f0a9ce 31d39de582950eee 66b4a26319f24805  with fingerprint ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-23 14:35:05.508 Host key matches configured key
+. 2017-01-23 14:35:05.517 Initialised AES-256 SDCTR client->server encryption
+. 2017-01-23 14:35:05.518 Initialised HMAC-SHA-256 client->server MAC algorithm
+. 2017-01-23 14:35:05.519 Initialised AES-256 SDCTR server->client encryption
+. 2017-01-23 14:35:05.520 Initialised HMAC-SHA-256 server->client MAC algorithm
+! 2017-01-23 14:35:05.594 Using username "qa_riverstone".
+. 2017-01-23 14:35:05.614 Server offered these authentication methods: publickey,password
+. 2017-01-23 14:35:05.615 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2017-01-23 14:35:05.616 Using stored password.
+. 2017-01-23 14:35:05.617 Sent password
+. 2017-01-23 14:35:05.635 Access granted
+. 2017-01-23 14:35:05.637 Opening session as main channel
+. 2017-01-23 14:35:05.655 Opened main channel
+. 2017-01-23 14:35:05.730 Started a shell/command
+. 2017-01-23 14:35:05.731 --------------------------------------------------------------------------
+. 2017-01-23 14:35:05.732 Using SFTP protocol.
+. 2017-01-23 14:35:05.738 Doing startup conversation with host.
+> 2017-01-23 14:35:05.740 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2017-01-23 14:35:05.757 Type: SSH_FXP_VERSION, Size: 95, Number: -1
+. 2017-01-23 14:35:05.759 SFTP version 3 negotiated.
+. 2017-01-23 14:35:05.760 Unknown server extension posix-rename@openssh.com="1"
+. 2017-01-23 14:35:05.761 Supports statvfs@openssh.com extension version "2"
+. 2017-01-23 14:35:05.762 Unknown server extension fstatvfs@openssh.com="2"
+. 2017-01-23 14:35:05.763 We believe the server has signed timestamps bug
+. 2017-01-23 14:35:05.765 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2017-01-23 14:35:05.767 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2017-01-23 14:35:05.768 Getting current directory name.
+. 2017-01-23 14:35:05.770 Getting real path for '.'
+> 2017-01-23 14:35:05.771 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2017-01-23 14:35:05.789 Type: SSH_FXP_NAME, Size: 55, Number: 16
+. 2017-01-23 14:35:05.791 Real path is '/qa/qa_riverstone'
+. 2017-01-23 14:35:05.791 Startup conversation with host finished.
+< 2017-01-23 14:35:05.792 Script: Active session: [1] qa_riverstone@sftp.trialnet.com
+> 2017-01-23 14:35:05.794 Script: option transfer binary
+< 2017-01-23 14:35:05.795 Script: transfer        binary    
+> 2017-01-23 14:35:05.796 Script: rm Acuity_SSIS.zip 
+. 2017-01-23 14:35:05.797 Listing file "Acuity_SSIS.zip".
+> 2017-01-23 14:35:05.798 Type: SSH_FXP_LSTAT, Size: 42, Number: 263
+< 2017-01-23 14:35:05.816 Type: SSH_FXP_ATTRS, Size: 37, Number: 263
+. 2017-01-23 14:35:05.818 Acuity_SSIS.zip;-;18747;2017-01-23T15:35:19.000Z;3;"" [5034];"" [5001];rw-rw-r--;0
+. 2017-01-23 14:35:05.819 Deleting file "Acuity_SSIS.zip".
+> 2017-01-23 14:35:05.820 Type: SSH_FXP_REMOVE, Size: 42, Number: 525
+< 2017-01-23 14:35:05.839 Type: SSH_FXP_STATUS, Size: 24, Number: 525
+< 2017-01-23 14:35:05.840 Status code: 0
+< 2017-01-23 14:35:05.841 Script: Acuity_SSIS.zip
+> 2017-01-23 14:35:05.842 Script: exit
+. 2017-01-23 14:35:05.843 Script: Exit code: 0
+. 2017-01-23 14:35:05.844 Closing connection.
+. 2017-01-23 14:35:05.845 Sending special code: 12
+. 2017-01-23 14:35:05.846 Sent EOF message
+. 2017-01-30 11:34:19.272 --------------------------------------------------------------------------
+. 2017-01-30 11:34:19.272 WinSCP Version 5.9.2 (Build 6958) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2017-01-30 11:34:19.277 Configuration: \\appprod1\batch$\Executables\WinSCP576\WinSCP.ini
+. 2017-01-30 11:34:19.277 Log level: Normal
+. 2017-01-30 11:34:19.278 Local account: TRG\sqlEngineDev
+. 2017-01-30 11:34:19.278 Working directory: C:\Windows\system32
+. 2017-01-30 11:34:19.279 Process ID: 40824
+. 2017-01-30 11:34:19.280 Command-line: "\\appprod1\batch$\Executables\WinSCP576\WinSCP.exe" /console=592 /consoleinstance=_30688_971 "-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters.txt" "/parameter" "qa_riverstone" "Gat1aihoop" "sftp.trialnet.com" "\\mansan02\batchdev$\Acuity\DataDumpIn\" "/log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" 
+. 2017-01-30 11:34:19.280 Time zone: Current: GMT-5, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/12/2017, DST End: 11/5/2017
+. 2017-01-30 11:34:19.281 Login time: Monday, January 30, 2017 11:34:19 AM
+. 2017-01-30 11:34:19.281 --------------------------------------------------------------------------
+. 2017-01-30 11:34:19.282 Script: Retrospectively logging previous script records:
+> 2017-01-30 11:34:19.282 Script: option batch off 
+< 2017-01-30 11:34:19.283 Script: batch           off       
+> 2017-01-30 11:34:19.283 Script: option confirm off 
+< 2017-01-30 11:34:19.284 Script: confirm         off       
+> 2017-01-30 11:34:19.284 Script: open sftp://qa_riverstone:***@sftp.trialnet.com -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+. 2017-01-30 11:34:19.284 --------------------------------------------------------------------------
+. 2017-01-30 11:34:19.285 Session name: qa_riverstone@sftp.trialnet.com (Ad-Hoc site)
+. 2017-01-30 11:34:19.285 Host name: sftp.trialnet.com (Port: 22)
+. 2017-01-30 11:34:19.286 User name: qa_riverstone (Password: Yes, Key file: No)
+. 2017-01-30 11:34:19.286 Tunnel: No
+. 2017-01-30 11:34:19.286 Transfer Protocol: SFTP
+. 2017-01-30 11:34:19.287 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2017-01-30 11:34:19.287 Disable Nagle: No
+. 2017-01-30 11:34:19.287 Proxy: None
+. 2017-01-30 11:34:19.288 Send buffer: 262144
+. 2017-01-30 11:34:19.288 SSH protocol version: 2; Compression: No
+. 2017-01-30 11:34:19.288 Bypass authentication: No
+. 2017-01-30 11:34:19.289 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2017-01-30 11:34:19.290 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2017-01-30 11:34:19.291 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2017-01-30 11:34:19.292 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2017-01-30 11:34:19.293 Simple channel: Yes
+. 2017-01-30 11:34:19.294 Return code variable: Autodetect; Lookup user groups: Auto
+. 2017-01-30 11:34:19.294 Shell: default
+. 2017-01-30 11:34:19.295 EOL: LF, UTF: Auto
+. 2017-01-30 11:34:19.295 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2017-01-30 11:34:19.295 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2017-01-30 11:34:19.296 SFTP Bugs: Auto,Auto
+. 2017-01-30 11:34:19.296 SFTP Server: default
+. 2017-01-30 11:34:19.297 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2017-01-30 11:34:19.298 Cache directory changes: Yes, Permanent: Yes
+. 2017-01-30 11:34:19.298 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2017-01-30 11:34:19.298 DST mode: Unix
+. 2017-01-30 11:34:19.299 --------------------------------------------------------------------------
+. 2017-01-30 11:34:19.300 Looking up host "sftp.trialnet.com" for SSH connection
+. 2017-01-30 11:34:19.307 Connecting to 209.10.76.49 port 22
+. 2017-01-30 11:34:19.333 We claim version: SSH-2.0-WinSCP_release_5.9.2
+. 2017-01-30 11:34:19.425 Server version: SSH-2.0-OpenSSH_5.3
+. 2017-01-30 11:34:19.426 We believe remote version has SSH-2 channel request bug
+. 2017-01-30 11:34:19.427 Using SSH protocol version 2
+. 2017-01-30 11:34:19.440 Have a known host key of type rsa2
+. 2017-01-30 11:34:19.467 Doing Diffie-Hellman group exchange
+. 2017-01-30 11:34:19.486 Doing Diffie-Hellman key exchange with hash SHA-256
+. 2017-01-30 11:34:20.159 Server also has ssh-dss host key, but we don't know it
+. 2017-01-30 11:34:20.160 Host key fingerprint is:
+. 2017-01-30 11:34:20.160 ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 11:34:20.161 Verifying host key rsa2 0x23,0xdc2075f00b51f5fe 4737c2f63664fca4 fdf368c1417d8864 84db8e8cfabd2994 49a85fabde8fbe0d b6a47710afc67e4e 730c634947a9e193 40493a6c5bfcb8b2 ce17988e08150d01 00b516e7b0d0daa2 a3fc0cebd4fbadd5 25777443c0b6cad1 77634afcf9d61657 71a6d65387f0a9ce 31d39de582950eee 66b4a26319f24805  with fingerprint ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 11:34:20.164 Host key matches configured key
+. 2017-01-30 11:34:20.193 Initialised AES-256 SDCTR client->server encryption
+. 2017-01-30 11:34:20.193 Initialised HMAC-SHA-256 client->server MAC algorithm
+. 2017-01-30 11:34:20.194 Initialised AES-256 SDCTR server->client encryption
+. 2017-01-30 11:34:20.194 Initialised HMAC-SHA-256 server->client MAC algorithm
+! 2017-01-30 11:34:20.269 Using username "qa_riverstone".
+. 2017-01-30 11:34:20.288 Server offered these authentication methods: publickey,password
+. 2017-01-30 11:34:20.289 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2017-01-30 11:34:20.290 Using stored password.
+. 2017-01-30 11:34:20.291 Sent password
+. 2017-01-30 11:34:20.308 Access granted
+. 2017-01-30 11:34:20.309 Opening session as main channel
+. 2017-01-30 11:34:20.326 Opened main channel
+. 2017-01-30 11:34:20.400 Started a shell/command
+. 2017-01-30 11:34:20.401 --------------------------------------------------------------------------
+. 2017-01-30 11:34:20.403 Using SFTP protocol.
+. 2017-01-30 11:34:20.407 Doing startup conversation with host.
+> 2017-01-30 11:34:20.410 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2017-01-30 11:34:20.427 Type: SSH_FXP_VERSION, Size: 95, Number: -1
+. 2017-01-30 11:34:20.428 SFTP version 3 negotiated.
+. 2017-01-30 11:34:20.430 Unknown server extension posix-rename@openssh.com="1"
+. 2017-01-30 11:34:20.431 Supports statvfs@openssh.com extension version "2"
+. 2017-01-30 11:34:20.433 Unknown server extension fstatvfs@openssh.com="2"
+. 2017-01-30 11:34:20.435 We believe the server has signed timestamps bug
+. 2017-01-30 11:34:20.435 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2017-01-30 11:34:20.436 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2017-01-30 11:34:20.437 Getting current directory name.
+. 2017-01-30 11:34:20.438 Getting real path for '.'
+> 2017-01-30 11:34:20.438 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2017-01-30 11:34:20.455 Type: SSH_FXP_NAME, Size: 55, Number: 16
+. 2017-01-30 11:34:20.456 Real path is '/qa/qa_riverstone'
+. 2017-01-30 11:34:20.457 Startup conversation with host finished.
+< 2017-01-30 11:34:20.457 Script: Active session: [1] qa_riverstone@sftp.trialnet.com
+> 2017-01-30 11:34:20.458 Script: option transfer binary
+< 2017-01-30 11:34:20.459 Script: transfer        binary    
+> 2017-01-30 11:34:20.459 Script: get -latest *.zip \\mansan02\batchdev$\Acuity\DataDumpIn\
+. 2017-01-30 11:34:20.460 Listing directory "/qa/qa_riverstone".
+> 2017-01-30 11:34:20.461 Type: SSH_FXP_OPENDIR, Size: 26, Number: 267
+< 2017-01-30 11:34:20.478 Type: SSH_FXP_HANDLE, Size: 13, Number: 267
+> 2017-01-30 11:34:20.480 Type: SSH_FXP_READDIR, Size: 13, Number: 524
+< 2017-01-30 11:34:20.507 Type: SSH_FXP_NAME, Size: 1875, Number: 524
+> 2017-01-30 11:34:20.507 Type: SSH_FXP_READDIR, Size: 13, Number: 780
+< 2017-01-30 11:34:20.538 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2017-01-30 11:34:20.539 Status code: 1
+> 2017-01-30 11:34:20.539 Type: SSH_FXP_CLOSE, Size: 13, Number: 1028
+. 2017-01-30 11:34:20.540 Acuity_SSIS.zip;-;18747;2017-01-23T15:35:19.000Z;3;"5034" [5034];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.540 LMS_20150519.txt;-;336;2015-05-21T19:06:16.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.541 AcuityOut;d;0;2015-05-21T19:09:35.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 11:34:20.541 ..;d;0;2016-11-29T13:40:21.000Z;3;"0" [0];"5001" [5001];rwxrwsr-x;0
+. 2017-01-30 11:34:20.542 Visibillity_Extracts;d;0;2012-07-10T20:58:29.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 11:34:20.542 data_dump_01092017125243.zip;-;246913765;2017-01-09T17:58:00.000Z;3;"5034" [5034];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.543 .;d;0;2017-01-23T19:41:13.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 11:34:20.543 data_dump_01042017160220.zip;-;246907901;2017-01-04T21:07:30.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.543 LMS_20160526_050000382.txt;-;508;2016-06-09T18:31:39.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.544 masstort_invoice_details.out.zip;-;37538160;2015-05-22T19:40:08.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.544 claims_invoice_details.out.zip;-;10982877;2015-05-22T19:39:56.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 11:34:20.545 RiverStone_Extracts;d;0;2012-04-24T14:14:08.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 11:34:20.545 AcuityIn;d;0;2016-12-27T19:57:00.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 11:34:20.545 LMS_20140916_115958311.txt;-;72738;2014-09-17T11:37:11.000Z;3;"5034" [5034];"5001" [5001];rwxrwxr--;0
+. 2017-01-30 11:34:20.549 Copying 1 files/directories to local directory "\\mansan02\batchdev$\Acuity\DataDumpIn\"
+. 2017-01-30 11:34:20.549   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2017-01-30 11:34:20.550   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2017-01-30 11:34:20.551   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2017-01-30 11:34:20.552 File: '/qa/qa_riverstone/Acuity_SSIS.zip' [2017-01-23T15:35:19.000Z] [18747]
+. 2017-01-30 11:34:20.561 Copying "/qa/qa_riverstone/Acuity_SSIS.zip" to local directory started.
+. 2017-01-30 11:34:20.561 Binary transfer mode selected.
+. 2017-01-30 11:34:20.563 Opening remote file.
+> 2017-01-30 11:34:20.564 Type: SSH_FXP_OPEN, Size: 50, Number: 1283
+< 2017-01-30 11:34:20.565 Type: SSH_FXP_STATUS, Size: 24, Number: 1028
+. 2017-01-30 11:34:20.565 Discarding reserved response
+< 2017-01-30 11:34:20.582 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2017-01-30 11:34:20.584 Type: SSH_FXP_FSTAT, Size: 13, Number: 1544
+< 2017-01-30 11:34:20.603 Type: SSH_FXP_ATTRS, Size: 37, Number: 1544
+> 2017-01-30 11:34:20.628 Type: SSH_FXP_READ, Size: 25, Number: 1797
+< 2017-01-30 11:34:20.684 Status code: 1
+. 2017-01-30 11:34:20.684 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2017-01-30 11:34:20.685 Type: SSH_FXP_CLOSE, Size: 13, Number: 2308
+. 2017-01-30 11:34:20.686 Preserving timestamp [2017-01-23T15:35:19.000Z]
+. 2017-01-30 11:34:20.688 Transfer done: '/qa/qa_riverstone/Acuity_SSIS.zip' [18747]
+> 2017-01-30 11:34:20.689 Script: exit
+. 2017-01-30 11:34:20.689 Script: Exit code: 0
+. 2017-01-30 11:34:20.690 Closing connection.
+. 2017-01-30 11:34:20.691 Sending special code: 12
+. 2017-01-30 11:34:20.691 Sent EOF message
+. 2017-01-30 16:13:05.360 --------------------------------------------------------------------------
+. 2017-01-30 16:13:05.363 WinSCP Version 5.9.2 (Build 6958) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2017-01-30 16:13:05.370 Configuration: \\appprod1\batch$\Executables\WinSCP576\WinSCP.ini
+. 2017-01-30 16:13:05.372 Log level: Normal
+. 2017-01-30 16:13:05.374 Local account: TRG\sqlEngineDev
+. 2017-01-30 16:13:05.375 Working directory: C:\Windows\system32
+. 2017-01-30 16:13:05.376 Process ID: 17072
+. 2017-01-30 16:13:05.378 Command-line: "\\appprod1\batch$\Executables\WinSCP576\WinSCP.exe" /console=592 /consoleinstance=_40556_755 "-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters.txt" "/parameter" "qa_riverstone" "Gat1aihoop" "sftp.trialnet.com" "\\mansan02\batchdev$\Acuity\DataDumpIn\" "/log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" 
+. 2017-01-30 16:13:05.379 Time zone: Current: GMT-5, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/12/2017, DST End: 11/5/2017
+. 2017-01-30 16:13:05.380 Login time: Monday, January 30, 2017 4:13:05 PM
+. 2017-01-30 16:13:05.381 --------------------------------------------------------------------------
+. 2017-01-30 16:13:05.382 Script: Retrospectively logging previous script records:
+> 2017-01-30 16:13:05.383 Script: option batch off 
+< 2017-01-30 16:13:05.384 Script: batch           off       
+> 2017-01-30 16:13:05.385 Script: option confirm off 
+< 2017-01-30 16:13:05.386 Script: confirm         off       
+> 2017-01-30 16:13:05.389 Script: open sftp://qa_riverstone:***@sftp.trialnet.com -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+. 2017-01-30 16:13:05.390 --------------------------------------------------------------------------
+. 2017-01-30 16:13:05.392 Session name: qa_riverstone@sftp.trialnet.com (Ad-Hoc site)
+. 2017-01-30 16:13:05.393 Host name: sftp.trialnet.com (Port: 22)
+. 2017-01-30 16:13:05.393 User name: qa_riverstone (Password: Yes, Key file: No)
+. 2017-01-30 16:13:05.394 Tunnel: No
+. 2017-01-30 16:13:05.394 Transfer Protocol: SFTP
+. 2017-01-30 16:13:05.395 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2017-01-30 16:13:05.395 Disable Nagle: No
+. 2017-01-30 16:13:05.396 Proxy: None
+. 2017-01-30 16:13:05.397 Send buffer: 262144
+. 2017-01-30 16:13:05.397 SSH protocol version: 2; Compression: No
+. 2017-01-30 16:13:05.398 Bypass authentication: No
+. 2017-01-30 16:13:05.398 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2017-01-30 16:13:05.399 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2017-01-30 16:13:05.399 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2017-01-30 16:13:05.401 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2017-01-30 16:13:05.401 Simple channel: Yes
+. 2017-01-30 16:13:05.402 Return code variable: Autodetect; Lookup user groups: Auto
+. 2017-01-30 16:13:05.403 Shell: default
+. 2017-01-30 16:13:05.404 EOL: LF, UTF: Auto
+. 2017-01-30 16:13:05.404 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2017-01-30 16:13:05.406 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2017-01-30 16:13:05.407 SFTP Bugs: Auto,Auto
+. 2017-01-30 16:13:05.408 SFTP Server: default
+. 2017-01-30 16:13:05.411 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2017-01-30 16:13:05.412 Cache directory changes: Yes, Permanent: Yes
+. 2017-01-30 16:13:05.413 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2017-01-30 16:13:05.413 DST mode: Unix
+. 2017-01-30 16:13:05.414 --------------------------------------------------------------------------
+. 2017-01-30 16:13:05.416 Looking up host "sftp.trialnet.com" for SSH connection
+. 2017-01-30 16:13:05.423 Connecting to 209.10.76.49 port 22
+. 2017-01-30 16:13:05.446 We claim version: SSH-2.0-WinSCP_release_5.9.2
+. 2017-01-30 16:13:05.511 Server version: SSH-2.0-OpenSSH_5.3
+. 2017-01-30 16:13:05.511 We believe remote version has SSH-2 channel request bug
+. 2017-01-30 16:13:05.512 Using SSH protocol version 2
+. 2017-01-30 16:13:05.528 Have a known host key of type rsa2
+. 2017-01-30 16:13:05.552 Doing Diffie-Hellman group exchange
+. 2017-01-30 16:13:05.572 Doing Diffie-Hellman key exchange with hash SHA-256
+. 2017-01-30 16:13:06.236 Server also has ssh-dss host key, but we don't know it
+. 2017-01-30 16:13:06.237 Host key fingerprint is:
+. 2017-01-30 16:13:06.237 ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 16:13:06.238 Verifying host key rsa2 0x23,0xdc2075f00b51f5fe 4737c2f63664fca4 fdf368c1417d8864 84db8e8cfabd2994 49a85fabde8fbe0d b6a47710afc67e4e 730c634947a9e193 40493a6c5bfcb8b2 ce17988e08150d01 00b516e7b0d0daa2 a3fc0cebd4fbadd5 25777443c0b6cad1 77634afcf9d61657 71a6d65387f0a9ce 31d39de582950eee 66b4a26319f24805  with fingerprint ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 16:13:06.242 Host key matches configured key
+. 2017-01-30 16:13:06.248 Initialised AES-256 SDCTR client->server encryption
+. 2017-01-30 16:13:06.249 Initialised HMAC-SHA-256 client->server MAC algorithm
+. 2017-01-30 16:13:06.250 Initialised AES-256 SDCTR server->client encryption
+. 2017-01-30 16:13:06.251 Initialised HMAC-SHA-256 server->client MAC algorithm
+! 2017-01-30 16:13:06.321 Using username "qa_riverstone".
+. 2017-01-30 16:13:06.339 Server offered these authentication methods: publickey,password
+. 2017-01-30 16:13:06.341 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2017-01-30 16:13:06.343 Using stored password.
+. 2017-01-30 16:13:06.344 Sent password
+. 2017-01-30 16:13:06.366 Access granted
+. 2017-01-30 16:13:06.367 Opening session as main channel
+. 2017-01-30 16:13:06.384 Opened main channel
+. 2017-01-30 16:13:06.458 Started a shell/command
+. 2017-01-30 16:13:06.462 --------------------------------------------------------------------------
+. 2017-01-30 16:13:06.467 Using SFTP protocol.
+. 2017-01-30 16:13:06.475 Doing startup conversation with host.
+> 2017-01-30 16:13:06.477 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2017-01-30 16:13:06.495 Type: SSH_FXP_VERSION, Size: 95, Number: -1
+. 2017-01-30 16:13:06.496 SFTP version 3 negotiated.
+. 2017-01-30 16:13:06.497 Unknown server extension posix-rename@openssh.com="1"
+. 2017-01-30 16:13:06.497 Supports statvfs@openssh.com extension version "2"
+. 2017-01-30 16:13:06.498 Unknown server extension fstatvfs@openssh.com="2"
+. 2017-01-30 16:13:06.499 We believe the server has signed timestamps bug
+. 2017-01-30 16:13:06.500 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2017-01-30 16:13:06.501 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2017-01-30 16:13:06.502 Getting current directory name.
+. 2017-01-30 16:13:06.504 Getting real path for '.'
+> 2017-01-30 16:13:06.505 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2017-01-30 16:13:06.522 Type: SSH_FXP_NAME, Size: 55, Number: 16
+. 2017-01-30 16:13:06.523 Real path is '/qa/qa_riverstone'
+. 2017-01-30 16:13:06.523 Startup conversation with host finished.
+< 2017-01-30 16:13:06.524 Script: Active session: [1] qa_riverstone@sftp.trialnet.com
+> 2017-01-30 16:13:06.525 Script: option transfer binary
+< 2017-01-30 16:13:06.526 Script: transfer        binary    
+> 2017-01-30 16:13:06.527 Script: get -latest *.zip \\mansan02\batchdev$\Acuity\DataDumpIn\
+. 2017-01-30 16:13:06.528 Listing directory "/qa/qa_riverstone".
+> 2017-01-30 16:13:06.528 Type: SSH_FXP_OPENDIR, Size: 26, Number: 267
+< 2017-01-30 16:13:06.546 Type: SSH_FXP_HANDLE, Size: 13, Number: 267
+> 2017-01-30 16:13:06.547 Type: SSH_FXP_READDIR, Size: 13, Number: 524
+< 2017-01-30 16:13:06.565 Type: SSH_FXP_NAME, Size: 1749, Number: 524
+> 2017-01-30 16:13:06.566 Type: SSH_FXP_READDIR, Size: 13, Number: 780
+< 2017-01-30 16:13:06.583 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2017-01-30 16:13:06.585 Status code: 1
+> 2017-01-30 16:13:06.585 Type: SSH_FXP_CLOSE, Size: 13, Number: 1028
+. 2017-01-30 16:13:06.586 LMS_20150519.txt;-;336;2015-05-21T19:06:16.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.587 AcuityOut;d;0;2015-05-21T19:09:35.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 16:13:06.587 ..;d;0;2016-11-29T13:40:21.000Z;3;"0" [0];"5001" [5001];rwxrwsr-x;0
+. 2017-01-30 16:13:06.587 Visibillity_Extracts;d;0;2012-07-10T20:58:29.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 16:13:06.588 data_dump_01092017125243.zip;-;246913765;2017-01-09T17:58:00.000Z;3;"5034" [5034];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.588 .;d;0;2017-01-30T16:41:29.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 16:13:06.589 data_dump_01042017160220.zip;-;246907901;2017-01-04T21:07:30.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.590 LMS_20160526_050000382.txt;-;508;2016-06-09T18:31:39.000Z;3;"1007" [1007];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.591 masstort_invoice_details.out.zip;-;37538160;2015-05-22T19:40:08.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.592 claims_invoice_details.out.zip;-;10982877;2015-05-22T19:39:56.000Z;3;"5048" [5048];"5001" [5001];rw-rw-r--;0
+. 2017-01-30 16:13:06.592 RiverStone_Extracts;d;0;2012-04-24T14:14:08.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 16:13:06.593 AcuityIn;d;0;2016-12-27T19:57:00.000Z;3;"5034" [5034];"5001" [5001];rwxrwsr--;0
+. 2017-01-30 16:13:06.593 LMS_20140916_115958311.txt;-;72738;2014-09-17T11:37:11.000Z;3;"5034" [5034];"5001" [5001];rwxrwxr--;0
+. 2017-01-30 16:13:06.595 Copying 1 files/directories to local directory "\\mansan02\batchdev$\Acuity\DataDumpIn\"
+. 2017-01-30 16:13:06.595   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2017-01-30 16:13:06.596   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2017-01-30 16:13:06.599   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2017-01-30 16:13:06.601 File: '/qa/qa_riverstone/data_dump_01092017125243.zip' [2017-01-09T17:58:00.000Z] [246913765]
+. 2017-01-30 16:13:06.602 Copying "/qa/qa_riverstone/data_dump_01092017125243.zip" to local directory started.
+. 2017-01-30 16:13:06.603 Binary transfer mode selected.
+. 2017-01-30 16:13:06.605 Checking existence of partially transfered file.
+. 2017-01-30 16:13:06.608 Opening remote file.
+> 2017-01-30 16:13:06.608 Type: SSH_FXP_OPEN, Size: 63, Number: 1283
+< 2017-01-30 16:13:06.609 Type: SSH_FXP_STATUS, Size: 24, Number: 1028
+. 2017-01-30 16:13:06.610 Discarding reserved response
+< 2017-01-30 16:13:06.627 Type: SSH_FXP_HANDLE, Size: 13, Number: 1283
+> 2017-01-30 16:13:06.627 Type: SSH_FXP_FSTAT, Size: 13, Number: 1544
+< 2017-01-30 16:13:06.645 Type: SSH_FXP_ATTRS, Size: 37, Number: 1544
+> 2017-01-30 16:13:06.648 Type: SSH_FXP_READ, Size: 25, Number: 1797
+< 2017-01-30 16:13:52.097 Status code: 1
+. 2017-01-30 16:13:52.098 15110 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2017-01-30 16:13:52.099 Type: SSH_FXP_CLOSE, Size: 13, Number: 1939972
+< 2017-01-30 16:13:52.100 Type: SSH_FXP_STATUS, Size: 28, Number: 1932037
+< 2017-01-30 16:13:52.101 Type: SSH_FXP_STATUS, Size: 28, Number: 1932293
+< 2017-01-30 16:13:52.102 Type: SSH_FXP_STATUS, Size: 28, Number: 1932549
+< 2017-01-30 16:13:52.103 Type: SSH_FXP_STATUS, Size: 28, Number: 1932805
+< 2017-01-30 16:13:52.104 Type: SSH_FXP_STATUS, Size: 28, Number: 1933061
+< 2017-01-30 16:13:52.105 Type: SSH_FXP_STATUS, Size: 28, Number: 1933317
+< 2017-01-30 16:13:52.105 Type: SSH_FXP_STATUS, Size: 28, Number: 1933573
+< 2017-01-30 16:13:52.106 Type: SSH_FXP_STATUS, Size: 28, Number: 1933829
+< 2017-01-30 16:13:52.108 Type: SSH_FXP_STATUS, Size: 28, Number: 1934085
+< 2017-01-30 16:13:52.110 Type: SSH_FXP_STATUS, Size: 28, Number: 1934341
+< 2017-01-30 16:13:52.111 Type: SSH_FXP_STATUS, Size: 28, Number: 1934597
+< 2017-01-30 16:13:52.112 Type: SSH_FXP_STATUS, Size: 28, Number: 1934853
+< 2017-01-30 16:13:52.114 Type: SSH_FXP_STATUS, Size: 28, Number: 1935109
+< 2017-01-30 16:13:52.115 Type: SSH_FXP_STATUS, Size: 28, Number: 1935365
+< 2017-01-30 16:13:52.116 Type: SSH_FXP_STATUS, Size: 28, Number: 1935621
+< 2017-01-30 16:13:52.117 Type: SSH_FXP_STATUS, Size: 28, Number: 1935877
+< 2017-01-30 16:13:52.117 Type: SSH_FXP_STATUS, Size: 28, Number: 1936133
+< 2017-01-30 16:13:52.118 Type: SSH_FXP_STATUS, Size: 28, Number: 1936389
+< 2017-01-30 16:13:52.120 Type: SSH_FXP_STATUS, Size: 28, Number: 1936645
+< 2017-01-30 16:13:52.120 Type: SSH_FXP_STATUS, Size: 28, Number: 1936901
+< 2017-01-30 16:13:52.121 Type: SSH_FXP_STATUS, Size: 28, Number: 1937157
+< 2017-01-30 16:13:52.122 Type: SSH_FXP_STATUS, Size: 28, Number: 1937413
+< 2017-01-30 16:13:52.123 Type: SSH_FXP_STATUS, Size: 28, Number: 1937669
+< 2017-01-30 16:13:52.124 Type: SSH_FXP_STATUS, Size: 28, Number: 1937925
+< 2017-01-30 16:13:52.124 Type: SSH_FXP_STATUS, Size: 28, Number: 1938181
+< 2017-01-30 16:13:52.125 Type: SSH_FXP_STATUS, Size: 28, Number: 1938437
+< 2017-01-30 16:13:52.128 Type: SSH_FXP_STATUS, Size: 28, Number: 1938693
+< 2017-01-30 16:13:52.131 Type: SSH_FXP_STATUS, Size: 28, Number: 1938949
+< 2017-01-30 16:13:52.134 Type: SSH_FXP_STATUS, Size: 28, Number: 1939205
+< 2017-01-30 16:13:52.141 Type: SSH_FXP_STATUS, Size: 28, Number: 1939461
+< 2017-01-30 16:13:52.144 Type: SSH_FXP_STATUS, Size: 28, Number: 1939717
+. 2017-01-30 16:13:52.147 Preserving timestamp [2017-01-09T17:58:00.000Z]
+. 2017-01-30 16:13:52.168 Transfer done: '/qa/qa_riverstone/data_dump_01092017125243.zip' [246913765]
+> 2017-01-30 16:13:52.169 Script: exit
+. 2017-01-30 16:13:52.170 Script: Exit code: 0
+. 2017-01-30 16:13:52.171 Closing connection.
+. 2017-01-30 16:13:52.172 Sending special code: 12
+. 2017-01-30 16:13:52.173 Sent EOF message
+. 2017-01-30 16:14:59.523 --------------------------------------------------------------------------
+. 2017-01-30 16:14:59.524 WinSCP Version 5.9.2 (Build 6958) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2017-01-30 16:14:59.527 Configuration: \\appprod1\batch$\Executables\WinSCP576\WinSCP.ini
+. 2017-01-30 16:14:59.528 Log level: Normal
+. 2017-01-30 16:14:59.528 Local account: TRG\sqlEngineDev
+. 2017-01-30 16:14:59.529 Working directory: C:\Windows\system32
+. 2017-01-30 16:14:59.530 Process ID: 11120
+. 2017-01-30 16:14:59.532 Command-line: "\\appprod1\batch$\Executables\WinSCP576\WinSCP.exe" /console=592 /consoleinstance=_36936_490 "-script=\\mansan02\batchdev$\Acuity\DataDumpIn\Script_Parameters_Delete.txt" "/parameter" "qa_riverstone" "Gat1aihoop" "sftp.trialnet.com" "data_dump_01092017125243.zip" "/log=\\mansan02\batchdev$\Acuity\DataDumpIn\Sftplog.txt" 
+. 2017-01-30 16:14:59.532 Time zone: Current: GMT-5, Standard: GMT-5 (Eastern Standard Time), DST: GMT-4 (Eastern Daylight Time), DST Start: 3/12/2017, DST End: 11/5/2017
+. 2017-01-30 16:14:59.533 Login time: Monday, January 30, 2017 4:14:59 PM
+. 2017-01-30 16:14:59.534 --------------------------------------------------------------------------
+. 2017-01-30 16:14:59.535 Script: Retrospectively logging previous script records:
+> 2017-01-30 16:14:59.536 Script: option batch off 
+< 2017-01-30 16:14:59.537 Script: batch           off       
+> 2017-01-30 16:14:59.537 Script: option confirm off 
+< 2017-01-30 16:14:59.538 Script: confirm         off       
+> 2017-01-30 16:14:59.539 Script: open sftp://qa_riverstone:***@sftp.trialnet.com -hostkey="ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f"
+. 2017-01-30 16:14:59.540 --------------------------------------------------------------------------
+. 2017-01-30 16:14:59.541 Session name: qa_riverstone@sftp.trialnet.com (Ad-Hoc site)
+. 2017-01-30 16:14:59.542 Host name: sftp.trialnet.com (Port: 22)
+. 2017-01-30 16:14:59.543 User name: qa_riverstone (Password: Yes, Key file: No)
+. 2017-01-30 16:14:59.544 Tunnel: No
+. 2017-01-30 16:14:59.545 Transfer Protocol: SFTP
+. 2017-01-30 16:14:59.548 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2017-01-30 16:14:59.551 Disable Nagle: No
+. 2017-01-30 16:14:59.551 Proxy: None
+. 2017-01-30 16:14:59.553 Send buffer: 262144
+. 2017-01-30 16:14:59.554 SSH protocol version: 2; Compression: No
+. 2017-01-30 16:14:59.555 Bypass authentication: No
+. 2017-01-30 16:14:59.557 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2017-01-30 16:14:59.558 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2017-01-30 16:14:59.558 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2017-01-30 16:14:59.559 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2017-01-30 16:14:59.561 Simple channel: Yes
+. 2017-01-30 16:14:59.561 Return code variable: Autodetect; Lookup user groups: Auto
+. 2017-01-30 16:14:59.562 Shell: default
+. 2017-01-30 16:14:59.563 EOL: LF, UTF: Auto
+. 2017-01-30 16:14:59.564 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2017-01-30 16:14:59.565 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2017-01-30 16:14:59.566 SFTP Bugs: Auto,Auto
+. 2017-01-30 16:14:59.567 SFTP Server: default
+. 2017-01-30 16:14:59.568 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2017-01-30 16:14:59.569 Cache directory changes: Yes, Permanent: Yes
+. 2017-01-30 16:14:59.570 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2017-01-30 16:14:59.571 DST mode: Unix
+. 2017-01-30 16:14:59.573 --------------------------------------------------------------------------
+. 2017-01-30 16:14:59.575 Looking up host "sftp.trialnet.com" for SSH connection
+. 2017-01-30 16:14:59.584 Connecting to 209.10.76.49 port 22
+. 2017-01-30 16:14:59.602 We claim version: SSH-2.0-WinSCP_release_5.9.2
+. 2017-01-30 16:14:59.622 Server version: SSH-2.0-OpenSSH_5.3
+. 2017-01-30 16:14:59.623 We believe remote version has SSH-2 channel request bug
+. 2017-01-30 16:14:59.624 Using SSH protocol version 2
+. 2017-01-30 16:14:59.638 Have a known host key of type rsa2
+. 2017-01-30 16:14:59.663 Doing Diffie-Hellman group exchange
+. 2017-01-30 16:14:59.682 Doing Diffie-Hellman key exchange with hash SHA-256
+. 2017-01-30 16:15:00.350 Server also has ssh-dss host key, but we don't know it
+. 2017-01-30 16:15:00.352 Host key fingerprint is:
+. 2017-01-30 16:15:00.353 ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 16:15:00.354 Verifying host key rsa2 0x23,0xdc2075f00b51f5fe 4737c2f63664fca4 fdf368c1417d8864 84db8e8cfabd2994 49a85fabde8fbe0d b6a47710afc67e4e 730c634947a9e193 40493a6c5bfcb8b2 ce17988e08150d01 00b516e7b0d0daa2 a3fc0cebd4fbadd5 25777443c0b6cad1 77634afcf9d61657 71a6d65387f0a9ce 31d39de582950eee 66b4a26319f24805  with fingerprint ssh-rsa 1024 ce:ba:0f:57:c4:4b:dd:2d:e1:d9:4f:8f:8d:68:53:1f
+. 2017-01-30 16:15:00.359 Host key matches configured key
+. 2017-01-30 16:15:00.363 Initialised AES-256 SDCTR client->server encryption
+. 2017-01-30 16:15:00.363 Initialised HMAC-SHA-256 client->server MAC algorithm
+. 2017-01-30 16:15:00.364 Initialised AES-256 SDCTR server->client encryption
+. 2017-01-30 16:15:00.364 Initialised HMAC-SHA-256 server->client MAC algorithm
+! 2017-01-30 16:15:00.436 Using username "qa_riverstone".
+. 2017-01-30 16:15:00.455 Server offered these authentication methods: publickey,password
+. 2017-01-30 16:15:00.455 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2017-01-30 16:15:00.457 Using stored password.
+. 2017-01-30 16:15:00.459 Sent password
+. 2017-01-30 16:15:00.478 Access granted
+. 2017-01-30 16:15:00.478 Opening session as main channel
+. 2017-01-30 16:15:00.497 Opened main channel
+. 2017-01-30 16:15:00.586 Started a shell/command
+. 2017-01-30 16:15:00.587 --------------------------------------------------------------------------
+. 2017-01-30 16:15:00.588 Using SFTP protocol.
+. 2017-01-30 16:15:00.593 Doing startup conversation with host.
+> 2017-01-30 16:15:00.595 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2017-01-30 16:15:00.613 Type: SSH_FXP_VERSION, Size: 95, Number: -1
+. 2017-01-30 16:15:00.614 SFTP version 3 negotiated.
+. 2017-01-30 16:15:00.615 Unknown server extension posix-rename@openssh.com="1"
+. 2017-01-30 16:15:00.615 Supports statvfs@openssh.com extension version "2"
+. 2017-01-30 16:15:00.616 Unknown server extension fstatvfs@openssh.com="2"
+. 2017-01-30 16:15:00.616 We believe the server has signed timestamps bug
+. 2017-01-30 16:15:00.617 We will use UTF-8 strings until server sends an invalid UTF-8 string as with SFTP version 3 and older UTF-8 strings are not mandatory
+. 2017-01-30 16:15:00.617 Limiting packet size to OpenSSH sftp-server limit of 262148 bytes
+. 2017-01-30 16:15:00.619 Getting current directory name.
+. 2017-01-30 16:15:00.620 Getting real path for '.'
+> 2017-01-30 16:15:00.622 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2017-01-30 16:15:00.639 Type: SSH_FXP_NAME, Size: 55, Number: 16
+. 2017-01-30 16:15:00.640 Real path is '/qa/qa_riverstone'
+. 2017-01-30 16:15:00.641 Startup conversation with host finished.
+< 2017-01-30 16:15:00.642 Script: Active session: [1] qa_riverstone@sftp.trialnet.com
+> 2017-01-30 16:15:00.643 Script: option transfer binary
+< 2017-01-30 16:15:00.643 Script: transfer        binary    
+> 2017-01-30 16:15:00.645 Script: rm data_dump_01092017125243.zip 
+. 2017-01-30 16:15:00.646 Listing file "data_dump_01092017125243.zip".
+> 2017-01-30 16:15:00.647 Type: SSH_FXP_LSTAT, Size: 55, Number: 263
+< 2017-01-30 16:15:00.664 Type: SSH_FXP_ATTRS, Size: 37, Number: 263
+. 2017-01-30 16:15:00.667 data_dump_01092017125243.zip;-;246913765;2017-01-09T17:58:00.000Z;3;"" [5034];"" [5001];rw-rw-r--;0
+. 2017-01-30 16:15:00.671 Deleting file "data_dump_01092017125243.zip".
+> 2017-01-30 16:15:00.675 Type: SSH_FXP_REMOVE, Size: 55, Number: 525
+< 2017-01-30 16:15:00.738 Type: SSH_FXP_STATUS, Size: 24, Number: 525
+< 2017-01-30 16:15:00.739 Status code: 0
+< 2017-01-30 16:15:00.741 Script: data_dump_01092017125243.zip
+> 2017-01-30 16:15:00.742 Script: exit
+. 2017-01-30 16:15:00.742 Script: Exit code: 0
+. 2017-01-30 16:15:00.743 Closing connection.
+. 2017-01-30 16:15:00.743 Sending special code: 12
+. 2017-01-30 16:15:00.744 Sent EOF message

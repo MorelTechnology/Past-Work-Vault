@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d7ed9699-5a9b-41bc-9f37-850627152921" solutionId="d7ed9699-5a9b-41bc-9f37-850627152921" resetWebServer="false" sharePointProductVersion="15.0" name="TimeOffCalendarSync" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="Microsoft.Exchange.WebServices.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\..\..\..\..\..\Program Files\Microsoft\Exchange\Web Services\2.0\Microsoft.Exchange.WebServices.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="c91b817c-cb75-4bed-971b-7a39825836f8" />
+  </features>
+</package>

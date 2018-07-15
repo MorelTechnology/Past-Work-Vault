@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5ff35118-abd0-40dc-a09d-f710b1ad6e27" solutionId="5ff35118-abd0-40dc-a09d-f710b1ad6e27" resetWebServer="false" name="CustomMenuDataSourceProvider" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="CustomMenuProvider.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\CustomMenuProvider\CustomMenuProvider.csproj">
+      <safeControls>
+        <safeControl assemblyName="CustomMenuProvider" namespaceName="CustomMenuProvider" typeName="*" isSafeAgainstScript="true" />
+      </safeControls>
+    </projectOutputAssembly>
+  </assemblies>
+</package>

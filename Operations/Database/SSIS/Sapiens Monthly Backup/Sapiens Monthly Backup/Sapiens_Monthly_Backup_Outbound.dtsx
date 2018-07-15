@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2017 1:42:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JEDWA-LAP2"
+  DTS:CreatorName="TRG\jedwa"
+  DTS:DTSID="{9145AE04-284E-41C6-A574-A514E12A4355}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Sapiens_Monthly_Backup_Outbound"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{631B5B33-1D2E-4B2E-8B66-1C24BF356B4A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MHT01SQLSAP.RIAPPLDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DCDE4997-C415-47B8-AC14-96EF25C76CEE}"
+      DTS:ObjectName="MHT01SQLSAP.RIAPPLDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::BackupSourceConn]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=mht01sqlsap;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B620BC8D-38D3-406E-91F5-F2A0B83C8545}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{648D0795-7F26-44B7-A0FC-43C6646F19B2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data Source=&quot; + @[$Project::SourceServer]+&quot;;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=mht01sqlsap;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3E029CA9-57B8-4B3F-9A3B-729B60236884}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RestoreSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Backup Sapiens_Outbound"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8C33AEA5-A4AB-4775-983E-28E19D3EB449}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Backup Sapiens_Outbound">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Backup Sapiens_Outbound\Backup Sapiens_Outbound"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5555F59E-102E-4AA2-9C2D-7D6211AB4581}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup Sapiens_Outbound"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DCDE4997-C415-47B8-AC14-96EF25C76CEE}"
+              SQLTask:SqlStatementSource="declare  @BackupDirectory varchar(200),&#xA;   @sql varchar(1000)&#xA;&#xA;SET @BackupDirectory = ?&#xA;&#xA;SET @SQL = 'Backup DATABASE [Sapiens_OutBound] TO DISK = ' + 'N' + '''' + @BackupDirectory + 'MONTHLY_Sapiens_OutBound.bak' + '''' + &#xA;   ' WITH  COPY_ONLY, NOFORMAT, INIT,  NAME = ' + 'N' + '''' + 'Sapiens_OutBound-Full Database Backup' + '''' + ', SKIP, NOREWIND, NOUNLOAD,  STATS = 10'&#xA;&#xA;&#xA;Exec (@SQL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::BackupDirectory"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Backup Sapiens_Outbound\Backup Sapiens_Outbound"
+          TopLeft="37,30" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254,127"
+          Size="254,170"
+          Id="Package\Backup Sapiens_Outbound"
+          TopLeft="272,169" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

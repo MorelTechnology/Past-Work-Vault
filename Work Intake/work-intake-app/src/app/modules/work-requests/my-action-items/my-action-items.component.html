@@ -1,0 +1,19 @@
+<p-dataTable #dt [value]="workRequests" [rows]="10" [paginator]="true" [loading]="loadingWorkRequests" [responsive]="true"
+  [tableStyle]="{'table-layout':'auto'}">
+  <p-column>
+    <ng-template let-workRequest="rowData" pTemplate="body">
+      <button type="button" class="btn btn-primary" (click)="goToRequest(workRequest.RequestID)">
+        <i class="fa fa-eye"></i> View</button>
+    </ng-template>
+  </p-column>
+  <p-column field="RequestID" header="Request ID" [sortable]="true"></p-column>
+  <p-column field="Title" header="Title" [sortable]="true"></p-column>
+  <p-column field="RequestorDisplayName" header="Requestor" [sortable]="true"></p-column>
+  <p-column field="ManagerDisplayName" header="Owner" [sortable]="true"></p-column>
+  <p-column field="Status" header="Status" [sortable]="true"></p-column>
+  <p-column field="LastModified" header="Last Modified" [sortable]="true">
+    <ng-template let-workRequest="rowData" pTemplate="body">
+      {{workRequest.LastModified | date:'short'}}
+    </ng-template>
+  </p-column>
+</p-dataTable>

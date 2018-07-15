@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="FM_DIRECT_CEDED_LOSSES_MONTHLY"
+  DTS:DTSID="{14BE927A-E3FD-4298-B80D-9DD26A8AAE1D}"
+  DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" +  @[$Project::DBFileName] +";Provider=Microsoft.Jet.OLEDB.4.0;"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=\\mansan02\batchdev$\fairfax\History\Jan 2017 FM_DIRECT_and_CEDED_LOSSES_MONTHLY.mdb;Provider=Microsoft.Jet.OLEDB.4.0;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{53249b42-f1bd-45b9-a131-8cdd3882ef7d}"
+       Name="FinalAssumedReserves"
+       DisplayName="Final Assumed Reserves"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

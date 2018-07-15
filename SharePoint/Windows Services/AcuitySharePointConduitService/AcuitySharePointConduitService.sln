@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcuitySharePointConduitService", "AcuitySharePointConduitService\AcuitySharePointConduitService.csproj", "{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Acuity SharePoint Conduit Service Setup", "Acuity SharePoint Conduit Service Setup\Acuity SharePoint Conduit Service Setup.vdproj", "{7E798440-4759-45BC-9329-CB01772D6B0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Debug|x64.ActiveCfg = Debug|x64
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Debug|x64.Build.0 = Debug|x64
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Release|x64.ActiveCfg = Release|x64
+		{AA70B9AF-E828-403C-AB0A-5FC9AC8343F9}.Release|x64.Build.0 = Release|x64
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Debug|Any CPU.ActiveCfg = Debug
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Debug|x64.ActiveCfg = Debug
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Release|Any CPU.ActiveCfg = Release
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Release|x64.ActiveCfg = Release
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Release|x64.Build.0 = Release
+		{7E798440-4759-45BC-9329-CB01772D6B0A}.Release|x64.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Acuity\u0020SharePoint\u0020Conduit\u0020Service\u0020Setup\\Acuity\u0020SharePoint\u0020Conduit\u0020Service\u0020Setup.vdproj
+		SccProjectName1 = Acuity\u0020SharePoint\u0020Conduit\u0020Service\u0020Setup
+		SccLocalPath1 = Acuity\u0020SharePoint\u0020Conduit\u0020Service\u0020Setup
+		SccProjectUniqueName2 = AcuitySharePointConduitService\\AcuitySharePointConduitService.csproj
+		SccProjectName2 = AcuitySharePointConduitService
+		SccLocalPath2 = AcuitySharePointConduitService
+	EndGlobalSection
+EndGlobal

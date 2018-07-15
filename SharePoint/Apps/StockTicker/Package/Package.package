@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="77402905-52a2-42be-88e7-5683f829a511" 
+        solutionId="77402905-52a2-42be-88e7-5683f829a511" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="StockTicker"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="0f0dc3ba-bf00-49c1-8ca6-b86972f363b0" />
+  </features>
+</package>

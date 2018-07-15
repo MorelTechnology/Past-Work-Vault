@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UltiProConsole" GeneratedClassName="Config">
+  <Profiles />
+  <Settings>
+    <Setting Name="API_Username" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SharePoint</Value>
+    </Setting>
+    <Setting Name="API_Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP@dm1N!</Value>
+    </Setting>
+    <Setting Name="API_UserKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BIJ3OP0000K0</Value>
+    </Setting>
+    <Setting Name="API_CustomerKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PSYFT</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

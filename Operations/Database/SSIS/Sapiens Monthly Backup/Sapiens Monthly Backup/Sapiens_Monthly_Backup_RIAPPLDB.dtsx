@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2017 1:42:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JEDWA-LAP2"
+  DTS:CreatorName="TRG\jedwa"
+  DTS:DTSID="{3602EF1A-293B-428D-8B17-71B56D252839}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Sapiens_Monthly_Backup_RIAPPLDB"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{F1C89405-0B68-4A37-80D1-3F56AA998D46}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MHT01SQLSAP.RIAPPLDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EB31506B-15C8-4E30-97F0-FEF842F1E159}"
+      DTS:ObjectName="MHT01SQLSAP.RIAPPLDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::BackupSourceConn]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=mht01sqlsap;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E1FB0AE-941D-413D-BF54-48F3442E8781}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E30D80C-6E03-4A39-93E4-636E2DCD0593}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data Source=&quot; + @[$Project::SourceServer]+&quot;;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=mht01sqlsap;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{78AF42FF-2199-4AED-9574-C5E9E0642588}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RestoreSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Backup RIAPPLDB"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B39C1113-8E01-41C6-80F4-04B889D4AC21}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Backup RIAPPLDB">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Backup RIAPPLDB\Backup RIAPPLDB"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0FB99E07-B453-4D98-88F3-4FC93032FAD8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup RIAPPLDB"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{EB31506B-15C8-4E30-97F0-FEF842F1E159}"
+              SQLTask:SqlStatementSource="declare  @BackupDirectory varchar(200),&#xA;   @sql varchar(1000)&#xA;&#xA;SET @BackupDirectory = ?&#xA;&#xA;SET @SQL = 'Backup DATABASE [RIAPPLDB] TO DISK = ' + 'N' + '''' + @BackupDirectory + 'MONTHLY_RIAPPLDB.bak' + '''' + &#xA;   ' WITH  COPY_ONLY, NOFORMAT, INIT,  NAME = ' + 'N' + '''' + 'RIAPPLDB-Full Database Backup' + '''' + ', SKIP, NOREWIND, NOUNLOAD,  STATS = 10'&#xA;&#xA;&#xA;Exec (@SQL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::BackupDirectory"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Backup RIAPPLDB\Backup RIAPPLDB"
+          TopLeft="37,30" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254,112"
+          Size="254,155"
+          Id="Package\Backup RIAPPLDB"
+          TopLeft="272,169" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

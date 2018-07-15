@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01006F0EC92D28364EF7A252E5B0C252D68A" Name="Activity Priority" Group="Custom Content Types" Description="Activity Priority Content Type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{a7556f17-cc26-49e1-937c-8dd2044403a8}" DisplayName="Activity Priority Name" Required="TRUE" Name="ActivityPriorityName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

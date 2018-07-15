@@ -1,0 +1,377 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/4/2013 11:58:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PPOLL-LAP7"
+  DTS:CreatorName="TRG\ppoll"
+  DTS:DTSID="{BD2837E3-CAB4-4366-862A-2E78CC37B589}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CFI_SendEmail_etc"
+  DTS:PackageType="5"
+  DTS:VersionBuild="408"
+  DTS:VersionGUID="{B5B69637-050A-4E77-94F3-66282F1B116B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{659828EE-BC1B-41CF-A44E-4555C849017A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="substring( @[$Project::ArchiveCFICaseReservesxlsx] ,1,56) + &quot;_&quot; +  REPLACE(REPLACE(LEFT( (DT_STR, 40, 1252)  GETDATE(), 23), &quot;:&quot;, &quot; &quot;),&quot;.&quot;,&quot; &quot;)  + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveCFICaseReservesxlsx">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History\CFICaseReser_2017-12-11 11 23 27 070.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{014D7A3B-35A3-4CAA-8CE6-37D39362569E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="substring( @[$Project::ArchiveCFIFilesSummaryxlsx] ,1,56)  + &quot;_&quot;  +  REPLACE(REPLACE(LEFT( (DT_STR, 40, 1252)  GETDATE(), 23), &quot;:&quot;, &quot; &quot;),&quot;.&quot;,&quot; &quot;)   + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveCFIGLFilesSummaryxlsx">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History\CFIFilesSumm_2017-12-11 11 23 27 071.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DA3197D-F861-411C-B5CE-975535D81B68}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="substring( @[$Project::ArchiveCFIPaidsxlsx] ,1,55) + &quot;_&quot; +  REPLACE(REPLACE(LEFT( (DT_STR, 40, 1252)  GETDATE(), 23), &quot;:&quot;, &quot; &quot;),&quot;.&quot;,&quot; &quot;)  + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveCFIPaidsxlsx">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History\CFIPaids_2017-12-11 11 23 27 073.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{077B0BB5-5D2C-4E52-9974-5B7533DD1C8E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="substring( @[$Project::ArchiveCFIQuarterSummaryxlsx] ,1,58) + &quot;_&quot; +  REPLACE(REPLACE(LEFT( (DT_STR, 40, 1252)  GETDATE(), 23), &quot;:&quot;, &quot; &quot;),&quot;.&quot;,&quot; &quot;)   + &quot;.xls&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveCFIQuarterSummaryxlsx">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\BATCHQA$\CFI\CFIGLFiles\History\CFIQuarterSumm_2017-12-11 11 23 27 074.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D23D5678-4A19-4E5B-BB0A-3F3079E4D8B8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="JobName">
+      <DTS:VariableValue
+        DTS:DataType="8">CreateCFIGLFiles</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy CaseReserves"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{23A2CB43-FE85-454C-B2D7-79EF9344A107}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy CaseReserves"
+      DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="$Project::CFICaseReservesxls"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="$Project::ArchiveCFICaseReservesxlsx"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copy CFIPaids"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{7CB20AD4-E1E1-426B-9EB5-112F7785F74C}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy CFIPaids"
+      DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="$Project::CFIPaidsxls"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="$Project::ArchiveCFIPaidsxlsx"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copy QTRSummaryReport"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{6DF00F29-7A79-408D-9076-98C338A8034E}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy QTRSummaryReport"
+      DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="$Project::CFIQuarterSummaryxls"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="$Project::ArchiveCFIQuarterSummaryxlsx"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copy SummaryReport"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{B3DC9953-C446-4301-8B48-6E71523D0A30}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy SummaryReport"
+      DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="$Project::CFIFilesSummaryxls"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="$Project::ArchiveCFIFilesSummaryxlsx"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{BF82A010-8778-4843-85FE-293329062302}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[$Project::CFICaseReservesxls] + "|" +     @[$Project::CFIPaidsxls] + "|" +   @[$Project::CFIQuarterSummaryxls] + "|" +    @[$Project::CFIFilesSummaryxls]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Project::CFI_DistributionList]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{2E103E11-A22C-4D51-B7FB-A060981FE400}"
+          SendMailTask:From="ITProductionSupport@trg.com"
+          SendMailTask:To="roja_kasula@trg.com"
+          SendMailTask:Subject="CFI GL Excel Files"
+          SendMailTask:MessageSource="Attached please find  Excel Workbook with case reserves entries, paid loss entries, file summary and quarter summary reports." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="\\mansan02\BATCHQA$\CFI\CFIGLFiles\CFICaseReserves.xls|\\mansan02\BATCHQA$\CFI\CFIGLFiles\CFIPaids.xls|\\mansan02\BATCHQA$\CFI\CFIGLFiles\CFIQuarterSummary.xls|\\mansan02\BATCHQA$\CFI\CFIGLFiles\CFIFilesSummary.xls" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7E79C5EE-BCDE-43F6-9FCA-ECDC6A8CBA18}"
+      DTS:From="Package\Copy CaseReserves"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Copy CFIPaids" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1DEE3A95-C3C8-40EE-8CA5-DF68F8D4E9ED}"
+      DTS:From="Package\Copy CFIPaids"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Copy SummaryReport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F39D17BA-8A01-4A70-A017-F2E0FA5C4F65}"
+      DTS:From="Package\Copy SummaryReport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Copy QTRSummaryReport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{29ADDA60-F9CC-4719-858D-83F5B4BF0815}"
+      DTS:From="Package\Copy QTRSummaryReport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Send Mail Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="150.4,53.6"
+          Id="Package\Copy CaseReserves"
+          TopLeft="84.7021563245005,138.95793565282" />
+        <NodeLayout
+          Size="150.4,53.6"
+          Id="Package\Copy CFIPaids"
+          TopLeft="85.2735849056604,220.065594067816" />
+        <NodeLayout
+          Size="150.4,53.6"
+          Id="Package\Copy QTRSummaryReport"
+          TopLeft="84.4164420339205,400.939734688902" />
+        <NodeLayout
+          Size="150.4,53.6"
+          Id="Package\Copy SummaryReport"
+          TopLeft="81.7021562734108,308.667370234973" />
+        <NodeLayout
+          Size="150.4,53.6"
+          Id="Package\Send Mail Task"
+          TopLeft="77.4285727471722,484.670595032616" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="160.18787061508,192.55793565282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.5076584149956"
+              Start="0,0"
+              End="0,20.0076584149956">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0076584149956" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="158.687870589536,273.665594067816">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.0017761671568"
+              Start="0,0"
+              End="0,27.5017761671568">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5017761671568" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="158.259299153666,362.267370234973">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.6723644539293"
+              Start="0,0"
+              End="0,31.1723644539293">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1723644539293" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="156.122507390546,454.539734688902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.1308603437143"
+              Start="0,0"
+              End="0,22.6308603437143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6308603437143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Copies Excel Spreadsheets to History Directory "
+          ParentId="Package"
+          Size="387.2,44"
+          Id="dc7dc39b-9d6e-4cea-98fb-111f41c51092"
+          TopLeft="5.5,5.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Sends the files via email to Bill G"
+          ParentId="Package"
+          Size="305.6,44"
+          Id="56e4cf18-6210-482c-bb6e-e36c214b44fe"
+          TopLeft="5.5,27.8773584905661">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Deal Check List" OnQuickLaunch="TRUE" TemplateType="10019" Url="Lists/Deal Check List" Description="Collection of the deal check list items for projects"></ListInstance>
+</Elements>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{b7037f24-7d8c-496b-9978-b39f89df1721}"
+       Name="ActivityCategoryName"
+       DisplayName="Activity Category Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       EnforceUniqueValues="TRUE"
+       Indexed="TRUE">
+  </Field>
+</Elements>

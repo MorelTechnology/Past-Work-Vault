@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="LitigationManagementSiteAdministration.AddProjectSite.AddProjectSite, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Project Site Creation Tool</property>
+        <property name="Description" type="string">This web part adds a tool to facilitate creation of Litigation Management Project Sites.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

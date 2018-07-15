@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{0cf25683-1e5b-4d9c-96a5-b8bccd35f77c}"
+       Name="Note"
+       DisplayName="Note"
+       Type="Lookup"
+       Required="True"
+       Group="Custom Site Columns"
+       List="Lists/Notes"
+       ShowField="ID"
+       RelationshipDeleteBehavior="Cascade"
+       Indexed="TRUE">  
+  </Field>
+</Elements>

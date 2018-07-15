@@ -1,0 +1,28 @@
+﻿<div class="all-notes">
+    <h3>All Notes <button class="btn btn-primary" type="button" ng-click="getNotes()">Refresh</button></h3>
+    <div>
+        <table datatable="ng" class="row-border hover" dt-options="noteDTOptions">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Entry Type</th>
+                    <th>Content</th>
+                    <th>Entry Date</th>
+                    <th>Modified By</th>
+                    <th>Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="note in notes">
+                    <td><a href="" title="Attach Document" ng-click="attachDocument('Note', note.ID)"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a></td>
+                    <td><a href="" ng-click="editNote(note.Id)" title="Edit Note">{{note.NoteEntryType.NoteEntryTypeName}}</a></td>
+                    <td><div class="note ellipsis">{{note.NoteContent}}</div></td>
+                    <td>{{note.EntryDate | date:'M/d/yyyy'}}</td>
+                    <td>{{note.Editor.Title}}</td>
+                    <td>{{note.Modified | date:'M/d/yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

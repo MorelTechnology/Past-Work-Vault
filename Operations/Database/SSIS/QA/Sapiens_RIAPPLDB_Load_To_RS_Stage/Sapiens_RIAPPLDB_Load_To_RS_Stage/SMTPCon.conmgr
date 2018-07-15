@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SMTPCon"
+  DTS:DTSID="{2F2CF5D2-F95E-45E9-82AC-CEC04CABBE68}"
+  DTS:CreationName="SMTP">
+  <DTS:PropertyExpression
+    DTS:Name="SmtpServer">@[$Project::SMTPCon_SmtpServer]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <SmtpConnectionManager
+      ConnectionString="SmtpServer=manrelay01.trg.com;UseWindowsAuthentication=False;EnableSsl=False;Timeout=1000;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

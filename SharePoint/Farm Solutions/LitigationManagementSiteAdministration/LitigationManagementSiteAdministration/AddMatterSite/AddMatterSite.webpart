@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="LitigationManagementSiteAdministration.AddMatterSite.AddMatterSite, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Matter Site (Non-Linked) Creation Tool</property>
+        <property name="Description" type="string">This web part adds a tool to facilitate creation of Litigation Management Matter Sites which are not linked to Guidewire ClaimCenter.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

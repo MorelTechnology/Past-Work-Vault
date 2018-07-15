@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="LitigationManagementWebParts.LitigationMatterTasks.LitigationMatterTasks, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Litigation Matter Tasks</property>
+        <property name="Description" type="string">Displays the tasks associated with the Current Litigation Matter Site, cross-connected to the Global Task List</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

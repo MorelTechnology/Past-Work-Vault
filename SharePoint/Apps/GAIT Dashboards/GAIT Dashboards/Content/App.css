@@ -1,0 +1,10 @@
+﻿/* Place custom styles below */
+.ui-widget-content a{
+    color: #0072c6
+}
+.commentFieldTruncate {
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,79 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Add New Project</h3>
+</div>
+<div class="modal-body" ng-form="newItemForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table class="item-app-table sectionTable">
+        <thead>
+            <tr>
+                <th colspan="6">Project Setup</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="RequestorID">Requestor:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                        <sp-people-picker name="RequestorID" data-ng-model="project.RequestorID" css-width="230px" css-height="auto" allow-multi="false" css-additional-class="form-control" required></sp-people-picker>
+                </td>
+                <td><label for="CounterpartyName">Counterparty Name:<span class="text-danger">*</span></label></td>
+                <td class="value"><input type="text" class="form-control" name="CounterpartyName" data-ng-model="project.CounterpartyName" required /></td>
+                <td><label for="PrimaryMangerID">Primary Manager:<span class="text-danger">*</span></label></td>
+                <td class="value"><sp-people-picker name="PrimaryManagerID" data-ng-model="project.PrimaryManagerID" css-width="230px" css-height="auto" allow-multi="false" css-additional-class="form-control" initial-user-accounts="trg\jmoor" required></sp-people-picker></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><label for="RequestType">Request Type:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <select name="RequestType" class="form-control" data-ng-model="project.RequestTypeId" required>
+                        <option data-ng-repeat="requestType in requestTypes | orderBy:'RequestTypeName'" value="{{requestType.ID}}">{{requestType.RequestTypeName}}</option>
+                    </select>
+                </td>
+                <td><label for="RequestDate">Request Date:<span class="text-danger">*</span></label></td>
+                <td class="value">
+                    <p class="input-group">
+                        <input type="text" name="RequestDate" class="form-control" uib-datepicker-popup="MM-dd-yyyy" data-ng-model="project.RequestDate" is-open="calendarPopup1.opened" datepicker-options="dateOptions" required close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendarPopup1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" ngf-select ng-model="uploadFiles" ngf-multiple="true" ngf-keep="'distinct'">Browse for Files...</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="file in uploadFiles | orderBy:'name'">
+                                <td>{{file.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !newItemForm.$valid" ng-click="addItem(project)">Submit</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

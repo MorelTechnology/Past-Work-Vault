@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{2509d427-7a16-44d9-8415-f9eaa4b85e03}"
+       Name="FinalCommutationValue"
+       DisplayName="Final Commutation Value"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

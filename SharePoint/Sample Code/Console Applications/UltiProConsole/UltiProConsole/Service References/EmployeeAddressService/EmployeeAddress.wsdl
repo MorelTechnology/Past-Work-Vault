@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.ultipro.com/services/employeeaddress" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ultipro.com/services/employeeaddress" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.ultipro.com/services/employeeaddress/Imports">
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UltimateSoftware.WcfTypes.Base" />
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Specialized" />
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd4" namespace="http://www.ultipro.com/services/employeeaddress" />
+      <xsd:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd5" namespace="http://www.ultipro.com/contracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmployeeAddress_Ping_InputMessage">
+    <wsdl:part xmlns:q1="http://tempuri.org/" name="parameters" element="q1:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_Ping_OutputMessage">
+    <wsdl:part xmlns:q2="http://tempuri.org/" name="parameters" element="q2:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_GetAddressByEmployeeIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressByEmployeeIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_GetAddressByEmployeeIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressByEmployeeIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_FindAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAddresses" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_FindAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_UpdateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IEmployeeAddress_UpdateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmployeeAddress">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUesWcfService/Ping" message="tns:IEmployeeAddress_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUesWcfService/PingResponse" message="tns:IEmployeeAddress_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressByEmployeeIdentifier">
+      <wsdl:input wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/GetAddressByEmployeeIdentifier" message="tns:IEmployeeAddress_GetAddressByEmployeeIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/GetAddressByEmployeeIdentifierResponse" message="tns:IEmployeeAddress_GetAddressByEmployeeIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAddresses">
+      <wsdl:input wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/FindAddresses" message="tns:IEmployeeAddress_FindAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/FindAddressesResponse" message="tns:IEmployeeAddress_FindAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:input wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/UpdateAddress" message="tns:IEmployeeAddress_UpdateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ultipro.com/services/employeeaddress/IEmployeeAddress/UpdateAddressResponse" message="tns:IEmployeeAddress_UpdateAddress_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

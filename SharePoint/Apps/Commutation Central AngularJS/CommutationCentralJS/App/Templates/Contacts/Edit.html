@@ -1,0 +1,76 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Edit Contact</h3>
+</div>
+<div class="modal-body" ng-form="editContactForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table class="item-app-table" style="width:100%;">
+        <tr>
+            <td><label for="LastName">Last Name<span class="text-danger">*</span></label></td>
+            <td class="value"><input type="text" class="form-control" name="LastName" data-ng-model="contact.Title" required /></td>
+        </tr>
+        <tr>
+            <td><label for="FirstName">First Name<span class="text-danger">*</span></label></td>
+            <td class="value"><input type="text" class="form-control" name="FirstName" data-ng-model="contact.FirstName" required /></td>
+        </tr>
+        <tr>
+            <td><label for="FullName">Full Name<span class="text-danger">*</span></label></td>
+            <td class="value"><input type="text" class="form-control" name="FullName" data-ng-model="contact.FullName" required /></td>
+        </tr>
+        <tr>
+            <td><label for="EmailAddress">Email Address</label></td>
+            <td class="value"><input type="email" class="form-control" name="EmailAddress" data-ng-model="contact.Email" /></td>
+        </tr>
+        <tr>
+            <td><label for="Company">Company</label></td>
+            <td class="value"><input type="text" class="form-control" name="Company" data-ng-model="contact.Company" /></td>
+        </tr>
+        <tr>
+            <td><label for="JobTitle">Job Title</label></td>
+            <td class="value"><input type="text" class="form-control" name="JobTitle" data-ng-model="contact.JobTitle" /></td>
+        </tr>
+        <tr>
+            <td><label for="BusinessPhone">Business Phone</label></td>
+            <td class="value"><input type="tel" class="form-control" name="BusinessPhone" data-ng-model="contact.WorkPhone" /></td>
+        </tr>
+        <tr>
+            <td><label for="HomePhone">Home Phone</label></td>
+            <td class="value"><input type="tel" class="form-control" name="HomePhone" data-ng-model="contact.HomePhone" /></td>
+        </tr>
+        <tr>
+            <td><label for="MobileNumber">Mobile Number</label></td>
+            <td class="value"><input type="tel" class="form-control" name="MobileNumber" data-ng-model="contact.CellPhone" /></td>
+        </tr>
+        <tr>
+            <td><label for="FaxNumber">Fax Number</label></td>
+            <td class="value"><input type="tel" class="form-control" name="FaxNumber" data-ng-model="contact.WorkFax" /></td>
+        </tr>
+        <tr>
+            <td><label for="Address">Address</label></td>
+            <td class="value"><textarea class="form-control" name="Address" data-ng-model="contact.WorkAddress"></textarea></td>
+        </tr>
+        <tr>
+            <td><label for="City">City</label></td>
+            <td class="value"><input type="text" class="form-control" name="City" data-ng-model="contact.WorkCity" /></td>
+        </tr>
+        <tr>
+            <td><label for="StateProvince">State/Province</label></td>
+            <td class="value"><input type="text" class="form-control" name="StateProvince" data-ng-model="contact.WorkState" /></td>
+        </tr>
+        <tr>
+            <td><label for="ZipPostalCode">Zip/Postal Code</label></td>
+            <td class="value"><input type="text" class="form-control" name="ZipPostalCode" data-ng-model="contact.WorkZip" /></td>
+        </tr>
+        <tr>
+            <td><label for="CountryRegion">Country/Region</label></td>
+            <td class="value"><input type="text" class="form-control" name="CountryRegion" data-ng-model="contact.WorkCountry" /></td>
+        </tr>
+        <tr>
+            <td><label for="Notes">Notes</label></td>
+            <td class="value"><textarea class="form-control" name="Notes" data-ng-model="contact.Notes"></textarea></td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !editContactForm.$valid" ng-click="editItem(contact)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100CE9F6E64C9A14ADFAF15103E978E15E9" Name="Note Document" Group="Custom Content Types" Description="Document that is attached to a note" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{bdadf886-bf17-43ee-a015-704bc2544dc3}" DisplayName="Note" Required="TRUE" Name="Note" />
+      <FieldRef ID="{9dc3ce31-163f-4a1b-bdca-ce9c02ce06f9}" DisplayName="Counterparty Name" Required="FALSE" Name="CounterpartyName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

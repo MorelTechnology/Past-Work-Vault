@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0710acd5-920e-4a91-ac03-df96b392f15a" solutionId="0710acd5-920e-4a91-ac03-df96b392f15a" resetWebServer="false" sharePointProductVersion="15.0" name="GAIT_Event_Receivers" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="d26fa2c1-34d8-4023-ab98-5b1ba7e04a06" />
+  </features>
+</package>

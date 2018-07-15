@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a05809a4-da70-4f3d-beb1-a3996ca2119c}"
+       Name="Members"
+       DisplayName="Members"
+       Type="UserMulti"
+       Required="TRUE"
+       Group="Riverstone Columns" UserSelectionMode="PeopleOnly" Mult="TRUE">
+  </Field>
+</Elements>

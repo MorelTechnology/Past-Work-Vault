@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="11b4969d-636f-4bb7-8342-df6e6e14ff5e" solutionId="11b4969d-636f-4bb7-8342-df6e6e14ff5e" resetWebServer="false" sharePointProductVersion="15.0" name="CommutationCentralJS" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="be9f356d-7a8d-4673-b58f-0fbefc296017" />
+    <featureReference itemId="0d0ef385-13c6-4ecb-801e-893c7136952b" />
+    <featureReference itemId="a433dbad-2ba7-4820-ba6d-bfefc5ab4d68" />
+    <featureReference itemId="c1db545d-78d9-4d02-ac0f-f29b1706a7d9" />
+    <featureReference itemId="225ce8f0-9a56-4928-a2f4-026bc9d6edde" />
+    <featureReference itemId="27c3238b-675f-4ede-ab30-1ed2a632caf7" />
+    <featureReference itemId="4ae03fe6-db65-4c81-9c8a-3a94dbe32e1e" />
+    <featureReference itemId="8c1e0d1e-4b10-4464-bbc8-de85c708caa1" />
+    <featureReference itemId="ffd0f799-7b53-4a5f-bd2f-0a0f7b48e3e7" />
+    <featureReference itemId="96ec3bc8-af82-4591-8892-59dbdf874952" />
+    <featureReference itemId="c48ba8c8-4a61-4d69-bc4e-ff587e16b4dd" />
+    <featureReference itemId="7125a30e-be6e-4f97-8c52-776f9d88557f" />
+    <featureReference itemId="a55a90ee-0d58-4081-b1c1-3f774f1d5ceb" />
+    <featureReference itemId="c09bba9b-d466-4c99-bbb3-fbce2af2f3a8" />
+    <featureReference itemId="92869d73-e07e-4007-aa1b-52fd03f8aba4" />
+    <featureReference itemId="cf90f5d8-0756-410f-a81b-8b5066981ef5" />
+    <featureReference itemId="f7b5bcc1-efd1-4bbf-9ec9-a3acc1019d39" />
+    <featureReference itemId="461d75a4-5502-43bc-a098-8eae98308ca9" />
+    <featureReference itemId="246cb528-4dce-4b98-b106-9c634be2173b" />
+    <featureReference itemId="387a5370-dff7-430d-bfbc-01cdd70b60c5" />
+    <featureReference itemId="dda52147-7a37-40ae-8ccc-b63f9ec0604a" />
+    <featureReference itemId="f390b5b8-d544-4404-8bb0-8f7e094fbc01" />
+  </features>
+</package>

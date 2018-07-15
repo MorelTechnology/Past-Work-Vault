@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UltimateSoftware.WcfTypes.Base" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UltimateSoftware.WcfTypes.Base" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://service4.ultipro.com/services/EmployeeAddress?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Specialized" />
+  <xs:complexType name="PingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppDomainName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallerIPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child" nillable="true" type="tns:PingResponse" />
+      <xs:element minOccurs="0" name="ExceptionDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExceptionMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Specialized" minOccurs="0" name="Information" nillable="true" type="q1:NameValueCollection" />
+      <xs:element minOccurs="0" name="ListenerUri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MachineName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetUri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PingResponse" nillable="true" type="tns:PingResponse" />
+</xs:schema>

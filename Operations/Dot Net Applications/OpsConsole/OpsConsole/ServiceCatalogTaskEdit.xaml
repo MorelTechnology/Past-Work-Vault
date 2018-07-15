@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="OpsConsole.ServiceCatalogTaskEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="1280">
+
+    <Grid  >
+        <Grid Background="#FF89A3B2" Opacity="0.6" Visibility="Visible"  >
+        </Grid>
+        <Grid x:Name="gridControl" Margin="0,56,0,57" Background="#FF405895" HorizontalAlignment="Center" Width="657" Height="527">
+
+
+            <Grid Height="36" Margin="0" VerticalAlignment="Top" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Edit Task" VerticalAlignment="Top" Width="428" Foreground="White" FontSize="24"/>
+                <TextBlock x:Name="lblTitle_Copy" HorizontalAlignment="Left" Margin="667,0,0,0" TextWrapping="Wrap" Text="Fields" VerticalAlignment="Top" Width="428" Foreground="White" FontSize="24"/>
+            </Grid>
+            <Grid x:Name="gridBottomToolbar" Opacity="1" Height="53" Margin="0" VerticalAlignment="Bottom" Background="#FF82879C" >
+                <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" Height="41" Margin="0,5,10,0" VerticalAlignment="Top" Width="71" FontWeight="Bold" Click="btnSave_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Right" Height="41" Margin="0,5,87,0" VerticalAlignment="Top" Width="71" Click="btnCancel_Click"/>
+                <TextBlock x:Name="txtMessage" HorizontalAlignment="Left" Margin="7,-3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Foreground="White" FontSize="14" Height="55"/>
+                <Button x:Name="btnShowHideFields"  HorizontalAlignment="Right" Height="41" Margin="0,5,164,0" VerticalAlignment="Top" Width="71" Foreground="#FF0B1F04" Click="btnShowHideFields_Click" >
+                    <StackPanel Orientation="Vertical">
+                        <Label x:Name="lblButtonShowFields" Content="Show" HorizontalContentAlignment="Center" Margin="0,-3,0,0" FontWeight="Bold" Foreground="DarkGreen" />
+                        <Label Content="Fields" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" Foreground="DarkGreen" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Grid Opacity="1" x:Name="gridInnerControl" >
+                <TextBlock HorizontalAlignment="Left" Margin="14,38,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="16"/>
+                <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="24" Margin="14,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="14,90,0,0" TextWrapping="Wrap" Text="Audience" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="16"/>
+                <TextBlock HorizontalAlignment="Left" Margin="14,166,0,0" TextWrapping="Wrap" Text="Service Desk Category" VerticalAlignment="Top" Width="169" Foreground="White" FontSize="16"/>
+                <Grid x:Name="gridTicket" Width="365" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Background="White" Height="253" Visibility="Hidden" >
+                    <ScrollViewer>
+                        <TextBlock x:Name="tbNote" TextWrapping="Wrap" Text=""  FontSize="11"  />
+                    </ScrollViewer>
+                </Grid>
+                <DataGrid x:Name="dgCat" Margin="14,187,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock HorizontalAlignment="Left" Margin="14,313,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="16"/>
+                <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Height="120" Margin="14,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="628" AcceptsReturn="True"/>
+                <Button x:Name="btnBiz" HorizontalAlignment="Left" Height="41" Margin="14,111,0,0" VerticalAlignment="Top" Width="152" FontWeight="Bold" Click="btnBiz_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectBiz" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="For Business Users" FontSize="14" Foreground="#FF303030" />
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="226,166,0,0" TextWrapping="Wrap" Text="Service Desk SubCategory" VerticalAlignment="Top" Width="205" Foreground="White" FontSize="16"/>
+                <TextBlock HorizontalAlignment="Left" Margin="437,166,0,0" TextWrapping="Wrap" Text="Service Desk Item" VerticalAlignment="Top" Width="205" Foreground="White" FontSize="16"/>
+                <DataGrid x:Name="dgSubCat" Margin="226,187,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" SelectionChanged="dgSubCat_SelectionChanged" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid x:Name="dgItem" Margin="437,187,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="113" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="205" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnOps" HorizontalAlignment="Left" Height="41" Margin="173,111,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Click="btnOps_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle x:Name="rectOps" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="For Operations" FontSize="14" Foreground="#FF303030" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnIT" HorizontalAlignment="Left" Height="41" Margin="313,111,0,0" VerticalAlignment="Top" Width="131" FontWeight="Bold" Click="btnIT_Click" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="-22,0,0,0">
+                        <Rectangle x:Name="rectIT" Fill="#FF3464B8" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                        <Label Content="For IT Users" FontSize="14" Foreground="#FF303030" />
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="463,38,0,0" TextWrapping="Wrap" Text="Service Level Agreement" VerticalAlignment="Top" Width="180" Foreground="White" FontSize="16"/>
+                <DataGrid x:Name="dgSLA" Margin="463,59,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="93" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="179" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="125" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid x:Name="gridFields" HorizontalAlignment="Left" Height="438" Margin="662,36,0,0" VerticalAlignment="Top" Width="484" Background="#FF729365">
+                <DataGrid x:Name="dgCat_Copy" Margin="10,9,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="381" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="Column" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="464" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Service Desk Field" Width="165" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Behavior" Width="135" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Value" Width="185" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Picklist" Width="185" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnEditField" HorizontalAlignment="Left" Margin="9,0,0,10" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Edit" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                        <Label Content="Field" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnAddField" HorizontalAlignment="Left" Margin="76,0,0,10" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold" Click="btnAddField_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Add" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                        <Label Content="Field" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnRemoveField"  HorizontalAlignment="Left" Margin="143,0,0,10" VerticalAlignment="Bottom" Width="63" Height="31" FontWeight="Bold">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Remove" HorizontalContentAlignment="Center" Margin="0,-6,0,0" />
+                        <Label Content="Field" Margin="0,-13,0,0" HorizontalContentAlignment="Center" FontWeight="Normal" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <Grid x:Name="gridAddField" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="484" Background="#FFB9B48E" Visibility="Hidden">
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Service Desk Field" VerticalAlignment="Top" Width="148" Foreground="#FF2B1F0A" FontSize="16"/>
+                    <DataGrid x:Name="gridSDFields" Margin="10,36,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="360" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="224" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock HorizontalAlignment="Left" Margin="246,10,0,0" TextWrapping="Wrap" Text="Behavior" VerticalAlignment="Top" Width="148" Foreground="#FF2B1F0A" FontSize="16"/>
+                    <Button x:Name="btnCancelAddField" Content="Cancel" HorizontalAlignment="Right" Height="29" Margin="0,402,92,0" VerticalAlignment="Top" Width="71" Click="btnCancelAddField_Click"/>
+                    <Button x:Name="btnSaveAddField" Content="Save" HorizontalAlignment="Right" Height="29" Margin="0,402,14,0" VerticalAlignment="Top" Width="71" FontWeight="Bold" Click="btnSaveAddField_Click"/>
+                    <ComboBox x:Name="cbBehaviors" HorizontalAlignment="Left" Margin="246,36,0,0" VerticalAlignment="Top" Width="228" Height="33" SelectionChanged="cbBehaviors_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="246,74,0,0" TextWrapping="Wrap" Text="Picklist" VerticalAlignment="Top" Width="148" Foreground="#FF2B1F0A" FontSize="16"/>
+                    <DataGrid x:Name="dgPicklist" Margin="246,100,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="114" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="224" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock HorizontalAlignment="Left" Margin="246,241,0,0" TextWrapping="Wrap" Text="Default value" VerticalAlignment="Top" Width="148" Foreground="#FF2B1F0A" FontSize="16"/>
+                    <DataGrid x:Name="dgPicklistValues" Margin="246,264,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="132" Background="White" VerticalAlignment="Top" CanUserResizeColumns="False" CanUserReorderColumns="False" HeadersVisibility="None" RowDetailsVisibilityMode="Visible" CanUserResizeRows="False" IsReadOnly="True" Width="224" SelectionChanged="dgCat_SelectionChanged" HorizontalAlignment="Left" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DarkGray"/>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Width="185" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnEditPicklists" Content="Edit Picklists" HorizontalAlignment="Right" Height="23" Margin="0,219,14,0" VerticalAlignment="Top" Width="79" FontSize="11" Click="btnEditPicklists_Click"/>
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

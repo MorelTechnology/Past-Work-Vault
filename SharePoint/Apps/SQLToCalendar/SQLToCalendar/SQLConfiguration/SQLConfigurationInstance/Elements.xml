@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="SQL Configuration" OnQuickLaunch="TRUE" TemplateType="10000" Url="Lists/SQL Configuration" Description="Contains key/value pair elements to allow the calendar web part to render data from a SQL database.">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Key">Server</Field>
+          <Field Name="Value">SPDEVN</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Key">Database</Field>
+          <Field Name="Value">ExchangeCalendars</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Key">Integrated Security</Field>
+          <Field Name="Value">SSPI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="Key">Default SQL Query</Field>
+          <Field Name="Value">Select * From TimeOffCalendarEvents</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="Key">Department Listing Query</Field>
+          <Field Name="Value">Select distinct Department from TimeOffCalendarEvents</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

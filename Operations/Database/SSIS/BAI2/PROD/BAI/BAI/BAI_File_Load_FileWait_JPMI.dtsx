@@ -1,0 +1,1813 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2012 4:41:19 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="BGOET-LAP7"
+  DTS:CreatorName="TRG\bgoet"
+  DTS:DTSID="{942B1B2D-1023-40A8-A2FA-BE85E5E8C22E}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:ForceExecutionResult="0"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="BAI_File_Load_FileWait"
+  DTS:PackageType="5"
+  DTS:VersionBuild="724"
+  DTS:VersionGUID="{A924E403-71B8-46F6-AE59-621CAD140E3B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F115FD8A-4B0A-4AD8-9FBE-5C40A60DB239}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BAI_Staging_Con">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=MANSQL01;Initial Catalog=BAI_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2EC2280-A263-48D6-884D-3D05E6EAF674}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DirName">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batch$\CashManagement\JPMorgan\IntraDay\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{93D701D5-8B61-489F-BB6B-9035AC1A2BC9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Error_Cntr">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{96D3E3F2-10D3-4B2B-9942-67626BBD17FB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">TINCO.IRIS.CBAI.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{965860BA-3203-40BE-A4D7-3F5E5B0E7DC9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">\\mansan02\batch$\CashManagement\JPMorgan\IntraDay\TINCO.IRIS.CBAI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D8A7F95-EB4E-4045-A524-6B836D14AE17}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SrvName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Archive JPMI Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{d9c43ef5-174a-4331-a115-8d171ae40669}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Archive JPMI Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{5f89346a-60a9-4d83-a34f-2ed5c2444db6}"
+        DTS:ObjectName="{F6C4E6D8-2A02-4A70-A2A5-F51B4E50B4B5}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::JPMI_DirectoryName]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[$Project::JPMI_FileName]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\mansan02\batcht$\CashManagement\JPMorgan\IntraDay\" />
+            <FEFEProperty
+              FileSpec="TINCO.IRIS.CBAI.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Archive JPMI Files\File System Task"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="File System Task"
+          DTS:DTSID="{ea5623c2-6671-4dc1-a026-ce816f7d15e2}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::JPMI_ArchiveFile"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C11CDE44-1D12-4B7E-9058-26FDE8BA7970}"
+          DTS:ObjectName="{C11CDE44-1D12-4B7E-9058-26FDE8BA7970}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete rows in Parse table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB5CAC20-78D8-4C44-A09C-741FF5E239F4}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete rows in Parse table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}"
+          SQLTask:SqlStatementSource="Truncate table [dbo].[ParseTable]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load BAI Staging Tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FAF33054-83D7-4086-BC23-C34CC2DA7FDE}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load BAI Staging Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}"
+          SQLTask:SqlStatementSource="Declare @error int&#xA;&#xA;exec batch_Load_Cash_Management  @error&#xA;&#xA;set ? = @error" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Error_Cntr"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Navision tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D8849FBD-7C65-4A40-9CA4-CA3B18CE8F1A}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Navision tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}"
+          SQLTask:SqlStatementSource="Declare   @FileTimeStamp datetime,&#xA; @error int&#xA;&#xA;SET @error = ?&#xA;&#xA;If @error = 0&#xA;Begin   -- &#xA;&#xA;Set @FileTimeStamp = (Select max(bfct.FileTimeStamp)&#xA;        From dbo.BankFileControlTotals bfct&#xA;      )&#xA;&#xA;---------------&#xA;-- Add =&#xA;---------------&#xA;UPDATE dbo.TextTagsStaging&#xA;SET TextTag = TextTag + '='&#xA;from BankTransactionStaging bts&#xA;WHERE TextTagsStaging.TextTag &lt;&gt; 'KEY BANK'&#xA;AND bts.FileTimeStamp = @FileTimeStamp&#xA;AND bts.EntryNo = TextTagsStaging.EntryNo&#xA;AND TextTag &lt;&gt; ' '&#xA;&#xA;---------------------&#xA;-- Add comma&#xA;---------------------&#xA;UPDATE dbo.TextTagsStaging &#xA;SET Content = Content + ','&#xA;from BankTransactionStaging bts&#xA;WHERE TextTagsStaging.TextTag &lt;&gt; 'KEY BANK'&#xA;AND bts.FileTimeStamp = @FileTimeStamp&#xA;AND bts.EntryNo = TextTagsStaging.EntryNo&#xA;AND TextTagsStaging.id NOT IN (SELECT MAX(tt2.ID)&#xA;    FROM dbo.TextTagsStaging tt2&#xA;    WHERE TextTagsStaging.EntryNo = tt2.EntryNo&#xA;    )&#xA;and  Content  &lt;&gt; ' '&#xA;&#xA;&#xA;--------------------------------------------------------------------------------&#xA;--  Insert rows into Claims&#xA;--------------------------------------------------------------------------------&#xA;INSERT INTO Navision.dbo.[RiverStone Claims$BankAccountControlTotals]&#xA; (&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate  ,&#xA; BankAccountNo ,&#xA; NumOfBAIRecords ,&#xA; AccountControlTotal,&#xA; NumOfBalanceRecords ,&#xA; NumOfTransactionRecords ,&#xA; SumOfTransactionAmounts,&#xA;FileTypeFromBank&#xA; )&#xA;SELECT &#xA; FileSource,&#xA;CASE  WHEN FileType = '2'&#xA;  THEN '9'&#xA; WHEN FileType = '3'&#xA;  THEN '8' &#xA; WHEN FileType = '4'&#xA;  THEN '8' &#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorID,&#xA; AsOfDate,&#xA; BankAccountNo,&#xA; NumOfBAIRecords,&#xA; AccountControlTotal,&#xA; NumOfBalanceRecords,&#xA; NumOfTransactionRecords,&#xA; SumOfTransactionAmounts,&#xA; FileType &#xA; FROM BankAccountControlTotals&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'RiverStone Claims'&#xA;&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;--&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;INSERT INTO Navision.dbo.[RiverStone Claims$BankAccountBalancesStaging]&#xA; (&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAIStatusTypeCode ,&#xA; CurrencyCode ,&#xA; Amount ,&#xA; Processed ,&#xA; Error ,&#xA; CreatedTime,&#xA;FileTypeFromBank&#xA; )&#xA; &#xA; SELECT &#xA; FileSource ,&#xA;CASE  WHEN FileType = '2'&#xA;  THEN '9'&#xA; WHEN FileType = '3'&#xA;  THEN '8' &#xA; WHEN FileType = '4'&#xA;  THEN '8' &#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAIStatusTypeCode ,&#xA; CurrencyCode ,&#xA; Amount ,&#xA; Processed ,&#xA; Error ,&#xA; CreatedTime,&#xA; FileType &#xA;FROM BankAccountBalanceStaging&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'RiverStone Claims'&#xA;&#xA;&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;--  &#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;INSERT INTO Navision.dbo.[RiverStone Claims$BankTransactionStaging]&#xA;(&#xA; EntryNo ,&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAITransactionType ,&#xA; CurrencyCode ,&#xA; DocumentNo ,&#xA; Amount ,&#xA; SameDayAvailability ,&#xA; DayPlusOneAvailability ,&#xA; DayPlusTwoAvailability ,&#xA; Payee ,&#xA; Payer ,&#xA; BankReferenceId ,&#xA; PostingDate ,&#xA; BankRecNo ,&#xA; Processed ,&#xA; Error,&#xA; CreatedTime,&#xA;FileTypeFromBank&#xA;)&#xA;SELECT &#xA; EntryNo ,&#xA; FileSource ,&#xA;CASE  WHEN FileType = '2'&#xA;  THEN '9'&#xA; WHEN FileType = '3'&#xA;  THEN '8' &#xA; WHEN FileType = '4'&#xA;  THEN '8' &#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAITransactionType,&#xA; CurrencyCode ,&#xA; DocumentNo ,&#xA; Amount ,&#xA; SameDayAvailability ,&#xA; DayPlusOneAvailability ,&#xA; DayPlusTwoAvailability ,&#xA; Payee ,&#xA; Payer ,&#xA; BankReferenced ,&#xA; PostingDate ,&#xA; BankRecNo ,&#xA; Processed ,&#xA; Error,&#xA; CreatedTime,&#xA; FileType &#xA;FROM BankTransactionStaging&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'RiverStone Claims'&#xA;&#xA;&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;-- &#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;insert INTO Navision.dbo.[RiverStone Claims$TextTagsStaging]&#xA;(&#xA; Id ,&#xA; EntryNo ,&#xA; TextTag ,&#xA; Content &#xA;)&#xA;SELECT &#xA; ts.Id ,&#xA; ts.EntryNo ,&#xA; ts.TextTag ,&#xA;substring( ts.Content ,1,250)&#xA;FROM dbo.[BankTransactionStaging]  bts&#xA;JOIN dbo.[TextTagsStaging] ts&#xA; ON  bts.EntryNo = ts.EntryNo&#xA; AND  bts.FileTimeStamp = @FileTimeStamp&#xA; AND bts.Company = 'RiverStone Claims'&#xA;&#xA; &#xA;--------------------------------------------------------------------------------&#xA;--  Insert rows into THC\Rivernet&#xA;--------------------------------------------------------------------------------&#xA;&#xA;INSERT INTO Navision.dbo.THC_RiverStone$BankAccountControlTotals&#xA; (&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate  ,&#xA; BankAccountNo ,&#xA; NumOfBAIRecords ,&#xA; AccountControlTotal,&#xA; NumOfBalanceRecords ,&#xA; NumOfTransactionRecords ,&#xA; SumOfTransactionAmounts,&#xA;FileTypeFromBank&#xA; )&#xA;SELECT &#xA; FileSource,&#xA;CASE  WHEN FileType = '2'&#xA;  THEN '9'&#xA; WHEN FileType = '3'&#xA;  THEN '8' &#xA; WHEN FileType = '4'&#xA;  THEN '8' &#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorID,&#xA; AsOfDate,&#xA; BankAccountNo,&#xA; NumOfBAIRecords,&#xA; AccountControlTotal,&#xA; NumOfBalanceRecords,&#xA; NumOfTransactionRecords,&#xA; SumOfTransactionAmounts,&#xA; FileType &#xA; FROM BankAccountControlTotals&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'THC\RiverStone'&#xA; &#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;--  &#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;INSERT INTO Navision.dbo.THC_RiverStone$BankAccountBalancesStaging&#xA; (&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAIStatusTypeCode ,&#xA; CurrencyCode ,&#xA; Amount ,&#xA; Processed ,&#xA; Error ,&#xA; CreatedTime,&#xA;FileTypeFromBank&#xA; )&#xA; &#xA; SELECT &#xA; FileSource ,&#xA;CASE  &#x9;WHEN FileType = '2'&#xA;  &#x9;&#x9;THEN '9'&#xA; &#x9;WHEN FileType = '3'&#xA;  &#x9;&#x9;THEN '8' &#xA;&#x9;WHEN FileType = '4'&#xA;  &#x9;&#x9;THEN '8'&#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAIStatusTypeCode ,&#xA; CurrencyCode ,&#xA; Amount ,&#xA; Processed ,&#xA; Error ,&#xA; CreatedTime,&#xA; FileType &#xA;FROM BankAccountBalanceStaging&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'THC\RiverStone'&#xA;&#xA;&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;--  &#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;INSERT INTO Navision.dbo.THC_RiverStone$BankTransactionStaging&#xA;(&#xA; EntryNo ,&#xA; FileSource ,&#xA; FileType ,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAITransactionType ,&#xA; CurrencyCode ,&#xA; DocumentNo ,&#xA; Amount ,&#xA; SameDayAvailability ,&#xA; DayPlusOneAvailability ,&#xA; DayPlusTwoAvailability ,&#xA; Payee ,&#xA; Payer ,&#xA; BankReferenceId ,&#xA; PostingDate ,&#xA; BankRecNo ,&#xA; Processed ,&#xA; Error,&#xA; CreatedTime,&#xA;FileTypeFromBank&#xA;)&#xA;SELECT &#xA; EntryNo ,&#xA;FileSource ,&#xA;CASE  WHEN FileType = '2'&#xA;  THEN '9'&#xA; WHEN FileType = '3'&#xA;  THEN '8' &#xA; WHEN FileType = '4'&#xA;  THEN '8' &#xA;END,&#xA; FileTimeStamp ,&#xA; GroupOriginatorId ,&#xA; AsOfDate ,&#xA; BankAccountNo ,&#xA; BAITransactionType,&#xA; CurrencyCode ,&#xA; DocumentNo ,&#xA; Amount ,&#xA; SameDayAvailability ,&#xA; DayPlusOneAvailability ,&#xA; DayPlusTwoAvailability ,&#xA; Payee ,&#xA; Payer ,&#xA; BankReferenced ,&#xA; PostingDate ,&#xA; BankRecNo ,&#xA; Processed ,&#xA; Error,&#xA; CreatedTime,&#xA; FileType &#xA;FROM BankTransactionStaging&#xA;WHERE  FileTimeStamp = @FileTimeStamp&#xA;AND Company  = 'THC\RiverStone'&#xA;&#xA;&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;--&#xA;--------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;insert INTO Navision.dbo.THC_RiverStone$TextTagsStaging &#xA;(&#xA; Id ,&#xA; EntryNo ,&#xA; TextTag ,&#xA; Content &#xA;)&#xA;SELECT &#xA; ts.Id ,&#xA; ts.EntryNo ,&#xA; ts.TextTag ,&#xA;substring( ts.Content ,1,250)&#xA;FROM dbo.[BankTransactionStaging]  bts&#xA;JOIN dbo.[TextTagsStaging] ts&#xA; ON  bts.EntryNo  = ts.EntryNo&#xA; AND  bts.FileTimeStamp = @FileTimeStamp&#xA; AND bts.Company  = 'THC\RiverStone'&#xA;&#xA;End" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Error_Cntr"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Parse table using JPMorgan Intra-Day file"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0467D581-0777-4B69-9C27-4D16B7786CA2}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Parse table using JPMorgan Intra-Day file"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ParseTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BAI_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[One]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="One"
+                      externalMetadataColumnId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                      lineageId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component.Outputs[Output 0].Columns[One]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Data" />
+                    <externalMetadataColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Executes a custom script.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Executes a custom script."
+              name="Script Component"
+              version="8">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_7621b058bbd54f8b855b265c235b3810.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyProduct("SC_7621b058bbd54f8b855b265c235b3810.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @ Microsoft 2012")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("edab9516-f9ae-432e-ae94-8fe20dec8ae8")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Output0Buffer As Output0Buffer
+
+    Public Overridable Sub FinishOutputs()
+    End Sub
+
+    Private Sub MarkOutputsFinished()
+
+        If Output0Buffer IsNot Nothing Then
+            Output0Buffer.SetEndOfRowset
+            Output0Buffer = Nothing
+        End If
+
+    End Sub
+
+    Public Overrides Sub PrimeOutput(ByVal Outputs As Integer, ByVal OutputIDs() As Integer, ByVal Buffers() As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        For I As Integer = 0 To Outputs - 1
+            If OutputIDs(I) = GetOutputID(OutputMap, "Output 0") Then
+                Output0Buffer = New Output0Buffer(Buffers(I), GetColumnIndexes(OutputIDs(I)), OutputMap)
+            End If
+        Next
+
+        CreateNewOutputRows()
+
+        FinishOutputs()
+        MarkOutputsFinished()
+
+    End Sub
+
+    Public Overridable Sub CreateNewOutputRows()
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+    Public ReadOnly Property [FullPath]() As String
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("FullPath").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
+        End Get
+    End Property
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Output0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public WriteOnly Property [One]() As String
+        Set
+            Me(0) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [One_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(0)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Sub AddRow()
+        MyBase.AddRow()
+    End Sub
+
+    Public Overloads Sub SetEndOfRowset()
+        MyBase.SetEndOfRowset()
+    End Sub
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' Microsoft SQL Server Integration Services Script Component
+' Write scripts using Microsoft Visual Basic 2008.
+' ScriptMain is the entry point class of the script.
+
+Imports Microsoft.SqlServer.Dts.Runtime
+Imports System.IO
+Imports System.Text
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+    Public Overrides Sub PreExecute()
+        MyBase.PreExecute()
+        '
+        ' Add your code here for preprocessing or remove if not needed
+        '
+    End Sub
+
+    Public Overrides Sub PostExecute()
+        MyBase.PostExecute()
+        '
+        ' Add your code here for postprocessing or remove if not needed
+        ' You can set read/write variables here, for example:
+        ' Me.Variables.MyIntVar = 100
+        '
+    End Sub
+
+    Public Overrides Sub CreateNewOutputRows()
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.51am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.52am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.54am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.55am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.56am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.58am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.58b.am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.10.59am.txt"   '-- error prodsql4
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.11.03am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.11.04am.txt"
+        'Dim FullFilePath = "C:\CashManagement\baitestprevday 031913.11.06am.txt"
+        'Dim FullFilePath = "C:\CashManagement\_0046108[1].GTM PREV DAY.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130117_08-19-18-431_3109_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130116_09-53-08-736_0529_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130115_10-00-23-176_9656_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130115_08-13-44-811_7728_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130114_11-57-06-307_2703_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130114_10-00-09-615_0073_C0042958_DETAILS.txt"
+        'Dim FullFilePath = "C:\CashManagement\20130114_08-32-13-696_5213_C0042958_DETAILS.txt"
+        Dim FullFilePath = "\\mansan02\batch$\CashManagement\JPMorgan\IntraDay\TINCO.IRIS.CBAI.txt"
+        'Dim FullFilePath = Dts.Variables["FullPath"].Value.ToString()
+        '
+        ' Add rows by calling the AddRow method on the member variable named "<Output Name>Buffer".
+        ' For example, call MyOutputBuffer.AddRow() if your output was named "MyOutput".
+        '
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130114_08-32-13-696_5213_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130114_10-00-09-615_0073_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130114_11-57-06-307_2703_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130115_08-13-44-811_7728_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130115_10-00-23-176_9656_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130116_09-53-08-736_0529_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\20130117_08-19-18-431_3109_C0042958_DETAILS.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("C:\CashManagement\_0046108[1].GTM PREV DAY.txt")
+        '    Microsoft.VisualBasic.FileIO.TextFieldParser("\\mansan02\batchtest$\CashManagement\KeyBank\Prior\2013-03-07_PriorDayV1.txt")
+        Using MyReader As New  _
+            Microsoft.VisualBasic.FileIO.TextFieldParser(FullFilePath)
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+            Dim currentRow As String()
+            While Not MyReader.EndOfData
+                Try
+                    currentRow = MyReader.ReadFields()
+                    Dim currentField As String
+                    For Each currentField In currentRow
+                        ' MsgBox(currentField)
+                        Output0Buffer.AddRow()
+                        Output0Buffer.One = currentField
+                    Next
+                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message & _
+                    "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
+    End Sub
+
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>sc_7621b058bbd54f8b855b265c235b3810</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>sc_7621b058bbd54f8b855b265c235b3810</msb:DisplayName>
+		<msb:ProjectId>{02F92702-EDEA-4958-A69B-26AA38ADC666}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="sc_7621b058bbd54f8b855b265c235b3810.vbproj"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+		<msb:File Include="main.vb"/>
+		<msb:File Include="BufferWrapper.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="ComponentWrapper.vb"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[sc_7621b058bbd54f8b855b265c235b3810.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SC_7621b058bbd54f8b855b265c235b3810.vbproj</RootNamespace>
+    <AssemblyName>SC_10DF317A1A404E5E9B5F60BB8E9D331B</AssemblyName>
+    <StartupObject></StartupObject>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ProjectGuid>{89CA51FB-F3F1-4757-B164-748ACF57FC65}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+    <Compile Include="main.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" />
+        <Host Name="SSIS_ScriptComponent" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_10DF317A1A404E5E9B5F60BB8E9D331B.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAFAQilkAAAAAAAAAAOAAAiELAQsAACQAAAAIAAAAAAAALkMA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACgAAAAAgAAAAAAAAIAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOBCAABLAAAAAGAAAEAEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAANCMAAAAgAAAAJAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEAEAAAAYAAAAAYAAAAmAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAALAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAQ
+QwAAAAAAAEgAAAACAAUAoCUAAEAdAAABAAAAAAAAAOgkAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKAEAAAoqHgIoBAAACiqmcwYAAAqAAQAABHMHAAAKgAIA
+AARzCAAACoADAAAEcwkAAAqABAAABCoAABMwAQALAAAAAQAAEX4BAAAEbwoAAAoqABMwAQALAAAA
+AgAAEX4CAAAEbwsAAAoqABMwAQALAAAAAwAAEX4DAAAEbwwAAAoqABMwAQALAAAABAAAEX4EAAAE
+bw0AAAoqABMwAgANAAAABQAAEQIDKBEAAAooEgAACioAAAATMAEABwAAAAYAABECKBMAAAoqABMw
+AQALAAAABwAAEdAFAAACKBQAAAoqABMwAQAHAAAACAAAEQIoFQAACioAEzABABAAAAAJAAARAowB
+AAAbLQYoAQAAKyoCKhMwAgAQAAAACgAAEQMSAP4VAgAAGwaBAgAAGyoeAigXAAAKKhMwAgAoAAAA
+CwAAEQJ7GQAACm8aAAAKCweMAwAAGy0SKAIAACsLAnsZAAAKB28bAAAKBypKAigXAAAKAnMcAAAK
+fRkAAAoqACoCAwQFKB4AAAoqACYCFgNvHwAACioAAGIDLAkCFm8gAAAKKwtyAQAAcHMhAAAKeioA
+AAAeAigiAAAKKh4CKCMAAAoqEzABAAkAAAAMAAARAigkAAAKCgYqAAAAfgIoJgAACgICcxwAAAZ9
+BgAABAICcx0AAAZ9BwAABCoGKgAAbgJ7CAAABCwSAnsIAAAEbxUAAAYCFH0IAAAEKhMwBQBNAAAA
+DQAAERYDF9oLCisuBAaUDgRyngAAcCgnAAAKMxkCBQaaAgQGlG8oAAAKDgRzEQAABn0IAAAEBhfW
+CgYHMc4CbxsAAAYCbxgAAAYCbxkAAAYqAAAABioAADoCKBcAAAoCA30JAAAEKgA6AigXAAAKAgN9
+CgAABCoAEzACACUAAAAOAAARAnsKAAAEbykAAApysAAAcG8qAAAKKCsAAApvLAAACigtAAAKKgAA
+AB4CKBcAAAYqHgIoLgAACioeAigvAAAKKhswBACtAAAADwAAEXLCAABwCgZzMAAACgsHFm8xAAAK
+BxeNJAAAARMFEQUWclEBAHCiEQVvMgAACitpB28zAAAKDAgTBxYTBisjEQcRBpoNAnsIAAAEbxQA
+AAYCewgAAAQJbxIAAAYRBhfWEwYRBhEHjrcy1d4tJSg0AAAKEwRyVQEAcBEEbzUAAApyYQEAcCg2
+AAAKFhQoNwAACiYoOAAACt4AB285AAAKLI/eCgcsBgdvOgAACtwqAAAAARwAAAAALwA8awAtIgAA
+AQIADQCVogAKAAAAAB4CKBcAAAoqEzACAC0AAAAQAAARfgsAAAQtIHKlAQBw0AwAAAIoFAAACm88
+AAAKcz0AAAoLB4ALAAAEfgsAAAQqAAAAEzABAAYAAAARAAARfgwAAAQqAAAeAoAMAAAEKkJzFwAA
+CigRAAAKgA4AAAQqAAAAHgIoPgAACiobMAEAPwAAABIAABF+DQAABC0yfg4AAAQoEQAACig/AAAK
+fg0AAAQtHHMoAAAGgA0AAATeEH4OAAAEKBEAAAooQAAACtx+DQAABCoAARAAAAIAHQAMKQAQAAAA
+ALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3Js
+aWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdh
+NWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAA
+AAAAUEFEUEFEULQAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAA0CgAAI34A
+AKAKAACEDAAAI1N0cmluZ3MAAAAAJBcAANgBAAAjVVMA/BgAABAAAAAjR1VJRAAAAAwZAAA0BAAA
+I0Jsb2IAAAAAAAAAAgAAAVcVogkJDwAAAPolMwAWAAABAAAAOQAAAA0AAAAOAAAAKQAAAA8AAABM
+AAAAPAAAABIAAAAGAAAACwAAAAwAAAAJAAAAAQAAAAYAAAABAAAAAgAAAAMAAAACAAAAAABZDAEA
+AAAAAAoAhAFaAQoAuAGaAQYAyAHBAQoAIAJaAQYAngLBAQoAIAP2Ag4AgwNiAxIAsQNiAw4AwANi
+Aw4AQQRiAwYABQX0BAYAMgUdBRYAkwV+BRYA4AXKBRYA+QXKBRYAJgYOBgYAUAY9BgoAjwZoBgoA
+pwYTABYA3Aa/BgYAEQfxBgYALwfBAQYAUwfBAQoAbAcTAAYAsAeRBwYA1QfBAQYA7wfBARoAbQhF
+CBoAlAhFCCsArQgAABoA3QhFCAoACQloBgoAMgkVCQoAQgkVCQoAWQkVCQYAdQnBAQoAlQloBgYA
+oQnBAQoAzgkTAAoA2gkTAAoA5wkTAAYAGgrBAQ4ALgpiAwYAZwpVCgYAjgp9CgYAoQo9BgYA/Qrx
+BgYAHQvxBgYAVQs7CwYAbgtVCgYAiwuRBwYAmQtVCgYAtAtVCgYAzwtVCgYA6AtVCgYAAQxVCgYA
+HgxVCgAAAAABAAAAAAABAAEAAAAAACkANwAFAAEAAQAAAAAAZQA3AAkAAQACAAABEABwADcADQAB
+AAMABQEAAHoAAAANAAUACAAFAQAAiAAAAA0ABQAPAAEAAACjALEAHQAGABEAAQAAANwAsQApAAYA
+FwABAAAA6gCxAA0ACQAcAAEAAAD2ALEADQAKAB0AAQAAAAABsQAgAAsAHwAAAAAACwEXAQ0ACwAj
+AAABEABPAbEANQANACcAMQDjASAAMQAMAi0AMQAuAjoAMQBTAkcAIQAvA5AABgDqAMYABgD2AMoA
+BgCjAM4AAQCtBN4AAQCtBN4AEQAVBegAEQA+BewAEQCrBQoBEQCzBQ4BUCAAAAAABhiUARMAAQBY
+IAAAAAAGGJQBEwABAGAgAAAAABEYzwEXAAEAjCAAAAAAEwjWARsAAQCkIAAAAAATCPwBKAABALwg
+AAAAABMIJQI1AAEA1CAAAAAAEwhDAkIAAQDsIAAAAABGAokCYwABAAghAAAAAEYCkgJoAAIAHCEA
+AAAAgwCjAmwAAgA0IQAAAABGAqsCcQACAEghAAAAABEAtAJ4AAIAZCEAAAAAAQDSAoAAAwCAIQAA
+AAAGGJQBEwAEAIghAAAAAAMI5gKLAAQAvCEAAAAABhiUARMABADQIQAAAAAGGJQBpgAEANwhAAAA
+AAYI8wOwAAcA6CEAAAAABggBBLUACAAEIgAAAACGABAEEwAJAAwiAAAAAIYAFwQTAAkAFCIAAAAA
+hgAmBLoACQAsIgAAAAAGGJQBEwAJAEwiAAAAAEYDUQQTAAkAUCIAAAAAAQBfBBMACQBsIgAAAABG
+AnME0gAJAMgiAAAAAEYDmQQTAA0AzCIAAAAABhiUAeIADQDcIgAAAAAGGJQB4gAOAOwiAAAAAAYI
+xwRxAA8AICMAAAAABhiUARMADwAoIwAAAABGAt0EEwAPADAjAAAAAEYC6AQTAA8AOCMAAAAARgKZ
+BBMADwAQJAAAAAADGJQBEwAPABgkAAAAABYISgXwAA8AVCQAAAAAFgheBfUADwBoJAAAAAAWCGoF
++gAPAHAkAAAAABEYzwEXABAAhCQAAAAABhiUARMAEACMJAAAAAAWCMAFEQEQAAAAAQCQAgAAAQDJ
+AgAAAQDJAgAAAQDOAwAAAgDVAwAAAwDpAwAAAQD7AwAAAQD7AwAAAQB/BAAAAgCHBAAAAwCRBAAA
+BADpAwAAAQC9BAAAAQC9BAAAAQD7AwkAlAETAHEAlAEbAYEAlAEqAREAlAETAIkAlAETACQAlAET
+ACwAlAETADQAlAETADwAlAETACQA5gKLACwA5gKLADQA5gKLADwA5gKLAJEAlAETAJkAlAETAKEA
+lAGwAKkAIAfEARkAiQJjABkAkgJoACkAQQfRARkAqwJxALkAXQfhARkAlAETAMEAlAHxAUQALwOQ
+AEwAwAWLAEwAhwduAkwAlAETAMkAlAG1ADkAlAGmADkAxAeDAjkAzQeJAtEAlAGwADkAEAQTADkA
+FwQTADkAJgS6ANkAlAG1AFEAlAETAFEABQiOAlEAEQiVAlEAfgigAuEApAilAlEAyAirAukA9Qiw
+AgEBqwK2AlEA3QQTAFEA6AQTAAkBlAGwAAkBYwm7AgkBfAnCAgkBignIAikBqwnNAjEBuwlxACEB
+xwnUAjkB8wnbAikB+gkXAAkBDAq6AFEBJgoTAFkBlAETACkAcAr4AlkAlAH+AmkAlAETAGkBlgob
+A2kBnAobA3EBlAETAHkBlAGJAoEBlAETAIkBlAGwAJEBlAGwAJkBlAGwAKEBlAGwAKkBlAGwALEB
+lAGwALkBlAGwAMEBlAGwAMkBlAGwACkAgwCzAS4AUwIiBC4ASwLyAy4AIwJNAy4AQwLSAy4AWwJ9
+Ai4AYwLyAy4AEwIlAy4AGwIuAy4AKwKVAy4AMwKiAy4A6wB9Ai4AKwHMAy4AOwJ9AkAAKwBJAUAA
+EwAhAUMAEwAhAUMAGwAwAUkAgwCLAWMAGwAwAWMAEwAhAWkAgwB+AYAAKwBJAYMAcwBJAYMAGwAw
+AYMAewBJAYkAgwCfAaAAKwBJAaMAwwD5AaMAEwAhAcAAKwBJAcMAEwAhAcMA6wB9AuAAKwBJAeMA
+KwF9AgABEwAhAQABKwBJAQMBKwF9AiABKwBJASABEwAhASMBKwF9AikBEwASA0ABKwBJAUABEwAh
+AUMBKwF9AkkBEwASA2ABKwBJAWABEwAhAWMB2wFJAWMBKwF9AmkBCwJJAYABKwBJAaABKwBJAcAB
+EwAhAcABKwBJAeABKwBJAQACEwAhAQACKwBJAYADKwF9AqADKwF9AmoBbwF0AXkByQHNAdgB3QHs
+AewBdALJAZsC3QHmAgYDDQMgAwQAAQAGAAUABwAGAAoACAAMAAkADQALAAAAuAFPAAAAcQJUAAAA
+IAJZAAAAfQJeAAAAOQOYAAAAMgS+AAAANgTCAAAA1AS+AAAABQUAAQAAdgUFAQAA+wMWAQIABAAD
+AAIABQAFAAIABgAHAAIABwAJAAIADwALAAEAEgANAAEAEwAPAAIAHgARAAIAJAATAAIAJQAVAAEA
+JgAVAAIAKQAXAHUAdQCIAE4BVQFcAWMBWwJiAgSAAAABAAAAAAAAAAAAAAAAADUMAAAEAAAAAAAA
+AAAAAAABAAoAAAAAAAoAAAAAAAAAAAAAAAoAEwAAAAAACwAAAAAAAAAAAAAAnQBFAwAAAAALAAAA
+AAAAAAAAAACdAJADAAAAAAQAAAAAAAAAAAAAAAEAwQEAAAAACwAAAAAAAAAAAAAAnQAiCAAAAAAA
+AAAAAQAAAL4KAAAFAAQABgAEAAAAEAAMAMcCAAAQABkAxwIAAAAAGwDHAi0A5wEtAGkCAAAAAAA8
+TW9kdWxlPgBtc2NvcmxpYgBNaWNyb3NvZnQuVmlzdWFsQmFzaWMATXlBcHBsaWNhdGlvbgBTQ183
+NjIxYjA1OGJiZDU0ZjhiODU1YjI2NWMyMzViMzgxMC52YnByb2ouTXkATXlDb21wdXRlcgBNeVBy
+b2plY3QATXlXZWJTZXJ2aWNlcwBUaHJlYWRTYWZlT2JqZWN0UHJvdmlkZXJgMQBPdXRwdXQwQnVm
+ZmVyAFNDXzc2MjFiMDU4YmJkNTRmOGI4NTViMjY1YzIzNWIzODEwLnZicHJvagBVc2VyQ29tcG9u
+ZW50AENvbm5lY3Rpb25zAFZhcmlhYmxlcwBTY3JpcHRNYWluAE15UmVzb3VyY2VzAFNDXzc2MjFi
+MDU4YmJkNTRmOGI4NTViMjY1YzIzNWIzODEwLnZicHJvai5NeS5SZXNvdXJjZXMATXlTZXR0aW5n
+cwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuQXBwbGljYXRpb25TZXJ2aWNlcwBBcHBsaWNhdGlvbkJh
+c2UALmN0b3IATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkRldmljZXMAQ29tcHV0ZXIAU3lzdGVtAE9i
+amVjdAAuY2N0b3IAZ2V0X0NvbXB1dGVyAG1fQ29tcHV0ZXJPYmplY3RQcm92aWRlcgBnZXRfQXBw
+bGljYXRpb24AbV9BcHBPYmplY3RQcm92aWRlcgBVc2VyAGdldF9Vc2VyAG1fVXNlck9iamVjdFBy
+b3ZpZGVyAGdldF9XZWJTZXJ2aWNlcwBtX015V2ViU2VydmljZXNPYmplY3RQcm92aWRlcgBBcHBs
+aWNhdGlvbgBXZWJTZXJ2aWNlcwBFcXVhbHMAbwBHZXRIYXNoQ29kZQBUeXBlAEdldFR5cGUAVG9T
+dHJpbmcAQ3JlYXRlX19JbnN0YW5jZV9fAFQAaW5zdGFuY2UARGlzcG9zZV9fSW5zdGFuY2VfXwBn
+ZXRfR2V0SW5zdGFuY2UATWljcm9zb2Z0LlZpc3VhbEJhc2ljLk15U2VydmljZXMuSW50ZXJuYWwA
+Q29udGV4dFZhbHVlYDEAbV9Db250ZXh0AEdldEluc3RhbmNlAE1pY3Jvc29mdC5TcWxTZXJ2ZXIu
+VHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAU2NyaXB0QnVmZmVyAE1p
+Y3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AFBpcGVsaW5lQnVmZmVyAE91dHB1dE5hbWVN
+YXAAQnVmZmVyAEJ1ZmZlckNvbHVtbkluZGV4ZXMAT3V0cHV0TWFwAHNldF9PbmUAVmFsdWUAc2V0
+X09uZV9Jc051bGwAQWRkUm93AFNldEVuZE9mUm93c2V0AEVuZE9mUm93c2V0AE9uZQBPbmVfSXNO
+dWxsAFNjcmlwdENvbXBvbmVudABGaW5pc2hPdXRwdXRzAE1hcmtPdXRwdXRzRmluaXNoZWQAUHJp
+bWVPdXRwdXQAT3V0cHV0cwBPdXRwdXRJRHMAQnVmZmVycwBDcmVhdGVOZXdPdXRwdXRSb3dzAFBh
+cmVudENvbXBvbmVudABDb21wb25lbnQAZ2V0X0Z1bGxQYXRoAEZ1bGxQYXRoAFByZUV4ZWN1dGUA
+UG9zdEV4ZWN1dGUAU3lzdGVtLlJlc291cmNlcwBSZXNvdXJjZU1hbmFnZXIAX3Jlc01ncgBTeXN0
+ZW0uR2xvYmFsaXphdGlvbgBDdWx0dXJlSW5mbwBfcmVzQ3VsdHVyZQBnZXRfUmVzb3VyY2VNYW5h
+Z2VyAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAEN1bHR1cmUAU3lzdGVtLkNvbmZpZ3VyYXRpb24A
+QXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAbV9WYWx1ZQBtX1N5bmNPYmplY3QAZ2V0X1ZhbHVlAFN5
+c3RlbS5Db21wb25lbnRNb2RlbABFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3Nh
+YmxlU3RhdGUAU3lzdGVtLkNvZGVEb20uQ29tcGlsZXIAR2VuZXJhdGVkQ29kZUF0dHJpYnV0ZQBT
+eXN0ZW0uRGlhZ25vc3RpY3MARGVidWdnZXJIaWRkZW5BdHRyaWJ1dGUATWljcm9zb2Z0LlZpc3Vh
+bEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3RhbmRhcmRNb2R1bGVBdHRyaWJ1dGUASGlkZU1vZHVs
+ZU5hbWVBdHRyaWJ1dGUAU3lzdGVtLkNvbXBvbmVudE1vZGVsLkRlc2lnbgBIZWxwS2V5d29yZEF0
+dHJpYnV0ZQBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFJ1bnRpbWVIZWxwZXJzAEdl
+dE9iamVjdFZhbHVlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAEFjdGl2YXRv
+cgBDcmVhdGVJbnN0YW5jZQBNeUdyb3VwQ29sbGVjdGlvbkF0dHJpYnV0ZQBzZXRfVmFsdWUAU3lz
+dGVtLlJ1bnRpbWUuSW50ZXJvcFNlcnZpY2VzAENvbVZpc2libGVBdHRyaWJ1dGUAc2V0X0l0ZW0A
+U2V0TnVsbABJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAENMU0NvbXBsaWFudEF0dHJpYnV0ZQBH
+ZXRPdXRwdXRJRABHZXRDb2x1bW5JbmRleGVzAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGlt
+ZVdyYXAATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZS5XcmFwcGVyAElEVFNWYXJpYWJs
+ZXMxMDAAZ2V0X1JlYWRPbmx5VmFyaWFibGVzAElEVFNWYXJpYWJsZTEwMABnZXRfSXRlbQBTY3Jp
+cHRDb21wb25lbnRFdmFsQ29udGV4dABnZXRfRXZhbHVhdG9yQ29udGV4dABJRFRTRXZhbHVhdG9y
+Q29udGV4dDEwMABHZXRWYWx1ZVdpdGhDb250ZXh0AENvbnZlcnNpb25zAE1pY3Jvc29mdC5WaXN1
+YWxCYXNpYy5GaWxlSU8AVGV4dEZpZWxkUGFyc2VyAE1hbGZvcm1lZExpbmVFeGNlcHRpb24ARmll
+bGRUeXBlAHNldF9UZXh0RmllbGRUeXBlAFN0cmluZwBTZXREZWxpbWl0ZXJzAFJlYWRGaWVsZHMA
+UHJvamVjdERhdGEARXhjZXB0aW9uAFNldFByb2plY3RFcnJvcgBnZXRfTWVzc2FnZQBDb25jYXQA
+SW50ZXJhY3Rpb24ATXNnQm94UmVzdWx0AE1zZ0JveFN0eWxlAE1zZ0JveABDbGVhclByb2plY3RF
+cnJvcgBnZXRfRW5kT2ZEYXRhAElEaXNwb3NhYmxlAERpc3Bvc2UAU1NJU1NjcmlwdENvbXBvbmVu
+dEVudHJ5UG9pbnRBdHRyaWJ1dGUAU3lzdGVtLlJlZmxlY3Rpb24AQXNzZW1ibHkAZ2V0X0Fzc2Vt
+Ymx5AFN5c3RlbS5UaHJlYWRpbmcATW9uaXRvcgBFbnRlcgBFeGl0AERlYnVnZ2VyTm9uVXNlckNv
+ZGVBdHRyaWJ1dGUAU0NfNzYyMWIwNThiYmQ1NGY4Yjg1NWIyNjVjMjM1YjM4MTAudmJwcm9qLlJl
+c291cmNlcy5yZXNvdXJjZXMAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBSdW50aW1l
+Q29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRhcmdldEZy
+YW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUZpbGVWZXJzaW9uQXR0cmlidXRlAEd1aWRBdHRyaWJ1
+dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUA
+QXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBBc3NlbWJs
+eURlc2NyaXB0aW9uQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAU0NfMTBERjMxN0Ex
+QTQwNEU1RTlCNUY2MEJCOEU5RDMzMUIAU0NfMTBERjMxN0ExQTQwNEU1RTlCNUY2MEJCOEU5RDMz
+MUIuZGxsAAAAAACAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQA
+IABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBh
+AGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAEU8A
+dQB0AHAAdQB0ACAAMAAAEUYAdQBsAGwAUABhAHQAaAAAgI1cAFwAbQBhAG4AcwBhAG4AMAAyAFwA
+YgBhAHQAYwBoACQAXABDAGEAcwBoAE0AYQBuAGEAZwBlAG0AZQBuAHQAXABKAFAATQBvAHIAZwBh
+AG4AXABJAG4AdAByAGEARABhAHkAXABUAEkATgBDAE8ALgBJAFIASQBTAC4AQwBCAEEASQAuAHQA
+eAB0AAADLAAAC0wAaQBuAGUAIAAAQ2kAcwAgAG4AbwB0ACAAdgBhAGwAaQBkACAAYQBuAGQAIAB3
+AGkAbABsACAAYgBlACAAcwBrAGkAcABwAGUAZAAuAAAxTQB5AC4AUgBlAHMAbwB1AHIAYwBlAHMA
+LgBNAHkAUgBlAHMAbwB1AHIAYwBlAHMAAAD+6xBEJV8UQoML7/ToMjWuAAi3elxWGTTgiQiwP19/
+EdUKOgMgAAEDAAABBAAAEgwHBhUSGAESDAQAABIIBwYVEhgBEggEAAASEQcGFRIYARIRBAAAEhQH
+BhUSGAESFAQIABIMBAgAEggECAASEQQIABIUBCABAhwDIAAIBCAAEhUDIAAOAh4ABxABAR4AHgAH
+MAEBARAeAAITAAQgABMABwYVEhkBEwAEKAATAAiJhF3NgIDMkQkgAwESIR0IEiUEIAEBDgQgAQEC
+AyAAAgMoAA4DKAACAwYSJAMGEigDBhIcCyAEAQgdCB0SIRIlAwYSKQUgAQESKQMGEi0DBhIxBAAA
+Ei0EAAASMQUAAQESMQQIABItBAgAEjEDBhI0AgYcBAAAEjQECAASNAUgAQERPQgBAAEAAAAAAAUg
+AgEODhgBAApNeVRlbXBsYXRlCDEwLjAuMC4wAAAEAQAAAAYVEhgBEgwGFRIYARIIBhUSGAESEQYV
+EhgBEhQEBwESDAQHARIIBAcBEhEEBwESFAwBAAdNeS5Vc2VyAAATAQAOTXkuQXBwbGljYXRpb24A
+ABMBAA5NeS5XZWJTZXJ2aWNlcwAAEAEAC015LkNvbXB1dGVyAAAEAAEcHAMHAQIDBwEIBgABEhUR
+WQQHARIVAwcBDgUQAQAeAAQKAR4ABAcBHgAHIAQBDg4ODmEBADRTeXN0ZW0uV2ViLlNlcnZpY2Vz
+LlByb3RvY29scy5Tb2FwSHR0cENsaWVudFByb3RvY29sEkNyZWF0ZV9fSW5zdGFuY2VfXxNEaXNw
+b3NlX19JbnN0YW5jZV9fAAAABhUSGAETAAYVEhkBEwAECgETAAUgAQETAAgHAxMAEwATAAUBAAAA
+AAUgAgEIHAQgAQEIBgACCBIlDgUgAR0ICAQHAggIBCAAEnEFIAESdRwEAAASeQUgARwSfQQAAQ4c
+BiABARGAjQUgAQEdDgQgAB0OBgABARKAmQYAAw4ODg4KAAMRgKEcEYClHBEHCA4SgIUdDg4SgIkd
+DggdDgUgABKAsQcgAgEOEoCxBgcCEi0SLQQHARIxCAEAAgAAAAAABAABARwEBwESNAgBAAgAAAAA
+AB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwFHAQAaLk5FVEZyYW1ld29yayxWZXJzaW9u
+PXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEC5ORVQgRnJhbWV3b3JrIDQMAQAHMS4wLjAu
+MAAAKQEAJGVkYWI5NTE2LWY5YWUtNDMyZS1hZTk0LThmZTIwZGVjOGFlOAAABQEAAQAAHwEAGkNv
+cHlyaWdodCBAIE1pY3Jvc29mdCAyMDEyAAAvAQAqU0NfNzYyMWIwNThiYmQ1NGY4Yjg1NWIyNjVj
+MjM1YjM4MTAudmJwcm9qAAAOAQAJTWljcm9zb2Z0AAAAAAAIQwAAAAAAAAAAAAAeQwAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAEEMAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/
+JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAA
+ABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABYYAAA
+6AMAAAAAAAAAAAAA6AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E7/4A
+AAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBWAGEA
+cgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAAAACw
+BEgDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACQDAAABADAAMAAwADAAMAA0AGIA
+MAAAADQACgABAEMAbwBtAHAAYQBuAHkATgBhAG0AZQAAAAAATQBpAGMAcgBvAHMAbwBmAHQAAACA
+ACsAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBDAF8ANwA2ADIAMQBiADAA
+NQA4AGIAYgBkADUANABmADgAYgA4ADUANQBiADIANgA1AGMAMgAzADUAYgAzADgAMQAwAC4AdgBi
+AHAAcgBvAGoAAAAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAwAC4A
+MAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8AMQAwAEQARgAzADEANwBB
+ADEAQQA0ADAANABFADUARQA5AEIANQBGADYAMABCAEIAOABFADkARAAzADMAMQBCAC4AZABsAGwA
+AABcABsAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAg
+AEAAIABNAGkAYwByAG8AcwBvAGYAdAAgADIAMAAxADIAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEA
+bABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwAxADAARABGADMAMQA3AEEAMQBBADQAMAA0AEUANQBF
+ADkAQgA1AEYANgAwAEIAQgA4AEUAOQBEADMAMwAxAEIALgBkAGwAbAAAAHgAKwABAFAAcgBvAGQA
+dQBjAHQATgBhAG0AZQAAAAAAUwBDAF8ANwA2ADIAMQBiADAANQA4AGIAYgBkADUANABmADgAYgA4
+ADUANQBiADIANgA1AGMAMgAzADUAYgAzADgAMQAwAC4AdgBiAHAAcgBvAGoAAAAAADQACAABAFAA
+cgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBBAHMAcwBl
+AG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAADAAAADAzAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_10df317a1a404e5e9b5f60bb8e9d331b</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages, Microsoft.SqlServer.VSTAScriptingLib, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">User::FullPath</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">648f4e76c766265cb5a14bb30bdeab15</property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataShaChecksum"
+                  typeConverter="NOTBROWSABLE">cb2f69788f75eb4834157b32864f4dccd475cc14</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component.Outputs[Output 0]"
+                  hasSideEffects="true"
+                  name="Output 0">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component.Outputs[Output 0].Columns[One]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component.Outputs[Output 0].Columns[One]"
+                      name="One" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Parse table using JPMorgan Intra-Day file.Paths[Output 0]"
+              endId="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output 0"
+              startId="Package\Load Parse table using JPMorgan Intra-Day file\Script Component.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update BAI Staging Tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A172E4A0-AE7C-4795-B59F-73C6D64E77C9}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update BAI Staging Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}"
+          SQLTask:SqlStatementSource="&#xA;&#xA;Update dbo.BankFileControlTotals&#xA;set FileSource = 'KEY'&#xA;Where FileSource = 'Def'&#xA;&#xA;Update dbo.BankFileControlTotals&#xA;set FileType = ' '&#xA;Where FileType = 'Z'&#xA;&#xA;Update dbo.BankFileControlTotals&#xA;set ASOfDate = ' '&#xA;Where ASOfDate = '1955-10-01'&#xA;&#xA;---------------------------------------------------------------------------------------------&#xA;--&#xA;--------------------------------------------------------------------------------------------&#xA;UPDATE dbo.BankAccountBalanceStaging&#xA;SET Amount = (Amount * -1)&#xA;WHERE BAIStatusTypeCode between '400' and '699'&#xA;and Amount &gt; 0&#xA;&#xA;UPDATE dbo.BankTransactionStaging&#xA;SET Amount = (Amount * -1)&#xA;WHERE BAITransactionType between '400' and '699'&#xA;and Amount &gt; 0&#xA;&#xA;UPDATE dbo.BankTransactionStaging&#xA;SET &#x9;SameDayAvailability = 0,&#x9;&#xA;&#x9;DayPlusOneAvailability = 0,&#xA;&#x9;DayPlusTwoAvailability = 0&#xA;WHERE BAITransactionType between '400' and '699'&#xA;AND SameDayAvailability &gt; 0&#xA;&#xA;----------------------------------------------------------&#xA;&#xA;UPDATE dbo.TextTagsStaging&#xA;SET TextTag = ' '&#xA;WHERE TextTag is NULL&#xA;&#xA;UPDATE dbo.TextTagsStaging&#xA;SET Content  = ' '&#xA;WHERE Content  is NULL&#xA;&#xA;----------------------------------------------------------&#xA;&#xA;UPDATE dbo.BankAccountBalanceStaging&#xA;SET Company = 'THC\RiverStone'&#xA;WHERE BankAccountNo = '000190992900026'&#xA;&#xA;&#xA;UPDATE dbo.BankTransactionStaging&#xA;SET Company = 'THC\RiverStone'&#xA;WHERE BankAccountNo = '000190992900026'&#xA;&#xA;------------------------------------------------------------------------------------------------------------&#xA;--  File Type Check&#xA;------------------------------------------------------------------------------------------------------------&#xA;Declare  @FileType  char(1),&#xA; @FileTimeStamp  DateTime&#xA;&#xA;Set @FileTimeStamp =  (Select  MAX(FileTimeStamp)&#xA;             From dbo.BankFileControlTotals&#xA;                             )&#xA;&#xA;&#xA;&#xA;set @FileType =   (Select FileType  &#xA;   From dbo.BankFileControlTotals&#xA;   Where FileTimeStamp = @FileTimeStamp&#xA;  )&#xA;--If @FileType &lt;&gt; '2'&#xA;--RAISERROR ('FileType Mis-Match', 16, 1)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Parse table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2CA1012D-19F6-48BF-A5E7-17CEAE66E74D}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Parse table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5E4D1A4F-0A8A-4450-B165-1635F8DD6EB8}"
+          SQLTask:SqlStatementSource="Update [BAI_Staging].[dbo].[ParseTable]&#xA;Set Data = ' '&#xA;  WHERE data = '/'&#xA;&#xA;&#xA;  UPDATE &#xA;  [BAI_Staging].[dbo].[ParseTable]&#xA;  SET data = SUBSTRING(data,1,len(DATA) -1)&#xA;  WHERE SUBSTRING(data,len(DATA),1) = '/'&#xA;&#xA;&#xA;------------------------------------------------------------------------------------&#xA;-- For comments 88 rows cleans out restricted data&#xA;------------------------------------------------------------------------------------&#xA;DECLARE &#x9;@total_rows INT,&#xA;&#x9;&#x9;@88_row INT,&#xA;&#x9;&#x9;@data VARCHAR(250),&#xA;&#x9;&#x9;@49_row INT,&#xA;&#x9;&#x9;@98_row INT&#xA;&#x9;&#x9;&#xA;SET @total_rows = (SELECT COUNT(*) FROM dbo.ParseTable)&#xA;&#xA;&#xA;SET @49_row = 0&#xA;&#xA;WHILE @49_row &lt; @total_rows&#xA;BEGIN&#xA;&#x9;&#xA;&#x9;SET @49_row = (SELECT MIN(id) FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;WHERE id &gt; @49_Row&#xA;&#x9;&#x9;&#x9;&#x9;AND data = '49')&#xA;&#xA;&#x9;SET @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;  WHERE id = @49_Row + 2)&#xA;&#x9;&#x9;&#xA;&#x9;IF&#x9;@data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @49_Row + 2&#xA;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;END&#xA;&#xA;SET @98_row = 0&#xA;&#xA;WHILE @98_row &lt; @total_rows&#xA;BEGIN&#xA;&#x9;&#xA;&#x9;SET @98_row = (SELECT MIN(id) FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;WHERE id &gt; @98_Row&#xA;&#x9;&#x9;&#x9;&#x9;AND data = '98')&#xA;&#xA;&#x9;SET @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;  WHERE id = @98_Row + 2)&#xA;&#x9;&#x9;&#xA;&#x9;IF&#x9;@data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @98_Row + 2&#xA;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;END&#xA;&#xA;SET @98_row = 0&#xA;&#xA;WHILE @98_row &lt; @total_rows&#xA;BEGIN&#xA;&#x9;&#xA;&#x9;SET @98_row = (SELECT MIN(id) FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;WHERE id &gt; @98_Row&#xA;&#x9;&#x9;&#x9;&#x9;AND data = '98')&#xA;&#xA;&#x9;SET @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;  WHERE id = @98_Row + 3)&#xA;&#x9;&#x9;&#xA;&#x9;IF&#x9;@data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @98_Row + 3&#xA;&#x9;&#x9;END&#xA;&#x9;&#x9;&#xA;END&#xA;&#xA;SET @88_row = 0&#xA;&#x9;&#x9;&#xA;SET @88_row = (SELECT MIN(id) FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;WHERE id &gt; @88_Row&#xA;&#x9;&#x9;&#x9;&#x9;AND data = '88')&#xA;&#xA;WHILE @88_row &lt; @total_rows&#xA;BEGIN&#xA;&#x9;SET @88_row = (SELECT MIN(id) FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;WHERE id &gt; @88_Row&#xA;&#x9;&#x9;&#x9;&#x9;AND data = '88')&#xA;&#x9;SET @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;&#x9;&#x9;&#x9;  WHERE id = @88_Row + 1)&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;IF&#x9;@data = '01'  OR @data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @88_Row + 1&#x9;&#xA;&#x9;&#x9;End&#xA;&#xA;END&#xA;&#xA;-------------------------------------------------------------------------------------------------------------------------------------------------------------&#xA;--  99 Row Check&#xA;------------------------------------------------------------------------------------------------------------------------------------------------------------&#xA;&#xA;Set @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;    WHERE id =  @total_rows)&#xA;&#xA;IF&#x9;@data = '01'  OR @data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @total_rows&#x9;&#xA;&#x9;&#x9;End&#xA;&#xA;&#xA;Set @data = (SELECT data FROM dbo.ParseTable&#xA;&#x9;    WHERE id =  @total_rows -1)&#xA;&#xA;IF&#x9;@data = '01'  OR @data = '02' OR @data = '03' OR @data = '16' OR @data = '49' OR @data = '88'&#xA;&#x9;&#x9;OR @data = '98'  OR @data = '99' &#xA;&#x9;&#x9;&#xA;&#x9;&#x9;BEGIN&#xA;&#x9;&#x9;&#x9;UPDATE dbo.ParseTable&#xA;&#x9;&#x9;&#x9;SET Data = '0' + SUBSTRING(data,1,2)&#xA;&#x9;&#x9;&#x9;WHERE id = @total_rows - 1&#x9;&#xA;&#x9;&#x9;End&#xA;&#xA;------------------------------------------------------------------------------------------------------------------------------------------------------------&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1FF1497A-1F9E-442C-A825-5F012A281167}"
+      DTS:From="Package\Delete rows in Parse table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Parse table using JPMorgan Intra-Day file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D058D516-200E-41B7-A0DC-5251EEAAE596}"
+      DTS:From="Package\Load Parse table using JPMorgan Intra-Day file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Update Parse table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{C4FD294F-DC90-47CB-8A46-0CA13C0E37FC}"
+      DTS:From="Package\Update BAI Staging Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Load Navision tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D82C209-2919-4296-AA85-751A282F156C}"
+      DTS:From="Package\Update Parse table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Load BAI Staging Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{74143F6F-58A8-4E0A-B1FD-3F6EC45E9B50}"
+      DTS:From="Package\Load BAI Staging Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update BAI Staging Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{EC166164-0FCA-4D29-A0E5-47CB68063196}"
+      DTS:From="Package\Load Navision tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Archive JPMI Files" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Archive JPMI Files\File System Task"
+          TopLeft="26,14" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,111"
+          Size="300,154"
+          Id="Package\Archive JPMI Files"
+          TopLeft="672,498" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Delete rows in Parse table"
+          TopLeft="672.537735849057,72.160377358491" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Load BAI Staging Tables"
+          TopLeft="672.537735849057,292.650943396226" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Load Navision tables"
+          TopLeft="672.537735849057,403.443396226415" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Load Parse table using JPMorgan Intra-Day file"
+          TopLeft="672.537735849057,178.952830188679" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Update BAI Staging Tables"
+          TopLeft="672.537735849057,348.27358490566" />
+        <NodeLayout
+          Size="302,44"
+          Id="Package\Update Parse table"
+          TopLeft="672.537735849057,229.61320754717" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="823.537735849057,116.160377358491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,62.792452830188"
+              Start="0,0"
+              End="0,55.292452830188">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.292452830188" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="672.537735849057,200.952830188679">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.6603773584911"
+              Start="0,0"
+              End="-7.5,44.6603773584911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,40.6603773584911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,40.6603773584911"
+                    Point2="-22.5,44.6603773584911"
+                    Point3="-18.5,44.6603773584911" />
+                  <mssgle:LineSegment
+                    End="-7.5,44.6603773584911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="672.537735849057,376.27358490566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,49.169811320755"
+              Start="0,0"
+              End="-7.5,49.169811320755">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45.169811320755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45.169811320755"
+                    Point2="-22.5,49.169811320755"
+                    Point3="-18.5,49.169811320755" />
+                  <mssgle:LineSegment
+                    End="-7.5,49.169811320755" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="672.537735849057,257.61320754717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,51.0377358490559"
+              Start="0,0"
+              End="-7.5,51.0377358490559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,47.0377358490559" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,47.0377358490559"
+                    Point2="-22.5,51.0377358490559"
+                    Point3="-18.5,51.0377358490559" />
+                  <mssgle:LineSegment
+                    End="-7.5,51.0377358490559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="672.537735849057,320.650943396226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.6226415094339"
+              Start="0,0"
+              End="-7.5,43.6226415094339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,39.6226415094339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,39.6226415094339"
+                    Point2="-22.5,43.6226415094339"
+                    Point3="-18.5,43.6226415094339" />
+                  <mssgle:LineSegment
+                    End="-7.5,43.6226415094339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="822.768867924528,447.443396226415">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,50.556603773585"
+              Start="0,0"
+              End="0,43.056603773585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.056603773585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Exectues 8 BAI Stored procedures that take the data in the Parse table and load it into 7 BAI_Staging tables."
+          ParentId="Package"
+          Size="605,39"
+          Id="0cf20df2-aefe-4e7f-8e94-5909182705c5"
+          TopLeft="1029.17924528302,231.481132075472">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="10.5"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="The Navision Staging tables are loaded from the BAI_Staging tables. &#xA;The Navision Staging tables are subsequently loaded into the Navision RS tables via the BMI Process. &#xA;The RS tables are the Core Cash Mgmt tables."
+          ParentId="Package"
+          Size="568,64"
+          Id="34d6765a-47c5-4d7c-baa4-05992dcd765f"
+          TopLeft="1032.17924528302,368.783018867925">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="10.5"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="The BAI_Staging tables are tweaked after they are loaded"
+          ParentId="Package"
+          Size="378,39"
+          Id="62eba436-d093-4843-8125-88420c1bc41f"
+          TopLeft="1029.17924528302,293.103773584906">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="10.5"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="The Parse table is tweaked after it is loaded."
+          ParentId="Package"
+          Size="292,39"
+          Id="34e60886-c71a-4787-a632-ad005ffb7804"
+          TopLeft="1029.17924528302,176.915094339623">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="10.5"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Parse table using JPMorgan Intra-Day file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination"
+          TopLeft="636.5,216.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Load Parse table using JPMorgan Intra-Day file\Script Component"
+          TopLeft="641.5,114.5" />
+        <EdgeLayout
+          Id="Package\Load Parse table using JPMorgan Intra-Day file.Paths[Output 0]"
+          TopLeft="723.5,156.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Parse table using JPMorgan Intra-Day file\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

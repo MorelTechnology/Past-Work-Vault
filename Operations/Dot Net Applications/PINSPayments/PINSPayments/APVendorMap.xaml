@@ -1,0 +1,161 @@
+﻿<UserControl x:Class="PINSPayments.APVendorMap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="980">
+    <Grid x:Name="screenAPVM" Background="#FFC3D3DC" >
+        <Image x:Name="imgBackground" Margin="-6,0,6,0" Source="images/Pay-button-on-keyboard.jpg" Stretch="UniformToFill" Opacity=".1"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="60" Height="36" FontWeight="Bold" Click="btnExit_Click" />
+        <Grid x:Name="gridUnmatched" Margin="10,11,0,283" Background="#FF687A93" HorizontalAlignment="Left" Width="348">
+            <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Unmatched PINS Vendors" VerticalAlignment="Top" Width="213" Foreground="White" FontSize="16"/>
+            <DataGrid x:Name="dgUnmatchedVendors" Margin="10,30,10,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" SelectionChanged="dgUnmatchedVendors_SelectionChanged" RowDetailsVisibilityMode="Visible" IsReadOnly="True"  >
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#95CAFF"/>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Payee ID" Width="70" Binding="{Binding payeeid}"/>
+                    <DataGridTextColumn Header="PINS Payee" Width="235" Binding="{Binding BrokerName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <Grid x:Name="gridBank" Height="233" Margin="0,0,83,10" VerticalAlignment="Bottom" Background="#FFA08B44" HorizontalAlignment="Right" Width="229">
+            <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Match Bank" VerticalAlignment="Top" Width="97" Foreground="White" FontSize="16"/>
+            <DataGrid x:Name="dgBank" Margin="10,57,0,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" HorizontalAlignment="Left" Width="210" RowDetailsVisibilityMode="Visible" SelectionChanged="dgBank_SelectionChanged"  >
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#95CAFF"/>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Bank" Width="185" Binding="{Binding BankName}"/>
+                    <DataGridTextColumn Header="Account" Width="185" Binding="{Binding BankAccountNumber}"/>
+                    <DataGridTextColumn Header="Routing" Width="185" Binding="{Binding BankRoutingNumber}"/>
+                    <DataGridTextColumn Header="Description" Width="185" Binding="{Binding trg_AccountDescription}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ComboBox x:Name="comboBankType" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="209" SelectionChanged="comboBankType_SelectionChanged">
+                <ComboBoxItem Content="Check"/>
+                <ComboBoxItem Content="ACH"/>
+                <ComboBoxItem Content="Wire"/>
+            </ComboBox>
+
+        </Grid>
+        <Grid x:Name="gridDetails" Margin="369,10,10,284" Background="#FF687A93">
+            <DataGrid x:Name="dgVendorMatch" Margin="10,38,10,39" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" IsReadOnly="True"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Payee ID" Width="58" Binding="{Binding PayeeID}"/>
+                    <DataGridTextColumn Header="Vendor Name" Width="200" Binding="{Binding VendorName}"/>
+                    <DataGridTextColumn Header="Contact Manager ID" Width="170" Binding="{Binding CMVendorID}"/>
+                    <DataGridTextColumn Header="Site" Width="100" Binding="{Binding SiteID}"/>
+                    <DataGridTextColumn Header="Bank" Width="100" Binding="{Binding BankID}"/>
+                    <DataGridTextColumn Header="Method of Payment" Width="120" Binding="{Binding MethodOfPayment}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnPINSDetails" HorizontalAlignment="Left" Margin="121,7,0,0" VerticalAlignment="Top" Width="85" Height="27" FontWeight="Bold" Click="btnPINSDetails_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectPins" Width="7" Fill="#FF245687"></Rectangle>
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="5,0,0,0"><Run Text="PINS Input"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnVendorDetails" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="104" Height="27" FontWeight="Bold" Click="btnVendorDetails_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectVendor" Width="7" Fill="#FF245687"></Rectangle>
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="5,0,0,0"><Run Text="Vendor Match"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <DataGrid x:Name="dgPINSInput" Margin="9,39,11,6" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" IsReadOnly="True"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Payee ID" Width="60" Binding="{Binding PayeeID}"/>
+                    <DataGridTextColumn Header="Payee Name" Width="240" Binding="{Binding BrokerName}"/>
+                    <DataGridTextColumn Header="Ceding Company" Width="200" Binding="{Binding CedingCompany}"/>
+                    <DataGridTextColumn Header="Claim No" Width="120" Binding="{Binding PinsClaimNumber}"/>
+                    <DataGridTextColumn Header="Insured" Width="100" Binding="{Binding Insured}"/>
+                    <DataGridTextColumn Header="Risk Movement" Width="100" Binding="{Binding RiskMovementID}"/>
+                    <DataGridTextColumn Header="Reference #" Width="120" Binding="{Binding ReferenceNumber}"/>
+                    <DataGridTextColumn Header="Currency" Width="57" Binding="{Binding CurrencyCode}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Transaction Amount" Width="120" Binding="{Binding TotalPaymentAmount, StringFormat=\{0:N2\}}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Date of Loss" Width="100" Binding="{Binding DateOfLoss, StringFormat=\{0:MM/dd/yyyy\}}"/>
+                    <DataGridTextColumn Header="Affiliate" Width="60" Binding="{Binding Affiliate}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnDeleteVendorMatch" Content="Delete Vendor Match" HorizontalAlignment="Left" Margin="9,0,0,7" Width="166" FontWeight="Bold" Click="btnDeleteVendorMatch_Click" Height="24" VerticalAlignment="Bottom" />
+
+        </Grid>
+        <Rectangle x:Name="barCM1" Fill="#FF6A9368" HorizontalAlignment="Left" Height="41" Margin="74,0,0,242" Width="6" VerticalAlignment="Bottom"/>
+        <Rectangle x:Name="barBank1" Fill="#FFA08B44" HorizontalAlignment="Left" Height="12" Margin="277,0,0,271" VerticalAlignment="Bottom" Width="6"/>
+        <Rectangle x:Name="barBank2" Fill="#FFA08B44" Height="6" Margin="281,0,252,271" VerticalAlignment="Bottom"/>
+        <Rectangle x:Name="barBank3" Fill="#FFA08B44" HorizontalAlignment="Right" Height="29" Margin="0,0,252,243" VerticalAlignment="Bottom" Width="6"/>
+        <Rectangle x:Name="barSite1" Fill="#FF937668" HorizontalAlignment="Left" Height="24" Margin="216,0,0,260" VerticalAlignment="Bottom" Width="5"/>
+        <Rectangle x:Name="barSite2" Fill="#FF937668" Height="6" Margin="216,0,0,258" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="240"/>
+        <Rectangle x:Name="barSite3" Fill="#FF937668" HorizontalAlignment="Left" Height="22" Margin="453,0,0,242" VerticalAlignment="Bottom" Width="5"/>
+        <Rectangle x:Name="matchRing" RadiusX="5" RadiusY="5" HorizontalAlignment="Right" Height="44" Margin="0,0,6,48" VerticalAlignment="Bottom" Width="68">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF3DDA2D" Offset="0.994"/>
+                    <GradientStop Color="#FF339729" Offset="0.119"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="btnMatch" Content="Match" HorizontalAlignment="Right" Margin="0,0,10,52" VerticalAlignment="Bottom" Width="60" Height="36" FontWeight="Bold" RenderTransformOrigin="0.5,-0.556" BorderBrush="#FF108B42" BorderThickness="6,4,4,4" Click="btnMatch_Click" />
+        <Grid x:Name="gridCM" Margin="10,0,0,10" Background="#FF6A9368" Height="233" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="377">
+            <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Contact Manager" VerticalAlignment="Top" Width="143" Foreground="White" FontSize="16"/>
+            <DataGrid x:Name="dgContacts" Margin="10,74,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False"  Height="149" Background="White" VerticalAlignment="Top" RowDetailsVisibilityMode="Visible" SelectionChanged="dgContacts_SelectionChanged" HorizontalAlignment="Left" Width="355"  >
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#95CAFF"/>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colCompany" Header="Company" Width="223" Binding="{Binding Name}"/>
+                    <DataGridTextColumn x:Name="colFirst" Header="First" Width="110" Binding="{Binding FirstName}" Visibility="Collapsed"/>
+                    <DataGridTextColumn x:Name="colLast" Header="Last" Width="120" Binding="{Binding LastName}" Visibility="Collapsed"/>
+                    <DataGridTextColumn x:Name="colActive" Header="Status" Width="95" Binding="{Binding VendorStatus}" Visibility="Visible"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txtCompany" HorizontalAlignment="Left" Height="26" Margin="10,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="126"/>
+            <Button x:Name="btnSearchCompanies" HorizontalAlignment="Left" Margin="239,28,0,0" VerticalAlignment="Top" Width="65" Height="27" FontWeight="Bold" Click="btnSearchCompanies_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="0,-4,0,0"><Run Text="Search"/></TextBlock>
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="0,-5,0,0" FontSize="10"><Run Text="Companies" Foreground="#FF6C6363"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnSearchPeople" HorizontalAlignment="Left" Margin="309,28,0,0" VerticalAlignment="Top" Width="56" Height="27" FontWeight="Bold" Click="btnSearchPeople_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="0,-4,0,0"><Run Text="Search"/></TextBlock>
+                    <TextBlock Padding="0,0,0,0" TextAlignment="Center" Margin="0,-5,0,0" FontSize="10"><Run Text="People" Foreground="#FF6C6363"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="26" Margin="141,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" Text="Company or First name" VerticalAlignment="Top" Width="111" Foreground="White" FontSize="10"/>
+            <TextBlock HorizontalAlignment="Left" Margin="141,55,0,0" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Top" Width="79" Foreground="White" FontSize="10"/>
+
+        </Grid>
+        <Grid x:Name="gridSite" Height="233" Margin="395,0,320,10" VerticalAlignment="Bottom" Background="#FF937668">
+            <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Match Site" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="16"/>
+            <DataGrid x:Name="dgSites" Margin="10,34,10,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" RowDetailsVisibilityMode="Visible" SelectionChanged="dgSites_SelectionChanged"  >
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#95CAFF"/>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Address" Width="180" Binding="{Binding AddressLine1}"/>
+                    <DataGridTextColumn Header="Address 2" Width="100" Binding="{Binding AddressLine2}"/>
+                    <DataGridTextColumn Header="City" Width="120" Binding="{Binding City}"/>
+                    <DataGridTextColumn Header="State/Prov" Width="110" Binding="{Binding State}"/>
+                    <DataGridTextColumn Header="Post Code" Width="80" Binding="{Binding PostalCode}"/>
+                    <DataGridTextColumn Header="Country" Width="140" Binding="{Binding Country}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Ellipse x:Name="circleExpandContacts" Fill="#FFDAE8DA" Height="20" Margin="0,9,13,0" VerticalAlignment="Top" MouseDown="circleExpandContacts_MouseDown" HorizontalAlignment="Right" Width="20"/>
+            <TextBlock x:Name="btnExpandContacts" Margin="0,10,9,0" TextWrapping="Wrap" Text="&#xF038;" VerticalAlignment="Top" Foreground="#FF937668" FontSize="16" FontFamily="Webdings" MouseDown="btnExpandContacts_MouseDown" HorizontalAlignment="Right" Width="22"/>
+            <TextBlock x:Name="btnContractContacts" HorizontalAlignment="Right" Margin="0,10,9,0" TextWrapping="Wrap" Text="&#xF037;" VerticalAlignment="Top" Width="22" Foreground="#FF937668" FontSize="16" FontFamily="Webdings" RenderTransformOrigin="20.773,1.222" MouseDown="btnContractContacts_MouseDown" Visibility="Hidden"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

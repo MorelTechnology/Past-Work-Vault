@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{9e335f08-ffe1-42d0-a2d5-44e285e10ad3}"
+       Name="ResumeOutcome"
+       DisplayName="Resume Outcome"
+       Type="OutcomeChoice"
+       Required="FALSE"
+       Group="Riverstone Columns">
+    <CHOICES>
+      <CHOICE>Resume</CHOICE>
+    </CHOICES>
+    <Default>Resume</Default>
+  </Field>
+</Elements>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e00291f1-9ced-4d93-aeb6-6a07bdbabf6d" solutionId="e00291f1-9ced-4d93-aeb6-6a07bdbabf6d" resetWebServer="false" sharePointProductVersion="15.0" name="SQLToCalendar" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="b800b7c9-c21d-494a-8fc8-310242de5296" />
+  </features>
+</package>

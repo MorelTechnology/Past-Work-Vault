@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01002CB4ED0CADE34992A1653238065BA3F2" Name="Activity" Group="Custom Content Types" Description="Activity Content Type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{d07a57ec-70be-496f-a62f-604ecf977714}" DisplayName="Description" Required="TRUE" Name="Description" />
+      <FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" />
+      <FieldRef ID="{a78eb960-b5b9-44c2-adac-0328783b6e3d}" DisplayName="Activity Category" Required="TRUE" Name="ActivityCategory" />
+      <FieldRef ID="{c410537a-f53c-4191-bd38-4f2fec2aee46}" DisplayName="Entry Date" Required="TRUE" Name="EntryDate" Format="DateOnly" />
+      <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" DisplayName="$Resources:core,Assigned_To;" Required="TRUE" Name="AssignedTo" />
+      <FieldRef ID="{63f33f6a-b060-420b-809f-6a711d181324}" DisplayName="Activity Priority" Required="FALSE" Name="ActivityPriority" />
+      <FieldRef ID="{86245a4e-785c-4691-9b6e-c4ce28e56890}" DisplayName="Activity Status" Required="FALSE" Name="ActivityStatus" />
+      <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" DisplayName="$Resources:core,Due_Date;" Name="TaskDueDate" Format="DateOnly" />
+      <FieldRef ID="{af33f780-2e9c-42ca-a810-1bfd11661021}" DisplayName="Activity Status Change Date" Required="FALSE" Name="ActivityStatusChangeDate" />
+      <FieldRef ID="{c034f17d-ba6b-42f0-8d87-63cf98fb6179}" DisplayName="Activity Dropped Reason" Required="FALSE" Name="ActivityDroppedReason" />
+      <FieldRef ID="{5684e6fc-6828-4fb8-94af-cd9af672b09d}" DisplayName="Initial Due Date" Required="FALSE" Name="InitialDueDate" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

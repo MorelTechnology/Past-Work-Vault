@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListUrl="Work Matter Documents">
+    <Receiver>
+      <Name>WorkMatterDocumentChangedItemUpdating</Name>
+      <Type>ItemUpdating</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>Guidewire_Integration.WorkMatterDocumentChanged.WorkMatterDocumentChanged</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+    <Receiver>
+      <Name>WorkMatterDocumentChangedItemDeleting</Name>
+      <Type>ItemDeleting</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>Guidewire_Integration.WorkMatterDocumentChanged.WorkMatterDocumentChanged</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
+  </Receivers>
+</Elements>

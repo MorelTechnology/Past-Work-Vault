@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Fairfax Entity Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Fairfax Entity Lookup" Description="Contains a listing of valid Fairfax entity choices">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="FairfaxEntityName">FFH - WW</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="FairfaxEntityName">FFH - US</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="FairfaxEntityName">FFH - EUR</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="FairfaxEntityName">TRG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="FairfaxEntityName">ODYR</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="FairfaxEntityName">CIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="FairfaxEntityName">ASI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">8</Field>
+          <Field Name="FairfaxEntityName">MET</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">9</Field>
+          <Field Name="FairfaxEntityName">CFI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">10</Field>
+          <Field Name="FairfaxEntityName">TIG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">11</Field>
+          <Field Name="FairfaxEntityName">IIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">12</Field>
+          <Field Name="FairfaxEntityName">FMT</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">13</Field>
+          <Field Name="FairfaxEntityName">RIUK</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">14</Field>
+          <Field Name="FairfaxEntityName">RIL</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">15</Field>
+          <Field Name="FairfaxEntityName">RMA</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">16</Field>
+          <Field Name="FairfaxEntityName">FORD</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">17</Field>
+          <Field Name="FairfaxEntityName">CICA</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">18</Field>
+          <Field Name="FairfaxEntityName">HUDS</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">19</Field>
+          <Field Name="FairfaxEntityName">CIC - CFI</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">20</Field>
+          <Field Name="FairfaxEntityName">CIC - FM</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">21</Field>
+          <Field Name="FairfaxEntityName">CIC - CS</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">22</Field>
+          <Field Name="FairfaxEntityName">NBDG</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">23</Field>
+          <Field Name="FairfaxEntityName">OTHER</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">24</Field>
+          <Field Name="FairfaxEntityName">GFIC</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">25</Field>
+          <Field Name="FairfaxEntityName">VAL</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">26</Field>
+          <Field Name="FairfaxEntityName">ZEN</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

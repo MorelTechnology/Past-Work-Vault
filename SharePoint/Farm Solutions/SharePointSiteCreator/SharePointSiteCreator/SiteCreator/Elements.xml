@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="SiteCreator" List="113" Url="_catalogs/wp">
+    <File Path="SiteCreator\SiteCreator.webpart" Url="SharePointSiteCreator_SiteCreator.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="RiverStone Custom" />
+    </File>
+  </Module>
+</Elements>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="AppIcon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="loading.gif" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="ParkReport96.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Tab View.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Table View.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Vertical Tab View.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Tab View Icon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Table View Icon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Vertical Tab View Icon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="main_bg.jpg" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a01.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a02.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a03.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a04.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a06.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a07.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a08.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a09.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a10.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a11.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a12.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a13.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a14.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a15.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a16.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a17.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a18.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a19.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a20.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a21.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="a22.png" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

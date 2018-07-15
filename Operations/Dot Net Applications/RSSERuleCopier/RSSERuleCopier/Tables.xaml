@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="RSSERuleCopier.Tables"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSERuleCopier"
+             mc:Ignorable="d" 
+             d:DesignHeight="938" d:DesignWidth="1172">
+    <Grid>
+        <Grid x:Name="gridTables" Margin="0" Background="#FF687A93" Visibility="Visible">
+            <Grid Height="36" VerticalAlignment="Top"   >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF758AA2"/>
+                        <GradientStop Color="#FF031A36" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:Name="lblTableTitle" HorizontalAlignment="Left" Margin="8,0,0,-28" TextWrapping="Wrap" VerticalAlignment="Top" Width="726" Foreground="White" FontSize="24"><Run Text="Local Tables"/><LineBreak/><Run/></TextBlock>
+            </Grid>
+            <!-- </ListBox> -->
+            <!-- <ListBox x:Name="listBox" HorizontalAlignment="Left" Margin="10,51,0,50" Width="665"> -->
+            <TextBox x:Name="match" HorizontalAlignment="Left" Height="28" Margin="10,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216" FontSize="16" FontWeight="Bold" TextChanged="match_TextChanged"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="108" Foreground="White"/>
+            <Button x:Name="btnClearSearch" Content="X" Margin="231,60,0,0" Foreground="White" FontWeight="Bold" FontSize="18" Click="btnClearSearch_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFFFC2C2" Offset="0"/>
+                        <GradientStop Color="#FFE06060" Offset="0.5"/>
+                        <GradientStop Color="#FFD36161" Offset="0.526"/>
+                        <GradientStop Color="#FFCB1717" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnSchema" HorizontalAlignment="Left" Margin="266,60,0,0" VerticalAlignment="Top" Width="86" Height="28" FontWeight="Bold" Click="btnSchema_Click">
+                <StackPanel Orientation="Horizontal" Height="20">
+                    <Rectangle x:Name="rectSchema" Width="7" Fill="#FF245687"/>
+                    <TextBlock Padding="0,0,0,0" VerticalAlignment="Center" TextAlignment="Center" Margin="5,3,0,3" Width="57"><Run Text="Schema"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnData" HorizontalAlignment="Left" Margin="357,60,0,0" VerticalAlignment="Top" Width="84" Height="28" FontWeight="Bold" Click="btnData_Click">
+                <StackPanel Orientation="Horizontal" Height="20">
+                    <Rectangle x:Name="rectData" Width="7" Fill="#FF245687"/>
+                    <TextBlock Padding="0,0,0,0" VerticalAlignment="Center" TextAlignment="Center" Margin="5,2,0,2" Width="57"><Run Text="Data"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <CheckBox x:Name="cbLimit1000" Content="Limit to 1000 rows" HorizontalAlignment="Left" Height="18" Margin="456,72,0,0" VerticalAlignment="Top" Width="145" Foreground="White" IsChecked="True"/>
+            <TextBox x:Name="search" HorizontalAlignment="Left" Height="28" Margin="635,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="216" FontSize="16" FontWeight="Bold"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="634,41,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="108" Foreground="White"/>
+            <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="28" Margin="893,60,0,0" VerticalAlignment="Top" Width="59" Click="btnSearch_Click" FontWeight="Bold"/>
+            <Button x:Name="btnClearDataSearch" Content="X" Margin="856,60,0,0" Foreground="White" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Click="btnClearDataSearch_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFFFC2C2" Offset="0"/>
+                        <GradientStop Color="#FFE06060" Offset="0.5"/>
+                        <GradientStop Color="#FFD36161" Offset="0.526"/>
+                        <GradientStop Color="#FFCB1717" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <DataGrid x:Name="dgTables" Margin="8,93,0,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" HorizontalAlignment="Left" Width="251" SelectionChanged="dgTables_SelectionChanged" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Table Name" Width="226" Binding="{Binding TABLE_NAME}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dgData" Margin="264,93,10,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" CanUserAddRows="False" />
+        <DataGrid x:Name="dgSchema" Margin="264,93,0,10" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" HorizontalAlignment="Left" Width="898" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Column" Width="240" Binding="{Binding COLUMN_NAME}"/>
+                <DataGridTextColumn Header="Type" Width="90" Binding="{Binding TypeF}"/>
+                <DataGridTextColumn Header="Nullable" Width="60" Binding="{Binding IS_NULLABLE}"/>
+                <DataGridTextColumn Header="Default" Width="60" Binding="{Binding COLUMN_DEFAULT}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

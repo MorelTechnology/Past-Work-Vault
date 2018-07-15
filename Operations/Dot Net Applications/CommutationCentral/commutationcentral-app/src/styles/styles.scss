@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/bootstrap";
+@import "spinner";
+@import "loader";
+@import "utils";
+@import "rtl";
+@import "square";
+@import "responsive";
+
+.ui-growl {
+	top: 95px;
+}
+
+.scrollableTable {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.button-column {
+    width: 1px;
+    white-space: nowrap;
+}

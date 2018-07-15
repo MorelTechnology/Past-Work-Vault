@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{86245a4e-785c-4691-9b6e-c4ce28e56890}"
+       Name="ActivityStatus"
+       DisplayName="Activity Status"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns"
+       List="Lists/Activity Status Lookup"
+       ShowField="ActivityStatusName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

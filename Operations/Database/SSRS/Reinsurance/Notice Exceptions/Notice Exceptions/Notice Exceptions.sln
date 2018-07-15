@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Notice Exceptions", "Notice Exceptions\Notice Exceptions.rptproj", "{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Notice\u0020Exceptions\\Notice\u0020Exceptions.rptproj
+		SccProjectName1 = Notice\u0020Exceptions
+		SccLocalPath1 = Notice\u0020Exceptions
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Debug|Default.ActiveCfg = Debug
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Debug|Default.Build.0 = Debug
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Debug|Default.Deploy.0 = Debug
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.DebugLocal|Default.Build.0 = DebugLocal
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Release|Default.ActiveCfg = Release
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Release|Default.Build.0 = Release
+		{7B9D76F6-FD74-40E5-ACF7-2E308FB17C0F}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

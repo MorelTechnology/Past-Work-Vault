@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "DataHaven Reports", "DataHaven Reports.rptproj", "{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report Stored Procedures", "Report Stored Procedures", "{14C43760-AD9E-4737-9692-B99E6D0EC4B5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DataHaven\u0020Reports.rptproj
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Debug|Any CPU.ActiveCfg = Debug
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Debug|Any CPU.Build.0 = Debug
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Debug|Any CPU.Deploy.0 = Debug
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.DebugLocal|Any CPU.Deploy.0 = DebugLocal
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Release|Any CPU.ActiveCfg = Release
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Release|Any CPU.Build.0 = Release
+		{32AB1BAA-4D10-4EB6-8CE0-96050F960ECD}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

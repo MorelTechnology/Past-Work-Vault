@@ -1,0 +1,24 @@
+﻿<div class="all-leadOffices">
+    <h3>Lead Offices</h3>
+    <button class="btn btn-primary" type="button" ng-click="open()">Add New Lead Office</button>
+    <hr />
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Lead Office Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="leadOffice in leadOffices">
+                    <td>
+                        {{leadOffice.LeadOfficeName}}
+                        <a href="#/LeadOffices/Edit/{{leadOffice.ID}}"><img src="../Images/icon_edit_48px-128.png" title="Edit Office Name" style="width:16px; margin-left: 5px;" /></a>
+                        <a href="" data-ng-click="removeItem(leadOffice)"><img src="../Images/icon-delete.png" title="Delete Lead Office" style="width:16px; margin-left: 5px;" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

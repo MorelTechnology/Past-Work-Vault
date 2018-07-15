@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="LitigationManagementWebParts.MyLitigationMatters.MyLitigationMatters, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">My Litigation Matters</property>
+        <property name="Description" type="string">Displays the Litigation Matter Working sites which are assigned to the logged-in user.  If the current user is a manager, the part can also display those sites assigned to his direct reports</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

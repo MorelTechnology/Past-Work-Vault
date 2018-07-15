@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{e14494f6-7ed4-4939-af06-57e1776fbc88}"
+       Name="ActivityDroppedReasonName"
+       DisplayName="Activity Dropped Reason Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       EnforceUniqueValues="TRUE"
+       Indexed="TRUE">
+  </Field>
+</Elements>

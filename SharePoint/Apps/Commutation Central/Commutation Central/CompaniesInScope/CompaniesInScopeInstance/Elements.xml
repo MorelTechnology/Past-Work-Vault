@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Companies In Scope" OnQuickLaunch="TRUE" TemplateType="10012" Url="Lists/Companies In Scope" Description="List of companies that are in scope to a project"></ListInstance>
+</Elements>

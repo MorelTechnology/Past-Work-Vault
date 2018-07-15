@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Configuration" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Configuration" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="Title">Reports Library</Field>
+          <Field Name="Value1">Document Set Reports</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="Title">Report Set Content Type ID</Field>
+          <Field Name="Value1">0x0120D52000465979F6DA35204185BA5622A02F4289</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="Title">Document Content Type ID</Field>
+          <Field Name="Value1">0x010100AF4E91C7A64C60428CFC3CBD3713DBC6</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

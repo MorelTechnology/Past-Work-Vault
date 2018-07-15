@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Project Contacts" OnQuickLaunch="TRUE" TemplateType="10016" Url="Lists/Project Contacts" Description="Listing of contacts that have been associated with a project"></ListInstance>
+</Elements>

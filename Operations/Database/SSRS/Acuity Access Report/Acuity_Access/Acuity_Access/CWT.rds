@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CWT">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DEVSQL01;Initial Catalog=CWT</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source CWT</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>e7b4681d-0d2b-41cf-b893-7275825a925e</DataSourceID>
+</RptDataSource>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100880E8A01306A4EC1850778073FD15B93" Name="CompanyStatus" Group="Custom Content Types" Description="Company Status content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{1cff7f90-8f1a-4c30-8c43-9739ecfe2e81}" DisplayName="Company Status Name" Required="TRUE" Name="CompanyStatusName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

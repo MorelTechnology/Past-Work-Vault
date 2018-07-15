@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" Id="86baef2d-8890-498f-839c-61411297fa66" solutionId="86baef2d-8890-498f-839c-61411297fa66" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" name="CorporateLegalContractDocsOnChange">
+    <features>
+        <featureReference itemId="b5c702c0-062b-4246-87cc-b2b3dca24310" />
+    </features>
+</package>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="AddProjectSite" List="113" Url="_catalogs/wp">
+    <File Path="AddProjectSite\AddProjectSite.webpart" Url="LitigationManagementSiteAdministration_AddProjectSite.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="RiverStone Custom" />
+    </File>
+  </Module>
+</Elements>

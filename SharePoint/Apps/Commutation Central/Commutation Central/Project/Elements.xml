@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}"
+       Name="Project"
+       DisplayName="Project"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" List="Lists/Projects" ShowField="Title">
+  </Field>
+</Elements>

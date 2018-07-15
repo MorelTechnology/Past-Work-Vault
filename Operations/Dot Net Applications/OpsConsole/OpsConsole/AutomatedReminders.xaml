@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="OpsConsole.AutomatedReminders"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OpsConsole"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="980">
+    <Grid  Background="#FF89A3B2">
+        <DataGrid x:Name="dgNotifications" Margin="10,10,10,82" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" IsReadOnly="True"  >
+            <DataGrid.RowStyle>
+
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" 
+    					Value="{Binding Background}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="When" Width="300" Binding="{Binding NotificationExplanation}"/>
+                <DataGridTextColumn Header="email To" Width="150" Binding="{Binding EmailTo}"/>
+                <DataGridTextColumn Header="email Subject" Width="260" Binding="{Binding EmailSubject}"/>
+                <DataGridTextColumn Header="SD Ticket Item" Width="150" Binding="{Binding TicketItem}"/>
+                <DataGridTextColumn Header="SD Ticket Subject" Width="260" Binding="{Binding TicketSubject}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid x:Name="gridLowerControls_Copy" Height="71" Margin="10,0,10,6" VerticalAlignment="Bottom" Background="#FF687A93">
+            <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Height="51" FontWeight="Bold" Click="btnEdit_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="90,0,0,10" VerticalAlignment="Bottom" Width="75" Height="51" FontWeight="Bold" Click="btnDelete_Click"/>
+            <Button x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="170,0,0,10" VerticalAlignment="Bottom" Width="75" Height="51" FontWeight="Bold" Click="btnNew_Click"/>
+            <Button x:Name="btnExit" Content="Close" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Height="51" FontWeight="Bold" Click="btnExit_Click"/>
+        </Grid>
+
+        <local:AutomatedReminderEdit x:Name="screenEdit" Margin="0" Visibility="Collapsed"/>
+
+    </Grid>
+</UserControl>

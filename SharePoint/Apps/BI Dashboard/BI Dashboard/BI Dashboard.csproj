@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{648953B5-528D-48AE-A0FE-243F5634B36D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BI_Dashboard</RootNamespace>
+    <AssemblyName>BI Dashboard</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>11.1</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{be73b93c-e6ae-4d88-ade3-371e0673204f}</AppFeaturePartId>
+    <WspPartId>{13a617ed-2036-4e61-a64f-88812898c02f}</WspPartId>
+    <WorkflowPartId>{5cc7134c-580a-4858-a8ac-ddc2bd17cb43}</WorkflowPartId>
+    <CspkgPartId>{57fa9f09-6ffd-4e9a-a265-f2e371ae3f9e}</CspkgPartId>
+    <SqlPackagePartId>{ac8c32da-a690-48bf-82d6-d48a93ee25e0}</SqlPackagePartId>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Features\BIDashboardPreferences\BIDashboardPreferences.Template.xml">
+      <DependentUpon>BIDashboardPreferences.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\a01.png" />
+    <Content Include="Images\a02.png" />
+    <Content Include="Images\a03.png" />
+    <Content Include="Images\a04.png" />
+    <Content Include="Images\a06.png" />
+    <Content Include="Images\a07.png" />
+    <Content Include="Images\a08.png" />
+    <Content Include="Images\a09.png" />
+    <Content Include="Images\a10.png" />
+    <Content Include="Images\a11.png" />
+    <Content Include="Images\a12.png" />
+    <Content Include="Images\a13.png" />
+    <Content Include="Images\a14.png" />
+    <Content Include="Images\a15.png" />
+    <Content Include="Images\a16.png" />
+    <Content Include="Images\a17.png" />
+    <Content Include="Images\a18.png" />
+    <Content Include="Images\a19.png" />
+    <Content Include="Images\a20.png" />
+    <Content Include="Images\a21.png" />
+    <Content Include="Images\a22.png" />
+    <Content Include="Images\main_bg.jpg" />
+    <Content Include="Images\Tab View Icon.png" />
+    <Content Include="Images\Tab View.png" />
+    <Content Include="Images\Table View Icon.png" />
+    <Content Include="Images\Table View.png" />
+    <Content Include="Images\Vertical Tab View Icon.png" />
+    <Content Include="Images\Vertical Tab View.png" />
+    <Content Include="Pages\Initialization.aspx" />
+    <Content Include="Pages\Reset Preferences.aspx" />
+    <Content Include="Reset Preferences\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+    </Content>
+    <Content Include="Scripts\Initialization.js" />
+    <Content Include="User Preferences\Elements.xml" />
+    <Content Include="User Preferences\Schema.xml" />
+    <Content Include="User Preferences\User Preferences Instance\Elements.xml" />
+    <None Include="Configuration\ConfigurationInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{45f4b22d-3b92-47e6-b2e2-fe4baec26050}</SharePointProjectItemId>
+    </None>
+    <None Include="Configuration\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4c388a1d-0f1f-4e69-90be-67f7203d3e43}</SharePointProjectItemId>
+    </None>
+    <None Include="Current Reports\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6f480844-14d4-4940-81d9-f599ba2f793c}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\BIDashboardPreferences\BIDashboardPreferences.feature">
+      <FeatureId>{81516af5-034a-4180-8a63-88b23803bf11}</FeatureId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{545c362f-64dc-4e75-8899-ecc25c333cdd}</SharePointProjectItemId>
+    </None>
+    <Content Include="Configuration\ConfigurationInstance\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configuration\Elements.xml" />
+    <Content Include="Configuration\Schema.xml" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_100_000000_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_55_023d86_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.css" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.min.css" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.structure.css" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.structure.min.css" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.theme.css" />
+    <Content Include="Content\jQueryUI\Stylesheets\jquery-ui.theme.min.css" />
+    <Content Include="Content\Jssor.Slider\img\a01.png" />
+    <Content Include="Content\Jssor.Slider\img\a02.png" />
+    <Content Include="Content\Jssor.Slider\img\a03.png" />
+    <Content Include="Content\Jssor.Slider\img\a04.png" />
+    <Content Include="Content\Jssor.Slider\img\a06.png" />
+    <Content Include="Content\Jssor.Slider\img\a07.png" />
+    <Content Include="Content\Jssor.Slider\img\a08.png" />
+    <Content Include="Content\Jssor.Slider\img\a09.png" />
+    <Content Include="Content\Jssor.Slider\img\a10.png" />
+    <Content Include="Content\Jssor.Slider\img\a11.png" />
+    <Content Include="Content\Jssor.Slider\img\a12.png" />
+    <Content Include="Content\Jssor.Slider\img\a13.png" />
+    <Content Include="Content\Jssor.Slider\img\a14.png" />
+    <Content Include="Content\Jssor.Slider\img\a15.png" />
+    <Content Include="Content\Jssor.Slider\img\a16.png" />
+    <Content Include="Content\Jssor.Slider\img\a17.png" />
+    <Content Include="Content\Jssor.Slider\img\a18.png" />
+    <Content Include="Content\Jssor.Slider\img\a19.png" />
+    <Content Include="Content\Jssor.Slider\img\a20.png" />
+    <Content Include="Content\Jssor.Slider\img\a21.png" />
+    <Content Include="Content\Jssor.Slider\img\a22.png" />
+    <Content Include="Content\Jssor.Slider\img\b02.png" />
+    <Content Include="Content\Jssor.Slider\img\b03.png" />
+    <Content Include="Content\Jssor.Slider\img\b05.png" />
+    <Content Include="Content\Jssor.Slider\img\b06.png" />
+    <Content Include="Content\Jssor.Slider\img\b07.png" />
+    <Content Include="Content\Jssor.Slider\img\b10.png" />
+    <Content Include="Content\Jssor.Slider\img\b11.png" />
+    <Content Include="Content\Jssor.Slider\img\b12.png" />
+    <Content Include="Content\Jssor.Slider\img\b13.png" />
+    <Content Include="Content\Jssor.Slider\img\b14.png" />
+    <Content Include="Content\Jssor.Slider\img\b16.png" />
+    <Content Include="Content\Jssor.Slider\img\b17.png" />
+    <Content Include="Content\Jssor.Slider\img\b18.png" />
+    <Content Include="Content\Jssor.Slider\img\b20.png" />
+    <Content Include="Content\Jssor.Slider\img\b21.png" />
+    <Content Include="Content\Jssor.Slider\img\back.jpg" />
+    <Content Include="Content\Jssor.Slider\img\browser-icons.png" />
+    <Content Include="Content\Jssor.Slider\img\close.png" />
+    <Content Include="Content\Jssor.Slider\img\Icon-Slider-12-jQuery.png" />
+    <Content Include="Content\Jssor.Slider\img\Icon-Slider-12-No-jQuery.png" />
+    <Content Include="Content\Jssor.Slider\img\loading.gif" />
+    <Content Include="Content\Jssor.Slider\img\loading2.gif" />
+    <Content Include="Content\Jssor.Slider\img\play.png" />
+    <Content Include="Content\Jssor.Slider\img\t01.png" />
+    <Content Include="Content\Jssor.Slider\js\jssor.js" />
+    <Content Include="Content\Jssor.Slider\js\jssor.slider.js" />
+    <Content Include="Content\Jssor.Slider\js\jssor.slider.min.js" />
+    <Content Include="Current Reports\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\ParkReport96.jpg">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Pages\Reports Dashboard Horizontal Slider.aspx" />
+    <Content Include="Pages\Reports Dashboard Vertical Tabs.aspx" />
+    <Content Include="Pages\Reports Dashboard.aspx" />
+    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Default.aspx" />
+    <None Include="Reset Preferences\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{16d37953-223a-446a-9650-9954d24d279d}</SharePointProjectItemId>
+    </None>
+    <None Include="User Preferences\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7c43018a-35d1-48ee-b5a1-00eccd801a66}</SharePointProjectItemId>
+    </None>
+    <None Include="User Preferences\User Preferences Instance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{77a46b63-68de-49c4-acb7-bfcc32228d8d}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ac8c32da-a690-48bf-82d6-d48a93ee25e0}</SharePointProjectItemId>
+    </None>
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\Reports Dashboard Horizontal Slider.js" />
+    <Content Include="Scripts\Reports Dashboard Vertical Tabs.js" />
+    <Content Include="Scripts\RS.js" />
+    <Content Include="Scripts\Reports Dashboard.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b0661ada-4d09-4707-8766-cf537a2e6989}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png" />
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{19b08e5e-99b9-4926-b083-3a935eeab6ec}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{6038ff78-5986-47dc-99a9-a88de89772d4}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\BIDashboard\BIDashboard.feature">
+      <FeatureId>{45172d2a-be49-4e1e-b53b-9c63e9d9a705}</FeatureId>
+    </None>
+    <None Include="Features\BIDashboard\BIDashboard.Template.xml">
+      <DependentUpon>BIDashboard.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

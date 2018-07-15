@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1cff7f90-8f1a-4c30-8c43-9739ecfe2e81}"
+       Name="CompanyStatusName"
+       DisplayName="Company Status Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       EnforceUniqueValues="TRUE" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

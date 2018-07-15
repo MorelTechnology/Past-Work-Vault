@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ce5cc186-4638-4f15-9e16-eac419e5a116" solutionId="ce5cc186-4638-4f15-9e16-eac419e5a116" resetWebServer="false" sharePointProductVersion="15.0" name="Report" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="54996dea-2c8a-4e61-962d-5e550ee23cb8" />
+  </projectItems>
+</package>

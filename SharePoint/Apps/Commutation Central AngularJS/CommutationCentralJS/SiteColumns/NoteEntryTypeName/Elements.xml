@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f9a9ca41-51e9-44b8-b178-617046cb7854}"
+       Name="NoteEntryTypeName"
+       DisplayName="Note Entry Type Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       Indexed="TRUE"
+       EnforceUniqueValues="TRUE">
+  </Field>
+</Elements>

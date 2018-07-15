@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{521fe3e0-6e3b-44ad-9b19-88e3d75a5569}"
+       Name="FinalCreditProvision"
+       DisplayName="Final Credit Provision"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

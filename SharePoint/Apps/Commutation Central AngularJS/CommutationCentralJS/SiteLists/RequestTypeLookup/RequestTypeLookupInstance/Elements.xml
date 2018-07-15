@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Request Type Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Request Type Lookup" Description="Provides a list of available request types">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="RequestTypeName">External Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="RequestTypeName">FFH Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="RequestTypeName">EXCO Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">4</Field>
+          <Field Name="RequestTypeName">RIUK Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">5</Field>
+          <Field Name="RequestTypeName">OGC Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">6</Field>
+          <Field Name="RequestTypeName">RI Request</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">7</Field>
+          <Field Name="RequestTypeName">Target</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

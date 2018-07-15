@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "BIU Reporting Automation", "BIU Reporting Automation\BIU Reporting Automation.dtproj", "{B7FB07F3-9365-420C-8835-B345021091D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8215FC73-9C6B-48C6-90CA-C5122D43BCEA}"
+	ProjectSection(SolutionItems) = preProject
+		CopyFiletoSharepoint.cs = CopyFiletoSharepoint.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BIU\u0020Reporting\u0020Automation\\BIU\u0020Reporting\u0020Automation.dtproj
+		SccProjectName1 = BIU\u0020Reporting\u0020Automation
+		SccLocalPath1 = BIU\u0020Reporting\u0020Automation
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7FB07F3-9365-420C-8835-B345021091D0}.Development|Default.ActiveCfg = Development
+		{B7FB07F3-9365-420C-8835-B345021091D0}.Development|Default.Build.0 = Development
+		{B7FB07F3-9365-420C-8835-B345021091D0}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,43 @@
+<p-panel [toggleable]="true" *ngIf="userForm">
+  <p-header>{{pageTitle}}</p-header>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="User">User:</label>
+      <div>
+        <p-autoComplete [(ngModel)]="selectedUser" [ngModelOptions]="{standalone: true}" [suggestions]="userSearchResults" (completeMethod)="searchUsers($event)"
+          field="userName" [forceSelection]="true" (onSelect)="onSelectUser(selectedUser)" (onClear)="onSelectUser()" (ngModelChange)="onSelectUser()">
+          <ng-template let-user pTemplate="item">
+            <div class="ui-helper-clearfix" style="border-bottom: 1px solid #D5D5D5">
+              <div style="margin:10px 10px 0 0">{{user.displayName}}</div>
+              <small>{{user.userName}}</small>
+            </div>
+          </ng-template>
+        </p-autoComplete>
+      </div>
+      <small class="text-danger" *ngIf="userForm.controls['UserName'].dirty && userForm.controls['UserName'].invalid">Username is required</small>
+    </div>
+    <div *ngIf="loadingActiveUserRoles">
+      <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+    </div>
+    <p-panel *ngIf="activeUserRoles">
+      <p-header>Roles</p-header>
+      <p-pickList sourceHeader="Available Roles" [source]="activeUserRoles" targetHeader="User Roles" [target]="selectedUserRoles"
+        [responsive]="true" [dragdrop]="true" [showSourceControls]="false" [showTargetControls]="false" (onMoveToTarget)="onRolesAdded($event)"
+        (onMoveToSource)="onRolesRemoved($event)">
+        <ng-template let-role pTemplate="item">
+          {{role.name}}
+        </ng-template>
+      </p-pickList>
+    </p-panel>
+    <div class="form-group">
+      <div>
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.valid || userFormSubmitted">
+          <i class="fa" [ngClass]="{'fa-check': !userFormSubmitted, 'fa-circle-o-notch fa-spin': userFormSubmitted}"></i> Submit
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">
+          <i class="fa fa-ban"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</p-panel>

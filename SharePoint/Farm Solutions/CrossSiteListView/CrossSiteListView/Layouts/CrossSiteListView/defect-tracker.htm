@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <script>
+            function ReSizeIt() { window.resizeTo(400, 600); }
+             window.onload=ReSizeIt;
+             window.onresize=ReSizeIt;
+        </script>
+        <title>Known defects in this release</title>
+    </head>
+    <body bgcolor="#f0f0f0">
+        <style>
+            * {
+                font-family: sans-serif;
+                font-size: 14px;
+            }
+
+            h2 {
+                margin-left: 15px;
+                color: gray;
+                font-size: 18px;
+            }
+
+            bug {
+                font-weight: bold;
+            }
+
+                bug:before {
+                    content: "Defect:";
+                    background-color: #ff8080;
+                    color: #fff;
+                    margin-right: 6px;
+                }
+
+            ul {
+                border: 1px solid orange;
+                border-radius: 15px;
+                padding: 20px;
+            }
+
+                ul li {
+                    margin-left: 20px;
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+                    font-size: 13px;
+                }
+
+                ul workaround:before {
+                    content: "Proposed Workaround:";
+                    background-color: #80bfff;
+                    color: #fff;
+                    margin-right: 6px;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                ul workaround {
+                    font-size: 13px;
+                }
+
+            footer {
+                margin-left: 20px;
+                font-size: 10px;
+                color: silver;
+                font-style: italic;
+            }
+        </style>
+        <h2>Known defects in this release</h2>
+        <ul>
+            <bug>Bug #1</bug>
+            <li>Description #1</li>
+            <workaround>Workaround #1</workaround>
+        </ul>
+        <ul>
+            <bug>Bug #2</bug>
+            <li>Description #2</li>
+            <workaround>Workaround #2</workaround>
+        </ul>
+        <footer>
+            &copy;
+            <script type="text/javascript">document.write((new Date).getFullYear());</script> Apps To Oranges, LLC.  All rights resered.
+        </footer>
+    </body>
+</html>

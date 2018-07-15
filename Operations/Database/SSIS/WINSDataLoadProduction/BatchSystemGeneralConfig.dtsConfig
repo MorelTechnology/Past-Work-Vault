@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="TRG\jwebb" GeneratedFromPackageName="Quarterly" GeneratedFromPackageID="{33BFA384-F595-4E8F-BB49-3D4DDC7C3E9B}" GeneratedDate="9/17/2008 11:16:45 AM" />
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ANSCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=ans;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ANSWorkCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=answork;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::FileName].Properties[Value]" ValueType="String">
+    <ConfiguredValue></ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::IBNRCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=ibnr;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::LossRepositoryCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=loss_repository;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::LossReservesCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=loss_reserves;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::MiddlewareOperStoreCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=middleware_oper_store;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::NavisionCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManSQL01;Initial Catalog=Navision;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::NovationCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=novation;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::OperatorServerCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdBS01;Integrated Security=SSPI;Connect Timeout=30;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ReportingCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManReport02;Initial Catalog=Reporting;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ReportingGlobalCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManReport02;Initial Catalog=Rivernet_Global;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ReportingReisuranceCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManReport02;Initial Catalog=Rivernet_Reinsurance;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::RiskHistoryCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdData02;Initial Catalog=risk_history;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::ROCCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=ManProdBS01;Initial Catalog=ROC;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::StarsCon].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=PRODSQL4;Initial Catalog=STARS;Provider=SQLNCLI10.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>

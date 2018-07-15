@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Affiliate Funding Reports", "Affiliate Funding Reports\Affiliate Funding Reports.rptproj", "{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Affiliate\u0020Funding\u0020Reports\\Affiliate\u0020Funding\u0020Reports.rptproj
+		SccProjectName1 = Affiliate\u0020Funding\u0020Reports
+		SccLocalPath1 = Affiliate\u0020Funding\u0020Reports
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Debug|Default.ActiveCfg = Debug
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Debug|Default.Build.0 = Debug
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Debug|Default.Deploy.0 = Debug
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.DebugLocal|Default.Build.0 = DebugLocal
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Release|Default.ActiveCfg = Release
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Release|Default.Build.0 = Release
+		{B7364FAE-60CF-4DB9-A9ED-836098C2DDEE}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

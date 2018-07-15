@@ -1,0 +1,24 @@
+﻿<div class="all-commutationTypes">
+    <h3>Commutation Types</h3>
+    <button class="btn btn-primary" type="button" ng-click="open()">Add New Commutation Type</button>
+    <hr />
+    <div class="all-items">
+        <table datatable="ng" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Commutation Type Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+                <tr data-ng-repeat="commutationType in commutationTypes">
+                    <td>
+                        {{commutationType.CommutationTypeName}}
+                        <a href="#/CommutationTypes/Edit/{{commutationType.ID}}"><img src="../Images/icon_edit_48px-128.png" title="Edit Commutation Type Name" style="width:16px; margin-left: 5px;" /></a>
+                        <a href="" data-ng-click="removeItem(commutationType)"><img src="../Images/icon-delete.png" title="Delete Commutation Type" style="width:16px; margin-left: 5px;" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

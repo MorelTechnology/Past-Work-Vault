@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{548099c2-2861-4940-a4a8-a097d8f5be33}"
+       Name="DealPriority"
+       DisplayName="Deal Priority"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       List="Lists/Deal Priority Lookup" 
+       ShowField="DealPriorityName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

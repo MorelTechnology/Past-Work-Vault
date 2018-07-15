@@ -1,0 +1,204 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/12/2018 1:49:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JGABEL-LAP1"
+  DTS:CreatorName="TRG\jgabe"
+  DTS:DTSID="{B192E9B0-7264-4362-ADBA-1F3B492E60AF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CICA_Restore"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{3BFD40DD-754F-48B2-A57E-59C923913C54}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Automailer Insert"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DA3F2F76-0B71-4ED7-A24F-AF381A4B6A11}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Automailer Insert"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B15EC30E-7FD6-4641-9CDE-919D5F270237}"
+          SQLTask:SqlStatementSource="INSERT INTO feedback.Notification (BatchID, NotificationTo, NotificationFrom, NotificationBody, CreatedDate, CreatedBy, NotificationSubject)&#xA;SELECT ?, 'RSITOPS@trg.com', 'service.jams@trg.com', 'CICA Restore Successful', GETDATE(), 'CICA', 'CICA Restore Successful'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::LocaleID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Restore CICA_Policy_Claim Database"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{00F26545-B63A-46D4-9465-D5A9BE65C3EC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Restore CICA_Policy_Claim Database"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8FAFB582-4614-49A4-8F85-621F2178FC04}"
+          SQLTask:SqlStatementSource="DECLARE @backuppath VARCHAR(100)&#xA;DECLARE @dataPath VARCHAR(200)&#xA;DECLARE @logpath VARCHAR(200)&#xA;DECLARE @sql VARCHAR (1000)&#xA;&#xA;/*** KIll Users to prepare for restore ***/&#xA;DECLARE @kill VARCHAR(8000) = '';  &#xA;SELECT @kill = @kill + 'KILL ' + CONVERT(varchar(5), session_id) + ';'  &#xA;FROM sys.dm_exec_sessions&#xA;WHERE database_id  = DB_ID('CICA_Policy_Claim')&#xA;&#xA;EXEC(@kill);&#xA;&#xA;/***  Restore the Database from Received File ***/&#xA;set @backuppath = ?&#xA;set @datapath = ?&#xA;set @logpath = ?&#xA;&#xA;SET @sql = 'Restore DATABASE ' + 'CICA_Policy_Claim' +' from disk =''' + @backuppath +&#xA;   ''' WITH REPLACE,  move ''' + 'CICA' + ''' TO ''' +   @datapath + 'CICA_Policy_Claim_Data.mdf' +&#xA;    ''', move ''' + 'CICA_Log' + ''''+ ' TO ''' + @logpath + 'CICA_Policy_Claim_Log.ldf' + '''' + ', STATS = 10'&#xA;&#xA;  EXEC (@sql);&#xA;&#xA;  /*** Reset Users Needing Access to the DB ***/&#xA;&#xA;  -- [-- DB CONTEXT --] --&#xA;USE [CICA_Policy_Claim];&#xA;&#xA;&#xA;-- [-- DB USERS --] --&#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'dbo') BEGIN CREATE USER  [dbo] FOR LOGIN [dbo] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'guest') BEGIN CREATE USER  [guest] FOR LOGIN [guest] WITH DEFAULT_SCHEMA = [guest] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'IFISDataTransfer') BEGIN CREATE USER  [IFISDataTransfer] FOR LOGIN [IFISDataTransfer] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'NBFC\NBITDMW') BEGIN CREATE USER  [NBFC\NBITDMW] FOR LOGIN [NBFC\NBITDMW] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'TRG\sqlEngineDev') BEGIN CREATE USER  [TRG\sqlEngineDev] FOR LOGIN [TRG\sqlEngineDev] WITH DEFAULT_SCHEMA = [TRG\sqlEngineDev] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'TRG\tmiel') BEGIN CREATE USER  [TRG\tmiel] FOR LOGIN [TRG\tmiel] WITH DEFAULT_SCHEMA = [TRG\tmiel] END;  &#xA;&#xA;-- [-- DB ROLES --] --&#xA;&#xA;EXEC sp_addrolemember @rolename = 'db_backupoperator', @membername = 'IFISDataTransfer'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'NBFC\NBITDMW'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\Production Support'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\sqlEngineDev'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\tmiel'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'IFISDataTransfer'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::BackupPathName_PC"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Project::DataPathDir_PC"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="$Project::LogPathDir_PC"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Restore CICA_Reinsurance Database"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3299407D-2BA5-42BC-A9E7-98215CD03D0B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Restore CICA_Reinsurance Database"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8FAFB582-4614-49A4-8F85-621F2178FC04}"
+          SQLTask:SqlStatementSource="DECLARE @backuppath VARCHAR(100)&#xA;DECLARE @dataPath VARCHAR(200)&#xA;DECLARE @logpath VARCHAR(200)&#xA;DECLARE @sql VARCHAR (1000)&#xA;&#xA;/*** KIll Users to prepare for restore ***/&#xA;DECLARE @kill VARCHAR(8000) = '';  &#xA;SELECT @kill = @kill + 'KILL ' + CONVERT(varchar(5), session_id) + ';'  &#xA;FROM sys.dm_exec_sessions&#xA;WHERE database_id  = DB_ID('CICA_Policy_Claim')&#xA;&#xA;EXEC(@kill);&#xA;&#xA;/***  Restore the Database from Received File ***/&#xA;set @backuppath = ?&#xA;set @datapath = ?&#xA;set @logpath = ?&#xA;&#xA;&#xA;SET @sql = 'Restore DATABASE ' + 'CICA_Reinsurance' +' from disk =''' + @backuppath +&#xA;   ''' WITH REPLACE,  move ''' + 'Reinsurance' + ''' TO ''' +   @datapath + 'CICA__Reinsurance_Data.mdf' +&#xA;    ''', move ''' + 'Reinsurance_log' + ''''+ ' TO ''' + @logpath + 'CICA__Reinsurance_Log.ldf' + '''' + ', STATS = 10'&#xA;&#xA;  EXEC (@sql);&#xA;&#xA;  /*** Reset Users Needing Access to the DB ***/&#xA;&#xA;  -- [-- DB CONTEXT --] --&#xA;USE [CICA_Policy_Claim];&#xA;&#xA;-- [-- DB USERS --] --&#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'dbo') BEGIN CREATE USER  [dbo] FOR LOGIN [dbo] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'guest') BEGIN CREATE USER  [guest] FOR LOGIN [guest] WITH DEFAULT_SCHEMA = [guest] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'IFISDataTransfer') BEGIN CREATE USER  [IFISDataTransfer] FOR LOGIN [IFISDataTransfer] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'NBFC\NBITDMW') BEGIN CREATE USER  [NBFC\NBITDMW] FOR LOGIN [NBFC\NBITDMW] WITH DEFAULT_SCHEMA = [dbo] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'TRG\sqlEngineDev') BEGIN CREATE USER  [TRG\sqlEngineDev] FOR LOGIN [TRG\sqlEngineDev] WITH DEFAULT_SCHEMA = [TRG\sqlEngineDev] END; &#xA;IF NOT EXISTS (SELECT [name] FROM sys.database_principals WHERE [name] =  'TRG\tmiel') BEGIN CREATE USER  [TRG\tmiel] FOR LOGIN [TRG\tmiel] WITH DEFAULT_SCHEMA = [TRG\tmiel] END;  &#xA;&#xA;-- [-- DB ROLES --] --&#xA;&#xA;EXEC sp_addrolemember @rolename = 'db_backupoperator', @membername = 'IFISDataTransfer'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'NBFC\NBITDMW'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\Production Support'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\sqlEngineDev'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'TRG\tmiel'&#xA;EXEC sp_addrolemember @rolename = 'db_datareader', @membername = 'IFISDataTransfer'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::BackupPathName_R"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Project::DataPathDir_R"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="$Project::LogPathDir_R"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C42BA47B-7C55-434B-9C5F-40C636D363E8}"
+      DTS:From="Package\Restore CICA_Policy_Claim Database"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Restore CICA_Reinsurance Database" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{892E1D7E-689B-4979-84B5-4B0C95685834}"
+      DTS:From="Package\Restore CICA_Reinsurance Database"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Automailer Insert" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Automailer Insert"
+          TopLeft="125,271" />
+        <NodeLayout
+          Size="216,50"
+          Id="Package\Restore CICA_Policy_Claim Database"
+          TopLeft="105,65" />
+        <NodeLayout
+          Size="212,50"
+          Id="Package\Restore CICA_Reinsurance Database"
+          TopLeft="106,166" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="212.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="209.25,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

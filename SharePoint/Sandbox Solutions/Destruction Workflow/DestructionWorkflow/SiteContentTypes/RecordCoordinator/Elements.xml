@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100B30D3A1D9EBE44BEA63A8F5E932FFA5D" Name="Record Coordinator" Group="Riverstone Content Types" Description="Record Coordinator" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{a05809a4-da70-4f3d-beb1-a3996ca2119c}" DisplayName="Members" Required="TRUE" Name="Members" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Create RP Workflow TIG", "Create RP Workflow TIG\Create RP Workflow TIG.rptproj", "{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Create\u0020RP\u0020Workflow\u0020TIG\\Create\u0020RP\u0020Workflow\u0020TIG.rptproj
+		SccProjectName1 = Create\u0020RP\u0020Workflow\u0020TIG
+		SccLocalPath1 = Create\u0020RP\u0020Workflow\u0020TIG
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Debug|Default.ActiveCfg = Debug
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Debug|Default.Build.0 = Debug
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Debug|Default.Deploy.0 = Debug
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.DebugLocal|Default.Build.0 = DebugLocal
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Release|Default.ActiveCfg = Release
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Release|Default.Build.0 = Release
+		{3A9692C2-AA0F-4B5E-8B6F-AEF82EB9BA74}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

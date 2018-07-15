@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reinsurance Claim Download TIG", "Reinsurance Claim Download TIG\Reinsurance Claim Download TIG.rptproj", "{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Reinsurance\u0020Claim\u0020Download\u0020TIG\\Reinsurance\u0020Claim\u0020Download\u0020TIG.rptproj
+		SccProjectName1 = Reinsurance\u0020Claim\u0020Download\u0020TIG
+		SccLocalPath1 = Reinsurance\u0020Claim\u0020Download\u0020TIG
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Debug|Default.ActiveCfg = Debug
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Debug|Default.Build.0 = Debug
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Debug|Default.Deploy.0 = Debug
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.DebugLocal|Default.Build.0 = DebugLocal
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Release|Default.ActiveCfg = Release
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Release|Default.Build.0 = Release
+		{DB427F3B-1F70-4DB1-BCEF-7F079ADC19D4}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

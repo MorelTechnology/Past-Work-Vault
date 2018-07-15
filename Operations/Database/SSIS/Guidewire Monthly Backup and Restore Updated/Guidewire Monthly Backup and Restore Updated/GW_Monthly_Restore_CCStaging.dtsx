@@ -1,0 +1,313 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/18/2017 10:40:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JEDWA-LAP2"
+  DTS:CreatorName="TRG\jedwa"
+  DTS:DTSID="{1B083394-D669-48EE-8ABB-48094156A1AA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="GW_Monthly_Restore_CCStaging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{CBCB760E-C4B5-4580-AF29-1DB84494AA38}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLLOAD.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BCA27523-0257-4D63-B712-ED7FF40FE968}"
+      DTS:ObjectName="SQLLOAD.master">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::RestoreSourceConn]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLLOAD;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLPRODGW.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EAAC14A0-8560-40FE-BF36-C2312D82C440}"
+      DTS:ObjectName="SQLPRODGW.master">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::BackupSourceServerCon]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLProdGW;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E13BBF6E-44A3-4952-AFD3-665555A1D34D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BackupName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FEB52FA-A758-4C92-B86E-A4C3150F3682}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data Source=&quot; + @[$Project::DestinationServer] +&quot;;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RestoreSourceConn">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLLOAD;Initial Catalog=Master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Change Recovery Model to Simple"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8e55dc2b-4d0f-444e-acbc-2129e9f23aeb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Change Recovery Model to Simple"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BCA27523-0257-4D63-B712-ED7FF40FE968}"
+          SQLTask:SqlStatementSource="DECLARE &#xA; @BackupName varchar(200),&#xA; @sql varchar(1000)&#xA;&#xA;SET @BackupName = ?&#xA;SET @SQL = 'alter database [' + @BackupName + '] set recovery Simple;'&#xA;&#xA;EXEC (@sql)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BackupName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Restore ClaimCenterStaging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6812000e-e568-4453-854a-7a82d5e16e64}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Restore ClaimCenterStaging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BCA27523-0257-4D63-B712-ED7FF40FE968}"
+          SQLTask:SqlStatementSource="declare  @BackupDirectory varchar(200),&#xA; @sql varchar(1000),&#xA; @backupfile_Directory  varchar(200),&#xA; @dbname varchar(20),&#xA; @year CHAR(4),&#xA; @month CHAR(2),&#xA; @date DATE&#xA;&#xA;set  @BackupDirectory = ?&#xA; &#xA;SET @date  = GETDATE()&#xA;&#xA;SET @year = CAST( DATEPART ( yy , @date  ) AS CHAR(4))&#xA;SET @month = CAST( DATEPART ( mm , @date  ) AS CHAR(2))&#xA;&#xA;SET @month = CASE @month&#xA;   WHEN '1' THEN '01'&#xA;   WHEN '2' THEN '02'&#xA;   WHEN '3' THEN '03'&#xA;   WHEN '4' THEN '04'&#xA;   WHEN '5' THEN '05'&#xA;   WHEN '6' THEN '06'&#xA;   WHEN '7' THEN '07'&#xA;   WHEN '8' THEN '08'&#xA;   WHEN '9' THEN '09'&#xA;   ELSE @month&#xA;  END&#xA; &#xA;&#xA;SET @sql = 'Restore DATABASE ' + '[ClaimCenterStaging_' + 'EOM_' + @month + '_' + @Year + '] from disk = ''' + @BackupDirectory + 'MONTHLY_ClaimCenterStaging.bak' &#xA;   + ''' WITH FILE = 1,  move ' + '''ClaimCenterStaging''' + ' TO ' + '''F:\DATA\ClaimCenterStaging_'+ @Year + @Month + '.mdf''' + ','&#xA;   + ' move ' + '''ClaimCenterStaging_Log''' + ' TO ' +  '''F:\Logs\ClaimCenterStaging_log_' + @Year + @Month + '.ldf''' +  ',' + ' NOUNLOAD, REPLACE, STATS = 5'&#xA;&#xA;&#xA;&#xA;EXEC (@sql)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::BackupDirectory"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set BackupName"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{aaa64e8d-dc36-4d55-a303-9e4f680cb009}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set BackupName"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BCA27523-0257-4D63-B712-ED7FF40FE968}"
+          SQLTask:SqlStatementSource="DECLARE &#xA; @BackupName varchar(200),&#xA; @year CHAR(4),&#xA; @month CHAR(2),&#xA; @date DATE&#xA;&#xA;SET @date  = GETDATE()&#xA;SET @year = CAST( DATEPART ( yy , @date  ) AS CHAR(4))&#xA;SET @month = CAST( DATEPART ( mm , @date  ) AS CHAR(2))&#xA;SET @month = CASE @month&#xA;   WHEN '1' THEN '01'&#xA;   WHEN '2' THEN '02'&#xA;   WHEN '3' THEN '03'&#xA;   WHEN '4' THEN '04'&#xA;   WHEN '5' THEN '05'&#xA;   WHEN '6' THEN '06'&#xA;   WHEN '7' THEN '07'&#xA;   WHEN '8' THEN '08'&#xA;   WHEN '9' THEN '09'&#xA;   ELSE @month&#xA;  END&#xA;SET @BackupName = 'ClaimCenterStaging_' + 'EOM_' + @month + '_' + @Year &#xA;Set ? = @BackupName " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BackupName"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Shrink Log File on SQLLoad"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{aad66117-41f7-4249-a93b-a7223efc0336}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Shrink Log File on SQLLoad"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BCA27523-0257-4D63-B712-ED7FF40FE968}"
+          SQLTask:SqlStatementSource="DECLARE &#xA; @BackupName varchar(200),&#xA; @sql varchar(1000),&#xA; @Log varchar(50)&#xA;&#xA;SET @BackupName = ?&#xA;SET @Log = 'ClaimCenterStaging_Log'&#xA;SET @sql = 'USE ' + @BackupName + ';' + ' DBCC SHRINKFILE (' + '''' + @Log + '''' + ', 0, TRUNCATEONLY)'&#xA;&#xA;EXEC (@sql)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BackupName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{312BDE6A-B40A-4921-810F-C0DE54F9C5B1}"
+      DTS:From="Package\Set BackupName"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Restore ClaimCenterStaging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B0F6574-20F7-4F39-9ADB-CB17B3CDE4E2}"
+      DTS:From="Package\Restore ClaimCenterStaging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Shrink Log File on SQLLoad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{a09013e5-f116-4dc0-8d34-512152693b5b}"
+      DTS:From="Package\Shrink Log File on SQLLoad"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Change Recovery Model to Simple" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Change Recovery Model to Simple"
+          TopLeft="67,307" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Restore ClaimCenterStaging"
+          TopLeft="67,128" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Set BackupName"
+          TopLeft="100,60" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Shrink Log File on SQLLoad"
+          TopLeft="95,230" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="176.75,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="173,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,60"
+              Start="0,0"
+              End="27,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="23,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,30"
+                    Point2="27,30"
+                    Point3="27,34" />
+                  <mssgle:LineSegment
+                    End="27,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="200,272">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,35"
+              Start="0,0"
+              End="-12.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="-4,17.5" />
+                  <mssgle:LineSegment
+                    End="-8.5,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,17.5"
+                    Point2="-12.5,17.5"
+                    Point3="-12.5,21.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

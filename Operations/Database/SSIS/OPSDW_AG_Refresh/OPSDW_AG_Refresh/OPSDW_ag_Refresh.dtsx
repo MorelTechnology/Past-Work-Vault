@@ -1,0 +1,2512 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/21/2018 9:13:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JGABEL-LAP1"
+  DTS:CreatorName="TRG\jgabe"
+  DTS:DTSID="{02B582EE-3014-4101-9791-B0FFD1038C52}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OPSDW_ag_Refresh"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{2F029EBB-61BE-4DA6-8371-6AA8376BF3E8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ConServiceDesk]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C01FE872-6784-4ADC-B1A4-07F4442DE0F4}"
+      DTS:ObjectName="ConServiceDesk">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLPROD2012R2;Initial Catalog=ServiceDesk;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\AG Tables Refresh"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3D9D92DB-AB19-4289-82F4-5505A2B05E39}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="AG Tables Refresh"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\AG Tables Refresh\Associate table Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Associate table Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Associate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\Associate table Data.Connections[OleDbConnection]"
+                  connectionManagerID="{CEC91D68-F627-4F9E-80D4-720968210A88}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConAG]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ClaimCenterID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[ClaimCenterID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ClaimCenterID]"
+                      name="ClaimCenterID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      name="AssociateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      name="GroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[AssociateFlg]"
+                      length="1"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateFlg]"
+                      name="AssociateFlg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      name="TicketNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      name="StartUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      name="EndUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DataHavenID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[DataHavenID]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DataHavenID]"
+                      name="DataHavenID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[ClaimCenterID]"
+                      dataType="i8"
+                      name="ClaimCenterID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      dataType="i4"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[AssociateFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="AssociateFlg" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].ExternalColumns[DataHavenID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DataHavenID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i8"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ClaimCenterID]"
+                      dataType="i8"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ClaimCenterID]"
+                      name="ClaimCenterID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      name="AssociateID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      name="GroupID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[AssociateFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[AssociateFlg]"
+                      name="AssociateFlg" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      name="TicketNumber" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      name="StartUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      name="EndUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[DataHavenID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[DataHavenID]"
+                      name="DataHavenID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\Associate_limit"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Associate_limit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Associate_Limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\Associate_limit.Connections[OleDbConnection]"
+                  connectionManagerID="{CEC91D68-F627-4F9E-80D4-720968210A88}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConAG]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      name="AssociateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[LimitID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[LimitID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[LimitID]"
+                      name="LimitID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      length="1"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Limit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[Limit]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Limit]"
+                      name="Limit"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      name="TicketNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      name="StartUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      name="EndUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[LimitID]"
+                      dataType="i4"
+                      name="LimitID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[Limit]"
+                      dataType="numeric"
+                      name="Limit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i8"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      name="AssociateID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[LimitID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[LimitID]"
+                      name="LimitID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[Limit]"
+                      dataType="numeric"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[Limit]"
+                      name="Limit"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      name="TicketNumber" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      name="StartUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      name="EndUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\Limit"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Limit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\Limit.Connections[OleDbConnection]"
+                  connectionManagerID="{CEC91D68-F627-4F9E-80D4-720968210A88}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConAG]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[LimitID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[LimitID]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[LimitID]"
+                      name="LimitID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[TicketNumber]"
+                      name="TicketNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartUser]"
+                      name="StartUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndUser]"
+                      name="EndUser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[LimitID]"
+                      dataType="i4"
+                      name="LimitID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i8"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[LimitID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[LimitID]"
+                      name="LimitID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[TicketNumber]"
+                      name="TicketNumber" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[StartUser]"
+                      name="StartUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[EndUser]"
+                      name="EndUser" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\OPSDW ag associate"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OPSDW ag associate"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Associate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\OPSDW ag associate.Connections[OleDbConnection]"
+                  connectionManagerID="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConOPSDWPS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i8"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[ClaimCenterID]"
+                      cachedDataType="i8"
+                      cachedName="ClaimCenterID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[ClaimCenterID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[ClaimCenterID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[AssociateID]"
+                      cachedDataType="i4"
+                      cachedName="AssociateID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[GroupID]"
+                      cachedDataType="i4"
+                      cachedName="GroupID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[GroupID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[DepartmentID]"
+                      cachedDataType="i4"
+                      cachedName="DepartmentID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[AssociateFlg]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="AssociateFlg"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateFlg]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[AssociateFlg]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[TicketNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TicketNumber"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[TicketNumber]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[StartUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[EndUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EndUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].Columns[DataHavenID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DataHavenID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[DataHavenID]"
+                      lineageId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output].Columns[DataHavenID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[ClaimCenterID]"
+                      dataType="i8"
+                      name="ClaimCenterID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      dataType="i4"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="AssociateFlg" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input].ExternalColumns[DataHavenID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DataHavenID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\OPSDW ag associate.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW ag associate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW ag associate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW ag associate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\OPSDW Associate_Limit"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OPSDW Associate_Limit"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Associate_Limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Connections[OleDbConnection]"
+                  connectionManagerID="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConOPSDWPS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i8"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[AssociateID]"
+                      cachedDataType="i4"
+                      cachedName="AssociateID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[AssociateID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[LimitID]"
+                      cachedDataType="i4"
+                      cachedName="LimitID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[LimitID]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[LimitID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[Limit]"
+                      cachedDataType="numeric"
+                      cachedName="Limit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[Limit]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[Limit]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[TicketNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TicketNumber"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[TicketNumber]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[StartUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[EndUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EndUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[LimitID]"
+                      dataType="i4"
+                      name="LimitID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[Limit]"
+                      dataType="numeric"
+                      name="Limit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW Associate_Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Associate_Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW Associate_Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\OPSDW Limit"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OPSDW Limit"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ag].[Limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\OPSDW Limit.Connections[OleDbConnection]"
+                  connectionManagerID="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConOPSDWPS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i8"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[LimitID]"
+                      cachedDataType="i4"
+                      cachedName="LimitID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[LimitID]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[LimitID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[TicketNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="TicketNumber"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[TicketNumber]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[StartUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[EndUser]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EndUser"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndUser]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i8"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[LimitID]"
+                      dataType="i4"
+                      name="LimitID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[TicketNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="TicketNumber" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\OPSDW Limit.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW Limit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\OPSDW SDAssociate"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OPSDW SDAssociate"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SDAssociate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\OPSDW SDAssociate.Connections[OleDbConnection]"
+                  connectionManagerID="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ConOPSDWPS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[AssociateID]"
+                      cachedDataType="i4"
+                      cachedName="AssociateID"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AssociateID]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[AdjustedName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="AdjustedName"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[AdjustedName]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AdjustedName]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[SamAccountName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SamAccountName"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[SAMAccountName]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[SamAccountName]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[Department]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Department"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Department]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[Supervisor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Supervisor"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[Supervisor]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Supervisor]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[AdjustedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AdjustedName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[SAMAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAMAccountName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Department" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[Supervisor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Supervisor" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\OPSDW SDAssociate.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW SDAssociate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\OPSDW SDAssociate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\OPSDW SDAssociate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AG Tables Refresh\Service Desk Associate"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Service Desk Associate"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Associate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AG Tables Refresh\Service Desk Associate.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ConServiceDesk]"
+                  connectionManagerRefId="Package.ConnectionManagers[ConServiceDesk]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AssociateID]"
+                      name="AssociateID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AdjustedName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[AdjustedName]"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[AdjustedName]"
+                      name="AdjustedName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[SamAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[SamAccountName]"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[SamAccountName]"
+                      name="SamAccountName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Department]"
+                      name="Department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Supervisor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[Supervisor]"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[Supervisor]"
+                      name="Supervisor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[AssociateID]"
+                      dataType="i4"
+                      name="AssociateID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[ActiveDirectoryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ActiveDirectoryID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[DisplayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="DisplayName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[AdjustedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="AdjustedName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[SamAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SamAccountName" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Department" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[Supervisor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Supervisor" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[SupervisorID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SupervisorID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[GUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="GUID" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[StartUser]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[EndUser]"
+                      dataType="bytes"
+                      length="50"
+                      name="EndUser" />
+                    <externalMetadataColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      dataType="i4"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[AssociateID]"
+                      name="AssociateID" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[AdjustedName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[AdjustedName]"
+                      name="AdjustedName" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[SamAccountName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[SamAccountName]"
+                      name="SamAccountName" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      name="Department" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[Supervisor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[Supervisor]"
+                      name="Supervisor" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\AG Tables Refresh.Paths[OLE DB Source Output]"
+              endId="Package\AG Tables Refresh\OPSDW ag associate.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\AG Tables Refresh\Associate table Data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\AG Tables Refresh.Paths[OLE DB Source Output1]"
+              endId="Package\AG Tables Refresh\OPSDW Associate_Limit.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\AG Tables Refresh\Associate_limit.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\AG Tables Refresh.Paths[OLE DB Source Output2]"
+              endId="Package\AG Tables Refresh\OPSDW Limit.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\AG Tables Refresh\Limit.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\AG Tables Refresh.Paths[OLE DB Source Output3]"
+              endId="Package\AG Tables Refresh\OPSDW SDAssociate.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\AG Tables Refresh\Service Desk Associate.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate AG Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E554537F-62A0-442B-88D3-864EEC94AB71}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate AG Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ag.Associate&#xA;TRUNCATE TABLE ag.Associate_Limit&#xA;TRUNCATE TABLE ag.Limit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate SDAssociate Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E98C4D5E-0E87-4AE3-98F3-8BD957BFFD56}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate SDAssociate Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C7DF1EB4-DD26-4BB0-989D-6117C26F7D51}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.SDAssociate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{24221EC3-21BA-4E7D-8562-2AD4D4360A4C}"
+      DTS:From="Package\Truncate AG Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate SDAssociate Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9644840D-ABFF-4634-8DB8-0E54F95BCC14}"
+      DTS:From="Package\Truncate SDAssociate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\AG Tables Refresh" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\AG Tables Refresh"
+          TopLeft="89,336" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Truncate AG Tables"
+          TopLeft="98,78" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Truncate SDAssociate Table"
+          TopLeft="74,207" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="182.25,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="176.5,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\AG Tables Refresh">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="104,42"
+          Id="Package\AG Tables Refresh\Limit"
+          TopLeft="634,90" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\AG Tables Refresh\Associate_limit"
+          TopLeft="373,95" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\AG Tables Refresh\OPSDW ag associate"
+          TopLeft="106,180" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\AG Tables Refresh\OPSDW Limit"
+          TopLeft="620,187" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\AG Tables Refresh\Associate table Data"
+          TopLeft="110,92" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\AG Tables Refresh\OPSDW Associate_Limit"
+          TopLeft="352,191" />
+        <EdgeLayout
+          Id="Package\AG Tables Refresh.Paths[OLE DB Source Output]"
+          TopLeft="196.75,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\AG Tables Refresh.Paths[OLE DB Source Output2]"
+          TopLeft="688.75,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\AG Tables Refresh.Paths[OLE DB Source Output1]"
+          TopLeft="448.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147,55"
+          Id="Package\AG Tables Refresh\Service Desk Associate"
+          TopLeft="167,312" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\AG Tables Refresh\OPSDW SDAssociate"
+          TopLeft="147,416" />
+        <EdgeLayout
+          Id="Package\AG Tables Refresh.Paths[OLE DB Source Output3]"
+          TopLeft="238.25,367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\Limit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\Associate_limit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\OPSDW ag associate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\OPSDW Limit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\Associate table Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\OPSDW Associate_Limit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\Service Desk Associate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AG Tables Refresh\OPSDW SDAssociate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ac5a8e5c-a393-4394-92b9-3403477088c5" solutionId="ac5a8e5c-a393-4394-92b9-3403477088c5" resetWebServer="false" sharePointProductVersion="15.0" name="PDFVersionCorrection" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="Aspose.Pdf.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\..\..\..\..\..\..\Aspose\Aspose.Pdf.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="01332162-37cf-4a6b-836a-a3266cd795a2" />
+  </features>
+</package>

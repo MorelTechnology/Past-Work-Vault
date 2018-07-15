@@ -1,0 +1,265 @@
+<script type = "text/javascript">
+var adminMode = false;
+var allowDeletion = false;
+var allowCreation = false;
+var showOnlyTheseProperties = [
+    "Project_Name", "Project_Description", "Project_Lead", "Project_Status"
+];
+
+function admin() {
+    adminMode = true;
+    allowDeletion = true;
+    allowCreation = true;
+    showOnlyTheseProperties.push("LMUserID", "Site_Created");
+    window.spPropertyBag.init();
+}
+
+
+window.spPropertyBag = {};
+window.spPropertyBag.init = function() {
+    "use strict";
+
+    var ctx = new SP.ClientContext.get_current();
+    var web = ctx.get_web();
+    var allProperties = web.get_allProperties();
+    ctx.load(web);
+    ctx.load(allProperties);
+
+    var reloadRequired = false;
+
+    ctx.executeQueryAsync(function() {
+        showPropertiesDialog(allProperties.get_fieldValues());
+    }, function(req, err) {
+        SP.UI.Notify.addNotification("Failed to get web properties...<br>" + err.get_message());
+    });
+
+
+    window.spPropertyBag.executeChanges = function() {
+        ctx.get_web().update();
+        ctx.executeQueryAsync(function() {
+            console.log("Web properties successfully modified"); showUpdateMessage();
+            //SP.UI.Notify.addNotification("Site Properties have been updated.  If you are completed, please close the box.", false);
+        }, function() {
+            console.error("Failed to set web property!");
+            //SP.UI.Notify.addNotification("ERROR: Unable to set the property.", false);
+        });
+    };
+    window.spPropertyBag.setProperty = function(key, inputId) {
+        var value = document.getElementById(inputId).value;
+        allProperties.set_item(key, value);
+        window.spPropertyBag.executeChanges();
+    };
+    window.spPropertyBag.deleteProperty = function(key, inputId) {
+        if (confirm('Are you sure you want to remove this property?')) {
+            var table = document.getElementById(inputId).parentNode.parentNode;
+            table.parentNode.removeChild(table);
+
+            allProperties.set_item(key);
+            window.spPropertyBag.executeChanges();
+            reloadRequired = true;
+        }
+    };
+    window.spPropertyBag.addProperty = function() {
+        var key = document.getElementById("newKey").value;
+        var value = document.getElementById("newValue").value;
+        document.getElementById("newValue").value = "";
+        document.getElementById("newKey").value = "";
+        allProperties.set_item(key, value);
+        window.spPropertyBag.executeChanges();
+    };
+
+    function showPropertiesDialog(props) {
+        var p, type;
+        var items = [];
+        for (p in props) {
+            if (props.hasOwnProperty(p)) {
+                type = typeof(props[p]);
+                if (type === "string") {
+                    items.push({
+                        "prop": p,
+                        "value": props[p].replace(/"/g, '&quot;')
+                    });
+                }
+            }
+        }
+        items.sort(function(a, b) {
+            return a.prop.localeCompare(b.prop);
+        });
+
+        var titleText = "Update This Project's Properties";
+        if (adminMode) {
+            titleText += " [ADMIN MODE]";
+        }
+
+        var html = document.createElement('div');
+        var h = 'Use this table to change settings of this site.<br>';
+        h += '<span style="background-color:yellow;">Once completed you will need to refresh the page to see the changes.</span>';
+        h += '<hr><table style="margin: 1em;">';
+        var i;
+        for (i = 0; i < items.length; i++) {
+            if (showOnlyTheseProperties.indexOf(items[i].prop) == -1) {
+                continue;
+            }
+            h += '<tr>';
+            h += '<td style="text-align: right; padding-top: 15px;"><b>' + items[i].prop + '</b></td>';
+            if (items[i].prop == "Project_Status")
+            {
+              h+= '<td style="padding-top: 15px;"><select id="prop' + i + '" style="width:252px;"><option value="' + items[i].value + '" selected>' + items[i].value + ' (Current setting)</option><option value = "Open">Open</option><option value = "Closed">Closed</option></select></td>';
+            }else
+            {
+              h += '<td style="padding-top: 15px;"><input id="prop' + i + '" style="width:240px; " type="text" value="' + items[i].value + '"></input></td>';
+            }
+            h += '<td style="padding-top: 15px;"><button onclick="window.spPropertyBag.setProperty(\'' + items[i].prop + '\',\'prop' + i + '\'); return false;">Update</button></td>';
+            if (allowDeletion) {
+                h += '<td style="padding-top: 15px;"><button style="color: red; min-width: 1em;" onclick="window.spPropertyBag.deleteProperty(\'' + items[i].prop + '\',\'prop' + i + '\'); return false;">X</button></td>';
+                h += '</tr>';
+            }
+
+        }
+        h += '</table>';
+        if (allowCreation) {
+            h += '<hr><h3>Add a new property:</h3>';
+            h += '<div style="margin: 1em; padding-bottom: 2em;">Key: <input id="newKey"></input>';
+            h += '&nbsp;&nbsp;&nbsp;Value: <input id="newValue"></input>';
+            h += '&nbsp;<button onclick="window.spPropertyBag.addProperty(); return false;">Add</button></div>';
+            h += '<div></div>';
+        }
+        html.innerHTML = h;
+        OpenPopUpPageWithDialogOptions({
+            title: titleText,
+            html: html,
+            allowMaximized: true,
+            showClose: true,
+            autoSize: true,
+            /*width: 800,*/
+            dialogReturnValueCallback: function(dialogResult) {
+                if (reloadRequired) {
+                    window.location.reload();
+                }
+            }
+        });
+    }
+};
+function showUpdateMessage()
+{
+  var orig = $(".ms-dlg-heading").html();
+    $(".ms-dlg-heading").html("<center style='background-color:lightblue;'>Property Updated!</span></center>")
+    window.setTimeout(function(){ $(".ms-dlg-heading").html(orig);  }, 2000);
+}
+</script>
+
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+
+<!-- DataTables version 1.10.12 and its related stylesheet -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+<!-- HTML for collecting input, and building the table where the output will live -->
+
+<div id="loading"><h2>One Moment...</h2></div>
+<table id="summary" class="display cell-border" width="100%"></table>
+<div id="editPropertiesLink"></div>
+
+
+<script type = "text/javascript">
+jQuery(document).ready(function() {
+ ExecuteOrDelayUntilScriptLoaded(start, "sp.js");
+});
+
+function start() {
+  IsCurrentUserMemberOfGroup("Litigation Management Owners",
+  function(isCurrentUserInGroup) { GetProperties(isCurrentUserInGroup); });
+}
+
+
+function IsCurrentUserMemberOfGroup(groupName, OnComplete) {
+
+        var currentContext = new SP.ClientContext.get_current();
+        var currentWeb = currentContext.get_web();
+
+        var currentUser = currentContext.get_web().get_currentUser();
+        currentContext.load(currentUser);
+
+        var allGroups = currentWeb.get_siteGroups();
+        currentContext.load(allGroups);
+
+        var group = allGroups.getByName(groupName);
+        currentContext.load(group);
+
+        var groupUsers = group.get_users();
+        currentContext.load(groupUsers);
+
+        currentContext.executeQueryAsync(OnSuccess,OnFailure);
+
+        function OnSuccess(sender, args) {
+            var userInGroup = false;
+            var groupUserEnumerator = groupUsers.getEnumerator();
+            while (groupUserEnumerator.moveNext()) {
+                var groupUser = groupUserEnumerator.get_current();
+                if (groupUser.get_id() == currentUser.get_id()) {
+                    userInGroup = true;
+                    break;
+                }
+            }
+            OnComplete(userInGroup);
+        }
+
+        function OnFailure(sender, args) {
+            OnComplete(false);
+        }
+}
+
+
+function GetProperties(isAdmin) {
+    var call = $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/AllProperties",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "accept": "application/json;odata=verbose"
+        }
+    });
+
+    call.done(function(data, textStatus, jqXHR) {
+
+                // build a dataset from the results
+                var dataSet = [
+                    [
+                        data.d.Project_x005f_Name,
+                        data.d.Project_x005f_Description,
+                        data.d.Project_x005f_Lead,
+                        data.d.Project_x005f_Status,
+                        data.d.Site_x005f_Created
+                    ]
+                ];
+                //alert("Success! " + jqXHR.responseText);
+                $('#summary').dataTable({
+                            "ordering": false,
+                            "destroy": true,
+                            //"scrollY": "200px",
+                            "scrollCollapse": false,
+                            "paging": false,
+                            "searching": false,
+                            "info": false,
+                            data: dataSet,
+            "columns": [
+                { title: "Project Name" },
+                { title: "Project Description" },
+                { title: "Project Lead" },
+                { title: "Project Status" },
+                { title: "Creation Date" }
+            ]
+        });
+       $('#loading').remove();
+       if (!data.d.isLinkedMatter) {
+           if (isAdmin){
+           $('#editPropertiesLink').html("<a href='javascript:window.spPropertyBag.init();'>Edit These Properties</a>");
+         } else { $('#editPropertiesLink').html("<font color='silver'><em>These properties are set by an administrator.</em></font>"); }
+       } else {
+           $('#editPropertiesLink').html("<font color='silver'><em>These values are set by ClaimCenter and cannot be changed.</em></font>");
+       }
+
+       });
+       }
+</script>

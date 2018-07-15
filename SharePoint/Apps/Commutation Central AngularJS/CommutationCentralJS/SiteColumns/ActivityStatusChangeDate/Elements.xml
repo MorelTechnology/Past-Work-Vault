@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{af33f780-2e9c-42ca-a810-1bfd11661021}"
+       Name="ActivityStatusChangeDate"
+       DisplayName="Activity Status Change Date"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

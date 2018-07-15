@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Activity Dropped Reason Lookup" OnQuickLaunch="TRUE" TemplateType="100" Url="Lists/Activity Dropped Reason Lookup" Description="Provides a listing of activity dropped reasons">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="ID">1</Field>
+          <Field Name="ActivityDroppedReasonName">None</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">2</Field>
+          <Field Name="ActivityDroppedReasonName">Commutation Completed</Field>
+        </Row>
+        <Row>
+          <Field Name="ID">3</Field>
+          <Field Name="ActivityDroppedReasonName">Commutation Dropped</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

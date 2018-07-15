@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{2ec026a2-f036-4d86-ba26-9a1e9e84ca38}"
+       Name="FinalTransactionBDPUsed"
+       DisplayName="Final Transaction BDP Used"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

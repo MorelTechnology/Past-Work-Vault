@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLToCalendar", "SQLToCalendar\SQLToCalendar.csproj", "{FD66023B-68F0-4145-893A-7B2634848F60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLToCalendarWeb", "SQLToCalendarWeb\SQLToCalendarWeb.csproj", "{6028D380-5BAC-433C-A409-CE7A503B0A10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F908916-F8C9-47F3-A6E0-3277BEFD392E}"
+	ProjectSection(SolutionItems) = preProject
+		Important SP Information.txt = Important SP Information.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD66023B-68F0-4145-893A-7B2634848F60}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6028D380-5BAC-433C-A409-CE7A503B0A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6028D380-5BAC-433C-A409-CE7A503B0A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6028D380-5BAC-433C-A409-CE7A503B0A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6028D380-5BAC-433C-A409-CE7A503B0A10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SQLToCalendar\\SQLToCalendar.csproj
+		SccProjectName1 = SQLToCalendar
+		SccLocalPath1 = SQLToCalendar
+		SccProjectUniqueName2 = SQLToCalendarWeb\\SQLToCalendarWeb.csproj
+		SccProjectName2 = SQLToCalendarWeb
+		SccLocalPath2 = SQLToCalendarWeb
+	EndGlobalSection
+EndGlobal

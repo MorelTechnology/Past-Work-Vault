@@ -1,0 +1,246 @@
+﻿#DeltaPlaceHolderMain
+{
+    margin-left: 220px;
+}
+
+.ms-dialog #DeltaPlaceHolderMain
+{
+    margin-left: 0px;
+}
+
+.parentTable
+{
+    border: none;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    table-layout: fixed;
+    box-sizing: border-box;
+    font-family: Calibri;
+    font-size: 10pt;
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    text-transform: none;
+    text-align: center;
+}
+
+.childTable
+{
+    border: #bfbfbf 1pt solid;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    table-layout: fixed;
+    box-sizing: border-box;
+    font-family: Calibri;
+    font-size: 10pt;
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    text-transform: none;
+    text-align: center;
+}
+
+.leftBorderColumn
+{
+    padding: 1px;
+    text-align: left;
+    box-sizing: border-box;
+    border-left: #d8d8d8 1pt solid;
+    border-top: #d8d8d8 1pt solid;
+    border-bottom: #d8d8d8 1pt solid;
+    background-color: #6890be;
+}
+
+.formHeaderRow
+{
+    text-align: left;
+    border-left: #d8d8d8 1pt solid;
+    border-top: #d8d8d8 1pt solid;
+    border-right: #d8d8d8 1pt solid;
+    padding: 18px 22px 6px;
+    background-color: #ffffff;
+}
+
+    .formHeaderRow h1
+    {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 22pt;
+        font-weight: normal;
+        color: #3f3f3f;
+    }
+
+.formMainContent
+{
+    text-align: left;
+    box-sizing: border-box;
+    border-left: #d8d8d8 1pt solid;
+    border-right: #d8d8d8 1pt solid;
+    border-bottom: #d8d8d8 1pt solid;
+    padding: 0px 1px;
+    background-color: #ffffff;
+}
+
+.contentRow
+{
+    text-align: left;
+    box-sizing: border-box;
+    border: none;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    table-layout: fixed;
+    box-sizing: border-box;
+}
+
+.subHeaderRow
+{
+    padding-right: 22px;
+    text-align: left;
+    box-sizing: border-box;
+    border-bottom: #6890be 1.5pt solid;
+    padding: 6px 22px 4px;
+}
+
+    .subHeaderRow h2
+    {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 15pt;
+        font-weight: normal;
+        color: #262626;
+    }
+
+.contentCell
+{
+    padding: 4px 5px 4px 22px;
+    text-align: left;
+    word-wrap: normal;
+}
+
+    .contentCell input
+    {
+        box-sizing: border-box;
+    }
+
+.hiddenContentCell
+{
+    padding: 4px 5px 4px 22px;
+    text-align: left;
+    word-wrap: normal;
+    visibility: collapse;
+}
+
+.contentCell h4
+{
+    text-align: left;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 10pt;
+    font-weight: normal;
+    color: #3f3f3f;
+}
+
+.errorCell
+{
+    padding: 4px 5px 4px 22px;
+    text-align: left;
+    word-wrap: normal;
+    visibility: collapse;
+}
+
+    .errorCell h4
+    {
+        text-align: left;
+        box-sizing: border-box;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 10pt;
+        font-weight: normal;
+        color: #ff0000;
+    }
+
+.no-close .ui-dialog-titlebar-close
+{
+    display: none;
+}
+
+.currency
+{
+    text-align: right;
+}
+
+label.currency
+{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    float: right;
+}
+
+label
+{
+    font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.negative
+{
+    color: red !important;
+}
+
+.ms-dialog #globalNavBox
+{
+    height: 34px;
+}
+
+.RivernetQuickLaunch
+{
+    width: 200px;
+}
+
+.RivernetQuickLaunch ul.level1 > li.static > a.level1 {
+	background: #023D86;
+	color: #FFFFFF;
+	border-top: thin #CCC solid;
+    padding: 5px 20px;
+    font-size: 1em;
+    font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    display: block;
+}
+
+.RivernetQuickLaunch ul.level1 > li.static > a.level1.selected {
+	background: black;
+}
+
+.RivernetQuickLaunch ul.level1 > li.static > a.level2 {
+	font-size: 1em;
+    font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    color: #666666;
+    padding: 5px 20px 5px 40px !important;
+    display: block;
+    white-space: normal !important;
+}
+
+.RivernetQuickLaunch ul.level1 > li.static > a.level2.selected {
+	background: black;
+    color: #FFFFFF;
+}
+
+    .RivernetQuickLaunch ul.level1 > li.static > a.level2:hover
+    {
+        background-color:#cde6f7;
+    }
+
+#sideNavBox
+{
+    margin-left: 0px;
+    width: auto;
+}
+
+.sp-peoplepicker-userSpan
+{
+    white-space: normal;
+}
+
+.tableCellNoWrap
+{
+    white-space: nowrap;
+}

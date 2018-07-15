@@ -1,0 +1,114 @@
+﻿.companyTitle {
+    color: #878787;
+    font-size: x-large;
+    font-weight: lighter;
+    line-height: 1.2;
+    font-family: Arial, sans-serif;
+}
+
+.companySymbolDateTime {
+    color: #878787;
+    font-size: medium;
+    font-weight: lighter;
+    line-height: 1.2;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+.companyStockPrice {
+    color: #212121;
+    font-size: xx-large;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.companyStockUp {
+    color: #3d9400;
+    font-size: x-large;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+.companyStockDown {
+    color: #dd4b39;
+    font-size: x-large;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+.companyStockLabels {
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #404040;
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1.4em;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    padding-right:10px;
+}
+
+.companyStockValues {
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #404040;
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1.4em;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;   
+}
+
+.disclaimer {
+    position: absolute;
+    left: 0px;
+    font-size: 10px;
+    color: gray;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .8)
+                url('../Images/loading.gif')
+                50% 50%
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .modal {
+    display: block;
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{bfe1c7a2-c83f-404b-891c-e8d89a5af8d5}"
+       Name="CommutationType"
+       DisplayName="Commutation Type"
+       Type="Lookup"
+       Required="FALSE"
+       Group="Custom Site Columns" 
+       List="Lists/Commutation Type Lookup" 
+       ShowField="CommutationTypeName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

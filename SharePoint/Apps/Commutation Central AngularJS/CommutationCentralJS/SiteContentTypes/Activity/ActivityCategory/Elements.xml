@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a78eb960-b5b9-44c2-adac-0328783b6e3d}"
+       Name="ActivityCategory"
+       DisplayName="Activity Category"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns"
+       List="Lists/Activity Category Lookup"
+       ShowField="ActivityCategoryName"
+       RelationshipDeleteBehavior="Restrict"
+       Indexed="TRUE">
+  </Field>
+</Elements>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="OpsConsole.schedFilterMonth"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="162" d:DesignWidth="1000">
+    <Grid>
+        <Border x:Name="border1" Background="#FF687A93" Margin="10,10,10,0" CornerRadius="20" >
+            <Grid >
+                <TextBlock HorizontalAlignment="Left" Margin="26,6,0,0" TextWrapping="Wrap" Text="on these Months" VerticalAlignment="Top" Width="210" Foreground="White" Height="37" FontSize="18" FontWeight="Bold"/>
+                <CheckBox x:Name="jan" Margin="153,40,0,0" Content="Jan" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked">
+                </CheckBox>
+                <CheckBox x:Name="feb" Margin="206,40,0,0" Content="Feb" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="mar" Margin="259,40,0,0" Content="Mar" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="apr" Margin="312,40,0,0" Content="Apr" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="may" Margin="365,40,0,0" Content="May" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="jun" Margin="418,40,0,0" Content="Jun" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="jul" Margin="153,65,0,0" Content="Jul" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="aug" Margin="206,65,0,0" Content="Aug" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="sep" Margin="259,65,0,0" Content="Sep" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="oct" Margin="312,65,0,0" Content="Oct" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="nov" Margin="365,65,0,0" Content="Nov" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+                <CheckBox x:Name="dec" Margin="418,65,0,0" Content="Dec" Foreground="White" FontSize="14" Checked="MonthCheckedOrUnchecked" Unchecked="MonthCheckedOrUnchecked"></CheckBox>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

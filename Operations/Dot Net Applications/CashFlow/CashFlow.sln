@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow", "CashFlow\CashFlow.csproj", "{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}"
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Dev|Any CPU = Dev|Any CPU
+		Lauren|Any CPU = Lauren|Any CPU
+		Prod|Any CPU = Prod|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Lauren|Any CPU.ActiveCfg = Lauren|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Lauren|Any CPU.Build.0 = Lauren|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{466CA6B7-B869-41DE-BECB-2F8D4259ACCD}.Test|Any CPU.Build.0 = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CashFlow\\CashFlow.csproj
+		SccProjectName1 = CashFlow
+		SccLocalPath1 = CashFlow
+	EndGlobalSection
+EndGlobal

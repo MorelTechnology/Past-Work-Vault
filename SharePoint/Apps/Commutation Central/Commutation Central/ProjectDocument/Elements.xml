@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100682682B90DE842AAB74407B0248DDE13" Name="Project Document" Group="Custom Content Types" Description="Document that is attached to a project" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" DisplayName="Project" Required="TRUE" Name="Project" />
+      <FieldRef ID="{9dc3ce31-163f-4a1b-bdca-ce9c02ce06f9}" DisplayName="Counterparty Name" Required="TRUE" Name="CounterpartyName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

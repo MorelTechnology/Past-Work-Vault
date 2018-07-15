@@ -1,0 +1,43 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OpsConsole" x:Class="OpsConsole.MainWindow"
+        Title="IT Ops Console" Height="850" Width="1100">
+    <Grid x:Name="outergrid" Background="#FFEEEFF0">
+        <Grid x:Name="toolbar" HorizontalAlignment="Left" Height="60"  Width="{Binding ActualWidth, ElementName=outergrid}"  VerticalAlignment="Top" Background="#FFBA934F" >
+
+            <Image HorizontalAlignment="Left" Width="305" Height="39" VerticalAlignment="Top"  Source="images/RiverStone-Logo-AllBlack-White-small.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1" Margin="15,15,0,0"/>
+            <TextBlock HorizontalAlignment="Center" Margin="100,3,100,0" TextWrapping="Wrap" Text="RiverStone Ops Console" VerticalAlignment="Top" Width="334" FontFamily="Tahoma" FontSize="22" TextAlignment="Center" FontWeight="Bold" Foreground="White" />
+            <TextBlock HorizontalAlignment="Right" Margin="0,6,8,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontFamily="Franklin Gothic Book" Text="Welcome" TextAlignment="Center" Height="15" Foreground="White"/>
+            <TextBlock x:Name="lblCurrentUser" HorizontalAlignment="Right" Margin="0,19,8,17" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" Text="Welcome" TextAlignment="Center" FontWeight="Bold" MouseLeftButtonUp="lblCurrentUser_MouseLeftButtonUp" Foreground="White"/>
+            <TextBlock x:Name="lblScreenName" HorizontalAlignment="Center" Margin="100,28,100,0" TextWrapping="Wrap" Text="Home Screen" VerticalAlignment="Top" Width="334" FontFamily="Tahoma" FontSize="14" TextAlignment="Center" FontWeight="Bold" Foreground="White"/>
+            <TextBlock x:Name="lblVersion" HorizontalAlignment="Right" Margin="0,35,8,5" TextWrapping="Wrap" Width="109" FontFamily="Franklin Gothic Book" TextAlignment="Center" MouseLeftButtonUp="lblCurrentUser_MouseLeftButtonUp" FontSize="10" Foreground="White"><Run Text="Version 2.68"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="lblEnvironment" HorizontalAlignment="Right" Margin="0,13,125,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" FontFamily="Franklin Gothic Heavy" FontSize="22" TextAlignment="Right" Foreground="White" Text="DEV"/>
+        </Grid>
+
+        <Grid x:Name="gridWorkArea" Margin="0,60,0,0" >
+            <Grid x:Name="gridInnerWorkArea">
+                <local:SwitchUser  x:Name="screenSwitch" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="{Binding ElementName=outergrid, Path=ActualWidth}" Height="{Binding ElementName=outergrid, Path=ActualHeight}" Visibility="Hidden"/>
+                <local:Admin2 x:Name="screenAdmin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden"/>
+                <local:AuthorityGuidelines x:Name="screenAG" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:GenericTableEdit x:Name="screenEditTable" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:NavisionDemo x:Name="screenNavision"  HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:RSSEMigrate x:Name="screenRSSEMig" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:SSISsearch x:Name="screenSSIS" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:STARS x:Name="screenStars" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:NAVServiceControl  x:Name="screenNAVSERV" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:WOCO  x:Name="screenWOCO" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:ServiceCatalog  x:Name="screenServiceCatalog" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:APVendorMap x:Name="screenVendorMap" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:APHold x:Name="screenHold" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:AutomatedReminders x:Name="screenReminder" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+                <local:ResourcePlanning x:Name="screenResourcePlanning" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="{Binding ElementName=gridInnerWorkArea, Path=ActualWidth}" Height="{Binding ElementName=gridInnerWorkArea, Path=ActualHeight}" Visibility="Hidden" />
+            </Grid>
+            <ScrollViewer x:Name="scrollWrapPanel" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+                <WrapPanel x:Name="wpWrapPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding ElementName=outergrid, Path=ActualWidth}"  >
+                </WrapPanel>
+            </ScrollViewer>
+            <!-- local:EditData Margin="0,0,0,0"/ -->
+        </Grid>
+    </Grid>
+</Window>

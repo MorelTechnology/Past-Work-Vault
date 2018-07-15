@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100454125F350264DBC8C39A7C6CC1309D2" Name="Fairfax Entity" Group="Custom Content Types" Description="Fairfax Entity content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{9a16d9ef-26ff-4e0e-9bd8-a670d4992aa3}" DisplayName="Fairfax Entity Name" Required="TRUE" Name="FairfaxEntityName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

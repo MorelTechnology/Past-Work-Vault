@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100E38D034F3DD648E4972FEFB191D1B681" Name="Company In Scope" Group="Custom Content Types" Description="A company that is in scope for a project" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{dbc4a460-54e5-4a63-be19-b102d85d41f3}" DisplayName="Project" Required="TRUE" Name="Project" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

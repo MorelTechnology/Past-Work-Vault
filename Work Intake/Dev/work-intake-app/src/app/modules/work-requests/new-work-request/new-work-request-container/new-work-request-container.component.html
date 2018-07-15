@@ -1,0 +1,92 @@
+<!-- This form is broken up into tabs that contain child components. This way, the next/back/submit buttons are present on this parent form component -->
+<form *ngIf="workRequestForm" [formGroup]="workRequestForm" (submit)="onSubmit()">
+  <!-- Straight-up Bootstrap 4 pills were not working. Anchor tags with href="#" references were triggering routing. ng-bootstrap components are used here -->
+  <!-- Each tab has a span in the title that will show if that page has been touched yet, show an error if there is a validation error, or show success if all fields have been addressed -->
+  <ngb-tabset #t type="pills" justify="justified" (tabChange)="onTabChange($event)">
+    <ngb-tab id="tab1">
+      <ng-template ngbTabTitle>
+        <i class="fa fa-bar-chart"></i> Corporate Goal Alignment
+        <span *ngIf="workRequestForm.controls['corporateGoals'].invalid && workRequestForm.controls['corporateGoals'].dirty" class="text-danger">
+          <i title="This page needs some attention" class="fa fa-exclamation-triangle"></i>
+        </span>
+        <span *ngIf="workRequestForm.controls['corporateGoals'].invalid && workRequestForm.controls['corporateGoals'].pristine" class="text-warning">
+          <i title="This page hasn't been started yet" class="fa fa-flag"></i>
+        </span>
+        <span *ngIf="workRequestForm.controls['corporateGoals'].valid" class="text-success">
+          <i title="This page is complete" class="fa fa-check-circle"></i>
+        </span>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-new-form-goal-alignment [corporateGoalsFormGroup]="workRequestForm.controls['corporateGoals']"></app-new-form-goal-alignment>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tab2">
+      <ng-template ngbTabTitle>
+        <i class="fa fa-th-list"></i> Detail
+        <span *ngIf="workRequestForm.controls['detail'].invalid && workRequestForm.controls['detail'].dirty" class="text-danger">
+          <i title="This page needs some attention" class="fa fa-exclamation-triangle"></i>
+        </span>
+        <span *ngIf="workRequestForm.controls['detail'].invalid && workRequestForm.controls['detail'].pristine" class="text-warning">
+          <i title="This page hasn't been started yet" class="fa fa-flag"></i>
+        </span>
+        <span *ngIf="workRequestForm.controls['detail'].valid" class="text-success">
+          <i title="This page is complete" class="fa fa-check-circle"></i>
+        </span>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-new-form-detail [detailFormGroup]="workRequestForm.controls['detail']"></app-new-form-detail>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tab3">
+        <ng-template ngbTabTitle>
+          <i class="fa fa-info-circle"></i> General
+          <span *ngIf="workRequestForm.controls['general'].invalid && workRequestForm.controls['general'].dirty" class="text-danger">
+            <i title="This page needs some attention" class="fa fa-exclamation-triangle"></i>
+          </span>
+          <span *ngIf="workRequestForm.controls['general'].invalid && workRequestForm.controls['general'].pristine" class="text-warning">
+            <i title="This page hasn't been started yet" class="fa fa-flag"></i>
+          </span>
+          <span *ngIf="workRequestForm.controls['general'].valid" class="text-success">
+            <i title="This page is complete" class="fa fa-check-circle"></i>
+          </span>
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-new-form-general [generalFormGroup]="workRequestForm.controls['general']"></app-new-form-general>
+        </ng-template>
+      </ngb-tab>
+  </ngb-tabset>
+  <div class="row pt-3">
+    <div class="col">
+      <span *ngIf="previousTab">
+        <button type="button" class="btn btn-primary" (click)="t.select(previousTab)">
+          <i class="fa fa-angle-double-left"></i> Back</button>
+      </span>
+      <span *ngIf="nextTab">
+        <button type="button" class="btn btn-primary" (click)="t.select(nextTab)">Next
+          <i class="fa fa-angle-double-right"></i>
+        </button>
+      </span>
+      <span *ngIf="!nextTab">
+        <button type="submit" class="btn btn-success" [disabled]="workRequestForm.invalid || workRequestFormSubmitted">
+          <ng-container *ngIf="currentUser.sAMAccountName === portfolioManager || (!isProd && impersonateRole === 'Portfolio Manager');else hodContent">Ready for Prioritization</ng-container>
+          <ng-template #hodContent>
+            <ng-container *ngIf="isProductManager || (!isProd && impersonateRole === 'Product Owner');else defaultContent">Submit to Portfolio Manager</ng-container>
+          </ng-template>
+          <ng-template #defaultContent>Submit</ng-template>
+          <i class="fa" [ngClass]="{'fa-check': !workRequestFormSubmitted, 'fa-circle-o-notch fa-spin': workRequestFormSubmitted}"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+</form>
+<div class="row pt-3" *ngIf="!isProd">
+  <span class="col-12">
+    <label>Impersonate a role:</label>
+    <label class="bg-danger">&nbsp;This option is only available in non-prod environments</label>
+  </span>
+  <div class="col-6">
+    <select [(ngModel)]="impersonateRole" class="form-control">
+      <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+    </select>
+  </div>
+</div>

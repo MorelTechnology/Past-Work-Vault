@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="CrossSiteListView.CrossSiteListView.CrossSiteListView, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Cross-Site List View</property>
+        <property name="Description" type="string">A webpart capable of displaying existing views from any list or library within the same SharePoint Web Application.</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100C3E9051336924AF2AC524D5BBFC6DCD6" Name="Commutation Type" Group="Custom Content Types" Description="Commutation Type content type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{053e3ac2-88ac-4982-8344-af145e57ed11}" DisplayName="Commutation Type Name" Required="TRUE" Name="CommutationTypeName" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

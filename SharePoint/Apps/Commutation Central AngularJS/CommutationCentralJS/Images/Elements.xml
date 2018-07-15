@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Images">
+    <File Path="Images\AppIcon.png" Url="Images/AppIcon.png" ReplaceContent="TRUE" />
+    <File Path="Images\icon_edit_48px-128.png" Url="Images/icon_edit_48px-128.png" ReplaceContent="TRUE" />
+    <File Path="Images\icon-delete.png" Url="Images/icon-delete.png" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

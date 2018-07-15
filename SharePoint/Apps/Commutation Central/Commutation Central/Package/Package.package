@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="a0017593-24ee-4a4a-97bb-3e940d9917c1" 
+        solutionId="a0017593-24ee-4a4a-97bb-3e940d9917c1" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="Commutation_Central"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="f1ec090b-63ca-44ea-88fe-2cfbd82fcc10" />
+  </features>
+</package>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{e44ff453-ebe8-4568-aa7a-38e825720caa}"
+       Name="CommutationStatusName"
+       DisplayName="Commutation Status Name"
+       Type="Text"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       EnforceUniqueValues="TRUE" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

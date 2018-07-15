@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{52be5866-6ba8-4f57-80b8-cbb766eed567}"
+       Name="RequestType"
+       DisplayName="Request Type"
+       Type="Lookup"
+       Required="TRUE"
+       Group="Custom Site Columns" 
+       List="Lists/Request Type Lookup" 
+       ShowField="RequestTypeName" 
+       RelationshipDeleteBehavior="Restrict" 
+       Indexed="TRUE">
+  </Field>
+</Elements>

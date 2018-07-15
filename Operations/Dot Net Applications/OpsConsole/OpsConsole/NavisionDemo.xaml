@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="OpsConsole.NavisionDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="980">
+    <Grid x:Name="screenDemo" Background="#FF89A3B2" >
+        <TextBlock HorizontalAlignment="Left" Height="110" Margin="67,68,0,0" TextWrapping="Wrap" Text="Navision Environment Management" VerticalAlignment="Top" Width="794" Foreground="#FFEEDE79" FontSize="30" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="44" Margin="70,210,0,0" TextWrapping="Wrap" Text="From server" VerticalAlignment="Top" Width="132" FontSize="22" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="44" Margin="70,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="22" Foreground="White"><Run Text="Parameter 2"/></TextBlock>
+        <TextBox x:Name="eb2" HorizontalAlignment="Left" Height="40" Margin="207,251,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="384" FontSize="22"/>
+        <Button x:Name="btnProcessNav" Content="do something" HorizontalAlignment="Left" Height="59" Margin="421,314,0,0" VerticalAlignment="Top" Width="170" FontSize="18" Click="btnProcessNav_Click"/>
+        <ComboBox x:Name="cbFromServer" HorizontalAlignment="Left" Margin="207,208,0,0" VerticalAlignment="Top" Width="384" Height="36" FontSize="24" SelectionChanged="cbFromServer_SelectionChanged"/>
+        <ComboBox x:Name="cbFromDatabase" HorizontalAlignment="Left" Margin="596,208,0,0" VerticalAlignment="Top" Width="351" Height="36" FontSize="24"/>
+    </Grid>
+</UserControl>

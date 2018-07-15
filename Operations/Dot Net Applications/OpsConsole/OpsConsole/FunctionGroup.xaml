@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="OpsConsole.FunctionGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="110" d:DesignWidth="305">
+    <Border BorderBrush="#FF1F6CA2" BorderThickness="0" CornerRadius="10">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE0E2E2" Offset="0"/>
+                <GradientStop Color="#FFB0B6B8" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Margin="0,0,0,0" Height="60" VerticalAlignment="Top"   >
+            <Border BorderBrush="#FF02594D" BorderThickness="0" CornerRadius="10,10,0,0" Margin="0,0,0,-14" Height="70">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC8DCEC" Offset="0"/>
+                        <GradientStop Color="#FF3C6B91" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid  VerticalAlignment="Top"  >
+                    <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="54" Margin="10,5,0,0" VerticalAlignment="Top" Width="71" Source="images/DataHaven2.png"/>
+                    <TextBlock x:Name="lblGroupName" HorizontalAlignment="Left" Height="32" Margin="81,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="24" TextAlignment="Center" FontFamily="Franklin Gothic Medium" >
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4C6FAC" Offset="0.017"/>
+                                <GradientStop Color="#FF081A3A" Offset="0.993"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground><Run Text="Authority Guidelines"/><InlineUIContainer>
+                    	</InlineUIContainer></TextBlock>
+                </Grid>
+            </Border>
+            <StackPanel x:Name="spButtons" HorizontalAlignment="Left" Height="12" Margin="14,88,0,-5000" VerticalAlignment="Top" Width="285" />
+        </Grid>
+    </Border>
+</UserControl>

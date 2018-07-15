@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Rein Ceded to Participant", "Rein Ceded to Participant\Rein Ceded to Participant.rptproj", "{90E7BD60-9D15-48A7-B109-BC15E8709BF4}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Rein\u0020Ceded\u0020to\u0020Participant\\Rein\u0020Ceded\u0020to\u0020Participant.rptproj
+		SccProjectName1 = Rein\u0020Ceded\u0020to\u0020Participant
+		SccLocalPath1 = Rein\u0020Ceded\u0020to\u0020Participant
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Debug|Default.ActiveCfg = Debug
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Debug|Default.Build.0 = Debug
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Debug|Default.Deploy.0 = Debug
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.DebugLocal|Default.Build.0 = DebugLocal
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Release|Default.ActiveCfg = Release
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Release|Default.Build.0 = Release
+		{90E7BD60-9D15-48A7-B109-BC15E8709BF4}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

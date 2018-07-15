@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Sapiens_RIAPPLDB_Load_To_RS_Stage", "Sapiens_RIAPPLDB_Load_To_RS_Stage\Sapiens_RIAPPLDB_Load_To_RS_Stage.dtproj", "{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "dBChanges", "Sapiens_RIAPPLDB_Load_To_RS_Stage_Database\dBChanges\dBChanges.sqlproj", "{266C3858-F150-417E-AACD-9E477ED2F9C5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sapiens_RIAPPLDB_Load_To_RS_Stage\\Sapiens_RIAPPLDB_Load_To_RS_Stage.dtproj
+		SccProjectName1 = Sapiens_RIAPPLDB_Load_To_RS_Stage
+		SccLocalPath1 = Sapiens_RIAPPLDB_Load_To_RS_Stage
+		SccProjectUniqueName2 = Sapiens_RIAPPLDB_Load_To_RS_Stage_Database\\dBChanges\\dBChanges.sqlproj
+		SccProjectName2 = Sapiens_RIAPPLDB_Load_To_RS_Stage_Database/dBChanges
+		SccLocalPath2 = Sapiens_RIAPPLDB_Load_To_RS_Stage_Database\\dBChanges
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Debug|Any CPU.ActiveCfg = Development
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Debug|Any CPU.Build.0 = Development
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Development|Any CPU.ActiveCfg = Development
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Development|Any CPU.Build.0 = Development
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Release|Any CPU.ActiveCfg = Development
+		{6EF6E5D3-F80A-4DE7-8AC8-7DC8A91A7F34}.Release|Any CPU.Build.0 = Development
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266C3858-F150-417E-AACD-9E477ED2F9C5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

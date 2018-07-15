@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01004DF33D31E01B48718B094465996DA54D" Name="Note Document" Group="Custom Content Types" Description="Note Document content type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{af9ff7e4-7928-4d2e-9c51-796f7ef119b3}" DisplayName="Project" Required="True" Name="Project" />
+      <FieldRef ID="{0cf25683-1e5b-4d9c-96a5-b8bccd35f77c}" DisplayName="Note" Required="True" Name="Note" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

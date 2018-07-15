@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Workflow Task (SharePoint 2013) (0x0108003365C4474CAE8C42BCE396314E88E51F) -->
+  <ContentType ID="0x0108003365C4474CAE8C42BCE396314E88E51F0014F14759D7584200908C16EAA6ECFBEF" Name="Remediate Task" Group="Riverstone Content Types" Description="Remediate Task" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <RemoveFieldRef ID="{55B29417-1042-47F0-9DFF-CE8156667F96}" Name="TaskOutcome" />
+      <RemoveFieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="StartDate" />
+      <RemoveFieldRef ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors" />
+      <RemoveFieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" />
+      <FieldRef ID="{476af70d-1832-4bd7-b957-f9c6c6bc11d0}" DisplayName="Remediation Steps" Required="TRUE" Name="RemediationSteps" />
+      <FieldRef ID="{9e335f08-ffe1-42d0-a2d5-44e285e10ad3}" DisplayName="Resume Outcome" Required="FALSE" Name="ResumeOutcome" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

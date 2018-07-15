@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{942B9508-C4A6-4612-AA39-8C45F7B915F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commutation_Central</RootNamespace>
+    <AssemblyName>Commutation Central</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{381308a0-0d1f-4a1a-9825-4afe24ccacf4}</AppFeaturePartId>
+    <WspPartId>{17e14f45-6a36-4123-9f4c-22d6c1a4b503}</WspPartId>
+    <WorkflowPartId>{488b41d4-131e-455e-b106-1d5db0aa7b87}</WorkflowPartId>
+    <CspkgPartId>{394200e1-3280-4314-93e4-9bd404be85ed}</CspkgPartId>
+    <SqlPackagePartId>{0665f8a0-6d8f-4bd1-817d-a708078d8b07}</SqlPackagePartId>
+    <ActivePublishProfile />
+    <ActiveDeploymentConfiguration>Deploy App for SharePoint</ActiveDeploymentConfiguration>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Activities\EditItem.aspx" />
+    <Content Include="Activities\NewItem.aspx" />
+    <Content Include="ContactLookup\NewItem.aspx" />
+    <Content Include="DealCheckList\EditItem.aspx" />
+    <Content Include="Notes\EditItem.aspx" />
+    <Content Include="Notes\NewItem.aspx" />
+    <Content Include="Pages\Projects\Completed Projects.aspx" />
+    <Content Include="Pages\Projects\Dropped Projects.aspx" />
+    <Content Include="Projects\EditItem.aspx" />
+    <Content Include="Projects\NewItem.aspx" />
+    <Content Include="Scripts\Activities\EditItemRedirect.js" />
+    <Content Include="Scripts\Activities\NewItemRedirect.js" />
+    <Content Include="Scripts\CheckList\EditItemRedirect.js" />
+    <Content Include="Scripts\Contacts\NewItemRedirect.js" />
+    <Content Include="Scripts\Notes\EditItemRedirect.js" />
+    <Content Include="Scripts\Notes\NewItemRedirect.js" />
+    <Content Include="Scripts\Projects\Completed Projects.js" />
+    <Content Include="Scripts\Projects\Dropped Projects.js" />
+    <Content Include="Scripts\Projects\EditItemRedirect.js" />
+    <Content Include="Scripts\Projects\NewItemRedirect.js" />
+    <Content Include="WorkflowHistoryList\Elements.xml" />
+    <Content Include="WorkflowTaskList\Elements.xml" />
+    <None Include="Activities\ActivitiesInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ba867550-f718-461b-b211-d1bc140e86ba}</SharePointProjectItemId>
+    </None>
+    <None Include="Activities\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bf12753d-94c6-4518-81b4-d68743b6c0dc}</SharePointProjectItemId>
+    </None>
+    <None Include="ActivityCategoryLookup\ActivityCategoryLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ba20bdd0-47b5-41fd-a607-7867b87db05d}</SharePointProjectItemId>
+    </None>
+    <None Include="ActivityCategoryLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{83efdc41-9301-48a3-8e30-d5c4d6859d99}</SharePointProjectItemId>
+    </None>
+    <None Include="ActivityDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{46605ed2-5ad3-4733-8287-e5c43d047b79}</SharePointProjectItemId>
+    </None>
+    <None Include="ActivityDroppedReasonLookup\ActivityDroppedReasonLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b4a548d3-718b-43b7-8cff-1be0a890752c}</SharePointProjectItemId>
+    </None>
+    <None Include="ActivityDroppedReasonLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{393e4558-2426-4c5d-8af2-23c24b01e9cc}</SharePointProjectItemId>
+    </None>
+    <None Include="Activity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f532b4b1-10cf-4609-8f45-3fc2312ba1bc}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationDocuments\CommutationDocumentsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f46d246b-7b52-48ef-bc40-6a09c3d43f25}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationDocuments\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1324ab60-24da-4dda-807b-56855629df96}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationStatusLookup\CommutationStatusLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4861dca4-8436-4234-9714-f0ea0e56dc6e}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationStatusLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{09c2e588-20c5-4e60-bd22-f267ca2f4bfc}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationTypeLookup\CommutationTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6838ce59-ea2b-46a1-b41b-f11e45269e30}</SharePointProjectItemId>
+    </None>
+    <None Include="CommutationTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{475f2924-13f7-4adf-9113-263d8342e7cf}</SharePointProjectItemId>
+    </None>
+    <None Include="CompaniesInScope\CompaniesInScopeInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a121291a-848d-4502-bfda-76f4110fb231}</SharePointProjectItemId>
+    </None>
+    <None Include="CompaniesInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{61371bc7-6182-4b7b-85d0-4d41064fd705}</SharePointProjectItemId>
+    </None>
+    <None Include="CompanyInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e29d4b4f-4e07-4b79-8f78-a71db0345832}</SharePointProjectItemId>
+    </None>
+    <None Include="CompanyStatusLookup\CompanyStatusLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2ff13fe5-d5fe-4c73-afd4-03e71d432432}</SharePointProjectItemId>
+    </None>
+    <None Include="CompanyStatusLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4ef89dae-490e-4ae7-be54-59044a69f17b}</SharePointProjectItemId>
+    </None>
+    <None Include="ContactLookup\ContactLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{23412b74-f848-4b9c-ba94-e039ea964c04}</SharePointProjectItemId>
+    </None>
+    <None Include="ContactLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c555fe82-2669-47ea-998c-b4a09257ce10}</SharePointProjectItemId>
+    </None>
+    <None Include="CounterpartyName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3788645a-49dc-461b-b1df-a539b83116c1}</SharePointProjectItemId>
+    </None>
+    <None Include="CreateProject\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4bbcbdd4-d67f-4588-bdab-0ed9a7c80d6e}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckListDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2843a4ac-cb79-415c-9465-f3f27fdc72b5}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckListItem\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{07651819-facf-4f5a-9a6b-51ac2fb6888f}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckListLookup\DealCheckListLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68f337af-0b12-46f7-8cce-1f707d6ff220}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckListLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cf4518ee-ced4-40a8-bac4-1b78fa006dda}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckList\DealCheckListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bee38bc4-ebbe-474d-9de2-672d6c2ec0d9}</SharePointProjectItemId>
+    </None>
+    <None Include="DealCheckList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0e948413-f9aa-4388-8e43-8b1cfbc293a0}</SharePointProjectItemId>
+    </None>
+    <None Include="DealPriorityLookup\DealPriorityLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4faa22e1-5ebd-4586-856a-38b129d6981d}</SharePointProjectItemId>
+    </None>
+    <None Include="DealPriorityLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{264bb085-17ec-43bb-92e9-3bb33763679a}</SharePointProjectItemId>
+    </None>
+    <None Include="DroppedReasonLookup\DroppedReasonLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a48de087-676f-46a5-99c9-c27dd3a409f7}</SharePointProjectItemId>
+    </None>
+    <None Include="DroppedReasonLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6c781d61-a951-4e55-847d-792fc1eb0351}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntitiesInScopeLookup\FairfaxEntitiesInScopeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9f29e17b-0802-48bd-984c-d2654fecb496}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntitiesInScopeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a9818372-d44f-428c-8592-a8df3f498140}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntitiesInScope\FairfaxEntitiesInScopeInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2db051c5-fdd4-41c4-bb7f-7e86e706d77d}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntitiesInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e41b6791-465c-437a-b4d8-0a8a129a99e7}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntityInScope\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{07c2437a-3b18-46fe-859c-c55d08e73c2d}</SharePointProjectItemId>
+    </None>
+    <None Include="FairfaxEntity\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{97fd8c3e-5306-4e2e-9a96-b9ee8a0f5a1c}</SharePointProjectItemId>
+    </None>
+    <None Include="LeadOfficeLookup\LeadOfficeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{da96e5d3-ad96-4ba0-b008-855aac033743}</SharePointProjectItemId>
+    </None>
+    <None Include="LeadOfficeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d5f88af6-87cb-410b-a492-b557cd278017}</SharePointProjectItemId>
+    </None>
+    <None Include="NoteDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{35627b55-7897-40b4-9d9b-2cd4c9eb082c}</SharePointProjectItemId>
+    </None>
+    <None Include="NoteEntryTypeLookup\NoteEntryTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2da1f46a-3823-45d4-8d18-806b2e574d22}</SharePointProjectItemId>
+    </None>
+    <None Include="NoteEntryTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ab61de28-5b04-44da-acd9-6ca37bdc83de}</SharePointProjectItemId>
+    </None>
+    <None Include="Notes\NotesInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1df3b5f3-dfb9-48a0-93c4-a10d1e69ddf6}</SharePointProjectItemId>
+    </None>
+    <None Include="Notes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ff1c979c-ad67-4157-92a5-aed37e21fd5f}</SharePointProjectItemId>
+    </None>
+    <None Include="Note\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6f6d0da9-71d3-403a-b726-3a3c69b535f9}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{08523c82-9203-47e1-a086-6ee852b9c9bf}</SharePointProjectItemId>
+    </None>
+    <Content Include="Activities\ActivitiesInstance\Elements.xml" />
+    <Content Include="Activities\Elements.xml" />
+    <Content Include="Activities\Schema.xml" />
+    <Content Include="ActivityCategoryLookup\ActivityCategoryLookupInstance\Elements.xml" />
+    <Content Include="ActivityCategoryLookup\Elements.xml" />
+    <Content Include="ActivityCategoryLookup\Schema.xml" />
+    <Content Include="ActivityDocument\Elements.xml" />
+    <Content Include="ActivityDroppedReasonLookup\ActivityDroppedReasonLookupInstance\Elements.xml" />
+    <Content Include="ActivityDroppedReasonLookup\Elements.xml" />
+    <Content Include="ActivityDroppedReasonLookup\Schema.xml" />
+    <Content Include="Activity\Elements.xml" />
+    <Content Include="CommutationDocuments\CommutationDocumentsInstance\Elements.xml" />
+    <Content Include="CommutationDocuments\EditDlg.htm" />
+    <Content Include="CommutationDocuments\Elements.xml" />
+    <Content Include="CommutationDocuments\FileDlg.htm" />
+    <Content Include="CommutationDocuments\Repair.aspx" />
+    <Content Include="CommutationDocuments\Schema.xml" />
+    <Content Include="CommutationDocuments\Upload.aspx" />
+    <Content Include="CommutationStatusLookup\CommutationStatusLookupInstance\Elements.xml" />
+    <Content Include="CommutationStatusLookup\Elements.xml" />
+    <Content Include="CommutationStatusLookup\Schema.xml" />
+    <Content Include="CommutationTypeLookup\CommutationTypeLookupInstance\Elements.xml" />
+    <Content Include="CommutationTypeLookup\Elements.xml" />
+    <Content Include="CommutationTypeLookup\Schema.xml" />
+    <Content Include="CompaniesInScope\CompaniesInScopeInstance\Elements.xml" />
+    <Content Include="CompaniesInScope\Elements.xml" />
+    <Content Include="CompaniesInScope\Schema.xml" />
+    <Content Include="CompanyInScope\Elements.xml" />
+    <Content Include="CompanyStatusLookup\CompanyStatusLookupInstance\Elements.xml" />
+    <Content Include="CompanyStatusLookup\Elements.xml" />
+    <Content Include="CompanyStatusLookup\Schema.xml" />
+    <Content Include="ContactLookup\ContactLookupInstance\Elements.xml" />
+    <Content Include="ContactLookup\Elements.xml" />
+    <Content Include="ContactLookup\Schema.xml" />
+    <Content Include="Content\img\jquery-te.png" />
+    <Content Include="Content\ItemForm.css" />
+    <Content Include="Content\jQueryTE\jquery-te.css" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_100_000000_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_55_023d86_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jQueryUI\Images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jQueryUI\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui-listpages.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.min.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.structure.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.structure.min.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.theme.css" />
+    <Content Include="Content\jQueryUI\StyleSheets\jquery-ui.theme.min.css" />
+    <Content Include="Content\jQueryValidation\cmxform.css" />
+    <Content Include="Content\jQueryValidation\cmxformTemplate.css" />
+    <Content Include="Content\jQueryValidation\core.css" />
+    <Content Include="Content\jQueryValidation\reset.css" />
+    <Content Include="Content\jQueryValidation\screen.css" />
+    <Content Include="CounterpartyName\Elements.xml" />
+    <Content Include="DealCheckListDocument\Elements.xml" />
+    <Content Include="DealCheckListItem\Elements.xml" />
+    <Content Include="DealCheckListLookup\DealCheckListLookupInstance\Elements.xml" />
+    <Content Include="DealCheckListLookup\Elements.xml" />
+    <Content Include="DealCheckListLookup\Schema.xml" />
+    <Content Include="DealCheckList\DealCheckListInstance\Elements.xml" />
+    <Content Include="DealCheckList\Elements.xml" />
+    <Content Include="DealCheckList\Schema.xml" />
+    <Content Include="DealPriorityLookup\DealPriorityLookupInstance\Elements.xml" />
+    <Content Include="DealPriorityLookup\Elements.xml" />
+    <Content Include="DealPriorityLookup\Schema.xml" />
+    <Content Include="DroppedReasonLookup\DroppedReasonLookupInstance\Elements.xml" />
+    <Content Include="DroppedReasonLookup\Elements.xml" />
+    <Content Include="DroppedReasonLookup\Schema.xml" />
+    <Content Include="FairfaxEntitiesInScopeLookup\Elements.xml" />
+    <Content Include="FairfaxEntitiesInScopeLookup\FairfaxEntitiesInScopeLookupInstance\Elements.xml" />
+    <Content Include="FairfaxEntitiesInScopeLookup\Schema.xml" />
+    <Content Include="FairfaxEntitiesInScope\Elements.xml" />
+    <Content Include="FairfaxEntitiesInScope\FairfaxEntitiesInScopeInstance\Elements.xml" />
+    <Content Include="FairfaxEntitiesInScope\Schema.xml" />
+    <Content Include="FairfaxEntityInScope\Elements.xml" />
+    <Content Include="FairfaxEntity\Elements.xml" />
+    <Content Include="Images\Binoculars.gif" />
+    <Content Include="Images\document.png" />
+    <Content Include="Images\door_in.png" />
+    <Content Include="Images\green-circle.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\ltgen.png" />
+    <Content Include="Images\notes.png" />
+    <Content Include="Images\PaperClip3_Black.png" />
+    <Content Include="Images\stop-sign.png" />
+    <Content Include="Images\uploading.gif" />
+    <Content Include="Images\yellow-triangle.jpg" />
+    <Content Include="LeadOfficeLookup\Elements.xml" />
+    <Content Include="LeadOfficeLookup\LeadOfficeLookupInstance\Elements.xml" />
+    <Content Include="LeadOfficeLookup\Schema.xml" />
+    <Content Include="NoteDocument\Elements.xml" />
+    <Content Include="NoteEntryTypeLookup\Elements.xml" />
+    <Content Include="NoteEntryTypeLookup\NoteEntryTypeLookupInstance\Elements.xml" />
+    <Content Include="NoteEntryTypeLookup\Schema.xml" />
+    <Content Include="Notes\Elements.xml" />
+    <Content Include="Notes\NotesInstance\Elements.xml" />
+    <Content Include="Notes\Schema.xml" />
+    <Content Include="Note\Elements.xml" />
+    <Content Include="Pages\Activities\AllItems.aspx" />
+    <Content Include="Pages\Activities\Created By Me.aspx" />
+    <Content Include="Pages\Activities\EditItem.aspx" />
+    <Content Include="Pages\Activities\NewItem.aspx" />
+    <Content Include="Pages\Activities\NewItem1.aspx" />
+    <Content Include="Pages\CheckList\EditItem.aspx" />
+    <Content Include="Pages\Contacts\AttachItem.aspx" />
+    <Content Include="Pages\Contacts\EditItem.aspx" />
+    <Content Include="Pages\Contacts\NewItem.aspx" />
+    <Content Include="Pages\Documents\AttachDocument.aspx" />
+    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Default.aspx" />
+    <None Include="WorkflowHistoryList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d6602dd6-3341-4faf-881f-36bf09bebdca}</SharePointProjectItemId>
+    </None>
+    <None Include="WorkflowTaskList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9762fd16-dfad-4d32-8193-4133ff26763e}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectContacts\ProjectContactsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c050409a-09fd-4df2-aff3-1986af6e517b}</SharePointProjectItemId>
+    </None>
+    <None Include="ProjectContacts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8a5a211f-e082-4dc2-b40e-523a92c221d4}</SharePointProjectItemId>
+    </None>
+    <None Include="ProjectDocument\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{99c79b58-29fc-431a-9c69-33d82b6b35f0}</SharePointProjectItemId>
+    </None>
+    <None Include="Projects\ProjectsInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{591f9c7c-4646-4858-ac2e-e8a1adb8df7c}</SharePointProjectItemId>
+    </None>
+    <None Include="Projects\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b5d202fe-8446-420a-bd7c-6bdd6def5984}</SharePointProjectItemId>
+    </None>
+    <None Include="Project\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9032a6df-a3a7-4bee-9fc9-1ca1dc01a2a0}</SharePointProjectItemId>
+    </None>
+    <None Include="RequestTypeLookup\RequestTypeLookupInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fa960645-c637-4403-b45f-5418cff05738}</SharePointProjectItemId>
+    </None>
+    <None Include="RequestTypeLookup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ac39377-4c62-4816-9fe9-69847c77367f}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0665f8a0-6d8f-4bd1-817d-a708078d8b07}</SharePointProjectItemId>
+    </None>
+    <Content Include="Pages\Notes\AllItems.aspx" />
+    <Content Include="Pages\Notes\EditItem.aspx" />
+    <Content Include="Pages\Notes\NewItem.aspx" />
+    <Content Include="Pages\Notes\NewItem1.aspx" />
+    <Content Include="Pages\NotSupported.aspx" />
+    <Content Include="Pages\Projects\AllItems.aspx" />
+    <Content Include="Pages\Projects\CompletedDropped Projects.aspx" />
+    <Content Include="Pages\Projects\EditItem.aspx" />
+    <Content Include="Pages\Projects\NewItem.aspx" />
+    <Content Include="ProjectContacts\Elements.xml" />
+    <Content Include="ProjectContacts\ProjectContactsInstance\Elements.xml" />
+    <Content Include="ProjectContacts\Schema.xml" />
+    <Content Include="ProjectDocument\Elements.xml" />
+    <Content Include="Projects\Elements.xml" />
+    <Content Include="Projects\ProjectsInstance\Elements.xml" />
+    <Content Include="Projects\Schema.xml" />
+    <Content Include="Project\Elements.xml" />
+    <Content Include="RequestTypeLookup\Elements.xml" />
+    <Content Include="RequestTypeLookup\RequestTypeLookupInstance\Elements.xml" />
+    <Content Include="RequestTypeLookup\Schema.xml" />
+    <Content Include="Scripts\Activities\AllItems.js" />
+    <Content Include="Scripts\Activities\Created By Me.js" />
+    <Content Include="Scripts\Activities\EditItem.js" />
+    <Content Include="Scripts\Activities\NewItem.js" />
+    <Content Include="Scripts\Activities\NewItem1.js" />
+    <Content Include="Scripts\bootstrap-wysiwyg.js" />
+    <Content Include="Scripts\CheckList\EditItem.js" />
+    <Content Include="Scripts\CompatibilityCheck.js" />
+    <Content Include="Scripts\Contacts\AttachItem.js" />
+    <Content Include="Scripts\Contacts\EditItem.js" />
+    <Content Include="Scripts\Contacts\NewItem.js" />
+    <Content Include="Scripts\Default.js" />
+    <Content Include="Scripts\Documents\AttachDocument.js" />
+    <Content Include="Scripts\Documents\DocumentManagement.js" />
+    <Content Include="Scripts\Documents\UploadFile.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.formatCurrency-1.4.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\Notes\AllItems.js" />
+    <Content Include="Scripts\Notes\EditItem.js" />
+    <Content Include="Scripts\Notes\NewItem.js" />
+    <Content Include="Scripts\Notes\NewItem1.js" />
+    <Content Include="Scripts\Projects\AllItems.js" />
+    <Content Include="Scripts\Projects\CompletedDropped Projects.js" />
+    <Content Include="Scripts\Projects\EditItem.js" />
+    <Content Include="Scripts\Projects\NewItem.js" />
+    <Content Include="Scripts\QuickLaunch\QuickLaunch.js" />
+    <Content Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f9b5b624-794e-4bdf-a0c8-e4d5792b051a}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dfd7e9a4-a2b7-49c6-8d53-17e14d634344}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{a0017593-24ee-4a4a-97bb-3e940d9917c1}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{f1ec090b-63ca-44ea-88fe-2cfbd82fcc10}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup>
+    <XamlAppDef Include="CreateProject\Workflow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Activities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.DesignTime.Activities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{C1CDDADD-2546-481F-9697-4EA41081F2FC}">
+        <DeploymentConfigurations>
+          <DeploymentConfiguration Name="Custom deploy app for SharePoint" Description="Installs a SharePoint App without uninstalling.">
+            <DeploymentSteps>Microsoft.VisualStudio.SharePoint.PreDeploymentCommand;Microsoft.VisualStudio.SharePoint.Apps.InstallAppForSharePoint;Microsoft.VisualStudio.SharePoint.PostDeploymentCommand</DeploymentSteps>
+            <RetractionSteps>Microsoft.VisualStudio.SharePoint.Apps.UninstallAppForSharePoint</RetractionSteps>
+          </DeploymentConfiguration>
+        </DeploymentConfigurations>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

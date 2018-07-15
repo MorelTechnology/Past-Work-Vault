@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+    <DTSConfigurationHeading>
+        <DTSConfigurationFileInfo GeneratedBy="TRG\jwebb" GeneratedFromPackageName="WINSDataLoadProduction" GeneratedFromPackageID="{60E16936-D5F5-4358-BFA4-B3508385F9B6}" GeneratedDate="2/22/2012 8:39:20 AM"/>
+    </DTSConfigurationHeading>
+    <Configuration ConfiguredType="Property" Path="\Package.Variables[User::DBFileName].Properties[Value]" ValueType="String">
+        <ConfiguredValue>\\mansan02\batch$\Fairfax\FM_DIRECT_and_CEDED_LOSSES_MONTHLY.mdb</ConfiguredValue>
+    </Configuration>
+</DTSConfiguration>

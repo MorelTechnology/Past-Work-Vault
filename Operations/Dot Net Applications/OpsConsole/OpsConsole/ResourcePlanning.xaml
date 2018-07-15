@@ -1,0 +1,920 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OpsConsole" xmlns:RiverStoneMagicDashboard="clr-namespace:RiverStoneMagicDashboard" x:Class="OpsConsole.ResourcePlanning" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200">
+    <Grid Background="#FF938D89">
+        <Grid x:Name="gridPersonControls" Height="71" Margin="10,0,100,6" VerticalAlignment="Bottom" Background="#FF2C2826" Visibility="Collapsed" MouseDown="gridPersonControls_MouseDown">
+            <Button x:Name="btnExit" Content="Close" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnExit_Click"/>
+            <Button x:Name="btnImport" Content="Import RAPP Spreadsheet" HorizontalAlignment="Left" Margin="388,0,0,5" VerticalAlignment="Bottom" Width="172" Height="40" FontWeight="Bold" Click="btnImport_Click" Visibility="Collapsed"/>
+
+            <Button x:Name="btnAddNewResource"  HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom" Width="120" Height="40" FontWeight="Bold" Click="btnAddNewResource_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Add" TextAlignment="Center" />
+                    <TextBlock Text="A new Resource" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveResource" HorizontalAlignment="Left" Margin="258,0,0,5" VerticalAlignment="Bottom" Width="120" Height="40" FontWeight="Bold" Click="btnRemoveResource_Click" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Remove" TextAlignment="Center" />
+                    <TextBlock Text="An existing Resource" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="10,3,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="244" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Resources" VerticalAlignment="Top" Width="244" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="388,3,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="172" RadiusX="5" RadiusY="5" Visibility="Collapsed"/>
+            <TextBlock HorizontalAlignment="Left" Margin="388,3,0,0" TextWrapping="Wrap" Text="Special actions" VerticalAlignment="Top" Width="172" Foreground="White" FontSize="14" TextAlignment="Center" Visibility="Collapsed"/>
+            <Button x:Name="btnEditExistingResource"  HorizontalAlignment="Left" Margin="134,0,0,5" VerticalAlignment="Bottom" Width="120" Height="40" FontWeight="Bold" Click="btnEditExistingResource_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Edit" TextAlignment="Center" />
+                    <TextBlock Text="An existing Resource" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRefresh2" Content="Refresh" HorizontalAlignment="Right" Margin="0,0,90,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnRefresh1_Click" />
+
+        </Grid>
+        <Grid x:Name="gridProjectControls" Height="71" Margin="10,0,100,6" VerticalAlignment="Bottom" Background="#FF2C2826" MouseDown="gridProjectControls_MouseDown" Visibility="Visible">
+            <Button x:Name="btnAddResourcesToProject"  HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom" Width="120" Height="40" FontWeight="Bold" Click="btnAddResourcesToProject_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Add" TextAlignment="Center" />
+                    <TextBlock Text="Resources to project" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRemoveResourcesFromProject" HorizontalAlignment="Left" Margin="135,0,0,5" VerticalAlignment="Bottom" Width="130" Height="40" FontWeight="Bold" Click="btnRemoveResourcesFromProject_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Remove" TextAlignment="Center" />
+                    <TextBlock Text="Resources from project" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnNewProject" Content="New" HorizontalAlignment="Left" Margin="278,0,0,5" VerticalAlignment="Bottom" Width="75" Height="40" FontWeight="Bold" Click="btnNewProject_Click"/>
+            <Button x:Name="btnExit2" Content="Close" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnExit2_Click"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="10,3,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="255" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,3,0,0" TextWrapping="Wrap" Text="Resources" VerticalAlignment="Top" Width="255" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="278,3,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="155" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="278,3,0,0" TextWrapping="Wrap" Text="Projects" VerticalAlignment="Top" Width="155" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <Button x:Name="btnRemoveResourcesFromProject_Copy" Content="Remove" HorizontalAlignment="Left" Margin="438,0,0,5" VerticalAlignment="Bottom" Width="75" Height="40" FontWeight="Bold" Click="btnRemoveResourcesFromProject_Copy_Click" Visibility="Collapsed"/>
+            <Button x:Name="btnEditProject" Content="Edit" HorizontalAlignment="Left" Margin="358,0,0,5" VerticalAlignment="Bottom" Width="75" Height="40" FontWeight="Bold" Click="btnEditProject_Click"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="527,3,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="235" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="527,3,0,0" TextWrapping="Wrap" Text="Project Specific Resource Info" VerticalAlignment="Top" Width="235" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <Button x:Name="btnEditResourceProject"  HorizontalAlignment="Left" Margin="527,0,0,5" VerticalAlignment="Bottom" Width="235" Height="40" FontWeight="Bold" Click="btnEditResourceProject_Click">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Edit" TextAlignment="Center" />
+                    <TextBlock Text="Resource info specific to this project" Foreground="#FF666464" FontWeight="Normal" TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnRefresh1" Content="Refresh" HorizontalAlignment="Right" Margin="0,0,90,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnRefresh1_Click" />
+            <Button x:Name="btnImport2" Content="Refresh" HorizontalAlignment="Right" Margin="0,0,202,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnImport_Click" Visibility="Collapsed" />
+        </Grid>
+        <Grid x:Name="gridViewBy" Height="169" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FF2C2826" HorizontalAlignment="Left" Width="130" MouseDown="gridViewBy_MouseDown">
+            <Button x:Name="btnProjects" HorizontalAlignment="Left" Height="41" Margin="10,30,0,0" VerticalAlignment="Top" Width="108" FontWeight="Bold" Click="btnProjects_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectProjects" Fill="#FF665A52" Width="7" Height="24" Opacity="0.2" Stroke="#FF837D7D" />
+                    <Label Content="Projects" FontSize="14" Foreground="#FF303030" Width="85" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnPeople" HorizontalAlignment="Left" Height="41" Margin="10,76,0,0" VerticalAlignment="Top" Width="108" FontWeight="Bold" Click="btnPeople_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectPeople" Fill="#FF665A52" Width="7" Height="24" Opacity=".2" Stroke="#FF837D7D" />
+                    <Label Content="Resources" FontSize="14" Foreground="#FF303030" Width="85" />
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="14,7,0,0" TextWrapping="Wrap" Text="View by" VerticalAlignment="Top" Width="73" Foreground="White" FontSize="14"/>
+            <Button x:Name="btnShowArchived" HorizontalAlignment="Left" Height="27" Margin="10,135,0,0" VerticalAlignment="Top" Width="108" FontWeight="Bold" Click="btnShowArchived_Click">
+                <StackPanel Orientation="Horizontal" Width="94">
+                    <Rectangle x:Name="rectPeopleShowArchived" Fill="#FF665A52" Width="7" Height="16" Opacity=".2" Stroke="#FF837D7D" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Include archived" Foreground="#FF303030" Width="93" Height="21"  Padding="4,2,0,0" Margin="0,0,0,0" FontWeight="Normal" FontSize="11" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid x:Name="gridPeople" Height="169" Margin="145,10,478,0" VerticalAlignment="Top" Background="#FF2C2826" Visibility="Visible" MouseDown="gridPeople_MouseDown">
+            <TextBlock HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Resources" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+            <DataGrid x:Name="dgResources" Margin="10,37,219,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionUnit="FullRow" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" AutoGenerateColumns="False"  Height="126" Background="White" VerticalAlignment="Top" SelectionChanged="dgResources_SelectionChanged" IsReadOnly="True"   >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding ResourceName}"/>
+                    <DataGridTextColumn Header="Title" Width="Auto" Binding="{Binding ResourceTitle}"/>
+                    <DataGridTextColumn Header="Department" Width="Auto" Binding="{Binding ResourceDepartment}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="ebPeopleFilter" HorizontalAlignment="Left" Height="24" Margin="82,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" TextChanged="ebPeopleFilter_TextChanged"/>
+            <Image x:Name="imgPeopleSearch" HorizontalAlignment="Left" Height="20" Margin="211,8,0,0" VerticalAlignment="Top" Width="23" Source="images/search1.png" MouseDown="imgPeopleSearch_MouseDown"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,44,13,0" TextWrapping="Wrap" Text="Project Manager/ScrumMaster" VerticalAlignment="Top" Width="186" Foreground="#FFCBC9C9" FontSize="12"/>
+            <ComboBox x:Name="cbFilterByManager" HorizontalAlignment="Right" Height="33" Margin="0,67,14,0" VerticalAlignment="Top" Width="190" FontSize="16" FontWeight="Bold" SelectionChanged="cbFilterByManager_SelectionChanged" DisplayMemberPath="ResourceName" SelectedValuePath="ResourceID"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,106,49,0" TextWrapping="Wrap" Text="Product Group/Project" VerticalAlignment="Top" Width="151" Foreground="#FFCBC9C9" FontSize="12"/>
+            <ComboBox x:Name="cbFilterByWorkstream" HorizontalAlignment="Right" Height="33" Margin="0,127,14,0" VerticalAlignment="Top" Width="190" FontSize="16" FontWeight="Bold" SelectionChanged="cbFilterByWorkstream_SelectionChanged" DisplayMemberPath="WorkstreamName" SelectedValuePath="WorkstreamID" />
+            <TextBlock HorizontalAlignment="Right" Margin="0,8,130,0" TextWrapping="Wrap" Text="Filtering" VerticalAlignment="Top" Width="73" Foreground="White" FontSize="14"/>
+        </Grid>
+        <Grid x:Name="gridPeopleContraints" Height="169" Margin="0,10,298,0" VerticalAlignment="Top" Background="#FF2C2826" Width="175" HorizontalAlignment="Right" Visibility="Visible" MouseDown="gridPeopleContraints_MouseDown">
+            <TextBlock HorizontalAlignment="Left" Margin="16,7,0,0" TextWrapping="Wrap" Text="Availability searches" VerticalAlignment="Top" Width="150" Foreground="White" FontSize="14"/>
+            <Button x:Name="btnUndersubscribed" HorizontalAlignment="Left" Height="59" Margin="13,37,0,0" VerticalAlignment="Top" Width="151" FontWeight="Bold" Click="btnUndersubscribed_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectUndersubscribed" Fill="#FF665A52" Width="7" Height="44" Opacity=".2" Stroke="#FF837D7D" Visibility="Collapsed" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Underallocated" FontSize="14" Foreground="#FF303030" Width="128" />
+                        <Label Content="Show resources with " FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+                        <Label Content="available time" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnOversubscribed" HorizontalAlignment="Left" Height="59" Margin="13,103,0,0" VerticalAlignment="Top" Width="151" FontWeight="Bold" Click="btnOversubscribed_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectOversubscribed" Fill="#FF665A52" Width="7" Height="44" Opacity=".2" Stroke="#FF837D7D" Visibility="Collapsed"/>
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Overallocated" FontSize="14" Foreground="#FF303030" Width="128" />
+                        <Label Content="Show resources with " FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+                        <Label Content="allocated time &gt; 100%" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid x:Name="gridPeopleOptions" Height="169" Margin="562,10,298,0" VerticalAlignment="Top" Background="#FF687A93" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Left" Margin="11,7,0,0" TextWrapping="Wrap" Text="Options" VerticalAlignment="Top" Width="73" Foreground="White" FontSize="14"/>
+            <Button x:Name="btnBiz_Copy3" HorizontalAlignment="Left" Height="59" Margin="13,37,0,0" VerticalAlignment="Top" Width="151" FontWeight="Bold" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="rectTeaminclusive" Fill="#FF3464B8" Width="7" Height="44" Opacity=".2" Stroke="#FF837D7D" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Team inclusive" FontSize="14" Foreground="#FF303030" Width="128" />
+                        <Label Content="Show all team members" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+                        <Label Content="within included projects" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid x:Name="gridRange" Height="169" Margin="0,10,100,0" VerticalAlignment="Top" Background="#FF2C2826" Width="193" HorizontalAlignment="Right" Visibility="Visible" MouseDown="gridRange_MouseDown">
+            <TextBlock HorizontalAlignment="Left" Margin="14,7,0,0" TextWrapping="Wrap" Text="Range" VerticalAlignment="Top" Width="73" Foreground="White" FontSize="14"/>
+            <ComboBox x:Name="cbFrom" HorizontalAlignment="Left" Height="33" Margin="13,42,0,0" VerticalAlignment="Top" Width="168" FontSize="16" FontWeight="Bold" SelectionChanged="cbFrom_SelectionChanged"/>
+            <ComboBox x:Name="cbTo" HorizontalAlignment="Left" Height="33" Margin="13,80,0,0" VerticalAlignment="Top" Width="168" FontSize="16" FontWeight="Bold" SelectionChanged="cbTo_SelectionChanged"/>
+            <TextBlock HorizontalAlignment="Left" Margin="12,145,0,0" TextWrapping="Wrap" Text="Maximum 6 months displayed" VerticalAlignment="Top" Width="171" Foreground="#FFCBC9C9" FontSize="12" FontStyle="Italic" />
+        </Grid>
+        <Grid x:Name="gridAllocate" Margin="0,10,6,6" Background="#FF2C2826" Width="89" HorizontalAlignment="Right" MouseDown="gridAllocate_MouseDown">
+
+            <Grid Margin="10,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="0%" FontWeight="Bold" Grid.Row="0" Foreground="#FF6B4A6E" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF1E2A2" Offset="0"/>
+                            <GradientStop Color="#FFC5BEA1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="5%" FontWeight="Bold" Grid.Row="1" Foreground="#FF6B4A6E" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF1E2A2" Offset="0"/>
+                            <GradientStop Color="#FFC5BEA1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="10%" FontWeight="Bold" Grid.Row="2" Foreground="#FF6B4A6E" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF1E2A2" Offset="0"/>
+                            <GradientStop Color="#FFC5BEA1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="15%" FontWeight="Bold" Grid.Row="3" Foreground="#FF6B4A6E" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF1E2A2" Offset="0"/>
+                            <GradientStop Color="#FFC5BEA1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="20%" FontWeight="Bold" Grid.Row="4" Foreground="#FF6B4A6E" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD4C792" Offset="0"/>
+                            <GradientStop Color="#FFB2A676" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="25%" FontWeight="Bold" Grid.Row="5" Foreground="#FF563B59" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD4C792" Offset="0"/>
+                            <GradientStop Color="#FFB2A676" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="30%" FontWeight="Bold" Grid.Row="6" Foreground="#FF543957" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD4C792" Offset="0"/>
+                            <GradientStop Color="#FFB2A676" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="35%" FontWeight="Bold" Grid.Row="7" Foreground="#FF543957" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD4C792" Offset="0"/>
+                            <GradientStop Color="#FFB2A676" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="40%" FontWeight="Bold" Grid.Row="8" Foreground="#FF543957" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFD4C792" Offset="0"/>
+                            <GradientStop Color="#FFB2A676" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="45%" FontWeight="Bold" Grid.Row="9" Foreground="#FF543957" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFCDBF88" Offset="0"/>
+                            <GradientStop Color="#FF958B60" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="50%" FontWeight="Bold" Grid.Row="10" Foreground="#FF543957" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFCDBF88" Offset="0"/>
+                            <GradientStop Color="#FF958B60" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="55%" FontWeight="Bold" Grid.Row="11" Foreground="#FF543957" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFCDBF88" Offset="0"/>
+                            <GradientStop Color="#FF958B60" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="60%" FontWeight="Bold" Grid.Row="12" Foreground="#FF543957" Click="btnPerctClick" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFCDBF88" Offset="0"/>
+                            <GradientStop Color="#FF958B60" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="65%" FontWeight="Bold" Grid.Row="13" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFB2A676" Offset="0"/>
+                            <GradientStop Color="#FF706846" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="70%" FontWeight="Bold" Grid.Row="14" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFB2A676" Offset="0"/>
+                            <GradientStop Color="#FF706846" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="75%" FontWeight="Bold" Grid.Row="15" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFB2A676" Offset="0"/>
+                            <GradientStop Color="#FF706846" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="80%" FontWeight="Bold" Grid.Row="16" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFB2A676" Offset="0"/>
+                            <GradientStop Color="#FF706846" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="85%" FontWeight="Bold" Grid.Row="17" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF8B825C" Offset="0.004"/>
+                            <GradientStop Color="#FF423E30" Offset="0.958"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="90%" FontWeight="Bold" Grid.Row="18" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF8B825C" Offset="0.004"/>
+                            <GradientStop Color="#FF423E30" Offset="0.958"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="95%" FontWeight="Bold" Grid.Row="19" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF8B825C" Offset="0.004"/>
+                            <GradientStop Color="#FF423E30" Offset="0.958"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="100%" FontWeight="Bold" Grid.Row="20" Foreground="#FFDDD1DE" Click="btnPerctClick">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FF8B825C" Offset="0.004"/>
+                            <GradientStop Color="#FF423E30" Offset="0.958"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="gridProjects" Height="169" Margin="145,10,298,0" VerticalAlignment="Top" Background="#FF2C2826" MouseDown="gridProjects_MouseDown" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Left" Margin="13,7,0,0" TextWrapping="Wrap" Text="Product Group" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+            <TextBlock HorizontalAlignment="Left" Margin="236,7,0,0" TextWrapping="Wrap" Text="Projects" VerticalAlignment="Top" Width="123" Foreground="White" FontSize="14"/>
+            <DataGrid x:Name="dgProject" Margin="233,37,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionMode="Single" SelectionUnit="FullRow" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False"  Height="126" Background="White" VerticalAlignment="Top" SelectionChanged="dgProject_SelectionChanged" IsReadOnly="True" HorizontalAlignment="Left" Width="332"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Width="310" Binding="{Binding ProjectName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="ebProjectFilter" HorizontalAlignment="Left" Height="24" Margin="415,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" TextChanged="ebProjectFilter_TextChanged"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="542,8,0,0" VerticalAlignment="Top" Width="23" Source="images/search1.png"/>
+            <DataGrid x:Name="dgWorkStream" Margin="8,37,0,0" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False"  Height="126" Background="White" VerticalAlignment="Top" Width="220" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Disabled" SelectionChanged="dgWorkStream_SelectionChanged" IsReadOnly="True"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product Group" Width="195" Binding="{Binding WorkstreamName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnTotalAllocations" HorizontalAlignment="Left" Height="59" Margin="573,104,0,0" VerticalAlignment="Top" Width="172" FontWeight="Bold" Click="btnTotalAllocations_Click" >
+                <StackPanel Orientation="Horizontal" Width="159">
+                    <Rectangle x:Name="rectTotalAllocations" Fill="#FF665A52" Width="7" Height="44" Opacity=".2" Stroke="#FF837D7D" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Show totals" FontSize="14" Foreground="#FF303030" Width="128" />
+                        <Label Content="Show total allocation" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+                        <Label Content="for each resource" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="128" Margin="0,-12,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnShowRoleComments" HorizontalAlignment="Left" Height="59" Margin="573,37,0,0" VerticalAlignment="Top" Width="172" FontWeight="Bold" Click="btnShowRoleComments_Click" >
+                <StackPanel Orientation="Horizontal" Width="159">
+                    <Rectangle x:Name="rectRoleComments" Fill="#FF665A52" Width="7" Height="44" Opacity=".2" Stroke="#FF837D7D" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Show role/comments" FontSize="14" Foreground="#FF303030" Width="152" />
+                        <Label Content="Show role and comments" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="153" Margin="0,-12,0,0" />
+                        <Label Content="for each resource in project" FontSize="11" FontWeight="Normal" Foreground="#FF303030" Width="153" Margin="0,-12,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <RiverStoneMagicDashboard:graph x:Name="graphPeopleDays" Height="169" Margin="754,0,0,0" VerticalAlignment="Top" Visibility="Visible"/>
+            <Button x:Name="btnProjectShowArchivedXX" HorizontalAlignment="Left" Height="25" Margin="573,6,0,0" VerticalAlignment="Top" Width="172" FontWeight="Bold" Visibility="Collapsed" >
+                <StackPanel Orientation="Horizontal" Width="159">
+                    <Rectangle x:Name="rectProjectShowArchived" Fill="#FF665A52" Width="7" Height="16" Opacity=".2" Stroke="#FF837D7D" />
+                    <StackPanel Orientation="Vertical" >
+                        <Label Content="Include archived" FontSize="14" Foreground="#FF303030" Width="152" Height="21"  Padding="5,0,0,0" Margin="0,0,0,0" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid x:Name="gridDisable1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#FF89A3B2" Opacity="0.6" Visibility="Collapsed"/>
+        <Grid x:Name="gridAddUser" Height="71" Margin="10,0,100,6" VerticalAlignment="Bottom" Background="#FF687A93" Visibility="Collapsed">
+            <Button x:Name="btnAddSelectedResourcesToProject" Content="Add selected resource to project" HorizontalAlignment="Left" Margin="613,0,0,5" VerticalAlignment="Bottom" Width="320" Height="40" FontWeight="Bold" Click="btnAddSelectedResourcesToProject_Click"/>
+            <Button x:Name="btnCloseAddResources" Content="Close" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="75" Height="56" FontWeight="Bold" Click="btnCloseAddResources_Click"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="53" Margin="10,10,0,0" Stroke="#FFD829E0" VerticalAlignment="Top" Width="72" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,17,0,0" TextWrapping="Wrap" Text="Add" VerticalAlignment="Top" Width="69" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Margin="11,33,0,0" TextWrapping="Wrap" Text="Resource" VerticalAlignment="Top" Width="69" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="110,8,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="193" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="110,8,0,0" TextWrapping="Wrap" Text="Search by Manager" VerticalAlignment="Top" Width="193" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <ComboBox x:Name="cbManagerAddFrom" HorizontalAlignment="Left" Height="33" Margin="110,33,0,0" VerticalAlignment="Top" Width="193" FontSize="14" FontWeight="Bold" SelectionChanged="cbManagerAddFrom_SelectionChanged" DisplayMemberPath="ResourceName" SelectedValuePath="ResourceID"/>
+            <Rectangle Fill="#FF665A52" HorizontalAlignment="Left" Height="19" Margin="323,8,0,0" Stroke="#FF89A3B2" VerticalAlignment="Top" Width="256" RadiusX="5" RadiusY="5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="323,8,0,0" TextWrapping="Wrap" Text="Search by Product Group/Project" VerticalAlignment="Top" Width="256" Foreground="White" FontSize="14" TextAlignment="Center"/>
+            <ComboBox x:Name="cbWorkstreamAddFrom" HorizontalAlignment="Left" Height="33" Margin="323,33,0,0" VerticalAlignment="Top" Width="256" FontSize="14" FontWeight="Bold" SelectedValuePath="WorkstreamID" DisplayMemberPath="WorkstreamName" SelectionChanged="cbWorkstreamAddFrom_SelectionChanged"/>
+            <TextBlock HorizontalAlignment="Left" Margin="616,7,0,0" TextWrapping="Wrap" Text="Select a Name under the line &quot;Available Resources&quot;" VerticalAlignment="Top" Width="365" Foreground="White" FontSize="14"/>
+        </Grid>
+        <DataGrid x:Name="dgResourceGrid" FrozenColumnCount ="6" Margin="10,184,100,82" HorizontalGridLinesBrush="#FFF0F0F0" VerticalGridLinesBrush="#FFF0F0F0" SelectionUnit="Cell" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Background="White" SelectionChanged="dgChangeHistory_SelectionChanged" ColumnHeaderHeight="60" MinColumnWidth="22" IsReadOnly="True" CanUserReorderColumns="False"  >
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" 
+						Value="{Binding Background}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="colPerson1" Header="Resource" Width="170" Binding="{Binding Person}"/>
+                <DataGridTextColumn x:Name="colWorkstream" Header="Product Group" Width="170" Binding="{Binding WorkstreamName}"/>
+                <DataGridTextColumn x:Name="colProject" Header="Project" Width="200" Binding="{Binding Project}"/>
+                <DataGridTextColumn x:Name="colPerson2" Header="Resource" Width="170" Binding="{Binding Person}" Visibility="Collapsed"/>
+                <DataGridTextColumn x:Name="colRole" Header="Role" Width="180" Binding="{Binding RoleName}" Visibility="Collapsed"/>
+                <DataGridTextColumn x:Name="colComments" Header="Comments" Width="250" Binding="{Binding Comments}" Visibility="Collapsed"/>
+                <DataGridTemplateColumn x:Name="C1" Header="C1" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C1Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C1}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C1B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C2" Header="C2" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C2Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C2}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C2B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C3" Header="C3" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C3Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C3}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C3B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C4" Header="C4" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C4Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C4}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C4B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C5" Header="C5" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C5Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C5}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C5B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C6" Header="C6" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C6Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C6}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C6B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C7" Header="C7" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C7Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C7}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C7B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C8" Header="C8" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C8Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C8}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C8B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C9" Header="C9" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C9Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C9}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C9B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C10" Header="C10" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C10Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C10}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C10B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C11" Header="C11" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C11Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C11}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C11B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C12" Header="C12" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C12Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C12}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C12B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C13" Header="C13" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C13Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C13}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C13B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C14" Header="C14" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C14Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C14}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C14B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C15" Header="C15" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C15Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C15}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C15B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C16" Header="C16" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C16Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C16}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C16B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C17" Header="C17" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C17Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C17}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C17B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C18" Header="C18" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C18Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C18}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C18B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C19" Header="C19" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C19Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C19}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C19B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C20" Header="C20" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C20Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C20}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C20B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C21" Header="C21" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C21Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C21}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C21B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C22" Header="C22" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C22Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C22}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C22B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C23" Header="C23" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C23Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C23}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C23B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C24" Header="C24" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C24Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C24}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C24B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C25" Header="C25" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C25Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C25}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C25B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="C26" Header="C26" Width="65">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Background="{Binding C26Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding C26}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding C26B}" Visibility="{Binding vis}"  FontWeight="Normal" Foreground="DimGray" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <local:ResourcePlanningProject x:Name="rpProject"  Margin="0,0,0,0" Visibility="Collapsed"/>
+        <local:ResourcePlanningProjectResource x:Name="rpProjectResource"  Margin="0,0,0,0" Visibility="Collapsed" />
+        <local:ResourcePlanningResource x:Name="rpResource" Margin="0,0,0,0" Visibility="Collapsed"/>
+        <Image x:Name="imgWait" Height="100" Margin="0,261,0,0" Width="100" Source="images/please wait.png" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="imgAngle" Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+    </Grid>
+</UserControl>

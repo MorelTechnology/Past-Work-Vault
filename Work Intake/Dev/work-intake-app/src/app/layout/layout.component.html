@@ -1,0 +1,38 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="main-container">
+  <!-- Global PrimeNg Growl component so that any child module/component can send a message using the MessageService -->
+  <p-growl [life]="5000"></p-growl>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <!-- Global PrimeNg Breadcrumb component so that any child component can establish route breadcrumbs using the BreadcrumbService -->
+        <p-breadcrumb [model]="breadcrumb" [home]="home"></p-breadcrumb>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- Area on the page where the child components render -->
+        <router-outlet></router-outlet>
+        <!-- Area to hold animations when modules are lazy loaded -->
+        <ng-container>
+          <!-- Because lazy-loaded modules create lag as the module is loaded, show an animated dialog box as routeConfigs are loaded -->
+          <p-dialog [(visible)]="loadingRouteConfig" modal="true" [closable]="false" [height]="150" [showHeader]="false">
+            <div class="sk-cube-grid">
+              <div class="sk-cube sk-cube1"></div>
+              <div class="sk-cube sk-cube2"></div>
+              <div class="sk-cube sk-cube3"></div>
+              <div class="sk-cube sk-cube4"></div>
+              <div class="sk-cube sk-cube5"></div>
+              <div class="sk-cube sk-cube6"></div>
+              <div class="sk-cube sk-cube7"></div>
+              <div class="sk-cube sk-cube8"></div>
+              <div class="sk-cube sk-cube9"></div>
+            </div>
+          </p-dialog>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</section>

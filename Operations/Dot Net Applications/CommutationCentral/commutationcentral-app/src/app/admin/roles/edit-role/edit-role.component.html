@@ -1,0 +1,42 @@
+<div *ngIf="!role">
+  <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+</div>
+<p-panel [toggleable]="true" *ngIf="role && roleForm">
+  <p-header>{{pageTitle}}</p-header>
+  <form [formGroup]="roleForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="Name">Name:</label>
+      <div>
+        <input type="text" class="form-control" id="Name" formControlName="name">
+        <small *ngIf="!roleForm.controls.name.valid && !roleForm.controls.name.pristine" class="text-danger">
+          Name is required
+        </small>
+      </div>
+    </div>
+    <div *ngIf="loadingActiveAppUsers || loadingUsersInRole">
+      <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+    </div>
+    <div class="form-group">
+      <p-panel *ngIf="usersInRole && activeAppUsers">
+        <p-header>Users</p-header>
+        <p-pickList sourceHeader="Available Users" [source]="activeAppUsers" targetHeader="Users in Role" [target]="usersInRole"
+          [responsive]="true" [dragdrop]="true" [showSourceControls]="false" [showTargetControls]="false" (onMoveToTarget)="onUsersAdded($event)"
+          (onMoveToSource)="onUsersRemoved($event)">
+          <ng-template let-user pTemplate="item">
+            {{user.userName}}
+          </ng-template>
+        </p-pickList>
+      </p-panel>
+    </div>
+    <div class="form-group">
+      <div>
+        <button type="submit" class="btn btn-success" [disabled]="!roleForm.valid || roleFormSubmitted">
+          <i class="fa" [ngClass]="{'fa-check': !roleFormSubmitted, 'fa-circle-o-notch fa-spin': roleFormSubmitted}"></i> Submit
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">
+          <i class="fa fa-ban"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</p-panel>

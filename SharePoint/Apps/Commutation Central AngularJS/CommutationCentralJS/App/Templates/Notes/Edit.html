@@ -1,0 +1,94 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Note</h3>
+</div>
+<div class="modal-body" ng-form="noteForm">
+    <uib-progressbar class="progress-striped active" value="100" data-ng-show="inProgress"></uib-progressbar>
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Note Details</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label>Counterparty Name:</label></td>
+                <td style="width:50%"><label>{{project.CounterpartyName}}</label></td>
+                <td><label>Note Entry Type:</label></td>
+                <td style="width:50%"><label>{{note.NoteEntryType.NoteEntryTypeName}}</label></td>
+            </tr>
+            <tr>
+                <td><label>Author:</label></td>
+                <td style="width:50%"><label>{{note.Author.Title}}</label></td>
+                <td><label>Entry Date:</label></td>
+                <td style="width:50%"><label>{{note.EntryDate | date:'MM/dd/yyyy h:mm a'}}</label></td>
+            </tr>
+            <tr>
+                <td><label>Modified By:</label></td>
+                <td style="width:50%"><label>{{note.Editor.Title}}</label></td>
+                <td><label>Modified Date:</label></td>
+                <td style="width:50%"><label>{{note.Modified | date:'MM/dd/yyyy h:mm a'}}</label></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table style="width:100%;" class="item-app-table sectionTable form-inline">
+        <thead>
+            <tr>
+                <th colspan="99">
+                    <h4 style="display:inline-block; padding-right:10px;">Enter Note</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="value" colspan="4"><textarea rows="5" class="form-control" style="width:100%;" name="NoteContent" data-ng-model="note.NoteContent" required /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="item-app-table sectionTable form-inline" style="width:100%">
+        <thead>
+            <tr>
+                <th colspan="6">Document</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Attach Documents: <div class="btn btn-primary" data-ng-disabled="noteDocumentUploadProgress.inProgress" ngf-select="attachNoteDocuments($files)" multiple="multiple">Browse for Files...</div>
+                    <uib-progressbar class="progress-striped active" value="noteDocumentUploadProgress.percentComplete" data-ng-show="noteDocumentUploadProgress.inProgress">{{noteDocumentUploadProgress.action}}</uib-progressbar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table datatable="ng" class="row-border hover" style="width: 100%;" dt-options="noteDocumentsDTOptions">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Filename</th>
+                                <th>Date Modified</th>
+                                <th>Modified By</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="noteDocument in noteDocuments">
+                                <td><a href="" ng-click="deleteNoteDocument(noteDocument.Id)" title="Delete Note Document"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                                <td><a href="{{noteDocument.File.ServerRelativeUrl}}" target="_blank">{{noteDocument.File.Name}}</a></td>
+                                <td>{{noteDocument.Modified | date:'M/d/yyyy h:mm a'}}</td>
+                                <td>{{noteDocument.Editor.Title}}</td>
+                                <td>{{noteDocument.Created | date:'M/d/yyyy h:mm a'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-disabled="inProgress || !noteForm.$valid" ng-click="editItem(note)">Save</button>
+    <button class="btn btn-warning" type="button" data-ng-disabled="inProgress" ng-click="cancel()">Cancel</button>
+</div>

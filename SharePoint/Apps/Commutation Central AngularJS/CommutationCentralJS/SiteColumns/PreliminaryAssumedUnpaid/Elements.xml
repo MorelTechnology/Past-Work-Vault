@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{82c40c55-ea96-4db8-91f9-919db1e90d1b}"
+       Name="PreliminaryAssumedUnpaid"
+       DisplayName="Preliminary Assumed Unpaid"
+       Type="Currency"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

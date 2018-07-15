@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Deposit-Disbursement Voucher Summary", "Deposit-Disbursement Voucher Summary\Deposit-Disbursement Voucher Summary.rptproj", "{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Deposit-Disbursement\u0020Voucher\u0020Summary\\Deposit-Disbursement\u0020Voucher\u0020Summary.rptproj
+		SccProjectName1 = Deposit-Disbursement\u0020Voucher\u0020Summary
+		SccLocalPath1 = Deposit-Disbursement\u0020Voucher\u0020Summary
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Debug|Default.ActiveCfg = Debug
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Debug|Default.Build.0 = Debug
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Debug|Default.Deploy.0 = Debug
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.DebugLocal|Default.Build.0 = DebugLocal
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Release|Default.ActiveCfg = Release
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Release|Default.Build.0 = Release
+		{F6D85B89-D4A3-4FE3-BC41-C5D09AE167F9}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

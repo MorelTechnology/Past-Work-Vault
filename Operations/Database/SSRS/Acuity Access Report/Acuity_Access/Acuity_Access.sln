@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Acuity_Access", "Acuity_Access\Acuity_Access.rptproj", "{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sptfs01:8080/tfs/active
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Acuity_Access\\Acuity_Access.rptproj
+		SccProjectName1 = Acuity_Access
+		SccLocalPath1 = Acuity_Access
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Debug|Default.ActiveCfg = Debug
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Debug|Default.Build.0 = Debug
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Debug|Default.Deploy.0 = Debug
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.DebugLocal|Default.Build.0 = DebugLocal
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Release|Default.ActiveCfg = Release
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Release|Default.Build.0 = Release
+		{483F7ACE-9426-4473-BFD8-5E3B5B9899F2}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
